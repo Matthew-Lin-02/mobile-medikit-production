@@ -28,7 +28,7 @@ class StatusTray extends StatelessWidget {
               Icon(Icons.phone, color: Colors.white),
               SizedBox(width: 16.0),
               Container(
-                padding: EdgeInsets.all(0.0),
+                padding: EdgeInsets.all(4.0),
                 decoration: BoxDecoration(
                   color: Colors.red,
                   borderRadius: BorderRadius.circular(15.0),

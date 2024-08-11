@@ -6,150 +6,164 @@ import 'package:comp30022/components/StepIndicator.dart';
 
 const double VERTICAL_SPACING = 16;
 
+Container body = Container(
+  color: Color(0xFFf8dccc), // Matching cream background color
+  child: Center(
+    child: FractionallySizedBox(
+      widthFactor: 0.6, // Set the width to 3/5 of the screen width
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Center(
+              child: const Text(
+                'Personal Details',
+                style: TextStyle(
+                    fontSize: 28, // Larger font size for section headers
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            const SizedBox(
+                height: 20), // Add more vertical space between sections
+            Padding(
+              padding: const EdgeInsets.only(bottom: VERTICAL_SPACING),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Expanded(
+                      child: CustomInputField(
+                          label: 'NAME 1', hintText: 'FIRST NAME')),
+                  const SizedBox(width: 16), // Spacing between fields
+                  Expanded(
+                      child: CustomTextField(
+                    hintText: "LAST NAME",
+                  ))
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: VERTICAL_SPACING),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Expanded(
+                      child: CustomInputField(
+                          label: 'DoB 1',
+                          hintText: 'DATE OF BIRTH (dd/mm/yyyy)')),
+                  const SizedBox(width: 16), // Spacing between fields
+                  Expanded(
+                      child: CustomInputField(
+                          label: 'Phone 1', hintText: 'MOBILE NUMBER')),
+                ],
+              ),
+            ),
+            CustomInputField(label: 'NAME 1', hintText: 'OTHER NAMES'),
+            const SizedBox(height: 20),
+            Center(
+              child: const Text(
+                'Next of Kin Details',
+                style: TextStyle(
+                    fontSize: 28, // Larger font size for section headers
+                    fontWeight: FontWeight.bold),
+              ),
+            ),
+            const SizedBox(
+                height: 20), // Add more vertical space between sections
+            Padding(
+                padding: const EdgeInsets.only(bottom: VERTICAL_SPACING),
+                child: Row(
+                  children: [
+                    Expanded(
+                        child: CustomInputField(
+                            label: 'Next of Kin 1',
+                            hintText: 'NEXT OF KIN NAME')),
+                    SizedBox(width: 16), // Spacing between fields
+                    Expanded(
+                        child: CustomInputField(
+                            label: 'Phone 1', hintText: 'MOBILE NUMBER'))
+                  ],
+                )),
+            SizedBox(height: 30),
+            Center(
+              child: ElevatedButton(
+                onPressed: () {},
+                child: Text(
+                  '+ Add Patient',
+                  style: TextStyle(
+                      color: Colors.white, fontWeight: FontWeight.bold),
+                ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor:
+                      Color(0xFFD9534F), // Matching button background color
+                  shape: RoundedRectangleBorder(
+                    borderRadius:
+                        BorderRadius.circular(20.0), // Rounded corners
+                  ),
+                  padding:
+                      EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
+                  elevation: 3, // Add slight shadow for depth
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    ),
+  ),
+);
+
 class PatientSignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: AppColors.cream,
-        title: const Text('New Patient Sign Up'),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {},
-        ),
-        actions: [StatusTray()],
-        bottom: PreferredSize(
-          preferredSize: const Size.fromHeight(50.0),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                StepIndicator(step: "01", label: "Patient sign up"),
-                StepIndicator(step: "02", label: "Consultation"),
-                StepIndicator(step: "03", label: "Screening Tools"),
-                StepIndicator(step: "04", label: "Results"),
-                StepIndicator(step: "05", label: "Explanation"),
-                StepIndicator(step: "06", label: "Follow up"),
-                StepIndicator(step: "07", label: "Patient plan"),
-                StepIndicator(step: "08", label: "Medical report"),
-              ],
-            ),
+        appBar: AppBar(
+          backgroundColor: Color(0xFFf8dccc), // Cream background
+          title: Row(
+            children: [
+              IconButton(
+                icon: const Icon(Icons.arrow_back, color: Colors.teal),
+                onPressed: () {},
+              ),
+              const SizedBox(width: 8),
+              const Text(
+                'New Patient Sign Up',
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black,
+                ),
+              ),
+            ],
           ),
-        ),
-      ),
-      body: Container(
-        color: Color(0xf8dccc), // Updated cream background color
-        child: Center(
-          // Center the form
-          child: FractionallySizedBox(
-            widthFactor: 0.6, // Set the width to 3/5 of the screen width
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+          actions: [StatusTray()],
+          bottom: PreferredSize(
+            preferredSize: const Size.fromHeight(60.0),
+            child: Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Center(
-                    // Center the text
-                    child: const Text(
-                      'Personal Details',
-                      style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold), // Increased font size
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: VERTICAL_SPACING),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Expanded(
-                            child: CustomInputField(
-                                label: 'NAME 1', hintText: 'FIRST NAME')),
-                        const SizedBox(
-                            width:
-                                16), // Add some spacing between fields if needed
-                        Expanded(
-                            child: CustomTextField(
-                          hintText: "LAST NAME",
-                        ))
-                      ],
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: VERTICAL_SPACING),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        Expanded(
-                            child: CustomInputField(
-                                label: 'DoB 1',
-                                hintText: 'DATE OF BIRTH (dd/mm/yyyy)')),
-                        const SizedBox(
-                            width:
-                                16), // Add some spacing between fields if needed
-                        Expanded(
-                            child: CustomInputField(
-                                label: 'Phone 1', hintText: 'MOBILE NUMBER')),
-                      ],
-                    ),
-                  ),
-                  CustomInputField(label: 'NAME 1', hintText: 'OTHER NAMES'),
-                  const SizedBox(height: 20),
-                  Center(
-                    // Center the text
-                    child: const Text(
-                      'Next of Kin Details',
-                      style: TextStyle(
-                          fontSize: 24,
-                          fontWeight: FontWeight.bold), // Increased font size
-                    ),
-                  ),
-                  const SizedBox(height: 10),
-                  Padding(
-                      padding: const EdgeInsets.only(bottom: VERTICAL_SPACING),
-                      child: Row(
-                        children: [
-                          Expanded(
-                              child: CustomInputField(
-                                  label: 'Next of Kin 1',
-                                  hintText: 'NEXT OF KIN NAME')),
-                          SizedBox(width: 16),
-                          Expanded(
-                              child: CustomInputField(
-                                  label: 'Phone 1', hintText: 'MOBILE NUMBER'))
-                        ],
-                      )),
-                  SizedBox(height: 20),
-                  Center(
-                    child: ElevatedButton(
-                      onPressed: () {},
-                      child: Text(
-                        '+ Add Patient',
-                        style: TextStyle(
-                            color: Colors.white, fontWeight: FontWeight.bold),
-                      ),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Color(
-                            0xFFD9534F), // Updated button background color
-                        shape: RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.circular(20.0), // Rounded corners
-                        ),
-                        padding: EdgeInsets.symmetric(
-                            horizontal: 24.0, vertical: 16.0),
-                        elevation: 0, // Remove shadow
-                      ),
-                    ),
-                  ),
+                  StepIndicator(step: "01", label: "Patient sign up"),
+                  SizedBox(width: 20),
+                  StepIndicator(step: "02", label: "Consultation"),
+                  SizedBox(width: 20),
+                  StepIndicator(step: "03", label: "Screening Tools"),
+                  SizedBox(width: 20),
+                  StepIndicator(step: "04", label: "Results"),
+                  SizedBox(width: 20),
+                  StepIndicator(step: "05", label: "Explanation"),
+                  SizedBox(width: 20),
+                  StepIndicator(step: "06", label: "Follow up"),
+                  SizedBox(width: 20),
+                  StepIndicator(step: "07", label: "Patient plan"),
+                  SizedBox(width: 20),
+                  StepIndicator(step: "08", label: "Medical report"),
                 ],
               ),
             ),
           ),
         ),
-      ),
-    );
+        body: body);
   }
 }
 
