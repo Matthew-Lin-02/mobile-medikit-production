@@ -145,7 +145,7 @@ class Page3 extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.person_add_rounded, size: 70),
+              Image(image: AssetImage('assets/images/person_add.png'), height: 90),
               SizedBox(width: 30),
               LargePageButton(label: "New Patient"),
             ],
@@ -155,7 +155,7 @@ class Page3 extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.person_search, size: 70),
+              Image(image: AssetImage('assets/images/person_search.png'), height: 90),
               SizedBox(width: 30),
               LargePageButton(label: "Existing Patient"),
             ],
@@ -165,7 +165,7 @@ class Page3 extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.next_plan, size: 70),
+              Image(image: AssetImage('assets/images/shortcut.png'), height: 90),
               SizedBox(width: 30),
               LargePageButton(label: "Direct Functionality"),
             ],
