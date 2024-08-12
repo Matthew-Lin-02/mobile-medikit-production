@@ -55,8 +55,9 @@ class CustomInputField extends StatelessWidget {
 
 class CustomTextField extends StatelessWidget {
   final String hintText;
+  final double fontSize;
 
-  CustomTextField({required this.hintText});
+  const CustomTextField({required this.hintText, this.fontSize = 16});
 
   @override
   Widget build(BuildContext context) {
@@ -79,6 +80,7 @@ class CustomTextField extends StatelessWidget {
         child: TextField(
           decoration: InputDecoration(
             hintText: hintText,
+            hintStyle: TextStyle(fontSize: fontSize),
             border: InputBorder.none,
           ),
         ),

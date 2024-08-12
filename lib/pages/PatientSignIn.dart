@@ -4,7 +4,7 @@ import 'package:comp30022/color.dart';
 import 'package:comp30022/components/CustomInputFields.dart';
 import 'package:comp30022/components/RedActionButton.dart';
 
-const double VERTICAL_SPACING = 16;
+const double VERTICAL_SPACING_BIG = 50;
 
 class PatientSignIn extends StatelessWidget {
   const PatientSignIn({
@@ -16,58 +16,48 @@ class PatientSignIn extends StatelessWidget {
     return Scaffold(
       body: Container(
         color: AppColors.cream, // Matching cream background color
-        padding: const EdgeInsets.only(top: 115, left: 65, right: 75),
-        child: Column(
-          children: [
-            const Text(
-              "Healthy Connections",
-              style: TextStyle(
-                fontSize: 50,
-                fontWeight: FontWeight.bold,
-                color: AppColors.turquoise,
-                fontStyle: FontStyle.italic,
-              ),
-            ),
-            const Text(
-              "Medi-Kit",
-              style: TextStyle(
-                fontSize: 70,
-                fontWeight: FontWeight.bold,
-                color: AppColors.black,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10), // TODO - edit this
-              child: Row(children: [
-                Expanded(
-                  child: Container(
-                    height: 60,
-                    child: CustomTextField(
-                      hintText: 'Username',
-                    ),
+        child: const Center(
+          child: Padding(
+            padding: EdgeInsets.symmetric(
+                horizontal: 300), // Increase the horizontal padding value
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  "Healthy Connections",
+                  style: TextStyle(
+                    fontSize: 50,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.turquoise,
+                    fontStyle: FontStyle.italic,
                   ),
                 ),
-              ]),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10), // TODO - edit this
-              child: Row(children: [
-                Expanded(
-                  child: Container(
-                    height: 60,
-                    child: CustomTextField(
-                      hintText: 'Password',
-                    ),
+                Text(
+                  "Medi-Kit",
+                  style: TextStyle(
+                    fontSize: 70,
+                    fontWeight: FontWeight.bold,
+                    color: AppColors.black,
                   ),
                 ),
-              ]),
+
+                SizedBox(height: VERTICAL_SPACING_BIG), // Vertical spacing
+                CustomTextField(
+                  hintText: 'Username',
+                  fontSize: 18.0,
+                ),
+
+                SizedBox(height: 50), // Vertical spacing
+                CustomTextField(
+                  hintText: 'Password',
+                  fontSize: 18.0,
+                ),
+
+                SizedBox(height: VERTICAL_SPACING_BIG), // Vertical spacing
+                RedActionButton(label: "Sign In"),
+              ],
             ),
-            const Align(
-              alignment: Alignment.center,
-              child: RedActionButton(label: "Sign In"),
-            ),
-            // minimumSize: WidgetStateProperty.all<Size>(Size(95, 95)), // Width, Height
-          ],
+          ),
         ),
       ),
     );
