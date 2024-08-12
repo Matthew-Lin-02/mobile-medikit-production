@@ -142,11 +142,34 @@ class Page3 extends StatelessWidget {
         children: [
           BackArrowWelcomeRow(),
           SizedBox(height: 20),
-          LargePageButton(label: "New Patient"),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.person_add_rounded, size: 70),
+              SizedBox(width: 30),
+              LargePageButton(label: "New Patient"),
+            ],
+          ),         
+
           SizedBox(height: 60),
-          LargePageButton(label: "Existing Patient"),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.person_search, size: 70),
+              SizedBox(width: 30),
+              LargePageButton(label: "Existing Patient"),
+            ],
+          ),
+          
           SizedBox(height: 60),
-          LargePageButton(label: "Direct Functionality"),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(Icons.next_plan, size: 70),
+              SizedBox(width: 30),
+              LargePageButton(label: "Direct Functionality"),
+            ],
+          ),
         ],
       )
     );
@@ -206,7 +229,7 @@ class LargePageButton extends StatelessWidget {
       style: ButtonStyle(
         iconColor: WidgetStateProperty.all(Colors.white),
         backgroundColor: WidgetStateProperty.all(AppColors.red),
-        minimumSize: WidgetStateProperty.all<Size>(const Size(600, 90)),
+        minimumSize: WidgetStateProperty.all<Size>(const Size(500, 90)),
         shape: WidgetStateProperty.all(RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30),
         ),)
