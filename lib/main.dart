@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'color.dart';
 
+import 'pages/NewPatientSignup.dart'; // note refactor this later to reduce dependencies
+
 void main() {
   runApp(const MyApp());
 }
@@ -83,11 +85,11 @@ class Page1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(top: 115, left: 65, right: 75),
+    return Padding(
+      padding: const EdgeInsets.only(top: 115, left: 65, right: 75),
       child: Column(
         children: [
-          Text(
+          const Text(
             "Healthy Connections",
             style: TextStyle(
               fontSize: 50,
@@ -96,7 +98,7 @@ class Page1 extends StatelessWidget {
               fontStyle: FontStyle.italic,
             ),
           ),
-          Text(
+          const Text(
             "Medi-Kit",
             style: TextStyle(
               fontSize: 70,
@@ -104,16 +106,27 @@ class Page1 extends StatelessWidget {
               color: AppColors.black,
             ),
           ),
-          SizedBox(
-            height: 70,
+          Padding(
+            padding: const EdgeInsets.all(10), // TODO - edit this
+            child: Row(children: [
+              Expanded(
+                  child: CustomTextField(
+                hintText: 'Username',
+              )),
+            ]),
           ),
-          FittedBox(child: RowOfButtons()),
-          SizedBox(
-            height: 70,
+          Padding(
+            padding: const EdgeInsets.all(10), // TODO - edit this
+            child: Row(children: [
+              Expanded(
+                  child: CustomTextField(
+                hintText: 'Password',
+              )),
+            ]),
           ),
-          Align(
-            alignment: Alignment.bottomRight,
-            child: RedActionButton(centered: true, label: "Sign In"),
+          const Align(
+            alignment: Alignment.center,
+            child: RedActionButton(label: "Sign In"),
           ),
           // minimumSize: WidgetStateProperty.all<Size>(Size(95, 95)), // Width, Height
         ],
@@ -164,17 +177,15 @@ class RedActionButton extends StatelessWidget {
   const RedActionButton({
     super.key,
     this.iconData,
-    this.centered = false,
     required this.label,
   });
 
   final IconData? iconData;
   final String label;
-  final bool centered;
 
   @override
   Widget build(BuildContext context) {
-    Widget button = ElevatedButton.icon(
+    return ElevatedButton.icon(
       onPressed: () {
         print("Submit button pressed, go to next page");
       },
@@ -191,8 +202,6 @@ class RedActionButton extends StatelessWidget {
         minimumSize: WidgetStateProperty.all<Size>(const Size(200, 80)),
       ),
     );
-
-    return centered ? Center(child: button) : button;
   }
 }
 
