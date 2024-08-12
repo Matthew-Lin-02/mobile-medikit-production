@@ -1,8 +1,9 @@
+import 'package:comp30022/components/RedActionButton.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'color.dart';
 
-import 'pages/NewPatientSignup.dart'; // note refactor this later to reduce dependencies
+import 'package:comp30022/pages/PatientSignIn.dart';
 
 void main() {
   runApp(const MyApp());
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: AppColors.cream),
           scaffoldBackgroundColor: AppColors.cream,
         ),
-        home: const MyHomePage(),
+        home: const PatientSignIn(),
       ),
     );
   }
@@ -39,8 +40,7 @@ class MyAppState extends ChangeNotifier {
   void _initializePages() {
     // Initialize your pages here
     pages = [
-      // insert page 1 here
-      const Page1(),
+      // page 1
       // page 2
       const Page2()
       // Add more pages as needed
@@ -78,63 +78,6 @@ class MyHomePage extends StatelessWidget {
   }
 }
 
-class Page1 extends StatelessWidget {
-  const Page1({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(top: 115, left: 65, right: 75),
-      child: Column(
-        children: [
-          const Text(
-            "Healthy Connections",
-            style: TextStyle(
-              fontSize: 50,
-              fontWeight: FontWeight.bold,
-              color: AppColors.turquoise,
-              fontStyle: FontStyle.italic,
-            ),
-          ),
-          const Text(
-            "Medi-Kit",
-            style: TextStyle(
-              fontSize: 70,
-              fontWeight: FontWeight.bold,
-              color: AppColors.black,
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10), // TODO - edit this
-            child: Row(children: [
-              Expanded(
-                  child: CustomTextField(
-                hintText: 'Username',
-              )),
-            ]),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(10), // TODO - edit this
-            child: Row(children: [
-              Expanded(
-                  child: CustomTextField(
-                hintText: 'Password',
-              )),
-            ]),
-          ),
-          const Align(
-            alignment: Alignment.center,
-            child: RedActionButton(label: "Sign In"),
-          ),
-          // minimumSize: WidgetStateProperty.all<Size>(Size(95, 95)), // Width, Height
-        ],
-      ),
-    );
-  }
-}
-
 class Page2 extends StatelessWidget {
   const Page2({
     super.key,
@@ -168,38 +111,6 @@ class Page2 extends StatelessWidget {
           ),
           // minimumSize: WidgetStateProperty.all<Size>(Size(95, 95)), // Width, Height
         ],
-      ),
-    );
-  }
-}
-
-class RedActionButton extends StatelessWidget {
-  const RedActionButton({
-    super.key,
-    this.iconData,
-    required this.label,
-  });
-
-  final IconData? iconData;
-  final String label;
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton.icon(
-      onPressed: () {
-        print("Submit button pressed, go to next page");
-      },
-      icon: iconData != null
-          ? Icon(iconData)
-          : const SizedBox.shrink(), // Conditionally show the icon
-      label: Text(
-        label,
-        style: const TextStyle(color: Colors.white, fontSize: 20),
-      ),
-      style: ButtonStyle(
-        iconColor: WidgetStateProperty.all(Colors.white),
-        backgroundColor: WidgetStateProperty.all(AppColors.red),
-        minimumSize: WidgetStateProperty.all<Size>(const Size(200, 80)),
       ),
     );
   }
