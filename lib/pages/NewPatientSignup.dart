@@ -16,6 +16,7 @@ Container body = Container(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            const SizedBox(height: 44),
             Center(
               child: const Text(
                 'Personal Details',
@@ -114,56 +115,124 @@ Container body = Container(
 );
 
 class PatientSignUp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: AppBar(
-          backgroundColor: Color(0xFFf8dccc), // Cream background
-          title: Row(
-            children: [
-              IconButton(
-                icon: const Icon(Icons.arrow_back, color: Colors.teal),
-                onPressed: () {},
-              ),
-              const SizedBox(width: 8),
-              const Text(
-                'New Patient Sign Up',
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                ),
-              ),
-            ],
-          ),
-          actions: [StatusTray()],
-          bottom: PreferredSize(
-            preferredSize: const Size.fromHeight(60.0),
-            child: Center(
+  Widget _buildStepIndicators() {
+    const steps = [
+      {"step": "01", "label": "Patient sign up"},
+      {"step": "02", "label": "Consultation"},
+      {"step": "03", "label": "Screening Tools"},
+      {"step": "04", "label": "Results"},
+      {"step": "05", "label": "Explanation"},
+      {"step": "06", "label": "Follow up"},
+      {"step": "07", "label": "Patient plan"},
+      {"step": "08", "label": "Medical report"},
+    ];
+
+    return Center(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: steps
+            .map((step) => Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: StepIndicator(
+                    step: step["step"]!,
+                    label: step["label"]!,
+                  ),
+                ))
+            .toList(),
+      ),
+    );
+  }
+
+  AppBar _buildAppBar() {
+    return AppBar(
+      automaticallyImplyLeading: false, // Remove the default leading widget
+      backgroundColor:
+          const Color.fromARGB(255, 248, 228, 196), // Cream background
+      elevation: 0, // Remove the default shadow
+      bottom: PreferredSize(
+        preferredSize: const Size.fromHeight(160.0), // Custom height
+        child: Column(
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(
+                  12.0, 16.0, 0, 0), // Adjust padding as needed
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  StepIndicator(step: "01", label: "Patient sign up"),
-                  SizedBox(width: 20),
-                  StepIndicator(step: "02", label: "Consultation"),
-                  SizedBox(width: 20),
-                  StepIndicator(step: "03", label: "Screening Tools"),
-                  SizedBox(width: 20),
-                  StepIndicator(step: "04", label: "Results"),
-                  SizedBox(width: 20),
-                  StepIndicator(step: "05", label: "Explanation"),
-                  SizedBox(width: 20),
-                  StepIndicator(step: "06", label: "Follow up"),
-                  SizedBox(width: 20),
-                  StepIndicator(step: "07", label: "Patient plan"),
-                  SizedBox(width: 20),
-                  StepIndicator(step: "08", label: "Medical report"),
+                  SizedBox(width: 12),
+                  // Teal Circular Back Button
+                  Container(
+                    width: 64, // Set the width of the circle
+                    height:
+                        64, // Set the height of the circle (same as width for a perfect circle)
+                    decoration: BoxDecoration(
+                      color: Colors.teal, // Teal background color
+                      shape: BoxShape.circle,
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.2), // Light shadow
+                          spreadRadius: 1,
+                          blurRadius: 4,
+                          offset: Offset(0, 2),
+                        ),
+                      ],
+                    ),
+                    child: IconButton(
+                      iconSize: 32, // Increase the icon size
+                      icon: const Icon(Icons.arrow_back, color: Colors.white),
+                      onPressed: () {},
+                    ),
+                  ),
+
+                  const SizedBox(width: 48),
+                  // Title
+                  const Expanded(
+                    child: Text(
+                      'New Patient Sign Up',
+                      style: TextStyle(
+                        fontSize: 44,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                  // StatusTray and Icons
+                  _buildStepIndicators()
                 ],
               ),
             ),
-          ),
+            const SizedBox(height: 16),
+            // Step Indicators
+            Row(mainAxisAlignment: MainAxisAlignment.end, children: [
+              Padding(
+                padding: const EdgeInsets.only(right: 16.0),
+                child: StatusTray(), // Place your status tray widget here
+              ),
+            ]),
+            const SizedBox(height: 16),
+            // Custom Shadow Line
+            Container(
+              height: 1, // Height of the divider line
+              decoration: const BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey, // Color of the shadow
+                    spreadRadius: 1,
+                    blurRadius: 1,
+                    offset: Offset(0, 2), // Position the shadow below the line
+                  ),
+                ],
+              ),
+            ),
+            // Bottom Icons
+          ],
         ),
-        body: body);
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(appBar: _buildAppBar(), body: body);
   }
 }
 
