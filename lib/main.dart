@@ -1,10 +1,9 @@
-import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'color.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -22,14 +21,14 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: AppColors.cream),
           scaffoldBackgroundColor: AppColors.cream, 
         ),
-        home: MyHomePage(),
+        home: const MyHomePage(),
       ),
     );
   }
 }
 
 class MyAppState extends ChangeNotifier {
-  var currentPageNum = 0;
+  var currentPageNum = 1;
   
   var pages = <Widget>[];
 
@@ -43,7 +42,10 @@ class MyAppState extends ChangeNotifier {
       // insert page 1 here
 
       // page 2
-      Page2()
+      const Page2(),
+
+      // page 3
+      const Page3(),
       // Add more pages as needed
     ];
     notifyListeners();
@@ -66,6 +68,8 @@ class MyAppState extends ChangeNotifier {
 }
 
 class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
@@ -86,8 +90,8 @@ class Page2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(
+    return const Padding(
+      padding: EdgeInsets.only(
         top: 50,
         left:65,
         right: 75
@@ -121,6 +125,57 @@ class Page2 extends StatelessWidget {
   }
 }
 
+class Page3 extends StatelessWidget {
+  const Page3({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.only(
+        top: 50,
+        left: 65,
+        right: 75
+      ),
+      child: Column(
+        children: [
+          BackArrowWelcomeRow(),
+          SizedBox(height: 20),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image(image: AssetImage('assets/images/person_add.png'), height: 90),
+              SizedBox(width: 30),
+              LargePageButton(label: "New Patient"),
+            ],
+          ),         
+
+          SizedBox(height: 60),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image(image: AssetImage('assets/images/person_search.png'), height: 90),
+              SizedBox(width: 30),
+              LargePageButton(label: "Existing Patient"),
+            ],
+          ),
+          
+          SizedBox(height: 60),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image(image: AssetImage('assets/images/shortcut.png'), height: 90),
+              SizedBox(width: 30),
+              LargePageButton(label: "Direct Functionality"),
+            ],
+          ),
+        ],
+      )
+    );
+  }
+}
+
 class RedActionButton extends StatelessWidget {
   const RedActionButton({
     super.key,
@@ -137,16 +192,48 @@ class RedActionButton extends StatelessWidget {
       onPressed: () {
         print("Submit button pressed, go to next page");
       },
-      icon: iconData != null ? Icon(iconData) : SizedBox.shrink(), // Conditionally show the icon
+      icon: iconData != null ? Icon(iconData) : const SizedBox.shrink(), // Conditionally show the icon
       label: Text(
         label,
-        style: TextStyle(color: Colors.white, fontSize: 20),
+        style: const TextStyle(color: Colors.white, fontSize: 20),
       ),
       style: ButtonStyle(
         iconColor: WidgetStateProperty.all(Colors.white),
         backgroundColor: WidgetStateProperty.all(AppColors.red),
-        minimumSize: WidgetStateProperty.all<Size>(Size(200, 80)),
+        minimumSize: WidgetStateProperty.all<Size>(const Size(200, 80)),
       ),
+    );
+  }
+}
+
+class LargePageButton extends StatelessWidget {
+  const LargePageButton({
+    super.key,
+    this.debugStatement = "Button Pressed",
+    required this.label,
+  });
+
+  final String debugStatement;
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton.icon(
+      onPressed: () {
+        print(debugStatement);
+      },
+      label: Text(
+        label,
+        style: const TextStyle(color: Colors.white, fontSize: 30),
+      ),
+      style: ButtonStyle(
+        iconColor: WidgetStateProperty.all(Colors.white),
+        backgroundColor: WidgetStateProperty.all(AppColors.red),
+        minimumSize: WidgetStateProperty.all<Size>(const Size(500, 90)),
+        shape: WidgetStateProperty.all(RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30),
+        ),)
+      )
     );
   }
 }
@@ -158,8 +245,8 @@ class BackArrowWelcomeRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(
+    return const Padding(
+      padding: EdgeInsets.only(
        
         bottom:35,
  
@@ -188,13 +275,13 @@ class WelcomeColumn extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start ,
       mainAxisSize: MainAxisSize.min,
       children: [                    
-        Padding(
-          padding: const EdgeInsets.only(left: 85),
+        const Padding(
+          padding: EdgeInsets.only(left: 85),
           child: ColoredWelcome(),
         ),               
         Transform.translate(
-          offset:  Offset(0, -20),
-          child: Text(
+          offset:  const Offset(0, -20),
+          child: const Text(
             'Karratanyju Olivia!',
             style: TextStyle(
               fontSize: 60,
@@ -224,14 +311,14 @@ class BackArrow extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           shape: BoxShape.circle,
-          border: Border.all(color: Color.fromRGBO(15, 13, 11, 1.0), width: 2.5), 
+          border: Border.all(color: const Color.fromRGBO(15, 13, 11, 1.0), width: 2.5), 
         ),
         child: IconButton(
           onPressed: () {
             // appState.placeHolde();
           },
-          color: Color.fromRGBO(15, 13, 11, 1.0),
-          icon: Icon(Icons.arrow_back),
+          color: const Color.fromRGBO(15, 13, 11, 1.0),
+          icon: const Icon(Icons.arrow_back),
         ),
       ),
     );
@@ -239,6 +326,8 @@ class BackArrow extends StatelessWidget {
 }
 
 class ColoredWelcome extends StatelessWidget {
+  const ColoredWelcome({super.key});
+
   
   @override
   Widget build(BuildContext context) {
@@ -258,7 +347,7 @@ class ColoredWelcome extends StatelessWidget {
           ),
         ),
         RichText(
-          text: TextSpan(
+          text: const TextSpan(
             children: <TextSpan>[
               TextSpan(
                 text: 'W',
@@ -300,6 +389,8 @@ class ColoredWelcome extends StatelessWidget {
 
 
 class RowOfButtons extends StatelessWidget {
+  const RowOfButtons({super.key});
+
   @override
   Widget build(BuildContext context) {
     List<Widget> buttons = []; // Create an empty list of widgets
@@ -308,7 +399,7 @@ class RowOfButtons extends StatelessWidget {
       buttons.add(
         Container(
        
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             shape: BoxShape.circle,
             
           ),
@@ -319,11 +410,11 @@ class RowOfButtons extends StatelessWidget {
             style: ButtonStyle(
               // to remove the hover effect
               overlayColor: WidgetStateProperty.all(Colors.transparent),
-              minimumSize: WidgetStateProperty.all<Size>(Size(95, 95)), // Width, Height
+              minimumSize: WidgetStateProperty.all<Size>(const Size(95, 95)), // Width, Height
             
             ),
             
-            child: Text(''),
+            child: const Text(''),
           ),
         ),
       );
@@ -334,7 +425,7 @@ class RowOfButtons extends StatelessWidget {
         width: 660,
         height: 95,
     
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage('assets/images/background.png'),  // Replace with your image path
             fit: BoxFit.contain,  // This fits the image to cover the entire container
