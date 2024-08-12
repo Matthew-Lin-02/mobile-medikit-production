@@ -1,8 +1,8 @@
-
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'color.dart';
 import 'package:comp30022/pages/Pages.dart';
+import 'package:comp30022/pages/PatientSignIn.dart'; // TODO - move this inside the above package
 
 void main() {
   runApp(const MyApp());
@@ -13,15 +13,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
-   
       create: (context) => MyAppState(),
-      
       child: MaterialApp(
         title: 'medi_kit',
         theme: ThemeData(
           useMaterial3: true,
           colorScheme: ColorScheme.fromSeed(seedColor: AppColors.cream),
-          scaffoldBackgroundColor: AppColors.cream, 
+          scaffoldBackgroundColor: AppColors.cream,
         ),
         home: const MyHomePage(),
       ),
@@ -31,7 +29,6 @@ class MyApp extends StatelessWidget {
 
 class MyAppState extends ChangeNotifier {
   var currentPageNum = 0;
-  
   var pages = <Widget>[];
 
   MyAppState() {
@@ -41,8 +38,8 @@ class MyAppState extends ChangeNotifier {
   void _initializePages() {
     // Initialize your pages here
     pages = [
-      // insert page 1 here
-
+      // page 1
+      PatientSignIn(),
       // page 2
       Page2(),
 
@@ -58,17 +55,17 @@ class MyAppState extends ChangeNotifier {
     notifyListeners();
   }
 
-  void incrementPageNum(){
-    currentPageNum ++;
+  void incrementPageNum() {
+    currentPageNum++;
     notifyListeners();
   }
 
-  void decrementPageNum(){
-    currentPageNum --;
+  void decrementPageNum() {
+    currentPageNum--;
     notifyListeners();
   }
 
-  void setPageNum(pageNumber){
+  void setPageNum(pageNumber) {
     currentPageNum = pageNumber;
     notifyListeners();
   }
@@ -81,10 +78,8 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
     // final theme = Theme.of(context);
-
-    return appState.pages[appState.currentPageNum];
     
+    return appState.pages[appState.currentPageNum];
+   
   }
 }
-
-
