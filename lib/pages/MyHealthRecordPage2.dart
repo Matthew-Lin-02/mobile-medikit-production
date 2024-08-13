@@ -42,27 +42,34 @@ class MyHealthRecordPage2 extends StatelessWidget {
             const Text(
                 "I understand that I can opt out of sending my data to My Health Records, and in doing so I would"
                 "opt out of My Health Record related services",
-                style: TextStyle(fontSize: 16)),
-            const SizedBox(height: 10.0),
-            const Text("Apply for My Health Record (placeholder)",
-                style: TextStyle(fontSize: 12)),
-            const Spacer(),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                RedActionButton(
-                  iconData: Icons.check_circle,
-                  label: "Yes",
-                  onPressed: appState.incrementPageNum,
-                ),
-                RedActionButton(
-                  iconData: Icons.cancel,
-                  label: "No",
-                  onPressed: appState.decrementPageNum,
-                ),
-              ],
-            ),
-          ]),
+                style: TextStyle(fontSize: 16)
+              ),
+              const SizedBox(height: 10.0),
+              const Text("Apply for My Health Record (placeholder)",
+                style: TextStyle(fontSize: 12)
+              ),
+              const Spacer(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  RedActionButton(
+                      iconData: Icons.check_circle, 
+                      label: "Yes", 
+                      onPressed: () {
+                        print("no more pages");
+                      },
+                    ),
+                    RedActionButton(
+                      iconData: Icons.cancel, 
+                      label: "No", 
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                ],
+              ),
+            ]
+          ),
         ),
       ),
     );

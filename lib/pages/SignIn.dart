@@ -1,3 +1,4 @@
+import 'package:comp30022/pages/Page2.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 
@@ -16,14 +17,14 @@ class SignIn extends StatelessWidget {
     return Scaffold(
       body: Container(
         color: AppColors.cream, // Matching cream background color
-        child: const Center(
+        child: Center(
           child: Padding(
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
                 horizontal: 300), // Increase the horizontal padding value
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
+                const Text(
                   "Healthy Connections",
                   style: TextStyle(
                     fontSize: 50,
@@ -32,7 +33,7 @@ class SignIn extends StatelessWidget {
                     fontStyle: FontStyle.italic,
                   ),
                 ),
-                Text(
+                const Text(
                   "Medi-Kit",
                   style: TextStyle(
                     fontSize: 70,
@@ -41,20 +42,28 @@ class SignIn extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: VERTICAL_SPACING_BIG), // Vertical spacing
-                CustomTextField(
+                const SizedBox(height: VERTICAL_SPACING_BIG), // Vertical spacing
+                const CustomTextField(
                   hintText: 'Username',
                   fontSize: 18.0,
                 ),
 
-                SizedBox(height: 50), // Vertical spacing
-                CustomTextField(
+                const SizedBox(height: 50), // Vertical spacing
+                const CustomTextField(
                   hintText: 'Password',
                   fontSize: 18.0,
                 ),
 
-                SizedBox(height: VERTICAL_SPACING_BIG), // Vertical spacing
-                RedActionButton(label: "Sign In"),
+                const SizedBox(height: VERTICAL_SPACING_BIG), // Vertical spacing
+                RedActionButton(
+                  label: "Sign In",
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Page2()),
+                    );
+                  },
+                ),
               ],
             ),
           ),

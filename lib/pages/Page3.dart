@@ -3,6 +3,8 @@ import 'package:comp30022/color.dart';
 import 'package:comp30022/components/BackArrowWelcomeRow.dart';
 import 'package:comp30022/main.dart';
 import 'package:provider/provider.dart';
+import 'package:comp30022/pages/SignUp.dart';
+
 
 class Page3 extends StatelessWidget {
   const Page3({
@@ -70,19 +72,24 @@ class LargePageButton extends StatelessWidget {
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
     return ElevatedButton.icon(
-        onPressed: appState.incrementPageNum,
-        label: Text(
-          label,
-          style: const TextStyle(color: Colors.white, fontSize: 30),
-        ),
-        style: ButtonStyle(
-            iconColor: WidgetStateProperty.all(Colors.white),
-            backgroundColor: WidgetStateProperty.all(AppColors.red),
-            minimumSize: WidgetStateProperty.all<Size>(const Size(500, 90)),
-            shape: WidgetStateProperty.all(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30),
-              ),
-            )));
+      onPressed: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => SignUp()),
+        );
+      },
+      label: Text(
+        label,
+        style: const TextStyle(color: Colors.white, fontSize: 30),
+      ),
+      style: ButtonStyle(
+        iconColor: WidgetStateProperty.all(Colors.white),
+        backgroundColor: WidgetStateProperty.all(AppColors.red),
+        minimumSize: WidgetStateProperty.all<Size>(const Size(500, 90)),
+        shape: WidgetStateProperty.all(RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(30),
+        ),)
+      )
+    );
   }
 }
