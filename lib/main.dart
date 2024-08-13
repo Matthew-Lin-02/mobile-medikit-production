@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'color.dart';
 import 'package:comp30022/pages/Pages.dart';
-import 'package:comp30022/pages/PatientSignIn.dart'; // TODO - move this inside the above package
 
 void main() {
   runApp(const MyApp());
@@ -38,16 +37,10 @@ class MyAppState extends ChangeNotifier {
   void _initializePages() {
     // Initialize your pages here
     pages = [
-      // page 1
-      PatientSignIn(),
-      // page 2
-      Page2(),
-
-      // page 3
+      const SignIn(),
+      const Page2(),
       const Page3(),
-
-      // page 4
-      PatientSignUp(),
+      const SignUp(),
       const MyHealthRecordPage1(),
       const MyHealthRecordPage2(),
       // Add more pages as needed
@@ -78,8 +71,7 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
     // final theme = Theme.of(context);
-    
+
     return appState.pages[appState.currentPageNum];
-   
   }
 }
