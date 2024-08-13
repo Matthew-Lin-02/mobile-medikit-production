@@ -6,8 +6,8 @@ import 'package:comp30022/components/RedActionButton.dart';
 
 const double VERTICAL_SPACING_BIG = 50;
 
-class PatientSignIn extends StatelessWidget {
-  const PatientSignIn({
+class SignIn extends StatelessWidget {
+  const SignIn({
     super.key,
   });
 

@@ -6,12 +6,13 @@ class RedActionButton extends StatelessWidget {
     super.key,
     this.iconData,
     required this.label,
-    this.onPressed =_defaultButtonFunction,
+    this.onPressed = _defaultButtonFunction,
   });
 
   static void _defaultButtonFunction() {
     print('Button pressed');
   }
+
   final IconData? iconData;
   final String label;
   final VoidCallback onPressed;
@@ -20,7 +21,9 @@ class RedActionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
       onPressed: onPressed,
-      icon: iconData != null ? Icon(iconData) : const SizedBox.shrink(), // Conditionally show the icon
+      icon: iconData != null
+          ? Icon(iconData)
+          : const SizedBox.shrink(), // Conditionally show the icon
       label: Text(
         label,
         style: const TextStyle(color: Colors.white, fontSize: 20),

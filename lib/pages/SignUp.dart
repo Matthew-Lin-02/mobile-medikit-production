@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:comp30022/color.dart';
 
+import 'package:comp30022/components/CustomInputFields.dart';
 import 'package:comp30022/components/StatusTray.dart';
 import 'package:comp30022/components/StepIndicator.dart';
 
@@ -114,7 +114,9 @@ Container body = Container(
   ),
 );
 
-class PatientSignUp extends StatelessWidget {
+class SignUp extends StatelessWidget {
+  const SignUp({super.key});
+
   Widget _buildStepIndicators() {
     const steps = [
       {"step": "01", "label": "Patient sign up"},
@@ -233,99 +235,5 @@ class PatientSignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(appBar: _buildAppBar(), body: body);
-  }
-}
-
-const shadow = BoxShadow(
-  color: Colors.grey,
-  spreadRadius: 1,
-  blurRadius: 2,
-  offset: Offset(0, 3),
-);
-
-class CustomInputField extends StatelessWidget {
-  final String label;
-  final String hintText;
-
-  CustomInputField({required this.label, required this.hintText});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Container(
-          width: 128,
-          padding: EdgeInsets.symmetric(horizontal: 12.0),
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(25.0),
-            border: Border.all(color: Colors.grey.shade800), // border color
-            boxShadow: [shadow],
-          ),
-          child: DropdownButtonHideUnderline(
-            child: DropdownButton<String>(
-              value: label,
-              onChanged: (String? newValue) {},
-              items:
-                  <String>[label].map<DropdownMenuItem<String>>((String value) {
-                return DropdownMenuItem<String>(
-                  value: value,
-                  child: Padding(
-                    padding:
-                        const EdgeInsets.only(left: 4.0), // Apply left padding
-                    child: Text(
-                      value,
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
-                    ),
-                  ),
-                );
-              }).toList(),
-              icon: Icon(Icons.arrow_drop_down),
-            ),
-          ),
-        ),
-        SizedBox(width: 16),
-        Expanded(
-          child: CustomTextField(
-            hintText: hintText,
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class CustomTextField extends StatelessWidget {
-  final String hintText;
-
-  CustomTextField({required this.hintText});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(25.0),
-        border: Border.all(color: Colors.grey.shade800),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 1,
-            blurRadius: 4,
-            offset: Offset(0, 3),
-          ),
-        ],
-      ),
-      child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 16.0),
-        child: TextField(
-          decoration: InputDecoration(
-            hintText: hintText,
-            border: InputBorder.none,
-          ),
-        ),
-      ),
-    );
   }
 }
