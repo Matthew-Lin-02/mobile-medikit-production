@@ -42,7 +42,8 @@ class SignIn extends StatelessWidget {
                   ),
                 ),
 
-                const SizedBox(height: VERTICAL_SPACING_BIG), // Vertical spacing
+                const SizedBox(
+                    height: VERTICAL_SPACING_BIG), // Vertical spacing
                 const CustomTextField(
                   hintText: 'Username',
                   fontSize: 18.0,
@@ -54,7 +55,8 @@ class SignIn extends StatelessWidget {
                   fontSize: 18.0,
                 ),
 
-                const SizedBox(height: VERTICAL_SPACING_BIG), // Vertical spacing
+                const SizedBox(
+                    height: VERTICAL_SPACING_BIG), // Vertical spacing
                 RedActionButton(
                   label: "Sign In",
                   onPressed: () {
