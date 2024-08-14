@@ -1,8 +1,8 @@
+import 'package:comp30022/pages/Pages.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/components/BackArrowWelcomeRow.dart';
 import 'package:comp30022/components/RedActionButton.dart';
-import 'package:comp30022/main.dart';
-import 'package:provider/provider.dart';
+
 
 class Page2 extends StatelessWidget {
   const Page2({
@@ -11,7 +11,7 @@ class Page2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var appState = context.watch<MyAppState>();
+    // var appState = context.watch<MyAppState>();
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(top: 50, left: 65, right: 75),
@@ -33,13 +33,15 @@ class Page2 extends StatelessWidget {
               height: 70,
             ),
             Align(
-              alignment: Alignment.bottomRight,
-              child: RedActionButton(
-                  iconData: Icons.check_circle,
-                  label: "Submit",
-                  onPressed: appState.incrementPageNum),
+              alignment:Alignment.bottomRight,
+              child: RedActionButton(iconData: Icons.check_circle,label: "Submit",onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const Page3()),
+                  );
+                },
             ),
-            // minimumSize: WidgetStateProperty.all<Size>(Size(95, 95)), // Width, Height
+            )// minimumSize: WidgetStateProperty.all<Size>(Size(95, 95)), // Width, Height
           ],
         ),
       ),

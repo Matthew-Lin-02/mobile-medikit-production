@@ -70,7 +70,7 @@ class BackArrow extends StatelessWidget {
         ),
         child: IconButton(
           onPressed: () {
-            // appState.placeHolde();
+            Navigator.pop(context);
           },
           color: const Color.fromRGBO(15, 13, 11, 1.0),
           icon: const Icon(Icons.arrow_back),
