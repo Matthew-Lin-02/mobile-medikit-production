@@ -3,37 +3,33 @@ import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 
 class StatusTray extends StatelessWidget {
+  var iconSize = 50.0;
+  
   @override
   Widget build(BuildContext context) {
     return IntrinsicWidth(
       child: IntrinsicHeight(
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: 8.0, horizontal: 16.0),
+          padding: EdgeInsets.only(left: 2.0),
           decoration: BoxDecoration(
-            color: AppColors.turquoise,
-            borderRadius: BorderRadius.circular(25.0),
+            color: const Color.fromARGB(255, 5, 161, 182),
+            borderRadius: BorderRadius.circular(80.0),
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Icon(Icons.wifi, color: Colors.green),
-              SizedBox(width: 16.0),
-              Icon(Icons.public, color: Colors.white),
-              SizedBox(width: 16.0),
-              Icon(Icons.person, color: Colors.white),
-              SizedBox(width: 16.0),
-              Icon(Icons.settings, color: Colors.white),
-              SizedBox(width: 16.0),
-              Icon(Icons.phone, color: Colors.white),
-              SizedBox(width: 16.0),
+              SizedBox(height: iconSize, width: iconSize, child: IconButton(icon: Image.asset('assets/images/wifi-connection.png'), padding: EdgeInsets.symmetric(vertical: 0, horizontal: 5), onPressed: () {},),),
+              SizedBox(height: iconSize, width: iconSize, child: IconButton(icon: Image.asset('assets/images/globe.png'), padding: EdgeInsets.symmetric(vertical: 0, horizontal: 5), onPressed: () {},),),
+              SizedBox(height: iconSize, width: iconSize, child: IconButton(icon: Image.asset('assets/images/person-outline.png'), padding: EdgeInsets.symmetric(vertical: 0, horizontal: 5), onPressed: () {},),),
+              SizedBox(height: iconSize, width: iconSize, child: IconButton(icon: Image.asset('assets/images/settings.png'), padding: EdgeInsets.symmetric(vertical: 0, horizontal: 5), onPressed: () {},),),
+              SizedBox(height: iconSize, width: iconSize, child: IconButton(icon: Image.asset('assets/images/phone.png'), padding: EdgeInsets.symmetric(vertical: 0, horizontal: 5), onPressed: () {},),),
               Container(
-                padding: EdgeInsets.all(4.0),
                 decoration: BoxDecoration(
                   color: Colors.red,
-                  borderRadius: BorderRadius.circular(15.0),
+                  borderRadius: BorderRadius.circular(20.0),
                 ),
-                child: Icon(Icons.local_hospital, color: Colors.white),
+                child: SizedBox(height: iconSize, width: 50, child: IconButton(icon: Image.asset('assets/images/ambulance.png'), padding: EdgeInsets.symmetric(vertical: 0, horizontal: 5), onPressed: () {},),),
               ),
             ],
           ),
