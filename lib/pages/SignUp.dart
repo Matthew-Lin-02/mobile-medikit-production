@@ -124,35 +124,8 @@ Builder body = Builder(
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
-
-  Widget _buildStepIndicators() {
-    const steps = [
-      {"step": "01", "label": "Patient sign up"},
-      {"step": "02", "label": "Consultation"},
-      {"step": "03", "label": "Screening Tools"},
-      {"step": "04", "label": "Results"},
-      {"step": "05", "label": "Explanation"},
-      {"step": "06", "label": "Follow up"},
-      {"step": "07", "label": "Patient plan"},
-      {"step": "08", "label": "Medical report"},
-    ];
-
-    return Center(
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: steps
-            .map((step) => Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: StepIndicator(
-                    step: step["step"]!,
-                    label: step["label"]!,
-                  ),
-                ))
-            .toList(),
-      ),
-    );
-  }
-
+  final int pageNum = 3;
+  
   AppBar _buildAppBar() {
     return AppBar(
       automaticallyImplyLeading: false, // Remove the default leading widget
@@ -211,13 +184,13 @@ class SignUp extends StatelessWidget {
                       ),
                     ),
                   ),
-                  // StatusTray and Icons
-                  _buildStepIndicators()
+                  // Page indicator
+                 Expanded(child: BuildPageIndicator(pageNum: 1)),
                 ],
               ),
             ),
             const SizedBox(height: 16),
-            // Step Indicators
+            // StatusTray
             Row(mainAxisAlignment: MainAxisAlignment.end, children: [
               Padding(
                 padding: const EdgeInsets.only(right: 16.0),
