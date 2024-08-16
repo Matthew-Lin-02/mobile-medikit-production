@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 int SCALE = 1; // Scale does not work
 
-
 // The circles with each of the step numbers
 class IndicatorStep extends StatelessWidget {
   final String stepNum;
@@ -32,7 +31,8 @@ class IndicatorStep extends StatelessWidget {
                 fontSize: (11.0 * SCALE),
               ),
             )),
-            decoration: BoxDecoration( // Draw the circle around the text
+            decoration: BoxDecoration(
+                // Draw the circle around the text
                 shape: BoxShape.circle,
                 color: step >= currStep
                     ? Colors.white
@@ -41,8 +41,7 @@ class IndicatorStep extends StatelessWidget {
                     ? Border.all(color: Color.fromRGBO(0, 68, 95, 1), width: 2)
                     : Border.all(
                         color: const Color.fromARGB(255, 143, 143, 143),
-                        width: 2)
-                )),
+                        width: 2))),
       ],
     );
   }
@@ -87,21 +86,19 @@ class IndicatorLine extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child:           //SizedBox(height: 20), // Vertical offset
+      child: //SizedBox(height: 20), // Vertical offset
           SizedBox(
-            height: 2,
-            width: 400,
-            child: ColoredBox(
-              color: coloured
-                  ? Color.fromRGBO(35, 81, 104, 1)
-                  : Color.fromARGB(255, 142, 142, 142),
-            ),
-          ),
-        
-      );
+        height: 2,
+        width: 400,
+        child: ColoredBox(
+          color: coloured
+              ? Color.fromRGBO(35, 81, 104, 1)
+              : Color.fromARGB(255, 142, 142, 142),
+        ),
+      ),
+    );
   }
 }
-
 
 // The row that should be called to draw the circles with step numbers
 class PageIndicator extends StatelessWidget {
@@ -238,15 +235,17 @@ class PageIndicatorNames extends StatelessWidget {
   }
 }
 
-class BuildPageIndicator extends StatelessWidget{
+class BuildPageIndicator extends StatelessWidget {
   final int pageNum;
   BuildPageIndicator({required this.pageNum});
 
-    @override
-    Widget build(BuildContext context){
-        return SizedBox(width: 1000, child: Column(children:[PageIndicator(pageNum: pageNum), PageIndicatorNames(currPage: pageNum)]));
-
-    }
-
-
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+        width: 1000,
+        child: Column(children: [
+          PageIndicator(pageNum: pageNum),
+          PageIndicatorNames(currPage: pageNum)
+        ]));
+  }
 }

@@ -126,7 +126,7 @@ Builder body = Builder(builder: (context) {
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
   final int pageNum = 3;
-  
+
   AppBar _buildAppBar() {
     return AppBar(
       automaticallyImplyLeading: false, // Remove the default leading widget
@@ -184,7 +184,7 @@ class SignUp extends StatelessWidget {
                     ),
                   ),
                   // Page indicator
-                 Expanded(child: BuildPageIndicator(pageNum: 1)),
+                  Expanded(child: BuildPageIndicator(pageNum: 1)),
                 ],
               ),
             ),
