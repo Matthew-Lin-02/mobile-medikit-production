@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:comp30022/components/BackArrowWelcomeRow.dart';
 import 'package:comp30022/components/RedActionButton.dart';
 
-
 class Page2 extends StatelessWidget {
   const Page2({
     super.key,
@@ -33,15 +32,18 @@ class Page2 extends StatelessWidget {
               height: 70,
             ),
             Align(
-              alignment:Alignment.bottomRight,
-              child: RedActionButton(iconData: Icons.check_circle,label: "Submit",onPressed: () {
+              alignment: Alignment.bottomRight,
+              child: RedActionButton(
+                iconData: Icons.check_circle,
+                label: "Submit",
+                onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => const Page3()),
                   );
                 },
-            ),
-            )// minimumSize: WidgetStateProperty.all<Size>(Size(95, 95)), // Width, Height
+              ),
+            ) // minimumSize: WidgetStateProperty.all<Size>(Size(95, 95)), // Width, Height
           ],
         ),
       ),
