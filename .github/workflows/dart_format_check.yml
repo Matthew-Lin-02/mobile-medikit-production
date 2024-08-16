@@ -1,0 +1,22 @@
+name: Dart Format Check
+
+on: [pull_request]
+
+jobs:
+  dart-format-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Dart SDK
+        uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+
+      - name: Run Dart format
+        run: dart format --set-exit-if-changed .
+
+      - name: Check for formatting issues
+        run: git diff --exit-code
+        continue-on-error: false

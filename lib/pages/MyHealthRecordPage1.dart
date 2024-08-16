@@ -22,56 +22,46 @@ class MyHealthRecordPage1 extends StatelessWidget {
           bottom: 30,
         ),
         child: Center(
-            child: Column(
-             
-              children: [
-                const Align(
-                  alignment: Alignment.topLeft,
-                  child: BackArrow(),
-                ),
-                const SizedBox(height: 50.0),
-                const Text("My Health Record",
-                  style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
-            
-                ),
-                const SizedBox(height: 25.0),
-                const Text("Do you have an existing My Health Record?",
-                  style: TextStyle(fontSize: 16)
-            
-                ),
-                // SizedBox(height:200.0),
-                const Spacer(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-        
-                    RedActionButton(
-                      iconData: Icons.check_circle, 
-                      label: "Yes", 
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => const MyHealthRecordPage2()),
-                        );
-                      },
-                    ),
-                    RedActionButton(
-                      iconData: Icons.cancel, 
-                      label: "No", 
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                    ),
-                  ],
-                ),
-                  
-                
-            
-                
-            
-              ]
+          child: Column(children: [
+            const Align(
+              alignment: Alignment.topLeft,
+              child: BackArrow(),
             ),
-          ),
+            const SizedBox(height: 50.0),
+            const Text(
+              "My Health Record",
+              style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 25.0),
+            const Text("Do you have an existing My Health Record?",
+                style: TextStyle(fontSize: 16)),
+            // SizedBox(height:200.0),
+            const Spacer(),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                RedActionButton(
+                  iconData: Icons.check_circle,
+                  label: "Yes",
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const MyHealthRecordPage2()),
+                    );
+                  },
+                ),
+                RedActionButton(
+                  iconData: Icons.cancel,
+                  label: "No",
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                ),
+              ],
+            ),
+          ]),
+        ),
       ),
     );
   }
