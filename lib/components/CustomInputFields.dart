@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class CustomInputField extends StatelessWidget {
+class DropDown extends StatelessWidget {
   final String label;
   final String hintText;
 
-  CustomInputField({required this.label, required this.hintText});
+  DropDown({required this.label, required this.hintText});
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,7 @@ class CustomInputField extends StatelessWidget {
         ),
         SizedBox(width: 16),
         Expanded(
-          child: CustomTextField(
+          child: TextBox(
             hintText: hintText,
           ),
         ),
@@ -53,11 +53,11 @@ class CustomInputField extends StatelessWidget {
   }
 }
 
-class CustomTextField extends StatelessWidget {
+class TextBox extends StatelessWidget {
   final String hintText;
   final double fontSize;
 
-  const CustomTextField({required this.hintText, this.fontSize = 16});
+  const TextBox({required this.hintText, this.fontSize = 16});
 
   @override
   Widget build(BuildContext context) {

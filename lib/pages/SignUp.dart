@@ -37,11 +37,11 @@ Builder signUpBody = Builder(builder: (context) {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Expanded(
-                        child: CustomInputField(
-                            label: 'NAME 1', hintText: 'FIRST NAME')),
+                        child:
+                            DropDown(label: 'NAME 1', hintText: 'FIRST NAME')),
                     const SizedBox(width: 16), // Spacing between fields
                     Expanded(
-                        child: CustomTextField(
+                        child: TextBox(
                       hintText: "LAST NAME",
                     ))
                   ],
@@ -53,17 +53,17 @@ Builder signUpBody = Builder(builder: (context) {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Expanded(
-                        child: CustomInputField(
+                        child: DropDown(
                             label: 'DoB 1',
                             hintText: 'DATE OF BIRTH (dd/mm/yyyy)')),
                     const SizedBox(width: 16), // Spacing between fields
                     Expanded(
-                        child: CustomInputField(
+                        child: DropDown(
                             label: 'Phone 1', hintText: 'MOBILE NUMBER')),
                   ],
                 ),
               ),
-              CustomInputField(label: 'NAME 1', hintText: 'OTHER NAMES'),
+              DropDown(label: 'NAME 1', hintText: 'OTHER NAMES'),
               const SizedBox(height: 20),
               Center(
                 child: const Text(
@@ -80,12 +80,12 @@ Builder signUpBody = Builder(builder: (context) {
                   child: Row(
                     children: [
                       Expanded(
-                          child: CustomInputField(
+                          child: DropDown(
                               label: 'Next of Kin 1',
                               hintText: 'NEXT OF KIN NAME')),
                       SizedBox(width: 16), // Spacing between fields
                       Expanded(
-                          child: CustomInputField(
+                          child: DropDown(
                               label: 'Phone 1', hintText: 'MOBILE NUMBER'))
                     ],
                   )),
