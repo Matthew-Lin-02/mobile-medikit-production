@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 
-class BackArrowWelcomeRow extends StatelessWidget {
-  const BackArrowWelcomeRow({
+class BackArrowBlack extends StatelessWidget {
+  const BackArrowBlack({
     super.key,
   });
 

@@ -1,6 +1,6 @@
 import 'package:comp30022/pages/Pages.dart';
 import 'package:flutter/material.dart';
-import 'package:comp30022/components/BackArrowWelcomeRow.dart';
+import 'package:comp30022/components/BackArrowBlack.dart';
 import 'package:comp30022/components/RedActionButton.dart';
 
 class Page2 extends StatelessWidget {
@@ -16,7 +16,7 @@ class Page2 extends StatelessWidget {
         padding: const EdgeInsets.only(top: 50, left: 65, right: 75),
         child: Column(
           children: [
-            const BackArrowWelcomeRow(),
+            const BackArrowBlack(),
             const Text(
               "Wayiwa-n feeling today?",
               style: TextStyle(

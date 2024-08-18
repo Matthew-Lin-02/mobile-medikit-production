@@ -1,6 +1,6 @@
 import 'package:comp30022/pages/MyHealthRecordPage2.dart';
 import 'package:flutter/material.dart';
-import 'package:comp30022/components/BackArrowWelcomeRow.dart';
+import 'package:comp30022/components/BackArrowBlack.dart';
 import 'package:comp30022/components/RedActionButton.dart';
 import 'package:comp30022/main.dart';
 import 'package:provider/provider.dart';
@@ -12,7 +12,7 @@ class MyHealthRecordPage1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var appState = context.watch<MyAppState>();
+    // var appState = context.watch<MyAppState>();
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(

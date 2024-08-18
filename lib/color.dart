@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class AppColors {
   // main colorScheme + background
   static const Color cream = Color.fromRGBO(246, 243, 233, 1.0); // background
+  static const Color darkCream = Color.fromARGB(255, 247, 224, 204);
+  static const Color yellowCream = Color.fromARGB(255, 248, 228, 196);
 
   // Welcome Title Colours
   static const Color red =
