@@ -69,7 +69,7 @@ class LargePageButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // var appState = context.watch<MyAppState>();
+    var appState = context.watch<MyAppState>();
     return ElevatedButton.icon(
         onPressed: () {
           Navigator.push(

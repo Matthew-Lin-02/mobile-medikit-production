@@ -2,6 +2,8 @@ import 'package:comp30022/pages/Pages.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/components/BackArrowBlack.dart';
 import 'package:comp30022/components/RedActionButton.dart';
+import 'package:comp30022/main.dart';
+import 'package:provider/provider.dart';
 
 class Page2 extends StatelessWidget {
   const Page2({
@@ -10,7 +12,7 @@ class Page2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // var appState = context.watch<MyAppState>();
+    var appState = context.watch<MyAppState>();
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(top: 50, left: 65, right: 75),
