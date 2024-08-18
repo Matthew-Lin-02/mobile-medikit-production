@@ -1,5 +1,6 @@
+import 'package:comp30022/pages/GuidedConsultation.dart';
 import 'package:flutter/material.dart';
-import 'package:comp30022/components/BackArrowWelcomeRow.dart';
+import 'package:comp30022/components/BackArrowBlack.dart';
 import 'package:comp30022/components/RedActionButton.dart';
 import 'package:comp30022/main.dart';
 import 'package:provider/provider.dart';
@@ -54,7 +55,11 @@ class MyHealthRecordPage2 extends StatelessWidget {
                   iconData: Icons.check_circle,
                   label: "Yes",
                   onPressed: () {
-                    print("no more pages");
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const GuidedConsultation()),
+                    );
                   },
                 ),
                 RedActionButton(

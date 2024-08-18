@@ -1,15 +1,17 @@
 import 'package:comp30022/pages/MyHealthRecordPage1.dart';
 import 'package:flutter/material.dart';
+import 'package:comp30022/color.dart';
 
 import 'package:comp30022/components/CustomInputFields.dart';
 import 'package:comp30022/components/StatusTray.dart';
 import 'package:comp30022/components/StepIndicator.dart';
+import 'package:comp30022/components/BackArrowTeal.dart';
 
 const double VERTICAL_SPACING = 16;
 
-Builder body = Builder(builder: (context) {
+Builder signUpBody = Builder(builder: (context) {
   return Container(
-    color: Color(0xFFf8dccc), // Matching cream background color
+    color: AppColors.darkCream, // Matching cream background color
     child: Center(
       child: FractionallySizedBox(
         widthFactor: 0.6, // Set the width to 3/5 of the screen width
@@ -35,11 +37,11 @@ Builder body = Builder(builder: (context) {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Expanded(
-                        child: CustomInputField(
-                            label: 'NAME 1', hintText: 'FIRST NAME')),
+                        child:
+                            DropDown(label: 'NAME 1', hintText: 'FIRST NAME')),
                     const SizedBox(width: 16), // Spacing between fields
                     Expanded(
-                        child: CustomTextField(
+                        child: TextBox(
                       hintText: "LAST NAME",
                     ))
                   ],
@@ -51,17 +53,17 @@ Builder body = Builder(builder: (context) {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Expanded(
-                        child: CustomInputField(
+                        child: DropDown(
                             label: 'DoB 1',
                             hintText: 'DATE OF BIRTH (dd/mm/yyyy)')),
                     const SizedBox(width: 16), // Spacing between fields
                     Expanded(
-                        child: CustomInputField(
+                        child: DropDown(
                             label: 'Phone 1', hintText: 'MOBILE NUMBER')),
                   ],
                 ),
               ),
-              CustomInputField(label: 'NAME 1', hintText: 'OTHER NAMES'),
+              DropDown(label: 'NAME 1', hintText: 'OTHER NAMES'),
               const SizedBox(height: 20),
               Center(
                 child: const Text(
@@ -78,12 +80,12 @@ Builder body = Builder(builder: (context) {
                   child: Row(
                     children: [
                       Expanded(
-                          child: CustomInputField(
+                          child: DropDown(
                               label: 'Next of Kin 1',
                               hintText: 'NEXT OF KIN NAME')),
                       SizedBox(width: 16), // Spacing between fields
                       Expanded(
-                          child: CustomInputField(
+                          child: DropDown(
                               label: 'Phone 1', hintText: 'MOBILE NUMBER'))
                     ],
                   )),
@@ -104,7 +106,7 @@ Builder body = Builder(builder: (context) {
                   ),
                   style: ElevatedButton.styleFrom(
                     backgroundColor:
-                        Color(0xFFD9534F), // Matching button background color
+                        AppColors.red, // Matching button background color
                     shape: RoundedRectangleBorder(
                       borderRadius:
                           BorderRadius.circular(20.0), // Rounded corners
@@ -130,8 +132,7 @@ class SignUp extends StatelessWidget {
   AppBar _buildAppBar() {
     return AppBar(
       automaticallyImplyLeading: false, // Remove the default leading widget
-      backgroundColor:
-          const Color.fromARGB(255, 248, 228, 196), // Cream background
+      backgroundColor: AppColors.yellowCream, // Cream background
       elevation: 0, // Remove the default shadow
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(160.0), // Custom height
@@ -144,32 +145,7 @@ class SignUp extends StatelessWidget {
                 children: [
                   SizedBox(width: 12),
                   // Teal Circular Back Button
-                  Container(
-                    width: 64, // Set the width of the circle
-                    height:
-                        64, // Set the height of the circle (same as width for a perfect circle)
-                    decoration: BoxDecoration(
-                      color: Colors.teal, // Teal background color
-                      shape: BoxShape.circle,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.2), // Light shadow
-                          spreadRadius: 1,
-                          blurRadius: 4,
-                          offset: Offset(0, 2),
-                        ),
-                      ],
-                    ),
-                    child: Builder(builder: (context) {
-                      return IconButton(
-                        iconSize: 32, // Increase the icon size
-                        icon: const Icon(Icons.arrow_back, color: Colors.white),
-                        onPressed: () {
-                          Navigator.pop(context);
-                        },
-                      );
-                    }),
-                  ),
+                  const BackArrowTeal(),
 
                   const SizedBox(width: 48),
                   // Title
@@ -220,6 +196,6 @@ class SignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: _buildAppBar(), body: body);
+    return Scaffold(appBar: _buildAppBar(), body: signUpBody);
   }
 }

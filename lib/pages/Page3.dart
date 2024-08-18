@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
-import 'package:comp30022/components/BackArrowWelcomeRow.dart';
+import 'package:comp30022/components/BackArrowBlack.dart';
 import 'package:comp30022/main.dart';
 import 'package:provider/provider.dart';
 import 'package:comp30022/pages/SignUp.dart';
@@ -17,7 +17,7 @@ class Page3 extends StatelessWidget {
           padding: EdgeInsets.only(top: 50, left: 65, right: 75),
           child: Column(
             children: [
-              BackArrowWelcomeRow(),
+              BackArrowBlack(),
               SizedBox(height: 20),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
