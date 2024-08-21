@@ -6,6 +6,7 @@ import 'package:comp30022/components/CustomInputFields.dart';
 import 'package:comp30022/components/StatusTray.dart';
 import 'package:comp30022/components/StepIndicator.dart';
 import 'package:comp30022/components/BackArrowTeal.dart';
+import 'package:comp30022/pages/AbstractConsultationPage.dart';
 
 const double VERTICAL_SPACING = 16;
 
@@ -127,75 +128,10 @@ Builder signUpBody = Builder(builder: (context) {
 
 class SignUp extends StatelessWidget {
   const SignUp({super.key});
-  final int pageNum = 3;
-
-  AppBar _buildAppBar() {
-    return AppBar(
-      automaticallyImplyLeading: false, // Remove the default leading widget
-      backgroundColor: AppColors.yellowCream, // Cream background
-      elevation: 0, // Remove the default shadow
-      bottom: PreferredSize(
-        preferredSize: const Size.fromHeight(160.0), // Custom height
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(
-                  12.0, 16.0, 0, 0), // Adjust padding as needed
-              child: Row(
-                children: [
-                  SizedBox(width: 12),
-                  // Teal Circular Back Button
-                  const BackArrowTeal(),
-
-                  const SizedBox(width: 48),
-                  // Title
-                  const Expanded(
-                    child: Text(
-                      'New Patient Sign Up',
-                      style: TextStyle(
-                        fontSize: 44,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                  // Page indicator
-                  Expanded(child: BuildPageIndicator(pageNum: 1)),
-                ],
-              ),
-            ),
-            const SizedBox(height: 16),
-            // StatusTray
-            Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 16.0),
-                child: StatusTray(), // Place your status tray widget here
-              ),
-            ]),
-            const SizedBox(height: 16),
-            // Custom Shadow Line
-            Container(
-              height: 1, // Height of the divider line
-              decoration: const BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey, // Color of the shadow
-                    spreadRadius: 1,
-                    blurRadius: 1,
-                    offset: Offset(0, 2), // Position the shadow below the line
-                  ),
-                ],
-              ),
-            ),
-            // Bottom Icons
-          ],
-        ),
-      ),
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: _buildAppBar(), body: signUpBody);
+    return AbstractConsultationPage(
+        title: "New Patient Sign Up", pageNum: 1, body: signUpBody);
   }
 }
