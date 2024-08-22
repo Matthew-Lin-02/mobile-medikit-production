@@ -12,7 +12,7 @@ const double VERTICAL_SPACING = 16;
 
 Builder signUpBody = Builder(builder: (context) {
   return Container(
-    color: AppColors.darkCream, // Matching cream background color
+    color: AppColors.cream, // Matching cream background color
     child: Center(
       child: FractionallySizedBox(
         widthFactor: 0.6, // Set the width to 3/5 of the screen width

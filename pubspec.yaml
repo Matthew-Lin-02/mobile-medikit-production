@@ -72,6 +72,11 @@ flutter:
   - assets/images/settings.png
   - assets/images/wifi-connection.png
   - assets/images/ambulance.png
+  - assets/images/chatbot-icon.png
+  fonts:
+    - family: VarelaRound
+      fonts:
+        - asset: assets/fonts/VarelaRound-Regular.ttf
 
   # To add assets to your application, add an assets section, like this:
   # assets:
