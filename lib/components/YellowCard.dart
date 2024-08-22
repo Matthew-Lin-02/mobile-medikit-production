@@ -5,7 +5,8 @@ import 'package:comp30022/config.dart';
 import 'package:provider/provider.dart';
 
 class YellowCard extends StatefulWidget {
-  YellowCard({
+  const YellowCard({
+    super.key,
     required this.cardData,
     required this.cardContentExpanded,
   });
@@ -14,10 +15,10 @@ class YellowCard extends StatefulWidget {
   final CardData cardData;
 
   @override
-  _YellowCardState createState() => _YellowCardState();
+  YellowCardState createState() => YellowCardState();
 }
 
-class _YellowCardState extends State<YellowCard> {
+class YellowCardState extends State<YellowCard> {
   bool expanded = false;
 
   void switchState() {
@@ -38,7 +39,7 @@ class _YellowCardState extends State<YellowCard> {
           children: [
             Text(
               widget.cardData.title,
-              style: TextStyle(fontSize: 32),
+              style: const TextStyle(fontSize: 32),
             ),
             if (expanded)
               widget.cardContentExpanded
@@ -54,12 +55,12 @@ class _YellowCardState extends State<YellowCard> {
   }
 }
 
-class socialYarningCardExpanded extends StatelessWidget {
-  const socialYarningCardExpanded({super.key});
+class SocialYarningCardExpanded extends StatelessWidget {
+  const SocialYarningCardExpanded({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: [
         Text("social yarning card unimplemented"),
       ],
@@ -67,12 +68,12 @@ class socialYarningCardExpanded extends StatelessWidget {
   }
 }
 
-class clinicalDiagnosisYarningCardExpanded extends StatelessWidget {
-  const clinicalDiagnosisYarningCardExpanded({super.key});
+class ClinicalDiagnosisYarningCardExpanded extends StatelessWidget {
+  const ClinicalDiagnosisYarningCardExpanded({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return const Column(
       children: [
         Text("clinical/diagnosis yarning card unimplemented"),
       ],
@@ -133,7 +134,7 @@ class CardContentClosed extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 10),
+                  const SizedBox(height: 10),
                 ],
               ),
             );
@@ -148,12 +149,12 @@ class BulletedList {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(" • ", style: TextStyle(fontSize: 24)),
-        SizedBox(width: 8),
+        const Text(" • ", style: TextStyle(fontSize: 24)),
+        const SizedBox(width: 8),
         Expanded(
             child: Text(
           text,
-          style: TextStyle(fontSize: 24),
+          style: const TextStyle(fontSize: 24),
         )),
       ],
     );
@@ -163,14 +164,14 @@ class BulletedList {
 class CenteredArrowExpansionTile extends StatefulWidget {
   final VoidCallback onTap;
 
-  CenteredArrowExpansionTile({required this.onTap});
+  const CenteredArrowExpansionTile({super.key, required this.onTap});
 
   @override
-  _CenteredArrowExpansionTileState createState() =>
-      _CenteredArrowExpansionTileState();
+  CenteredArrowExpansionTileState createState() =>
+      CenteredArrowExpansionTileState();
 }
 
-class _CenteredArrowExpansionTileState
+class CenteredArrowExpansionTileState
     extends State<CenteredArrowExpansionTile> {
   bool _expanded = false;
 

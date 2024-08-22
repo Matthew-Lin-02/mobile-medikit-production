@@ -7,6 +7,8 @@ import 'package:comp30022/components/YellowCard.dart';
 import 'package:provider/provider.dart';
 
 class GuidedConsultationBody extends StatelessWidget {
+  const GuidedConsultationBody({super.key});
+
   @override
   Widget build(BuildContext context) {
     var guidedConsultationState = context.watch<GuidedConsultationState>();
@@ -45,13 +47,13 @@ class GuidedConsultationBody extends StatelessWidget {
                       const SizedBox(height: 10),
                       YellowCard(
                         cardData: socialYarningCardData,
-                        cardContentExpanded: socialYarningCardExpanded(),
+                        cardContentExpanded: const SocialYarningCardExpanded(),
                       ),
                       const SizedBox(height: 20),
                       YellowCard(
                         cardData: clinicalDiagnosticYarningCardData,
                         cardContentExpanded:
-                            clinicalDiagnosisYarningCardExpanded(),
+                            const ClinicalDiagnosisYarningCardExpanded(),
                       ),
                       const SizedBox(height: 40),
                       Align(
@@ -60,11 +62,11 @@ class GuidedConsultationBody extends StatelessWidget {
                           iconData: Icons.arrow_forward,
                           label: "Continue to Screening Tools",
                           fontSize: 36,
-                          size: Size(514, 63),
+                          size: const Size(514, 63),
                           onPressed: guidedConsultationState.incrementPageNum,
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                     ],
                   ),
                 ),
@@ -80,8 +82,10 @@ class GuidedConsultationBody extends StatelessWidget {
                 // Define the action here
               },
               style: TextButton.styleFrom(
-                padding: EdgeInsets.all(0), // Remove padding to fit the image
-                minimumSize: Size(0, 0), // Remove default size constraints
+                padding:
+                    const EdgeInsets.all(0), // Remove padding to fit the image
+                minimumSize:
+                    const Size(0, 0), // Remove default size constraints
               ),
               child: Image.asset(
                 'assets/images/chatbot-icon.png',
@@ -109,7 +113,7 @@ class GuidedConsultationBody extends StatelessWidget {
                   icon: const Icon(Icons.question_mark),
                 ),
               ),
-              Text("Help",
+              const Text("Help",
                   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))
             ],
           ),
