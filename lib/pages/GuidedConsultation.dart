@@ -16,76 +16,20 @@ class GuidedConsultation extends StatefulWidget {
 }
 
 class _GuidedConsultationState extends State<GuidedConsultation> {
-  AppBar _buildAppBar() {
-    return AppBar(
-      automaticallyImplyLeading: false,
-      backgroundColor: AppColors.yellowCream,
-      elevation: 0,
-      bottom: PreferredSize(
-        preferredSize: const Size.fromHeight(160.0),
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(12.0, 16.0, 0, 0),
-              child: Row(
-                children: [
-                  SizedBox(width: 12),
-                  const BackArrowTeal(),
-                  const SizedBox(width: 48),
-                  const Expanded(
-                    child: Text(
-                      'Guided Consultation',
-                      style: TextStyle(
-                        fontSize: 44,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
-                      ),
-                    ),
-                  ),
-                  Expanded(child: BuildPageIndicator(pageNum: 2)),
-                ],
-              ),
-            ),
-            const SizedBox(height: 16),
-            Row(mainAxisAlignment: MainAxisAlignment.end, children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 16.0),
-                child: StatusTray(),
-              ),
-            ]),
-            const SizedBox(height: 16),
-            Container(
-              height: 1,
-              decoration: const BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey,
-                    spreadRadius: 1,
-                    blurRadius: 1,
-                    offset: Offset(0, 2),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     var guidedConsultationState = context.watch<GuidedConsultationState>();
     return AbstractConsultationPage(
         title: "Guided Consultation",
-        pageNum: 2,
+        pageNum: guidedConsultationState
+            .getPageNumber(guidedConsultationState.currentPageIndex),
         body: guidedConsultationState
-            .pageBodies[guidedConsultationState.currentPageNum]);
+            .pageBodies[guidedConsultationState.currentPageIndex]);
   }
 }
 
 class GuidedConsultationState extends ChangeNotifier {
-  var currentPageNum = 0;
+  var currentPageIndex = 0;
   var pageBodies = <Widget>[];
 
   GuidedConsultationState() {
@@ -103,17 +47,21 @@ class GuidedConsultationState extends ChangeNotifier {
   }
 
   void incrementPageNum() {
-    currentPageNum++;
+    currentPageIndex++;
     notifyListeners();
   }
 
   void decrementPageNum() {
-    currentPageNum--;
+    currentPageIndex--;
     notifyListeners();
   }
 
-  void setPageNum(pageNumber) {
-    currentPageNum = pageNumber;
+  void setPageNum(int pageNumber) {
+    currentPageIndex = pageNumber;
     notifyListeners();
+  }
+
+  int getPageNumber(int currentPageIndex) {
+    return currentPageIndex += 2;
   }
 }
