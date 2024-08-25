@@ -12,11 +12,16 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => MyAppState(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => GuidedConsultationState()),
+        ChangeNotifierProvider(create: (_) => MyAppState())
+        // add other providers
+      ],
       child: MaterialApp(
         title: 'medi_kit',
         theme: ThemeData(
+          fontFamily: 'VarelaRound',
           useMaterial3: true,
           colorScheme: ColorScheme.fromSeed(seedColor: AppColors.cream),
           scaffoldBackgroundColor: AppColors.cream,

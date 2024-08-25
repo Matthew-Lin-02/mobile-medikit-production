@@ -4,6 +4,8 @@ import 'package:comp30022/color.dart';
 import 'package:comp30022/components/StatusTray.dart';
 import 'package:comp30022/components/StepIndicator.dart';
 import 'package:comp30022/components/BackArrowTeal.dart';
+import 'package:provider/provider.dart';
+import 'package:comp30022/pages/GuidedConsultation.dart';
 
 class AbstractConsultationPage extends StatelessWidget {
   final String title;
@@ -17,7 +19,8 @@ class AbstractConsultationPage extends StatelessWidget {
     required this.body,
   }) : super(key: key);
 
-  AppBar _buildAppBar() {
+  AppBar _buildAppBar(BuildContext context) {
+    var guidedConsultationState = context.watch<GuidedConsultationState>();
     return AppBar(
       automaticallyImplyLeading: false,
       backgroundColor: AppColors.yellowCream,
@@ -31,7 +34,10 @@ class AbstractConsultationPage extends StatelessWidget {
               child: Row(
                 children: [
                   SizedBox(width: 12),
-                  const BackArrowTeal(),
+                  (guidedConsultationState.currentPageIndex == 0)
+                      ? const BackArrowTeal()
+                      : BackArrowTeal(
+                          onPressed: guidedConsultationState.decrementPageNum),
                   const SizedBox(width: 48),
                   Expanded(
                     child: Text(
@@ -79,6 +85,6 @@ class AbstractConsultationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: _buildAppBar(), body: body);
+    return Scaffold(appBar: _buildAppBar(context), body: body);
   }
 }

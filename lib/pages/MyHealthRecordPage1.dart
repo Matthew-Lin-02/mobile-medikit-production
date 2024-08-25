@@ -36,7 +36,7 @@ class MyHealthRecordPage1 extends StatelessWidget {
             const Text("Do you have an existing My Health Record?",
                 style: TextStyle(fontSize: 16)),
             // SizedBox(height:200.0),
-            const Spacer(),
+            const SizedBox(height: 300.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [

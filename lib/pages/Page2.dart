@@ -71,8 +71,8 @@ class RowOfButtons extends StatelessWidget {
               print('Button $i pressed');
             },
             style: ButtonStyle(
-              // to remove the hover effect
-              overlayColor: WidgetStateProperty.all(Colors.transparent),
+              // uncomment below to remove hover effect
+              // overlayColor: WidgetStateProperty.all(Colors.transparent),
               minimumSize: WidgetStateProperty.all<Size>(
                   const Size(95, 95)), // Width, Height
             ),

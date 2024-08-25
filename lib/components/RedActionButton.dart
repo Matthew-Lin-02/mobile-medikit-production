@@ -7,6 +7,8 @@ class RedActionButton extends StatelessWidget {
     this.iconData,
     required this.label,
     this.onPressed = _defaultButtonFunction,
+    this.size = const Size(200, 80),
+    this.fontSize = 20,
   });
 
   static void _defaultButtonFunction() {
@@ -16,6 +18,8 @@ class RedActionButton extends StatelessWidget {
   final IconData? iconData;
   final String label;
   final VoidCallback onPressed;
+  final Size size; // New size field
+  final double fontSize;
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +30,13 @@ class RedActionButton extends StatelessWidget {
           : const SizedBox.shrink(), // Conditionally show the icon
       label: Text(
         label,
-        style: const TextStyle(color: Colors.white, fontSize: 20),
+        style: TextStyle(color: Colors.white, fontSize: fontSize),
       ),
       style: ButtonStyle(
         iconColor: WidgetStateProperty.all(Colors.white),
         backgroundColor: WidgetStateProperty.all(AppColors.red),
-        minimumSize: WidgetStateProperty.all<Size>(const Size(200, 80)),
+        minimumSize: WidgetStateProperty.all<Size>(
+            size), // Use the given or default size
       ),
     );
   }

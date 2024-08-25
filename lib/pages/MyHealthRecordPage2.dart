@@ -47,7 +47,7 @@ class MyHealthRecordPage2 extends StatelessWidget {
             const SizedBox(height: 10.0),
             const Text("Apply for My Health Record (placeholder)",
                 style: TextStyle(fontSize: 12)),
-            const Spacer(),
+            const SizedBox(height: 300.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [

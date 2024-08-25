@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 
 class BackArrowTeal extends StatelessWidget {
-  const BackArrowTeal({super.key});
+  final VoidCallback? onPressed;
+
+  const BackArrowTeal({super.key, this.onPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -24,9 +26,10 @@ class BackArrowTeal extends StatelessWidget {
       child: IconButton(
         iconSize: 32,
         icon: const Icon(Icons.arrow_back, color: Colors.white),
-        onPressed: () {
-          Navigator.pop(context);
-        },
+        onPressed: onPressed ??
+            () {
+              Navigator.pop(context);
+            },
       ),
     );
   }
