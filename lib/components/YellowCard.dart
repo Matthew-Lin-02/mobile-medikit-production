@@ -1,3 +1,4 @@
+import 'package:comp30022/components/MedicalHistorySubitem.dart';
 import 'package:comp30022/main.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
@@ -62,7 +63,10 @@ class SocialYarningCardExpanded extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Column(
       children: [
-        Text("social yarning card unimplemented"),
+        MedicalHistorySubItem(
+            title: "Medical History",
+            description:
+                "Any health related issues the patient is struggling with or has struggled with in the past."),
       ],
     );
   }
