@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/config.dart';
 import 'package:provider/provider.dart';
+import 'package:comp30022/components/ResourceCarousel.dart';
 
 class YellowCard extends StatefulWidget {
   const YellowCard({
@@ -73,9 +74,10 @@ class ClinicalDiagnosisYarningCardExpanded extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
         Text("clinical/diagnosis yarning card unimplemented"),
+        ResourceCarousel(),
       ],
     );
   }

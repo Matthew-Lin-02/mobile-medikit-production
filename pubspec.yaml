@@ -38,6 +38,7 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+  carousel_slider: ^5.0.0
 
 dev_dependencies:
   flutter_test:
@@ -73,6 +74,10 @@ flutter:
   - assets/images/wifi-connection.png
   - assets/images/ambulance.png
   - assets/images/chatbot-icon.png
+  - assets/images/3D-Heart-Model.png
+  - assets/images/Nutrition-Model.png
+  - assets/images/Patient-Health-Booklet.png
+
   fonts:
     - family: VarelaRound
       fonts:
