@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:provider/provider.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
-
 import 'package:comp30022/color.dart';
-
 import 'package:comp30022/components/StatusTray.dart';
 import 'package:comp30022/components/StepIndicator.dart';
 import 'package:comp30022/components/BackArrowTeal.dart';
+import 'package:comp30022/pages/GuidedConsultation.dart';
 
 void main() {
   Widget buildConfig({
@@ -25,11 +25,16 @@ void main() {
           .devicePixelRatioTestValue = devicePixelRatio;
     }
 
-    return MaterialApp(
-      home: AbstractConsultationPage(
-        title: title,
-        pageNum: pageNum,
-        body: body,
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => GuidedConsultationState()),
+      ],
+      child: MaterialApp(
+        home: AbstractConsultationPage(
+          title: title,
+          pageNum: pageNum,
+          body: body,
+        ),
       ),
     );
   }
