@@ -73,4 +73,41 @@ void main() {
     expect(border?.borderRadius, BorderRadius.circular(8.0));
     expect(border?.borderSide.color, Colors.black54);
   });
+
+  testWidgets('YellowTextField has correct default maxLines and styling',
+      (WidgetTester tester) async {
+    // Build the widget
+    await tester.pumpWidget(
+      const MaterialApp(
+        home: Scaffold(
+          body: YellowTextField(),
+        ),
+      ),
+    );
+
+    // Verify the text field has the default maxLines value of 4
+    final textField = tester.widget<TextField>(find.byType(TextField));
+    expect(textField.maxLines, 4);
+
+    // Verify the text field has the correct fill color
+    final decoration = textField.decoration;
+    expect(decoration?.filled, isTrue);
+    expect(decoration?.fillColor, const Color(0xFFFFF5E1));
+  });
+
+  testWidgets('YellowTextField allows maxLines to be configured',
+      (WidgetTester tester) async {
+    // Build the widget with a custom maxLines value
+    await tester.pumpWidget(
+      const MaterialApp(
+        home: Scaffold(
+          body: YellowTextField(maxLines: 6),
+        ),
+      ),
+    );
+
+    // Verify the text field has the custom maxLines value of 6
+    final textField = tester.widget<TextField>(find.byType(TextField));
+    expect(textField.maxLines, 6);
+  });
 }
