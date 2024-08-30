@@ -2,16 +2,18 @@ import 'package:flutter/material.dart';
 
 class YellowTextField extends StatelessWidget {
   final String hintText;
+  final int maxLines;
 
   const YellowTextField({
     Key? key,
     this.hintText = 'Enter here...',
+    this.maxLines = 4,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextField(
-      maxLines: 4,
+      maxLines: maxLines,
       decoration: InputDecoration(
         hintText: hintText,
         border: OutlineInputBorder(
