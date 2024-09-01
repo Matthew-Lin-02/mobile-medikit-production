@@ -65,20 +65,17 @@ void main() {
         pageNum: pageNum,
         body: Container(),
       ));
+
       expect(find.byType(BuildPageIndicator), findsOneWidget);
     });
 
     testWidgets('Contains BackArrowTeal widget', (WidgetTester tester) async {
-      await tester.pumpWidget(
-        ChangeNotifierProvider(
-          create: (_) => GuidedConsultationState()..currentPageIndex = 1,
-          child: buildConfig(
-            title: 'BackArrowTeal Test',
-            pageNum: 1,
-            body: Container(),
-          ),
-        ),
-      );
+      await tester.pumpWidget(buildConfig(
+        title: 'BackArrowTeal Test',
+        pageNum: 1,
+        body: Container(),
+      ));
+
       expect(find.byType(BackArrowTeal), findsOneWidget);
     });
 
@@ -99,9 +96,8 @@ void main() {
         pageNum: 1,
         body: Container(),
       ));
-      final MaterialApp app = tester.widget(find.byType(MaterialApp));
-      final Scaffold scaffold = tester.widget(find.byType(Scaffold));
-      final AppBar appBar = scaffold.appBar as AppBar;
+
+      final appBar = tester.widget<AppBar>(find.byType(AppBar));
       expect(appBar.backgroundColor, equals(AppColors.yellowCream));
     });
 
