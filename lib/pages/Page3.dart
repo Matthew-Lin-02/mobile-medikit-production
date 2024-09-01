@@ -3,7 +3,7 @@ import 'package:comp30022/color.dart';
 import 'package:comp30022/components/BackArrowBlack.dart';
 import 'package:comp30022/main.dart';
 import 'package:provider/provider.dart';
-import 'package:comp30022/pages/SignUp.dart';
+import 'package:comp30022/pages/Pages.dart';
 
 class Page3 extends StatelessWidget {
   const Page3({
@@ -39,7 +39,7 @@ class Page3 extends StatelessWidget {
                   SizedBox(width: 30),
                   LargePageButton(
                     label: "Existing Patient",
-                    page: SignUp(),
+                    page: ExistingPatient(),
                   ),
                 ],
               ),

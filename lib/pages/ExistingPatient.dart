@@ -1,12 +1,11 @@
-import 'package:comp30022/pages/MyHealthRecordPage1.dart';
-import 'package:comp30022/pages/AbstractConsultationPage.dart';
-import 'package:comp30022/components/CustomInputFields.dart';
+import 'package:comp30022/pages/Pages.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
+import 'package:comp30022/components/CustomInputFields.dart';
 
-const double VERTICAL_SPACING = 16;
+const double VERTICAL_SPACING_2 = 16;
 
-Builder signUpBody = Builder(builder: (context) {
+Builder existingPatientBody = Builder(builder: (context) {
   return Container(
     color: AppColors.cream, // Matching cream background color
     child: Center(
@@ -18,8 +17,8 @@ Builder signUpBody = Builder(builder: (context) {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               const SizedBox(height: 44),
-              Center(
-                child: const Text(
+              const Center(
+                child: Text(
                   'Personal Details',
                   style: TextStyle(
                       fontSize: 28, // Larger font size for section headers
@@ -29,7 +28,7 @@ Builder signUpBody = Builder(builder: (context) {
               const SizedBox(
                   height: 20), // Add more vertical space between sections
               Padding(
-                padding: const EdgeInsets.only(bottom: VERTICAL_SPACING),
+                padding: const EdgeInsets.only(bottom: VERTICAL_SPACING_2),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -37,7 +36,7 @@ Builder signUpBody = Builder(builder: (context) {
                         child:
                             DropDown(label: 'NAME 1', hintText: 'FIRST NAME')),
                     const SizedBox(width: 16), // Spacing between fields
-                    Expanded(
+                    const Expanded(
                         child: TextBox(
                       hintText: "LAST NAME",
                     ))
@@ -45,7 +44,7 @@ Builder signUpBody = Builder(builder: (context) {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: VERTICAL_SPACING),
+                padding: const EdgeInsets.only(bottom: VERTICAL_SPACING_2),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -62,8 +61,8 @@ Builder signUpBody = Builder(builder: (context) {
               ),
               DropDown(label: 'NAME 1', hintText: 'OTHER NAMES'),
               const SizedBox(height: 20),
-              Center(
-                child: const Text(
+              const Center(
+                child: Text(
                   'Next of Kin Details',
                   style: TextStyle(
                       fontSize: 28, // Larger font size for section headers
@@ -73,34 +72,30 @@ Builder signUpBody = Builder(builder: (context) {
               const SizedBox(
                   height: 20), // Add more vertical space between sections
               Padding(
-                  padding: const EdgeInsets.only(bottom: VERTICAL_SPACING),
+                  padding: const EdgeInsets.only(bottom: VERTICAL_SPACING_2),
                   child: Row(
                     children: [
                       Expanded(
                           child: DropDown(
                               label: 'Next of Kin 1',
                               hintText: 'NEXT OF KIN NAME')),
-                      SizedBox(width: 16), // Spacing between fields
+                      const SizedBox(width: 16), // Spacing between fields
                       Expanded(
                           child: DropDown(
                               label: 'Phone 1', hintText: 'MOBILE NUMBER'))
                     ],
                   )),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Center(
                 child: ElevatedButton(
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
+                          // TODO - Redirect to PatientLookUp (page not implemented yet)
                           builder: (context) => const MyHealthRecordPage1()),
                     );
                   },
-                  child: Text(
-                    '+ Add Patient',
-                    style: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold),
-                  ),
                   style: ElevatedButton.styleFrom(
                     backgroundColor:
                         AppColors.red, // Matching button background color
@@ -108,9 +103,15 @@ Builder signUpBody = Builder(builder: (context) {
                       borderRadius:
                           BorderRadius.circular(20.0), // Rounded corners
                     ),
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 30.0, vertical: 20.0),
                     elevation: 3, // Add slight shadow for depth
+                  ),
+                  child: const Text(
+                    // TODO - add search icon
+                    'Search',
+                    style: TextStyle(
+                        color: Colors.white, fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
@@ -122,12 +123,12 @@ Builder signUpBody = Builder(builder: (context) {
   );
 });
 
-class SignUp extends StatelessWidget {
-  const SignUp({super.key});
+class ExistingPatient extends StatelessWidget {
+  const ExistingPatient({super.key});
 
   @override
   Widget build(BuildContext context) {
     return AbstractConsultationPage(
-        title: "New Patient Sign Up", pageNum: 1, body: signUpBody);
+        title: "Existing Patient", pageNum: 1, body: existingPatientBody);
   }
 }

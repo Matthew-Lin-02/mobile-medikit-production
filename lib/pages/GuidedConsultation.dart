@@ -1,8 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:comp30022/color.dart';
-import 'package:comp30022/components/StatusTray.dart';
-import 'package:comp30022/components/StepIndicator.dart';
-import 'package:comp30022/components/BackArrowTeal.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
 import 'package:comp30022/guidedConsultationBodies/GuidedConsultationBody.dart';
 import 'package:provider/provider.dart';
