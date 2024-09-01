@@ -9,12 +9,13 @@ Builder existingPatientBody = Builder(builder: (context) {
     child: Center(
       child: FractionallySizedBox(
         widthFactor: 0.8, // Set the width to 4/5 of the screen width
+
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 44),
+              const SizedBox(height: 40),
               const Center(
                 child: Column(
                   children: [
@@ -61,7 +62,7 @@ Builder existingPatientBody = Builder(builder: (context) {
                         child: DropDown(
                             label: 'DoB 1',
                             hintText: 'Date of birth (dd/mm/yyyy)')),
-                    const SizedBox(width: 16), // Spacing between fields
+                    const SizedBox(width: 20), // Spacing between fields
                     Expanded(
                         child: DropDown(label: 'Phone 1', hintText: 'Mobile')),
                   ],
@@ -84,7 +85,7 @@ Builder existingPatientBody = Builder(builder: (context) {
                         SizedBox(width: 20),
                         Text('Next of Kin Details',
                             style: TextStyle(
-                              fontSize: 48, //TODO - magic number
+                              fontSize: 48,
                             )),
                       ],
                     ),
@@ -100,7 +101,7 @@ Builder existingPatientBody = Builder(builder: (context) {
                       Expanded(
                           child: DropDown(
                               label: 'Next of \nKin 1', hintText: 'Full Name')),
-                      const SizedBox(width: 16), // Spacing between fields
+                      const SizedBox(width: 20), // Spacing between fields
                       Expanded(
                           child: DropDown(label: 'Phone 1', hintText: 'Mobile'))
                     ],
@@ -132,7 +133,7 @@ Builder existingPatientBody = Builder(builder: (context) {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Image(
-                        height: 47,
+                        height: 40,
                         width: 52,
                         image: AssetImage(
                             'assets/images/person_search_white.png')),
