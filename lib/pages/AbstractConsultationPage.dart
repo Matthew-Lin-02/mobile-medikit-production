@@ -43,8 +43,7 @@ class AbstractConsultationPage extends StatelessWidget {
                     child: Text(
                       title,
                       style: const TextStyle(
-                        fontSize: 44,
-                        fontWeight: FontWeight.bold,
+                        fontSize: 74,
                         color: Colors.black,
                       ),
                     ),

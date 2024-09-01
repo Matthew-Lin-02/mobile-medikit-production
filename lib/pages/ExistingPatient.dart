@@ -3,14 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/components/CustomInputFields.dart';
 
-const double VERTICAL_SPACING_2 = 16;
-
 Builder existingPatientBody = Builder(builder: (context) {
   return Container(
-    color: AppColors.cream, // Matching cream background color
+    color: AppColors.cream,
     child: Center(
       child: FractionallySizedBox(
-        widthFactor: 0.6, // Set the width to 3/5 of the screen width
+        widthFactor: 0.8, // Set the width to 4/5 of the screen width
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -25,22 +23,22 @@ Builder existingPatientBody = Builder(builder: (context) {
                       children: [
                         Image(
                           image: AssetImage('assets/images/red_art.png'),
-                          width: 100,
-                          height: 100,
+                          width: 60,
+                          height: 60,
                         ),
+                        SizedBox(width: 20),
                         Text('Personal Details',
                             style: TextStyle(
-                              fontSize: 48, //TODO - magic number
+                              fontSize: 48,
                             )),
                       ],
                     ),
                   ],
                 ),
               ),
-              const SizedBox(
-                  height: 20), // Add more vertical space between sections
+              const SizedBox(height: 20),
               Padding(
-                padding: const EdgeInsets.only(bottom: VERTICAL_SPACING_2),
+                padding: const EdgeInsets.only(bottom: VERTICAL_SPACING),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -55,7 +53,7 @@ Builder existingPatientBody = Builder(builder: (context) {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: VERTICAL_SPACING_2),
+                padding: const EdgeInsets.only(bottom: VERTICAL_SPACING),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -77,11 +75,13 @@ Builder existingPatientBody = Builder(builder: (context) {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        SizedBox(height: 20),
                         Image(
                           image: AssetImage('assets/images/yellow_art.png'),
-                          width: 100,
-                          height: 100,
+                          width: 60,
+                          height: 60,
                         ),
+                        SizedBox(width: 20),
                         Text('Next of Kin Details',
                             style: TextStyle(
                               fontSize: 48, //TODO - magic number
@@ -94,12 +94,12 @@ Builder existingPatientBody = Builder(builder: (context) {
               const SizedBox(
                   height: 20), // Add more vertical space between sections
               Padding(
-                  padding: const EdgeInsets.only(bottom: VERTICAL_SPACING_2),
+                  padding: const EdgeInsets.only(bottom: VERTICAL_SPACING),
                   child: Row(
                     children: [
                       Expanded(
                           child: DropDown(
-                              label: 'Next of Kin 1', hintText: 'Full Name')),
+                              label: 'Next of \nKin 1', hintText: 'Full Name')),
                       const SizedBox(width: 16), // Spacing between fields
                       Expanded(
                           child: DropDown(label: 'Phone 1', hintText: 'Mobile'))
@@ -121,7 +121,7 @@ Builder existingPatientBody = Builder(builder: (context) {
                       AppColors.red, // Matching button background color
                   shape: RoundedRectangleBorder(
                     borderRadius:
-                        BorderRadius.circular(20.0), // Rounded corners
+                        BorderRadius.circular(100.0), // Rounded corners
                   ),
                   padding: const EdgeInsets.symmetric(
                       horizontal: 30.0, vertical: 20.0),
@@ -136,10 +136,11 @@ Builder existingPatientBody = Builder(builder: (context) {
                         width: 52,
                         image: AssetImage(
                             'assets/images/person_search_white.png')),
+                    SizedBox(width: 20),
                     Text(
                       'Search',
                       style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold),
+                          color: Colors.white, fontSize: 24), // Text style
                     ),
                   ],
                 ),
