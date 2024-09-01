@@ -18,11 +18,23 @@ Builder existingPatientBody = Builder(builder: (context) {
             children: [
               const SizedBox(height: 44),
               const Center(
-                child: Text(
-                  'Personal Details',
-                  style: TextStyle(
-                      fontSize: 28, // Larger font size for section headers
-                      fontWeight: FontWeight.bold),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image(
+                          image: AssetImage('assets/images/red_art.png'),
+                          width: 100,
+                          height: 100,
+                        ),
+                        Text('Personal Details',
+                            style: TextStyle(
+                              fontSize: 48, //TODO - magic number
+                            )),
+                      ],
+                    ),
+                  ],
                 ),
               ),
               const SizedBox(
@@ -33,12 +45,11 @@ Builder existingPatientBody = Builder(builder: (context) {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Expanded(
-                        child:
-                            DropDown(label: 'NAME 1', hintText: 'FIRST NAME')),
+                        child: DropDown(label: 'Name 1', hintText: 'First')),
                     const SizedBox(width: 16), // Spacing between fields
                     const Expanded(
                         child: TextBox(
-                      hintText: "LAST NAME",
+                      hintText: "Last",
                     ))
                   ],
                 ),
@@ -51,22 +62,33 @@ Builder existingPatientBody = Builder(builder: (context) {
                     Expanded(
                         child: DropDown(
                             label: 'DoB 1',
-                            hintText: 'DATE OF BIRTH (dd/mm/yyyy)')),
+                            hintText: 'Date of birth (dd/mm/yyyy)')),
                     const SizedBox(width: 16), // Spacing between fields
                     Expanded(
-                        child: DropDown(
-                            label: 'Phone 1', hintText: 'MOBILE NUMBER')),
+                        child: DropDown(label: 'Phone 1', hintText: 'Mobile')),
                   ],
                 ),
               ),
-              DropDown(label: 'NAME 1', hintText: 'OTHER NAMES'),
+              DropDown(label: 'Name 1', hintText: 'Other Names'),
               const SizedBox(height: 20),
               const Center(
-                child: Text(
-                  'Next of Kin Details',
-                  style: TextStyle(
-                      fontSize: 28, // Larger font size for section headers
-                      fontWeight: FontWeight.bold),
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image(
+                          image: AssetImage('assets/images/yellow_art.png'),
+                          width: 100,
+                          height: 100,
+                        ),
+                        Text('Next of Kin Details',
+                            style: TextStyle(
+                              fontSize: 48, //TODO - magic number
+                            )),
+                      ],
+                    ),
+                  ],
                 ),
               ),
               const SizedBox(
@@ -77,44 +99,51 @@ Builder existingPatientBody = Builder(builder: (context) {
                     children: [
                       Expanded(
                           child: DropDown(
-                              label: 'Next of Kin 1',
-                              hintText: 'NEXT OF KIN NAME')),
+                              label: 'Next of Kin 1', hintText: 'Full Name')),
                       const SizedBox(width: 16), // Spacing between fields
                       Expanded(
-                          child: DropDown(
-                              label: 'Phone 1', hintText: 'MOBILE NUMBER'))
+                          child: DropDown(label: 'Phone 1', hintText: 'Mobile'))
                     ],
                   )),
               const SizedBox(height: 30),
               Center(
-                child: ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          // TODO - Redirect to PatientLookUp (page not implemented yet)
-                          builder: (context) => const MyHealthRecordPage1()),
-                    );
-                  },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor:
-                        AppColors.red, // Matching button background color
-                    shape: RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular(20.0), // Rounded corners
-                    ),
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 30.0, vertical: 20.0),
-                    elevation: 3, // Add slight shadow for depth
+                  child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        // TODO - Redirect to PatientLookUp (page not implemented yet)
+                        builder: (context) => const MyHealthRecordPage1()),
+                  );
+                },
+                style: ElevatedButton.styleFrom(
+                  backgroundColor:
+                      AppColors.red, // Matching button background color
+                  shape: RoundedRectangleBorder(
+                    borderRadius:
+                        BorderRadius.circular(20.0), // Rounded corners
                   ),
-                  child: const Text(
-                    // TODO - add search icon
-                    'Search',
-                    style: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold),
-                  ),
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 30.0, vertical: 20.0),
+                  elevation: 3, // Add slight shadow for depth
                 ),
-              ),
+                child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Image(
+                        height: 47,
+                        width: 52,
+                        image: AssetImage(
+                            'assets/images/person_search_white.png')),
+                    Text(
+                      'Search',
+                      style: TextStyle(
+                          color: Colors.white, fontWeight: FontWeight.bold),
+                    ),
+                  ],
+                ),
+              )),
             ],
           ),
         ),

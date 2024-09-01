@@ -32,8 +32,7 @@ class DropDown extends StatelessWidget {
                         const EdgeInsets.only(left: 4.0), // Apply left padding
                     child: Text(
                       value,
-                      style:
-                          TextStyle(fontWeight: FontWeight.bold, fontSize: 12),
+                      style: const TextStyle(fontSize: 18),
                     ),
                   ),
                 );
@@ -57,7 +56,7 @@ class TextBox extends StatelessWidget {
   final String hintText;
   final double fontSize;
 
-  const TextBox({required this.hintText, this.fontSize = 16});
+  const TextBox({required this.hintText, this.fontSize = 24});
 
   @override
   Widget build(BuildContext context) {

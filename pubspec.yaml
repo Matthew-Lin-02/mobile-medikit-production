@@ -62,17 +62,7 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets: 
-  - assets/images/background.png
-  - assets/images/person_add.png
-  - assets/images/person_search.png
-  - assets/images/shortcut.png
-  - assets/images/globe.png
-  - assets/images/person-outline.png
-  - assets/images/phone.png
-  - assets/images/settings.png
-  - assets/images/wifi-connection.png
-  - assets/images/ambulance.png
-  - assets/images/chatbot-icon.png
+  - assets/images/
   fonts:
     - family: VarelaRound
       fonts:
