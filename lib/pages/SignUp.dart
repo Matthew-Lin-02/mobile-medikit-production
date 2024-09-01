@@ -1,8 +1,12 @@
 import 'package:comp30022/pages/MyHealthRecordPage1.dart';
-import 'package:comp30022/pages/AbstractConsultationPage.dart';
-import 'package:comp30022/components/CustomInputFields.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
+
+import 'package:comp30022/components/CustomInputFields.dart';
+import 'package:comp30022/components/StatusTray.dart';
+import 'package:comp30022/components/StepIndicator.dart';
+import 'package:comp30022/components/BackArrowTeal.dart';
+import 'package:comp30022/pages/AbstractConsultationPage.dart';
 
 const double VERTICAL_SPACING = 16;
 
