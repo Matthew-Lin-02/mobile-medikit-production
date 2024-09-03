@@ -7,6 +7,8 @@ class StatusTray extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final currentRoute = ModalRoute.of(context)?.settings.name;
+
     return IntrinsicWidth(
       child: IntrinsicHeight(
         child: Container(
@@ -33,11 +35,9 @@ class StatusTray extends StatelessWidget {
                   iconSize: iconSize,
                   image: 'assets/images/person-outline.png',
                   onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const PatientProfile()),
-                    );
+                    if (currentRoute != '/patientProfile') {
+                      Navigator.pushNamed(context, '/patientProfile');
+                    }
                   }),
               StatusIcon(
                 iconSize: iconSize,

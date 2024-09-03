@@ -33,6 +33,7 @@ Builder patientProfileBody = Builder(builder: (context) {
 });
 
 class PatientProfile extends StatelessWidget {
+  static const String routeName = '/PatientProfile';
   const PatientProfile({super.key});
 
   @override
