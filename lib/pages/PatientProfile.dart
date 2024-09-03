@@ -1,3 +1,4 @@
+import 'package:comp30022/components/chatbotButton.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
@@ -6,9 +7,9 @@ import 'package:comp30022/components/YellowBorderWhiteCard.dart';
 Builder patientProfileBody = Builder(builder: (context) {
   return Container(
     color: AppColors.cream, // Matching cream background color
-    padding: EdgeInsets.only(top: 30, bottom: 60, left: 140, right: 140),
+    padding: EdgeInsets.only(top: 70, bottom: 60, left: 120, right: 20),
     child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const Column(
@@ -18,7 +19,7 @@ Builder patientProfileBody = Builder(builder: (context) {
                   isShadowOn: true,
                   width: 432,
                   height: 417),
-              SizedBox(height: 20),
+              SizedBox(height: 35),
               YellowBorderWhiteCard(
                 widget: AllergiesCard(),
                 isShadowOn: true,
@@ -27,7 +28,10 @@ Builder patientProfileBody = Builder(builder: (context) {
               )
             ],
           ),
+          SizedBox(width: 40),
           UserDetailTabs(),
+          SizedBox(width: 30),
+          Chatbotbutton(),
         ]),
   );
 });
@@ -164,7 +168,7 @@ class _UserDetailTabsState extends State<UserDetailTabs> {
   Widget build(BuildContext context) {
     return Container(
       width: 1153,
-      height: 682,
+      height: 697,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -202,7 +206,7 @@ class _UserDetailTabsState extends State<UserDetailTabs> {
           Expanded(
             child: Container(
                 width: 1153,
-                height: 682,
+                height: 697,
                 padding: EdgeInsets.all(5),
                 decoration: BoxDecoration(
                     color: AppColors.yellowCream,
