@@ -1,4 +1,4 @@
-import 'package:comp30022/components/chatbotButton.dart';
+import 'package:comp30022/components/ChatbotButton.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
@@ -31,7 +31,7 @@ Builder patientProfileBody = Builder(builder: (context) {
           SizedBox(width: 40),
           UserDetailTabs(),
           SizedBox(width: 30),
-          Chatbotbutton(),
+          ChatbotButton(),
         ]),
   );
 });
