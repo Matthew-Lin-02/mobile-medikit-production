@@ -1,5 +1,5 @@
 import 'package:comp30022/components/RedActionButton.dart';
-import 'package:comp30022/components/chatBotButton.dart';
+import 'package:comp30022/components/ChatbotButton.dart';
 import 'package:comp30022/pages/Pages.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
