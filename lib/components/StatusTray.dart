@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:comp30022/pages/PatientProfile.dart';
 import 'package:comp30022/color.dart';
 
 class StatusTray extends StatelessWidget {
@@ -31,7 +31,14 @@ class StatusTray extends StatelessWidget {
               ),
               StatusIcon(
                   iconSize: iconSize,
-                  image: 'assets/images/person-outline.png'),
+                  image: 'assets/images/person-outline.png',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const PatientProfile()),
+                    );
+                  }),
               StatusIcon(
                 iconSize: iconSize,
                 image: 'assets/images/settings.png',
