@@ -451,7 +451,7 @@ class TabWidget extends StatelessWidget {
         child: Text(
           label,
           style: TextStyle(
-            fontSize: 16,
+            fontSize: 24,
             color: isSelected ? Colors.black : Colors.grey[600],
           ),
         ),
