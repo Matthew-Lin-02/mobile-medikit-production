@@ -4,20 +4,27 @@ import 'package:comp30022/components/StepIndicator.dart'; // Adjust the import t
 
 void main() {
   testWidgets(
-      'IndicatorPageName text scales with FittedBox when screen size changes',
+      'IndicatorPageName FittedBox changes size when screen size changes',
       (WidgetTester tester) async {
     // Build the widget under test
     await tester.pumpWidget(
       MaterialApp(
         home: Scaffold(
-          body: IndicatorPageName(
-            boxSize: 90, text: 'SampleText', bold: false, coloured: false,
+            body: Row(
+          children: [
+            IndicatorPageName(
+              boxSize: 90, text: 'This is an example of a potential page name',
+              bold: false, coloured: false,
 
-            // Assuming IndicatorPageName takes some parameters; adjust accordingly
-          ),
-        ),
+              // Assuming IndicatorPageName takes some parameters; adjust accordingly
+            ),
+          ],
+        )),
       ),
     );
+    expect(
+        find.text('This is an example of a potential page name').hitTestable(),
+        findsOneWidget);
 
     // Set an initial large screen size
     await tester.binding
@@ -25,12 +32,10 @@ void main() {
     await tester.pumpAndSettle();
 
     // Capture the Text widget for further analysis
-    final textFinder = find.byType(Text);
-    final textWidget = tester.firstWidget<Text>(textFinder);
+    final textFinder = find.byType(FittedBox);
 
     // Measure the size of the Text widget on the large screen
-    final largeScreenBox = tester.renderObject<RenderBox>(textFinder);
-    final largeScreenTextSize = largeScreenBox.size;
+    final largeScreenTextSize = tester.getSize(textFinder);
 
     // Verify that the text widget has a non-zero size
     expect(largeScreenTextSize.height, greaterThan(0));
@@ -42,8 +47,7 @@ void main() {
     await tester.pumpAndSettle();
 
     // Measure the size of the Text widget on the smaller screen
-    final smallScreenBox = tester.renderObject<RenderBox>(textFinder);
-    final smallScreenTextSize = smallScreenBox.size;
+    final smallScreenTextSize = tester.getSize(textFinder);
 
     // Verify that the text widget's size has decreased
     expect(smallScreenTextSize.height, lessThan(largeScreenTextSize.height));
