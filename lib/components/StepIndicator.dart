@@ -62,19 +62,20 @@ class IndicatorPageName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        width: boxSize,
-        child: Center(
-            child: Text(
-          text,
-          style: TextStyle(
-            fontSize: 11.0 * SCALE,
-            fontWeight: bold ? FontWeight.bold : FontWeight.normal,
-            color: coloured
-                ? Color.fromRGBO(35, 81, 104, 1)
-                : Color.fromARGB(255, 88, 88, 88),
-          ),
-        )));
+    return Expanded(
+      child: FittedBox(
+          fit: BoxFit.scaleDown,
+          child: Text(
+            text,
+            style: TextStyle(
+              fontSize: 11.0 * SCALE,
+              fontWeight: bold ? FontWeight.bold : FontWeight.normal,
+              color: coloured
+                  ? Color.fromRGBO(35, 81, 104, 1)
+                  : Color.fromARGB(255, 88, 88, 88),
+            ),
+          )),
+    );
   }
 }
 
@@ -181,49 +182,42 @@ class PageIndicatorNames extends StatelessWidget {
               bold: currPage > 1,
               coloured: currPage >= 1,
             ),
-            Expanded(child: SizedBox(width: 400)),
             IndicatorPageName(
               boxSize: 95.0 * SCALE,
               text: "Consultation",
               bold: currPage > 2,
               coloured: currPage >= 2,
             ),
-            Expanded(child: SizedBox(width: 400)),
             IndicatorPageName(
               boxSize: 95.0 * SCALE,
               text: "Screening Tools",
               bold: currPage > 3,
               coloured: currPage >= 3,
             ),
-            Expanded(child: SizedBox(width: 400)),
             IndicatorPageName(
               boxSize: 95.0 * SCALE,
               text: "Results",
               bold: currPage > 4,
               coloured: currPage >= 4,
             ),
-            Expanded(child: SizedBox(width: 400)),
             IndicatorPageName(
               boxSize: 95.0 * SCALE,
               text: "Explanation",
               bold: currPage > 5,
               coloured: currPage >= 5,
             ),
-            Expanded(child: SizedBox(width: 400)),
             IndicatorPageName(
               boxSize: 95.0 * SCALE,
               text: "Follow Up",
               bold: currPage > 6,
               coloured: currPage >= 6,
             ),
-            Expanded(child: SizedBox(width: 400)),
             IndicatorPageName(
               boxSize: 95.0 * SCALE,
               text: "Patient plan",
               bold: currPage > 7,
               coloured: currPage >= 7,
             ),
-            Expanded(child: SizedBox(width: 400)),
             IndicatorPageName(
               boxSize: 95.0 * SCALE,
               text: "Medical Report",

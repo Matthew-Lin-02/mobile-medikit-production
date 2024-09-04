@@ -1,16 +1,27 @@
-# comp30022
+# Mobile Medi-kit Interface
 
-A new Flutter project.
+## About this project
+
+The Mobile Medi-kit is a product from Curtin University and is aimed at improving the quality of healthcare for remote communities in the Pilbara. This is achieved by providing the necessary tools and guidance for health care workers in one easy to use system. 
+
+This project aims to produce the front end user interface for this product using the designs provided by Curtin University. This project prioritises adding functionality over decorative elements. 
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+There is no need to download and run a copy of this project locally, instead it can be accsessed at:
 
-A few resources to get you started if this is your first Flutter project:
+https://brynne0.github.io/COMP30022/
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+_Note: This project is designed to run on screens sizes 1920 x 1080 or larger_
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Built using
+
+Flutter version 3.18 or higher
+
+## Contributors 
+
+* Brynne O’Brien (Scrum Master)
+* Felix Mccuaig (Product Owner)
+* James Wilson
+* Matthew Lin
+* Conor Nunn

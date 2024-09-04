@@ -1,4 +1,4 @@
-.dart_tool
-.idea
+.dart_tool/
+.idea/
 build/
-.log
+*.log

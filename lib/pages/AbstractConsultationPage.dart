@@ -34,7 +34,8 @@ class AbstractConsultationPage extends StatelessWidget {
               child: Row(
                 children: [
                   SizedBox(width: 12),
-                  (guidedConsultationState.currentPageIndex == 0)
+                  (guidedConsultationState.currentPageIndex == 0 ||
+                          this.title == "Patient Profile")
                       ? const BackArrowTeal()
                       : BackArrowTeal(
                           onPressed: guidedConsultationState.decrementPageNum),

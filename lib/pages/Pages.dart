@@ -5,3 +5,5 @@ export 'MyHealthRecordPage1.dart';
 export 'MyHealthRecordPage2.dart';
 export 'SignIn.dart';
 export 'GuidedConsultation.dart';
+export 'ExistingPatient.dart';
+export 'AbstractConsultationPage.dart';

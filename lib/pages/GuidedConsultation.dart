@@ -1,10 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:comp30022/color.dart';
-import 'package:comp30022/components/StatusTray.dart';
-import 'package:comp30022/components/StepIndicator.dart';
-import 'package:comp30022/components/BackArrowTeal.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
-import 'package:comp30022/guidedConsultationBodies/GuidedConsultationBody.dart';
 import 'package:provider/provider.dart';
 import 'package:comp30022/guidedConsultationBodies/Bodies.dart';
 
@@ -19,12 +14,8 @@ class _GuidedConsultationState extends State<GuidedConsultation> {
   @override
   Widget build(BuildContext context) {
     var guidedConsultationState = context.watch<GuidedConsultationState>();
-    return AbstractConsultationPage(
-        title: "Guided Consultation",
-        pageNum: guidedConsultationState
-            .getPageNumber(guidedConsultationState.currentPageIndex),
-        body: guidedConsultationState
-            .pageBodies[guidedConsultationState.currentPageIndex]);
+    return guidedConsultationState
+        .pageBodies[guidedConsultationState.currentPageIndex];
   }
 }
 
@@ -33,15 +24,24 @@ class GuidedConsultationState extends ChangeNotifier {
   var pageBodies = <Widget>[];
 
   GuidedConsultationState() {
-    _initializePageBodies();
+    _initializePages();
   }
 
-  void _initializePageBodies() {
+  void _initializePages() {
     // Initialize your pagebodies here
     pageBodies = [
       // page 1
-      GuidedConsultationBody(),
-      ScreeningTools(),
+      AbstractConsultationPage(
+        title: "Guided Consultation",
+        pageNum: 2,
+        body: GuidedConsultationBody(),
+      ),
+
+      AbstractConsultationPage(
+        title: " ScreeningTools",
+        pageNum: 3,
+        body: ScreeningTools(),
+      )
     ];
     notifyListeners();
   }

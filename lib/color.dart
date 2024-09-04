@@ -14,4 +14,11 @@ class AppColors {
   static const Color turquoise = Color(0xFF00B9B5);
   static const Color darkRed = Color(0xFFD9534F);
   static const Color black = Color(0xFF000000);
+
+  //Status Tray
+  static const Color machineTranslationOverlayRed = Color(0xFFB74534);
+  static const Color machineTranslationOverlayLeftCream = Color(0xFFFFF5DF);
+  static const Color machineTranslationOverlayRightCream = yellowCream;
+  static const Color machineTranslationOverlayBlueButton = Color(0xFF00B1B2);
+  static const Color ContactHealthExpertOverlayCream = Color(0xFFFFF5DF);
 }
