@@ -100,7 +100,7 @@ Builder existingPatientBody = Builder(builder: (context) {
                     children: [
                       Expanded(
                           child: DropDown(
-                              label: 'Next of \nKin 1', hintText: 'Full Name')),
+                              label: 'Next of\nKin 1', hintText: 'Full Name')),
                       const SizedBox(width: 20), // Spacing between fields
                       Expanded(
                           child: DropDown(label: 'Phone 1', hintText: 'Mobile'))
