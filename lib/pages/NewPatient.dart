@@ -15,19 +15,33 @@ Builder signUpBody = Builder(builder: (context) {
     color: AppColors.cream, // Matching cream background color
     child: Center(
       child: FractionallySizedBox(
-        widthFactor: 0.6, // Set the width to 3/5 of the screen width
+        widthFactor: 0.8, // Set the width to 4/5 of the screen width
+
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 44),
-              Center(
-                child: const Text(
-                  'Personal Details',
-                  style: TextStyle(
-                      fontSize: 28, // Larger font size for section headers
-                      fontWeight: FontWeight.bold),
+              const SizedBox(height: 40),
+              const Center(
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image(
+                          image: AssetImage('assets/images/red_art.png'),
+                          width: 60,
+                          height: 60,
+                        ),
+                        SizedBox(width: 20),
+                        Text('Personal Details',
+                            style: TextStyle(
+                              fontSize: 48,
+                            )),
+                      ],
+                    ),
+                  ],
                 ),
               ),
               const SizedBox(
@@ -38,12 +52,11 @@ Builder signUpBody = Builder(builder: (context) {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Expanded(
-                        child:
-                            DropDown(label: 'NAME 1', hintText: 'FIRST NAME')),
+                        child: DropDown(label: 'Name 1', hintText: 'First')),
                     const SizedBox(width: 16), // Spacing between fields
-                    Expanded(
+                    const Expanded(
                         child: TextBox(
-                      hintText: "LAST NAME",
+                      hintText: "Last",
                     ))
                   ],
                 ),
@@ -56,22 +69,35 @@ Builder signUpBody = Builder(builder: (context) {
                     Expanded(
                         child: DropDown(
                             label: 'DoB 1',
-                            hintText: 'DATE OF BIRTH (dd/mm/yyyy)')),
+                            hintText: 'Date of birth (dd/mm/yyyy)')),
                     const SizedBox(width: 16), // Spacing between fields
                     Expanded(
-                        child: DropDown(
-                            label: 'Phone 1', hintText: 'MOBILE NUMBER')),
+                        child: DropDown(label: 'Phone 1', hintText: 'Mobile')),
                   ],
                 ),
               ),
-              DropDown(label: 'NAME 1', hintText: 'OTHER NAMES'),
+              DropDown(label: 'Name 1', hintText: 'Other Names'),
               const SizedBox(height: 20),
-              Center(
-                child: const Text(
-                  'Next of Kin Details',
-                  style: TextStyle(
-                      fontSize: 28, // Larger font size for section headers
-                      fontWeight: FontWeight.bold),
+              const Center(
+                child: Column(
+                  children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SizedBox(height: 20),
+                        Image(
+                          image: AssetImage('assets/images/yellow_art.png'),
+                          width: 60,
+                          height: 60,
+                        ),
+                        SizedBox(width: 20),
+                        Text('Next of Kin Details',
+                            style: TextStyle(
+                              fontSize: 48,
+                            )),
+                      ],
+                    ),
+                  ],
                 ),
               ),
               const SizedBox(
@@ -82,15 +108,13 @@ Builder signUpBody = Builder(builder: (context) {
                     children: [
                       Expanded(
                           child: DropDown(
-                              label: 'Next of Kin 1',
-                              hintText: 'NEXT OF KIN NAME')),
+                              label: 'Next of\nKin 1', hintText: 'Full Name')),
                       SizedBox(width: 16), // Spacing between fields
                       Expanded(
-                          child: DropDown(
-                              label: 'Phone 1', hintText: 'MOBILE NUMBER'))
+                          child: DropDown(label: 'Phone 1', hintText: 'Mobile'))
                     ],
                   )),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               Center(
                 child: ElevatedButton(
                   onPressed: () {
@@ -100,21 +124,20 @@ Builder signUpBody = Builder(builder: (context) {
                           builder: (context) => const MyHealthRecordPage1()),
                     );
                   },
-                  child: Text(
-                    '+ Add Patient',
-                    style: TextStyle(
-                        color: Colors.white, fontWeight: FontWeight.bold),
-                  ),
                   style: ElevatedButton.styleFrom(
                     backgroundColor:
                         AppColors.red, // Matching button background color
                     shape: RoundedRectangleBorder(
                       borderRadius:
-                          BorderRadius.circular(20.0), // Rounded corners
+                          BorderRadius.circular(100.0), // Rounded corners
                     ),
                     padding:
                         EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
                     elevation: 3, // Add slight shadow for depth
+                  ),
+                  child: const Text(
+                    '+ Add Patient',
+                    style: TextStyle(color: Colors.white, fontSize: 24),
                   ),
                 ),
               ),
@@ -132,6 +155,6 @@ class SignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AbstractConsultationPage(
-        title: "New Patient Sign Up", pageNum: 1, body: signUpBody);
+        title: "New Patient", pageNum: 1, body: signUpBody);
   }
 }
