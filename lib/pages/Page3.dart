@@ -3,7 +3,7 @@ import 'package:comp30022/color.dart';
 import 'package:comp30022/components/BackArrowBlack.dart';
 import 'package:comp30022/main.dart';
 import 'package:provider/provider.dart';
-import 'package:comp30022/pages/SignUp.dart';
+import 'package:comp30022/pages/Pages.dart';
 
 class Page3 extends StatelessWidget {
   const Page3({
@@ -26,7 +26,7 @@ class Page3 extends StatelessWidget {
                       image: AssetImage('assets/images/person_add.png'),
                       height: 90),
                   SizedBox(width: 30),
-                  LargePageButton(label: "New Patient"),
+                  LargePageButton(label: "New Patient", page: SignUp()),
                 ],
               ),
               SizedBox(height: 60),
@@ -37,7 +37,10 @@ class Page3 extends StatelessWidget {
                       image: AssetImage('assets/images/person_search.png'),
                       height: 90),
                   SizedBox(width: 30),
-                  LargePageButton(label: "Existing Patient"),
+                  LargePageButton(
+                    label: "Existing Patient",
+                    page: ExistingPatient(),
+                  ),
                 ],
               ),
               SizedBox(height: 60),
@@ -48,7 +51,8 @@ class Page3 extends StatelessWidget {
                       image: AssetImage('assets/images/shortcut.png'),
                       height: 90),
                   SizedBox(width: 30),
-                  LargePageButton(label: "Direct Functionality"),
+                  LargePageButton(
+                      label: "Direct Functionality", page: SignUp()),
                 ],
               ),
             ],
@@ -62,10 +66,12 @@ class LargePageButton extends StatelessWidget {
     super.key,
     this.debugStatement = "Button Pressed",
     required this.label,
+    required this.page,
   });
 
   final String debugStatement;
   final String label;
+  final StatelessWidget page;
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +80,7 @@ class LargePageButton extends StatelessWidget {
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => SignUp()),
+            MaterialPageRoute(builder: (context) => page),
           );
         },
         label: Text(
