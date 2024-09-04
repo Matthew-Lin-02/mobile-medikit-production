@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/config.dart';
 import 'package:comp30022/components/YellowCard.dart';
+import 'package:comp30022/components/yarningCards/SocialYarningExpanded.dart';
 import 'package:provider/provider.dart';
 
 class GuidedConsultationBody extends StatelessWidget {
@@ -48,7 +49,7 @@ class GuidedConsultationBody extends StatelessWidget {
                       const SizedBox(height: 10),
                       YellowCard(
                         cardData: socialYarningCardData,
-                        cardContentExpanded: const SocialYarningCardExpanded(),
+                        cardContentExpanded: const SocialYarningCardContent(),
                       ),
                       const SizedBox(height: 20),
                       YellowCard(

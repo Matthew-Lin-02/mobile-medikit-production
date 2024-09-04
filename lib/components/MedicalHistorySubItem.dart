@@ -5,12 +5,14 @@ class MedicalHistorySubItem extends StatelessWidget {
   final String title;
   final String description;
   final String hintText;
+  final int maxLines;
 
   const MedicalHistorySubItem({
     Key? key,
     required this.title,
     required this.description,
     this.hintText = 'Enter here...',
+    this.maxLines = 4,
   }) : super(key: key);
 
   @override
@@ -35,7 +37,7 @@ class MedicalHistorySubItem extends StatelessWidget {
           ),
         ),
         SizedBox(height: 8),
-        YellowTextField(hintText: hintText),
+        YellowTextField(hintText: hintText, maxLines: maxLines),
       ],
     );
   }

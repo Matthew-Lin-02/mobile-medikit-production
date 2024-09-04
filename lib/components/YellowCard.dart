@@ -44,7 +44,13 @@ class YellowCardState extends State<YellowCard> {
               style: const TextStyle(fontSize: 32),
             ),
             if (expanded)
-              widget.cardContentExpanded
+              Column(children: [
+                CardContentClosed(
+                  subtitleItemMap: widget.cardData.subtitleItemMap,
+                ),
+                const SizedBox(height: 32),
+                widget.cardContentExpanded
+              ])
             else
               CardContentClosed(
                 subtitleItemMap: widget.cardData.subtitleItemMap,
@@ -53,22 +59,6 @@ class YellowCardState extends State<YellowCard> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class SocialYarningCardExpanded extends StatelessWidget {
-  const SocialYarningCardExpanded({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Column(
-      children: [
-        MedicalHistorySubItem(
-            title: "Medical History",
-            description:
-                "Any health related issues the patient is struggling with or has struggled with in the past."),
-      ],
     );
   }
 }
