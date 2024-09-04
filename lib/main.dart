@@ -1,3 +1,4 @@
+import 'package:comp30022/pages/PatientProfile.dart';
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -27,6 +28,9 @@ class MyApp extends StatelessWidget {
           scaffoldBackgroundColor: AppColors.cream,
         ),
         home: const SignIn(),
+        routes: {
+          '/patientProfile': (context) => PatientProfile(),
+        },
       ),
     );
   }

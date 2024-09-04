@@ -1,4 +1,5 @@
 import 'package:comp30022/components/RedActionButton.dart';
+import 'package:comp30022/components/ChatbotButton.dart';
 import 'package:comp30022/pages/Pages.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
@@ -74,25 +75,7 @@ class GuidedConsultationBody extends StatelessWidget {
             ),
           ),
         ),
-        Positioned(
-            right: 30.0,
-            top: 16.0,
-            child: TextButton(
-              onPressed: () {
-                // Define the action here
-              },
-              style: TextButton.styleFrom(
-                padding:
-                    const EdgeInsets.all(0), // Remove padding to fit the image
-                minimumSize:
-                    const Size(0, 0), // Remove default size constraints
-              ),
-              child: Image.asset(
-                'assets/images/chatbot-icon.png',
-                height: 90, // Adjust the size of the image as needed
-                width: 90,
-              ),
-            )),
+        Positioned(right: 30.0, top: 16.0, child: ChatbotButton()),
         Positioned(
           right: 21.0,
           bottom: 70,

@@ -21,6 +21,4 @@ class AppColors {
   static const Color machineTranslationOverlayRightCream = yellowCream;
   static const Color machineTranslationOverlayBlueButton = Color(0xFF00B1B2);
   static const Color ContactHealthExpertOverlayCream = Color(0xFFFFF5DF);
-
-  //background: #B74534;
 }

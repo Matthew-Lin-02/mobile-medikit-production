@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:comp30022/pages/PatientProfile.dart';
 import 'package:comp30022/color.dart';
 
 class StatusTray extends StatelessWidget {
@@ -7,6 +7,8 @@ class StatusTray extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final currentRoute = ModalRoute.of(context)?.settings.name;
+
     return IntrinsicWidth(
       child: IntrinsicHeight(
         child: Container(
@@ -31,7 +33,12 @@ class StatusTray extends StatelessWidget {
               ),
               StatusIcon(
                   iconSize: iconSize,
-                  image: 'assets/images/person-outline.png'),
+                  image: 'assets/images/person-outline.png',
+                  onPressed: () {
+                    if (currentRoute != '/patientProfile') {
+                      Navigator.pushNamed(context, '/patientProfile');
+                    }
+                  }),
               StatusIcon(
                 iconSize: iconSize,
                 image: 'assets/images/settings.png',
