@@ -64,17 +64,17 @@ class IndicatorPageName extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: FittedBox(
+          fit: BoxFit.scaleDown,
           child: Text(
-        text,
-        textScaler: TextScaler.linear(1.2),
-        style: TextStyle(
-          fontSize: 11.0 * SCALE,
-          fontWeight: bold ? FontWeight.bold : FontWeight.normal,
-          color: coloured
-              ? Color.fromRGBO(35, 81, 104, 1)
-              : Color.fromARGB(255, 88, 88, 88),
-        ),
-      )),
+            text,
+            style: TextStyle(
+              fontSize: 11.0 * SCALE,
+              fontWeight: bold ? FontWeight.bold : FontWeight.normal,
+              color: coloured
+                  ? Color.fromRGBO(35, 81, 104, 1)
+                  : Color.fromARGB(255, 88, 88, 88),
+            ),
+          )),
     );
   }
 }
