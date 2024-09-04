@@ -73,6 +73,8 @@ flutter:
   - assets/images/wifi-connection.png
   - assets/images/ambulance.png
   - assets/images/chatbot-icon.png
+
+
   fonts:
     - family: VarelaRound
       fonts:
