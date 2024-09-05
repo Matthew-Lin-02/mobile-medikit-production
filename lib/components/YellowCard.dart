@@ -63,20 +63,6 @@ class YellowCardState extends State<YellowCard> {
   }
 }
 
-class ClinicalDiagnosisYarningCardExpanded extends StatelessWidget {
-  const ClinicalDiagnosisYarningCardExpanded({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text("clinical/diagnosis yarning card unimplemented"),
-        ResourceCarousel(),
-      ],
-    );
-  }
-}
-
 class CardContentClosed extends StatelessWidget {
   final Map<String, List<String>> subtitleItemMap;
 

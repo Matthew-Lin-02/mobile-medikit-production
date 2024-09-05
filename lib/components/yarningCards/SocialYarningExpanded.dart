@@ -1,8 +1,38 @@
 import 'package:flutter/material.dart';
 import 'package:comp30022/components/MedicalHistorySubItem.dart';
 
-class SocialYarningCardContent extends StatelessWidget {
+class SocialYarningCardContent extends StatefulWidget {
   const SocialYarningCardContent({Key? key}) : super(key: key);
+
+  @override
+  _SocialYarningCardContentState createState() =>
+      _SocialYarningCardContentState();
+}
+
+class _SocialYarningCardContentState extends State<SocialYarningCardContent> {
+  // Map to store checkbox states
+  Map<String, bool> checkboxStates = {
+    'healthPrioritiesWorries': false,
+    'healthyEatingWorries': false,
+    'foodAvailabilityWorriesYes': false,
+    'foodAvailabilityWorriesNo': false,
+    'physicalActivityWorriesYes': false,
+    'physicalActivityWorriesNo': false,
+    'stableHousingYes': false,
+    'stableHousingNo': false,
+    'safeAtHomeYes': false,
+    'safeAtHomeNo': false,
+    'studyingYes': false,
+    'studyingNo': false,
+    'workingYes': false,
+    'workingNo': false,
+  };
+
+  void updateCheckbox(String key, bool? value) {
+    setState(() {
+      checkboxStates[key] = value ?? false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +60,8 @@ class SocialYarningCardContent extends StatelessWidget {
                 "Yes",
                 "No",
                 "Is there enough food to eat? How much veggies, meat, and bread do you eat? What do you usually eat?",
+                'foodAvailabilityWorriesYes',
+                'foodAvailabilityWorriesNo',
               ),
               const SizedBox(width: 16),
               _buildCheckboxFieldWithDetails(
@@ -38,6 +70,8 @@ class SocialYarningCardContent extends StatelessWidget {
                 "Yes",
                 "No",
                 "Do you like playing sports? What sports do you play? How far do you walk each day? From where to where?",
+                'physicalActivityWorriesYes',
+                'physicalActivityWorriesNo',
               ),
               const SizedBox(height: 26),
               const MedicalHistorySubItem(
@@ -62,20 +96,28 @@ class SocialYarningCardContent extends StatelessWidget {
               const SizedBox(height: 16),
               Row(children: [
                 Expanded(
-                    child: _buildCheckboxFieldWithDetails(
-                        context,
-                        "Does the patient have stable housing?",
-                        "Yes",
-                        "No",
-                        "What is living at home like?")),
+                  child: _buildCheckboxFieldWithDetails(
+                    context,
+                    "Does the patient have stable housing?",
+                    "Yes",
+                    "No",
+                    "What is living at home like?",
+                    'stableHousingYes',
+                    'stableHousingNo',
+                  ),
+                ),
                 const SizedBox(width: 16),
                 Expanded(
-                    child: _buildCheckboxFieldWithDetails(
-                        context,
-                        "Does the patient feel safe at home?",
-                        "Yes",
-                        "No",
-                        "Are you happy and safe at home?")),
+                  child: _buildCheckboxFieldWithDetails(
+                    context,
+                    "Does the patient feel safe at home?",
+                    "Yes",
+                    "No",
+                    "Are you happy and safe at home?",
+                    'safeAtHomeYes',
+                    'safeAtHomeNo',
+                  ),
+                ),
               ]),
               const SizedBox(height: 16),
               const MedicalHistorySubItem(
@@ -91,12 +133,20 @@ class SocialYarningCardContent extends StatelessWidget {
     );
   }
 
-  Widget _buildCheckboxFieldWithDetails(BuildContext context, String title,
-      String option1, String option2, String detailsDescription) {
+  Widget _buildCheckboxFieldWithDetails(
+    BuildContext context,
+    String title,
+    String option1,
+    String option2,
+    String detailsDescription,
+    String option1Key,
+    String option2Key,
+  ) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildCheckboxField(context, title, option1, option2),
+        _buildCheckboxField(
+            context, title, option1, option2, option1Key, option2Key),
         const SizedBox(height: 8),
         MedicalHistorySubItem(
           title: "Details:",
@@ -107,7 +157,13 @@ class SocialYarningCardContent extends StatelessWidget {
   }
 
   Widget _buildCheckboxField(
-      BuildContext context, String title, String option1, String option2) {
+    BuildContext context,
+    String title,
+    String option1,
+    String option2,
+    String option1Key,
+    String option2Key,
+  ) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -123,11 +179,21 @@ class SocialYarningCardContent extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             const SizedBox(width: 32),
-            Checkbox(value: false, onChanged: (value) {}),
+            Checkbox(
+              value: checkboxStates[option1Key],
+              onChanged: (bool? value) {
+                updateCheckbox(option1Key, value);
+              },
+            ),
             Text(option1),
             const SizedBox(
                 width: 16), // Add space between the checkboxes and their labels
-            Checkbox(value: false, onChanged: (value) {}),
+            Checkbox(
+              value: checkboxStates[option2Key],
+              onChanged: (bool? value) {
+                updateCheckbox(option2Key, value);
+              },
+            ),
             Text(option2),
           ],
         ),
@@ -151,21 +217,27 @@ class SocialYarningCardContent extends StatelessWidget {
           children: [
             Expanded(
               child: _buildCheckboxFieldWithDetails(
-                  context,
-                  "Studying or seeking to study?",
-                  "Yes",
-                  "No",
-                  "Are you studying anything right now?"),
+                context,
+                "Studying or seeking to study?",
+                "Yes",
+                "No",
+                "Are you studying anything right now?",
+                'studyingYes',
+                'studyingNo',
+              ),
             ),
             const SizedBox(width: 16), // Space between the two columns
             Expanded(
               child: _buildCheckboxFieldWithDetails(
-                  context,
-                  "Working or seeking to work?",
-                  "Yes",
-                  "No",
-                  "Are you working?"),
-            )
+                context,
+                "Working or seeking to work?",
+                "Yes",
+                "No",
+                "Are you working?",
+                'workingYes',
+                'workingNo',
+              ),
+            ),
           ],
         ),
         const SizedBox(height: 16),

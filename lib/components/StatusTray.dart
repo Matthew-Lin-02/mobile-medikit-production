@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:comp30022/pages/PatientProfile.dart';
 import 'package:comp30022/color.dart';
+import 'package:comp30022/components/StandaloneFunctions.dart';
 
 class StatusTray extends StatelessWidget {
   var iconSize = 50.0;
+
+  StatusTray({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -91,27 +94,6 @@ class StatusIcon extends StatelessWidget {
           style: const ButtonStyle(overlayColor: WidgetStateColor.transparent)),
     );
   }
-}
-
-void showCustomModal(BuildContext context, Widget widget) {
-  showDialog(
-    context: context,
-    barrierColor: const Color.fromARGB(40, 0, 0, 0),
-    barrierDismissible: true, // Allows clicking outside to dismiss
-    builder: (BuildContext context) {
-      return GestureDetector(
-        onTap: () {
-          Navigator.of(context).pop(); // Dismiss when clicking outside
-        },
-        child: Center(
-          child: GestureDetector(
-            onTap: () {}, // Prevents modal dismissal when clicking inside
-            child: widget,
-          ),
-        ),
-      );
-    },
-  );
 }
 
 class MachineTranslationOverlay extends StatelessWidget {

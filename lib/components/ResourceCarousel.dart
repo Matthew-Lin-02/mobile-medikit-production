@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:comp30022/components/StandaloneFunctions.dart';
 
 Color color1 = Color.fromRGBO(253, 243, 217, 1);
 
@@ -82,7 +83,13 @@ class _ResourceCarousel extends State<ResourceCarousel> {
                 items: [
                   GestureDetector(
                     onTap: () {
-                      print("First Item tapped"); // Make the image pop up here
+                      print("First Item tapped");
+                      showCustomModal(
+                          context,
+                          Image(
+                              image: AssetImage(
+                                  'assets/images/Enlarged-Booklet.png'),
+                              height: 900)); // Make the image pop up here
                     },
                     child: CarouselItem(
                       text: "Talking about the Heart, Patient Health Booklet",
