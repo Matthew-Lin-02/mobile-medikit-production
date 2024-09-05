@@ -6,6 +6,7 @@ import 'package:comp30022/color.dart';
 import 'package:comp30022/config.dart';
 import 'package:comp30022/components/YellowCard.dart';
 import 'package:comp30022/components/yarningCards/SocialYarningExpanded.dart';
+import 'package:comp30022/components/yarningCards/ClinicalDiagnosticYarningExpanded.dart';
 import 'package:provider/provider.dart';
 
 class GuidedConsultationBody extends StatelessWidget {
@@ -55,7 +56,7 @@ class GuidedConsultationBody extends StatelessWidget {
                       YellowCard(
                         cardData: clinicalDiagnosticYarningCardData,
                         cardContentExpanded:
-                            const ClinicalDiagnosisYarningCardExpanded(),
+                            ClinicalDiagnosisYarningCardExpanded(),
                       ),
                       const SizedBox(height: 40),
                       Align(

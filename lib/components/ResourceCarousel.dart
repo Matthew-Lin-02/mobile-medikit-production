@@ -82,7 +82,13 @@ class _ResourceCarousel extends State<ResourceCarousel> {
                 items: [
                   GestureDetector(
                     onTap: () {
-                      print("First Item tapped"); // Make the image pop up here
+                      print("First Item tapped");
+                      showCustomModal(
+                          context,
+                          Image(
+                              image: AssetImage(
+                                  'assets/images/Enlarged-Booklet.png'),
+                              height: 900)); // Make the image pop up here
                     },
                     child: CarouselItem(
                       text: "Talking about the Heart, Patient Health Booklet",
@@ -151,4 +157,25 @@ class _ResourceCarousel extends State<ResourceCarousel> {
           ),
         ]));
   }
+}
+
+void showCustomModal(BuildContext context, Widget widget) {
+  showDialog(
+    context: context,
+    barrierColor: const Color.fromARGB(40, 0, 0, 0),
+    barrierDismissible: true, // Allows clicking outside to dismiss
+    builder: (BuildContext context) {
+      return GestureDetector(
+        onTap: () {
+          Navigator.of(context).pop(); // Dismiss when clicking outside
+        },
+        child: Center(
+          child: GestureDetector(
+            onTap: () {}, // Prevents modal dismissal when clicking inside
+            child: widget,
+          ),
+        ),
+      );
+    },
+  );
 }
