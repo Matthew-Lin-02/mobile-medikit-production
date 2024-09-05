@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:comp30022/components/StandaloneFunctions.dart';
 
 Color color1 = Color.fromRGBO(253, 243, 217, 1);
 
@@ -157,25 +158,4 @@ class _ResourceCarousel extends State<ResourceCarousel> {
           ),
         ]));
   }
-}
-
-void showCustomModal(BuildContext context, Widget widget) {
-  showDialog(
-    context: context,
-    barrierColor: const Color.fromARGB(40, 0, 0, 0),
-    barrierDismissible: true, // Allows clicking outside to dismiss
-    builder: (BuildContext context) {
-      return GestureDetector(
-        onTap: () {
-          Navigator.of(context).pop(); // Dismiss when clicking outside
-        },
-        child: Center(
-          child: GestureDetector(
-            onTap: () {}, // Prevents modal dismissal when clicking inside
-            child: widget,
-          ),
-        ),
-      );
-    },
-  );
 }
