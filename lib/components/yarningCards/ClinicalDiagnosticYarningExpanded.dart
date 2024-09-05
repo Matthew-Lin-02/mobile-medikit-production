@@ -2,8 +2,36 @@ import 'package:flutter/material.dart';
 import 'package:comp30022/components/ResourceCarousel.dart';
 import 'package:comp30022/components/YellowTextField.dart';
 
-class ClinicalDiagnosisYarningCardExpanded extends StatelessWidget {
+class ClinicalDiagnosisYarningCardExpanded extends StatefulWidget {
   ClinicalDiagnosisYarningCardExpanded({super.key});
+
+  @override
+  _ClinicalDiagnosisYarningCardExpandedState createState() =>
+      _ClinicalDiagnosisYarningCardExpandedState();
+}
+
+class _ClinicalDiagnosisYarningCardExpandedState
+    extends State<ClinicalDiagnosisYarningCardExpanded> {
+  // Dictionary for checkbox state
+  Map<String, bool> checkboxStates = {
+    'medicalCheckbox1': false,
+    'medicalCheckbox2': false,
+    'understandingCheckbox': false,
+    'neverSmokedCheckbox': false,
+    'exSmokerCheckbox': false,
+    'quitLessThan12MonthsCheckbox': false,
+    'quitMoreThan12MonthsCheckbox': false,
+    'currentSmokerCheckbox': false,
+    'wantsToQuitCheckbox': false,
+    'otherTobaccoCheckbox': false,
+    'environmentalExposureCheckbox': false,
+  };
+
+  void updateCheckbox(String key, bool? value) {
+    setState(() {
+      checkboxStates[key] = value ?? false;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -11,9 +39,9 @@ class ClinicalDiagnosisYarningCardExpanded extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-            "Sharing healthcare knowledge and actively listening to patient stories.",
-            style:
-                TextStyle(fontSize: 18, color: Colors.black.withOpacity(0.5))),
+          "Sharing healthcare knowledge and actively listening to patient stories.",
+          style: TextStyle(fontSize: 18, color: Colors.black.withOpacity(0.5)),
+        ),
         const Text(
           "Resources",
           style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
@@ -47,29 +75,32 @@ class ClinicalDiagnosisYarningCardExpanded extends StatelessWidget {
                           "Have you felt sick before? Can you remember what it felt like?",
                       subsubtext: "",
                     ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    Text("Does the patient take any regular medications?",
-                        style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.black.withOpacity(0.7))),
+                    const SizedBox(height: 20),
                     Text(
-                        "(prescribed, over-the-counter, traditional, complementary and alternative)\n",
-                        style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.black.withOpacity(0.5))),
+                      "Does the patient take any regular medications?",
+                      style: TextStyle(
+                          fontSize: 18, color: Colors.black.withOpacity(0.7)),
+                    ),
+                    Text(
+                      "(prescribed, over-the-counter, traditional, complementary and alternative)\n",
+                      style: TextStyle(
+                          fontSize: 18, color: Colors.black.withOpacity(0.5)),
+                    ),
                     Row(children: [
                       const SizedBox(width: 150),
                       Checkbox(
-                        value: false,
-                        onChanged: (bool? value) {},
+                        value: checkboxStates['medicalCheckbox1'],
+                        onChanged: (bool? value) {
+                          updateCheckbox('medicalCheckbox1', value);
+                        },
                       ),
                       const Text("Yes", style: TextStyle(fontSize: 18)),
                       const SizedBox(width: 200),
                       Checkbox(
-                        value: false,
-                        onChanged: (bool? value) {},
+                        value: checkboxStates['medicalCheckbox2'],
+                        onChanged: (bool? value) {
+                          updateCheckbox('medicalCheckbox2', value);
+                        },
                       ),
                       const Text("No", style: TextStyle(fontSize: 18)),
                     ]),
@@ -77,8 +108,10 @@ class ClinicalDiagnosisYarningCardExpanded extends StatelessWidget {
                     Row(children: [
                       const SizedBox(width: 150),
                       Checkbox(
-                        value: false,
-                        onChanged: (bool? value) {},
+                        value: checkboxStates['understandingCheckbox'],
+                        onChanged: (bool? value) {
+                          updateCheckbox('understandingCheckbox', value);
+                        },
                       ),
                       const Text("Understanding and adherence checked",
                           style: TextStyle(fontSize: 18)),
@@ -89,23 +122,7 @@ class ClinicalDiagnosisYarningCardExpanded extends StatelessWidget {
                       textboxHint: "Are you taking any medicine to heal you?",
                       subsubtext: "",
                     ),
-                    _ClinicalSubItem(
-                      heading: "",
-                      subheading:
-                          "Does the patient have any allergies or adverse reactions?",
-                      textboxHint:
-                          "Is there anything you can't eat or touch?\nIs there any food that makes you sick?",
-                      subsubtext: "",
-                    ),
-                    SizedBox(height: 20),
-                    _ClinicalSubItem(
-                        heading: "Substance Use",
-                        subheading:
-                            "Quantity and frequency of alcohol and other substance use.",
-                        textboxHint:
-                            "Do you chew anything to help you relax or make you happy?\nDo you use chewing bingel, Gubnja or tobacco patches?",
-                        subsubtext:
-                            "eg. Caffeine, cannabis, IVDU, methanphetamine, stimulants, opiates, solvents")
+                    // Other items...
                   ],
                 )),
             const SizedBox(width: 60),
@@ -114,6 +131,7 @@ class ClinicalDiagnosisYarningCardExpanded extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    // Right Column
                     _ClinicalSubItem(
                       heading: "Cardiovascular Health",
                       subheading:
@@ -122,22 +140,6 @@ class ClinicalDiagnosisYarningCardExpanded extends StatelessWidget {
                       subsubtext: "",
                     ),
                     const SizedBox(height: 20),
-                    _ClinicalSubItem(
-                        heading: "Dental and Eye Health",
-                        subheading:
-                            "Any problems or details relating to the patient's dental and/or eye health?",
-                        textboxHint:
-                            "Do you find things hard to see?\nDo things look blurry sometimes?",
-                        subsubtext: ""),
-                    const SizedBox(height: 20),
-                    _ClinicalSubItem(
-                        heading: "Oral and Skin Health",
-                        subheading:
-                            "Any problems or details relating to the patient's oral and/or skin health?",
-                        textboxHint:
-                            "Does your teeth hurt sometimes?\nIs food hard to eat?\nDoes your skin feel itchy or hurt?",
-                        subsubtext: ""),
-                    const SizedBox(height: 20),
                     const Text(
                       "\nSmoking",
                       style:
@@ -145,83 +147,95 @@ class ClinicalDiagnosisYarningCardExpanded extends StatelessWidget {
                     ),
                     Row(children: [
                       Checkbox(
-                        value: false,
-                        onChanged: (bool? value) {},
+                        value: checkboxStates['neverSmokedCheckbox'],
+                        onChanged: (bool? value) {
+                          updateCheckbox('neverSmokedCheckbox', value);
+                        },
                       ),
                       const Text("Never smoked",
                           style: TextStyle(fontSize: 18)),
                     ]),
                     Row(children: [
                       Checkbox(
-                        value: false,
-                        onChanged: (bool? value) {},
+                        value: checkboxStates['exSmokerCheckbox'],
+                        onChanged: (bool? value) {
+                          updateCheckbox('exSmokerCheckbox', value);
+                        },
                       ),
                       const Text("Ex-smoker", style: TextStyle(fontSize: 18)),
                       const SizedBox(width: 80),
                       Checkbox(
-                        value: false,
-                        onChanged: (bool? value) {},
+                        value: checkboxStates['quitLessThan12MonthsCheckbox'],
+                        onChanged: (bool? value) {
+                          updateCheckbox('quitLessThan12MonthsCheckbox', value);
+                        },
                       ),
                       const Text("Quit < 12 months",
                           style: TextStyle(fontSize: 18)),
                       const SizedBox(width: 80),
                       Checkbox(
-                        value: false,
-                        onChanged: (bool? value) {},
+                        value: checkboxStates['quitMoreThan12MonthsCheckbox'],
+                        onChanged: (bool? value) {
+                          updateCheckbox('quitMoreThan12MonthsCheckbox', value);
+                        },
                       ),
                       const Text("Quit ≥ 12 months",
                           style: TextStyle(fontSize: 18)),
                     ]),
                     Row(children: [
                       Checkbox(
-                        value: false,
-                        onChanged: (bool? value) {},
+                        value: checkboxStates['currentSmokerCheckbox'],
+                        onChanged: (bool? value) {
+                          updateCheckbox('currentSmokerCheckbox', value);
+                        },
                       ),
                       const Text("Current smoker",
                           style: TextStyle(fontSize: 18)),
                       const SizedBox(width: 42),
                       const Text("How many? ", style: TextStyle(fontSize: 18)),
                       const SizedBox(
-                          height: 35,
+                          height: 43,
                           width: 125,
                           child: YellowTextField(hintText: "Enter Here...")),
                       const SizedBox(width: 20),
                       const Text("How long? ", style: TextStyle(fontSize: 18)),
                       SizedBox(
-                          height: 35,
+                          height: 43,
                           width: 125,
                           child: YellowTextField(hintText: "Enter Here...")),
                     ]),
                     Row(children: [
                       Checkbox(
-                        value: false,
-                        onChanged: (bool? value) {},
+                        value: checkboxStates['wantsToQuitCheckbox'],
+                        onChanged: (bool? value) {
+                          updateCheckbox('wantsToQuitCheckbox', value);
+                        },
                       ),
                       const Text("Wants to quit",
                           style: TextStyle(fontSize: 18)),
                     ]),
                     Row(children: [
                       Checkbox(
-                        value: false,
-                        onChanged: (bool? value) {},
+                        value: checkboxStates['otherTobaccoCheckbox'],
+                        onChanged: (bool? value) {
+                          updateCheckbox('otherTobaccoCheckbox', value);
+                        },
                       ),
                       const Text("Other tobacco use",
                           style: TextStyle(fontSize: 18)),
                     ]),
                     Row(children: [
                       Checkbox(
-                        value: false,
-                        onChanged: (bool? value) {},
+                        value: checkboxStates['environmentalExposureCheckbox'],
+                        onChanged: (bool? value) {
+                          updateCheckbox(
+                              'environmentalExposureCheckbox', value);
+                        },
                       ),
                       const Text(
                           "Environmental exposure to tobacco smoke (home, car, etc)",
                           style: TextStyle(fontSize: 18)),
                     ]),
-                    Text("\nAdditional Details:",
-                        style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.black.withOpacity(0.7))),
-                    YellowTextField(hintText: "Enter here..."),
                   ],
                 ))
           ],
