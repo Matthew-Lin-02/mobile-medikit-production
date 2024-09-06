@@ -1,16 +1,18 @@
+import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/pages/PatientProfile.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/components/StandaloneFunctions.dart';
 
 class StatusTray extends StatelessWidget {
-  var iconSize = 50.0;
+  final iconSize = 50.0;
 
   StatusTray({super.key});
 
   @override
   Widget build(BuildContext context) {
     final currentRoute = ModalRoute.of(context)?.settings.name;
+    final GlobalKey wifiKey = GlobalKey();
 
     return IntrinsicWidth(
       child: IntrinsicHeight(
@@ -25,8 +27,13 @@ class StatusTray extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               StatusIcon(
-                  iconSize: iconSize,
-                  image: 'assets/images/wifi-connection.png'),
+                key: wifiKey,
+                iconSize: iconSize,
+                image: 'assets/images/wifi-connection.png',
+                onPressed: () {
+                  showCustomModal(context, WifiInfo(parentKey: wifiKey));
+                },
+              ),
               StatusIcon(
                 iconSize: iconSize,
                 image: 'assets/images/globe.png',
@@ -459,5 +466,35 @@ class ContactHealthExpertWidget extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class WifiInfo extends StatelessWidget {
+  final GlobalKey parentKey;
+
+  const WifiInfo({required this.parentKey});
+
+  @override
+  Widget build(BuildContext context) {
+    final RenderBox renderBox =
+        parentKey.currentContext?.findRenderObject() as RenderBox;
+    final Offset position = renderBox.localToGlobal(Offset.zero);
+    final size = renderBox.size;
+
+    return Stack(children: [
+      Positioned(
+          left: position.dx,
+          top: position.dy,
+          child: Container(
+              padding: const EdgeInsets.all(4.0),
+              decoration: BoxDecoration(
+                color: const Color.fromARGB(255, 5, 161, 182),
+                borderRadius: BorderRadius.circular(80.0),
+              ),
+              child: Column(children: [
+                Text("Good Connection"),
+                Text("Connected to 4G Cellular Network"),
+              ])))
+    ]);
   }
 }
