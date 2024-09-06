@@ -6,7 +6,7 @@ import 'package:comp30022/color.dart';
 Builder patientLookUpBody = Builder(builder: (context) {
   return Container(
     color: AppColors.cream,
-    child: const Row(
+    child: Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Column(
@@ -16,6 +16,7 @@ Builder patientLookUpBody = Builder(builder: (context) {
               isShadowOn: true,
               width: 1718,
               height: 600,
+              widget: _buildLookUpTable(),
             ),
           ],
         ),
@@ -23,6 +24,80 @@ Builder patientLookUpBody = Builder(builder: (context) {
     ),
   );
 });
+
+Widget _buildLookUpTable() {
+  return Container(
+    decoration: BoxDecoration(
+        color: Colors.white, borderRadius: BorderRadius.circular(50)),
+    child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Column(
+            children: [
+              Table(
+                columnWidths: const {
+                  0: FlexColumnWidth(3),
+                  1: FlexColumnWidth(3),
+                  2: FlexColumnWidth(2),
+                  3: FlexColumnWidth(2),
+                  4: FlexColumnWidth(3),
+                },
+                border: TableBorder(
+                  horizontalInside: BorderSide(
+                      width: 1, color: Colors.black.withOpacity(0.3)),
+                ),
+                children: [
+                  const TableRow(
+                      decoration: BoxDecoration(
+                        color: AppColors.yellowCream,
+                      ),
+                      children: [
+                        Text(
+                          'Name',
+                          style: TextStyle(color: Colors.black, fontSize: 30),
+                          textAlign: TextAlign.center,
+                        ),
+                        Text('Alias',
+                            style: TextStyle(color: Colors.black, fontSize: 30),
+                            textAlign: TextAlign.center),
+                        Text('Date of Birth',
+                            style: TextStyle(color: Colors.black, fontSize: 30),
+                            textAlign: TextAlign.center),
+                        Text('Sex',
+                            style: TextStyle(color: Colors.black, fontSize: 30),
+                            textAlign: TextAlign.center),
+                        Text('Number)',
+                            style: TextStyle(color: Colors.black, fontSize: 30),
+                            textAlign: TextAlign.center),
+                      ]),
+                  ..._buildTableRows(),
+                ],
+              ),
+            ],
+          ),
+        ]),
+  );
+}
+
+// TODO - Adjust the below funciton to take into account multiple patient results and add functionallity for scrolling
+List<TableRow> _buildTableRows() {
+  return [
+    const TableRow(children: [
+      Text(
+        'Darlene Pilbara',
+        style: TextStyle(fontSize: 22),
+        textAlign: TextAlign.center,
+      ),
+      Text('N/A', style: TextStyle(fontSize: 22), textAlign: TextAlign.center),
+      Text('01/01/2001',
+          style: TextStyle(fontSize: 22), textAlign: TextAlign.center),
+      Text('Female',
+          style: TextStyle(fontSize: 22), textAlign: TextAlign.center),
+      Text('N/A', style: TextStyle(fontSize: 22), textAlign: TextAlign.center),
+    ]),
+  ];
+}
 
 class PatientLookUp extends StatelessWidget {
   const PatientLookUp({super.key});
