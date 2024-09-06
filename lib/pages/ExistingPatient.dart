@@ -114,7 +114,7 @@ Builder existingPatientBody = Builder(builder: (context) {
                     context,
                     MaterialPageRoute(
                         // TODO - Redirect to PatientLookUp (page not implemented yet)
-                        builder: (context) => const MyHealthRecordPage1()),
+                        builder: (context) => const PatientLookUp()),
                   );
                 },
                 style: ElevatedButton.styleFrom(
