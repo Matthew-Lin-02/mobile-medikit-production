@@ -16,26 +16,29 @@ class Page3 extends StatelessWidget {
       body: Padding(
           padding: EdgeInsets.only(top: 50, left: 65, right: 75),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               BackArrowBlack(),
-              SizedBox(height: 20),
+              Spacer(flex: 2),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image(
                       image: AssetImage('assets/images/person_add.png'),
-                      height: 90),
+                      height: 110,
+                      width: 110),
                   SizedBox(width: 30),
                   LargePageButton(label: "New Patient", page: SignUp()),
                 ],
               ),
-              SizedBox(height: 60),
+              Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image(
                       image: AssetImage('assets/images/person_search.png'),
-                      height: 90),
+                      height: 110,
+                      width: 110),
                   SizedBox(width: 30),
                   LargePageButton(
                     label: "Existing Patient",
@@ -43,18 +46,20 @@ class Page3 extends StatelessWidget {
                   ),
                 ],
               ),
-              SizedBox(height: 60),
+              Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image(
                       image: AssetImage('assets/images/shortcut.png'),
-                      height: 90),
+                      height: 110,
+                      width: 110),
                   SizedBox(width: 30),
                   LargePageButton(
                       label: "Direct Functionality", page: SignUp()),
                 ],
               ),
+              Spacer(flex: 4),
             ],
           )),
     );
@@ -85,15 +90,15 @@ class LargePageButton extends StatelessWidget {
         },
         label: Text(
           label,
-          style: const TextStyle(color: Colors.white, fontSize: 30),
+          style: const TextStyle(color: Colors.white, fontSize: 40),
         ),
         style: ButtonStyle(
             iconColor: WidgetStateProperty.all(Colors.white),
             backgroundColor: WidgetStateProperty.all(AppColors.red),
-            minimumSize: WidgetStateProperty.all<Size>(const Size(500, 90)),
+            minimumSize: WidgetStateProperty.all<Size>(const Size(900, 130)),
             shape: WidgetStateProperty.all(
               RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30),
+                borderRadius: BorderRadius.circular(50),
               ),
             )));
   }

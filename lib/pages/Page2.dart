@@ -15,24 +15,21 @@ class Page2 extends StatelessWidget {
     var appState = context.watch<MyAppState>();
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(top: 50, left: 65, right: 75),
+        padding:
+            const EdgeInsets.only(top: 50, left: 70, right: 70, bottom: 50),
         child: Column(
           children: [
             const BackArrowBlack(),
+            const Spacer(),
             const Text(
-              "Wayiwa-n feeling today?",
+              "How are you feeling today?",
               style: TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
+                fontSize: 56,
               ),
             ),
-            const SizedBox(
-              height: 70,
-            ),
-            const FittedBox(child: RowOfButtons()),
-            const SizedBox(
-              height: 70,
-            ),
+            const SizedBox(height: 50),
+            const FittedBox(alignment: Alignment.center, child: RowOfButtons()),
+            const Spacer(flex: 2),
             Align(
               alignment: Alignment.bottomRight,
               child: RedActionButton(
@@ -74,7 +71,7 @@ class RowOfButtons extends StatelessWidget {
               // uncomment below to remove hover effect
               // overlayColor: WidgetStateProperty.all(Colors.transparent),
               minimumSize: WidgetStateProperty.all<Size>(
-                  const Size(95, 95)), // Width, Height
+                  const Size(158, 158)), // Width, Height
             ),
             child: const Text(''),
           ),
@@ -83,12 +80,12 @@ class RowOfButtons extends StatelessWidget {
     }
 
     return Container(
-      width: 660,
-      height: 95,
+      width: 1200,
+      height: 160,
       decoration: const BoxDecoration(
         image: DecorationImage(
           image: AssetImage(
-              'assets/images/background.png'), // Replace with your image path
+              'assets/images/wellbeing_check.png'), // Background image
           fit: BoxFit
               .contain, // This fits the image to cover the entire container
         ),
