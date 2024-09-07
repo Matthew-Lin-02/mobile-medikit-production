@@ -476,25 +476,71 @@ class WifiInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final RenderBox renderBox =
+    RenderBox renderBox =
         parentKey.currentContext?.findRenderObject() as RenderBox;
-    final Offset position = renderBox.localToGlobal(Offset.zero);
-    final size = renderBox.size;
+    Offset position = renderBox.localToGlobal(Offset.zero);
+    Offset positionOffset = Offset(position.dx / 22, position.dy / 1.8);
+    Size screenSize = MediaQuery.of(context).size;
 
     return Stack(children: [
       Positioned(
-          left: position.dx,
-          top: position.dy,
-          child: Container(
-              padding: const EdgeInsets.all(4.0),
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(255, 5, 161, 182),
-                borderRadius: BorderRadius.circular(80.0),
-              ),
-              child: Column(children: [
-                Text("Good Connection"),
-                Text("Connected to 4G Cellular Network"),
-              ])))
+          left: position.dx - positionOffset.dx,
+          top: position.dy - positionOffset.dy,
+          child: Column(children: [
+            Container(
+                padding: const EdgeInsets.all(12.0),
+                decoration: BoxDecoration(
+                    color: const Color.fromARGB(255, 0, 177, 178),
+                    borderRadius: BorderRadius.circular(20.0),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: Offset(0, 3),
+                      )
+                    ]),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Good Connection",
+                        style: TextStyle(
+                            fontSize: 16,
+                            color: Color.fromARGB(255, 0, 216, 89)),
+                      ),
+                      Text("Connected to 4G Cellular\nNetwork",
+                          style: TextStyle(color: Colors.white)),
+                    ])),
+            CustomPaint(
+              size: Size(screenSize.width / 60, screenSize.height / 100),
+              painter: TrianglePainter(),
+            )
+          ]))
     ]);
+  }
+}
+
+class TrianglePainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    var paint = Paint()
+      ..color = Color.fromARGB(255, 0, 177, 178)
+      ..strokeWidth = 4
+      ..style = PaintingStyle.fill;
+
+    var path = Path();
+
+    path.moveTo(0, 0);
+    path.lineTo(size.width, 0);
+    path.lineTo(size.width / 2, size.height);
+    path.close();
+
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return false;
   }
 }
