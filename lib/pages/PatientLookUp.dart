@@ -30,12 +30,62 @@ Widget _buildLookUpTable() {
     decoration: BoxDecoration(
         color: Colors.white, borderRadius: BorderRadius.circular(50)),
     child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          Column(
-            children: [
-              Table(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Column(
+          // Table header
+          children: [
+            Table(
+              columnWidths: const {
+                0: FlexColumnWidth(3),
+                1: FlexColumnWidth(3),
+                2: FlexColumnWidth(2),
+                3: FlexColumnWidth(2),
+                4: FlexColumnWidth(3),
+              },
+              border: TableBorder(
+                horizontalInside:
+                    BorderSide(width: 1, color: Colors.black.withOpacity(0.3)),
+              ),
+              children: const [
+                TableRow(
+                    decoration: BoxDecoration(
+                      color: AppColors.yellowCream,
+                    ),
+                    children: [
+                      Text(
+                        'Name',
+                        style: TextStyle(color: Colors.black, fontSize: 30),
+                        textAlign: TextAlign.center,
+                      ),
+                      Text('Alias',
+                          style: TextStyle(color: Colors.black, fontSize: 30),
+                          textAlign: TextAlign.center),
+                      Text('Date of Birth',
+                          style: TextStyle(color: Colors.black, fontSize: 30),
+                          textAlign: TextAlign.center),
+                      Text('Sex',
+                          style: TextStyle(color: Colors.black, fontSize: 30),
+                          textAlign: TextAlign.center),
+                      Text('Number',
+                          style: TextStyle(color: Colors.black, fontSize: 30),
+                          textAlign: TextAlign.center),
+                    ]),
+              ],
+            ),
+          ],
+        ),
+        // Scrollable rows
+        Expanded(
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(50),
+              ),
+              child: Table(
                 columnWidths: const {
                   0: FlexColumnWidth(3),
                   1: FlexColumnWidth(3),
@@ -45,42 +95,20 @@ Widget _buildLookUpTable() {
                 },
                 border: TableBorder(
                   horizontalInside: BorderSide(
-                      width: 1, color: Colors.black.withOpacity(0.3)),
+                    width: 1,
+                    color: Colors.black.withOpacity(0.3),
+                  ),
                 ),
-                children: [
-                  const TableRow(
-                      decoration: BoxDecoration(
-                        color: AppColors.yellowCream,
-                      ),
-                      children: [
-                        Text(
-                          'Name',
-                          style: TextStyle(color: Colors.black, fontSize: 30),
-                          textAlign: TextAlign.center,
-                        ),
-                        Text('Alias',
-                            style: TextStyle(color: Colors.black, fontSize: 30),
-                            textAlign: TextAlign.center),
-                        Text('Date of Birth',
-                            style: TextStyle(color: Colors.black, fontSize: 30),
-                            textAlign: TextAlign.center),
-                        Text('Sex',
-                            style: TextStyle(color: Colors.black, fontSize: 30),
-                            textAlign: TextAlign.center),
-                        Text('Number)',
-                            style: TextStyle(color: Colors.black, fontSize: 30),
-                            textAlign: TextAlign.center),
-                      ]),
-                  ..._buildTableRows(),
-                ],
+                children: _buildTableRows(),
               ),
-            ],
+            ),
           ),
-        ]),
+        ),
+      ],
+    ),
   );
 }
 
-// TODO - Adjust the below funciton to take into account multiple patient results and add functionallity for scrolling
 List<TableRow> _buildTableRows() {
   return [
     const TableRow(children: [
