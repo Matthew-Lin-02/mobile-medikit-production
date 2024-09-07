@@ -38,11 +38,11 @@ Widget _buildLookUpTable() {
           children: [
             Table(
               columnWidths: const {
-                0: FlexColumnWidth(3),
-                1: FlexColumnWidth(3),
+                0: FlexColumnWidth(2),
+                1: FlexColumnWidth(2),
                 2: FlexColumnWidth(2),
                 3: FlexColumnWidth(2),
-                4: FlexColumnWidth(3),
+                4: FlexColumnWidth(2),
               },
               border: TableBorder(
                 horizontalInside:
@@ -87,11 +87,11 @@ Widget _buildLookUpTable() {
               ),
               child: Table(
                 columnWidths: const {
-                  0: FlexColumnWidth(3),
-                  1: FlexColumnWidth(3),
+                  0: FlexColumnWidth(2),
+                  1: FlexColumnWidth(2),
                   2: FlexColumnWidth(2),
                   3: FlexColumnWidth(2),
-                  4: FlexColumnWidth(3),
+                  4: FlexColumnWidth(2),
                 },
                 border: TableBorder(
                   horizontalInside: BorderSide(
