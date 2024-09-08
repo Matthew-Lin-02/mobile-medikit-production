@@ -476,7 +476,7 @@ class WifiInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    RenderBox renderBox =
+    final RenderBox renderBox =
         parentKey.currentContext?.findRenderObject() as RenderBox;
     Offset position = renderBox.localToGlobal(Offset.zero);
     Offset positionOffset = Offset(position.dx / 22, position.dy / 1.8);
@@ -506,11 +506,15 @@ class WifiInfo extends StatelessWidget {
                       Text(
                         "Good Connection",
                         style: TextStyle(
-                            fontSize: 16,
+                            fontSize:
+                                MediaQuery.of(context).size.width * 0.0083,
                             color: Color.fromARGB(255, 0, 216, 89)),
                       ),
                       Text("Connected to 4G Cellular\nNetwork",
-                          style: TextStyle(color: Colors.white)),
+                          style: TextStyle(
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.0073,
+                              color: Colors.white)),
                     ])),
             CustomPaint(
               size: Size(screenSize.width / 60, screenSize.height / 100),
