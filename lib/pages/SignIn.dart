@@ -46,13 +46,13 @@ class SignIn extends StatelessWidget {
                     height: VERTICAL_SPACING_BIG), // Vertical spacing
                 const TextBox(
                   hintText: 'Username',
-                  fontSize: 18.0,
+                  fontSize: 24.0,
                 ),
 
                 const SizedBox(height: 50), // Vertical spacing
                 const TextBox(
                   hintText: 'Password',
-                  fontSize: 18.0,
+                  fontSize: 24.0,
                 ),
 
                 const SizedBox(

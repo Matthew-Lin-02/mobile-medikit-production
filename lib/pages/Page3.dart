@@ -1,8 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:comp30022/color.dart';
+import 'package:comp30022/components/RedActionButton.dart';
 import 'package:comp30022/components/BackArrowBlack.dart';
-import 'package:comp30022/main.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter/material.dart';
 import 'package:comp30022/pages/Pages.dart';
 
 class Page3 extends StatelessWidget {
@@ -12,89 +10,82 @@ class Page3 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Padding(
-          padding: EdgeInsets.only(top: 50, left: 65, right: 75),
+          padding: const EdgeInsets.only(top: 50, left: 65, right: 75),
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              BackArrowBlack(),
-              SizedBox(height: 20),
+              const BackArrowBlack(),
+              const Spacer(flex: 2),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image(
+                  const Image(
                       image: AssetImage('assets/images/person_add.png'),
-                      height: 90),
-                  SizedBox(width: 30),
-                  LargePageButton(label: "New Patient", page: SignUp()),
+                      height: 110,
+                      width: 110),
+                  const SizedBox(width: 30),
+                  RedActionButton(
+                      label: "New Patient",
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SignUp()),
+                        );
+                      },
+                      size: const Size(900, 130),
+                      fontSize: 40),
                 ],
               ),
-              SizedBox(height: 60),
+              const Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image(
+                  const Image(
                       image: AssetImage('assets/images/person_search.png'),
-                      height: 90),
-                  SizedBox(width: 30),
-                  LargePageButton(
-                    label: "Existing Patient",
-                    page: ExistingPatient(),
-                  ),
+                      height: 110,
+                      width: 110),
+                  const SizedBox(width: 30),
+                  RedActionButton(
+                      label: "Existing Patient",
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ExistingPatient()),
+                        );
+                      },
+                      size: const Size(900, 130),
+                      fontSize: 40),
                 ],
               ),
-              SizedBox(height: 60),
+              const Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image(
+                  const Image(
                       image: AssetImage('assets/images/shortcut.png'),
-                      height: 90),
-                  SizedBox(width: 30),
-                  LargePageButton(
-                      label: "Direct Functionality", page: SignUp()),
+                      height: 110,
+                      width: 110),
+                  const SizedBox(width: 30),
+                  RedActionButton(
+                      label: "Direct Functionality",
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const SignUp()),
+                        );
+                      },
+                      size: const Size(900, 130),
+                      fontSize: 40),
                 ],
               ),
+              const Spacer(flex: 4),
             ],
           )),
     );
-  }
-}
-
-class LargePageButton extends StatelessWidget {
-  const LargePageButton({
-    super.key,
-    this.debugStatement = "Button Pressed",
-    required this.label,
-    required this.page,
-  });
-
-  final String debugStatement;
-  final String label;
-  final StatelessWidget page;
-
-  @override
-  Widget build(BuildContext context) {
-    var appState = context.watch<MyAppState>();
-    return ElevatedButton.icon(
-        onPressed: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => page),
-          );
-        },
-        label: Text(
-          label,
-          style: const TextStyle(color: Colors.white, fontSize: 30),
-        ),
-        style: ButtonStyle(
-            iconColor: WidgetStateProperty.all(Colors.white),
-            backgroundColor: WidgetStateProperty.all(AppColors.red),
-            minimumSize: WidgetStateProperty.all<Size>(const Size(500, 90)),
-            shape: WidgetStateProperty.all(
-              RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30),
-              ),
-            )));
   }
 }
