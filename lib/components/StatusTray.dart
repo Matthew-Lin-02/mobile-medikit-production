@@ -490,7 +490,7 @@ class WifiInfo extends StatelessWidget {
             Container(
                 padding: const EdgeInsets.all(12.0),
                 decoration: BoxDecoration(
-                    color: const Color.fromARGB(255, 0, 177, 178),
+                    color: AppColors.wifiInfoOverlayBlue,
                     borderRadius: BorderRadius.circular(20.0),
                     boxShadow: [
                       BoxShadow(
@@ -508,7 +508,7 @@ class WifiInfo extends StatelessWidget {
                         style: TextStyle(
                             fontSize:
                                 MediaQuery.of(context).size.width * 0.0083,
-                            color: Color.fromARGB(255, 0, 216, 89)),
+                            color: AppColors.wifiInfoTextGreen),
                       ),
                       Text("Connected to 4G Cellular\nNetwork",
                           style: TextStyle(
@@ -529,7 +529,7 @@ class TrianglePainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     var paint = Paint()
-      ..color = Color.fromARGB(255, 0, 177, 178)
+      ..color = AppColors.wifiInfoOverlayBlue
       ..strokeWidth = 4
       ..style = PaintingStyle.fill;
 
