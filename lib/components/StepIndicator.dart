@@ -1,6 +1,51 @@
 import 'package:flutter/material.dart';
+import 'package:comp30022/color.dart';
 
 int SCALE = 1; // Scale does not work
+
+class UpdatedIndicatorStep extends StatelessWidget {
+  final int pageNum;
+
+  UpdatedIndicatorStep({required this.pageNum});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(children: [
+      _UpdatedStep(
+          text: "Sign Up", coloured: pageNum > 0 ? true : false, isFirst: true),
+      _UpdatedStep(text: "Consultation", coloured: pageNum > 1 ? true : false),
+      _UpdatedStep(text: "Screening", coloured: pageNum > 2 ? true : false),
+      _UpdatedStep(text: "Results", coloured: pageNum > 3 ? true : false),
+      _UpdatedStep(text: "Next Steps", coloured: pageNum > 4 ? true : false),
+      _UpdatedStep(text: "Report", coloured: pageNum > 5 ? true : false),
+    ]);
+  }
+}
+
+class _UpdatedStep extends StatelessWidget {
+  final String text;
+  final bool coloured;
+  final bool isFirst;
+
+  _UpdatedStep(
+      {required this.text, required this.coloured, this.isFirst = false});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(children: [
+      Icon(Icons.chevron_right,
+          color: coloured ? AppColors.blue : AppColors.blue.withOpacity(0.3),
+          size: isFirst ? 0 : 25),
+      const SizedBox(width: 10),
+      Text(text,
+          style: TextStyle(
+              fontSize: 25,
+              color:
+                  coloured ? AppColors.blue : AppColors.blue.withOpacity(0.3))),
+      const SizedBox(width: 10),
+    ]);
+  }
+}
 
 // The circles with each of the step numbers
 class IndicatorStep extends StatelessWidget {
