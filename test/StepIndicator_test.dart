@@ -68,13 +68,7 @@ void main() {
     // Build the widget under test
     await tester.pumpWidget(
       MaterialApp(
-        home: Scaffold(
-          body: Center(
-              child: SizedBox(
-                  width: 1600,
-                  height: 35,
-                  child: UpdatedIndicatorStep(pageNum: 1))),
-        ),
+        home: Scaffold(body: UpdatedIndicatorStep(pageNum: 1)),
       ),
     );
 
