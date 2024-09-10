@@ -4,32 +4,45 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:comp30022/pages/ExistingPatient.dart';
 import 'package:comp30022/components/CustomInputFields.dart';
 import 'package:comp30022/pages/PatientLookUp.dart';
+import 'package:comp30022/pages/AbstractConsultationPage.dart';
 
 void main() {
-  group('Existing Patient tests', () {
-    testWidgets('Existing Patient displays the correct title and headers',
-        (WidgetTester tester) async {
+  group('Existing Patient Tests', () {
+    testWidgets('Displays the correct title', (WidgetTester tester) async {
       // Build the ExistingPatient widget
       await tester.pumpWidget(
         const MaterialApp(
           home: ExistingPatient(),
         ),
       );
+      final abstractPage = find.byType(AbstractConsultationPage);
+      expect(abstractPage, findsOneWidget);
+      final AbstractConsultationPage page = tester.widget(abstractPage);
 
       // Check the title is displayed
-      expect(find.text('Existing Patient'), findsOneWidget);
+      expect(page.title, equals('Existing Patient'));
+    });
+
+    testWidgets('Displays the correct title and headers',
+        (WidgetTester tester) async {
+      // Build the ExistingPatient widget
+      await tester.pumpWidget(
+        MaterialApp(
+          home: existingPatientBody,
+        ),
+      );
 
       // Check the headers are displayed
       expect(find.text('Personal Details'), findsOneWidget);
       expect(find.text('Next of Kin Details'), findsOneWidget);
     });
 
-    testWidgets('Existing Patient displays the correct number of input fields',
+    testWidgets('Displays the correct number of input fields',
         (WidgetTester tester) async {
       // Build the ExistingPatient widget
       await tester.pumpWidget(
-        const MaterialApp(
-          home: ExistingPatient(),
+        MaterialApp(
+          home: existingPatientBody,
         ),
       );
 
@@ -38,12 +51,11 @@ void main() {
       expect(find.byType(TextBox), findsNWidgets(7));
     });
 
-    testWidgets('Existing Patient displays Search button',
-        (WidgetTester tester) async {
+    testWidgets('Displays Search button', (WidgetTester tester) async {
       // Build the ExistingPatient widget
       await tester.pumpWidget(
-        const MaterialApp(
-          home: ExistingPatient(),
+        MaterialApp(
+          home: existingPatientBody,
         ),
       );
 
@@ -52,12 +64,12 @@ void main() {
       expect(find.byType(RedActionButton), findsOneWidget);
     });
 
-    testWidgets('Existing Patient search button navigates to PatientLookUp page',
+    testWidgets('Search button navigates to PatientLookUp page',
         (WidgetTester tester) async {
       // Build the ExistingPatient widget
       await tester.pumpWidget(
-        const MaterialApp(
-          home: ExistingPatient(),
+        MaterialApp(
+          home: existingPatientBody,
         ),
       );
 
