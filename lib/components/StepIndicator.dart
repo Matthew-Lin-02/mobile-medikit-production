@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 
-int SCALE = 1; // Scale does not work
+/// This component contains two different varients of the step indicator,
+/// the older style from the original Figma design is built using 'BuildPageIndicator()'
+/// the new style from the current Figma design is built using 'UpdatedIndicatorStep()'
+/// each require the current page number
 
+/// Displays which page the user is currently on and what pages come before and after. (New style)
+///
+/// Requires 'pageNum' the current page, this is used to colour the indicator.
+/// All steps and > (chevrons) before current step are highlighted.
 class UpdatedIndicatorStep extends StatelessWidget {
   final int pageNum;
 
@@ -10,6 +17,8 @@ class UpdatedIndicatorStep extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    /// Below are each of the steps displayed in the indicator
+    /// Additional can be added by adding another '_UpdatedStep()' and adjusting the 'coloured' condition
     return Row(children: [
       _UpdatedStep(
           text: "Sign Up", coloured: pageNum > 0 ? true : false, isFirst: true),
@@ -22,6 +31,10 @@ class UpdatedIndicatorStep extends StatelessWidget {
   }
 }
 
+/// Creates each of the steps in the indicator (New style)
+///
+/// Requires 'text' (the step name), 'coloured' (whether the step should be coloured),
+/// 'isFirst' (whether the step is the first in the list, prevents drawing a > at the start).
 class _UpdatedStep extends StatelessWidget {
   final String text;
   final bool coloured;
@@ -47,7 +60,12 @@ class _UpdatedStep extends StatelessWidget {
   }
 }
 
-// The circles with each of the step numbers
+/// Old style below
+
+/// The circles with each of the step numbers (Old style)
+///
+/// Requires 'stepNum' (the number written in circle), 'step' (the step number),
+/// 'currStep' (the current step of the page), 'text' (the name of the step)
 class IndicatorStep extends StatelessWidget {
   final String stepNum;
   final int step;
@@ -66,14 +84,14 @@ class IndicatorStep extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Container(
-            width: 25.0 * SCALE, // Size of the circle
-            height: 25.0 * SCALE,
+            width: 25.0, // Size of the circle
+            height: 25.0,
             child: Center(
                 child: Text(
               stepNum,
               style: TextStyle(
                 color: step >= currStep ? Colors.black : Colors.white,
-                fontSize: (11.0 * SCALE),
+                fontSize: (11.0),
               ),
             )),
             decoration: BoxDecoration(
@@ -92,7 +110,10 @@ class IndicatorStep extends StatelessWidget {
   }
 }
 
-// Creates a container with text centered within it, also colours and bolds accordingly
+/// Creates a container with text centered within it, also colours and bolds accordingly
+///
+/// Requires 'text' (name of step), 'boxSize' (size of the container), 'bold' (whether the text should
+/// be bolded), 'coloured' (whether the text should be coloured)
 class IndicatorPageName extends StatelessWidget {
   final String text;
   final double boxSize;
@@ -113,7 +134,7 @@ class IndicatorPageName extends StatelessWidget {
           child: Text(
             text,
             style: TextStyle(
-              fontSize: 11.0 * SCALE,
+              fontSize: 11.0,
               fontWeight: bold ? FontWeight.bold : FontWeight.normal,
               color: coloured
                   ? Color.fromRGBO(35, 81, 104, 1)
@@ -124,7 +145,7 @@ class IndicatorPageName extends StatelessWidget {
   }
 }
 
-// The line between each of the circles
+/// The line between each of the circles
 class IndicatorLine extends StatelessWidget {
   final bool coloured;
   IndicatorLine({required this.coloured});
@@ -146,7 +167,7 @@ class IndicatorLine extends StatelessWidget {
   }
 }
 
-// The row that should be called to draw the circles with step numbers
+/// The row that should be called to draw the circles with step numbers
 class PageIndicator extends StatelessWidget {
   final int pageNum;
   PageIndicator({this.pageNum = 0});
@@ -209,7 +230,7 @@ class PageIndicator extends StatelessWidget {
   }
 }
 
-// Draws the second row with the step names
+/// Draws the second row with the step names
 class PageIndicatorNames extends StatelessWidget {
   final int currPage;
 
@@ -222,49 +243,49 @@ class PageIndicatorNames extends StatelessWidget {
         child: Row(
           children: <Widget>[
             IndicatorPageName(
-              boxSize: 95.0 * SCALE,
+              boxSize: 95.0,
               text: "Patient sign up",
               bold: currPage > 1,
               coloured: currPage >= 1,
             ),
             IndicatorPageName(
-              boxSize: 95.0 * SCALE,
+              boxSize: 95.0,
               text: "Consultation",
               bold: currPage > 2,
               coloured: currPage >= 2,
             ),
             IndicatorPageName(
-              boxSize: 95.0 * SCALE,
+              boxSize: 95.0,
               text: "Screening Tools",
               bold: currPage > 3,
               coloured: currPage >= 3,
             ),
             IndicatorPageName(
-              boxSize: 95.0 * SCALE,
+              boxSize: 95.0,
               text: "Results",
               bold: currPage > 4,
               coloured: currPage >= 4,
             ),
             IndicatorPageName(
-              boxSize: 95.0 * SCALE,
+              boxSize: 95.0,
               text: "Explanation",
               bold: currPage > 5,
               coloured: currPage >= 5,
             ),
             IndicatorPageName(
-              boxSize: 95.0 * SCALE,
+              boxSize: 95.0,
               text: "Follow Up",
               bold: currPage > 6,
               coloured: currPage >= 6,
             ),
             IndicatorPageName(
-              boxSize: 95.0 * SCALE,
+              boxSize: 95.0,
               text: "Patient plan",
               bold: currPage > 7,
               coloured: currPage >= 7,
             ),
             IndicatorPageName(
-              boxSize: 95.0 * SCALE,
+              boxSize: 95.0,
               text: "Medical Report",
               bold: currPage > 8,
               coloured: currPage >= 8,
@@ -274,6 +295,9 @@ class PageIndicatorNames extends StatelessWidget {
   }
 }
 
+/// Creates step indicator colouring all steps before and including current (Old style)
+///
+/// Requires 'pageNum' the current page number.
 class BuildPageIndicator extends StatelessWidget {
   final int pageNum;
   BuildPageIndicator({required this.pageNum});
