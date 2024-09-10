@@ -19,15 +19,22 @@ class UpdatedIndicatorStep extends StatelessWidget {
   Widget build(BuildContext context) {
     /// Below are each of the steps displayed in the indicator
     /// Additional can be added by adding another '_UpdatedStep()' and adjusting the 'coloured' condition
-    return Row(children: [
-      _UpdatedStep(
-          text: "Sign Up", coloured: pageNum > 0 ? true : false, isFirst: true),
-      _UpdatedStep(text: "Consultation", coloured: pageNum > 1 ? true : false),
-      _UpdatedStep(text: "Screening", coloured: pageNum > 2 ? true : false),
-      _UpdatedStep(text: "Results", coloured: pageNum > 3 ? true : false),
-      _UpdatedStep(text: "Next Steps", coloured: pageNum > 4 ? true : false),
-      _UpdatedStep(text: "Report", coloured: pageNum > 5 ? true : false),
-    ]);
+    return SizedBox(
+        width: 1600,
+        height: 35,
+        child: Row(children: [
+          _UpdatedStep(
+              text: "Sign Up",
+              coloured: pageNum > 0 ? true : false,
+              isFirst: true),
+          _UpdatedStep(
+              text: "Consultation", coloured: pageNum > 1 ? true : false),
+          _UpdatedStep(text: "Screening", coloured: pageNum > 2 ? true : false),
+          _UpdatedStep(text: "Results", coloured: pageNum > 3 ? true : false),
+          _UpdatedStep(
+              text: "Next Steps", coloured: pageNum > 4 ? true : false),
+          _UpdatedStep(text: "Report", coloured: pageNum > 5 ? true : false),
+        ]));
   }
 }
 

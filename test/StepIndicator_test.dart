@@ -59,4 +59,32 @@ void main() {
     expect(smallScreenTextSize.width,
         lessThanOrEqualTo(largeScreenTextSize.width));
   });
+
+  testWidgets('UpdatedIndicatorStep displays all of the step names',
+      (WidgetTester tester) async {
+    // Set display size to 1920x1080
+    tester.view.devicePixelRatio = 1.0;
+    tester.view.physicalSize = Size(1920, 1080);
+    // Build the widget under test
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: Container(
+              width: 1600, height: 35, child: UpdatedIndicatorStep(pageNum: 1)),
+        ),
+      ),
+    );
+
+    expect(find.text('Sign Up').hitTestable(), findsOneWidget);
+
+    expect(find.text('Consultation').hitTestable(), findsOneWidget);
+
+    expect(find.text('Screening').hitTestable(), findsOneWidget);
+
+    expect(find.text('Results').hitTestable(), findsOneWidget);
+
+    expect(find.text('Next Steps').hitTestable(), findsOneWidget);
+
+    expect(find.text('Report').hitTestable(), findsOneWidget);
+  });
 }
