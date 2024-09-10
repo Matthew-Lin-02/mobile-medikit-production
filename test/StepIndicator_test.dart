@@ -69,8 +69,11 @@ void main() {
     await tester.pumpWidget(
       MaterialApp(
         home: Scaffold(
-          body: Container(
-              width: 1600, height: 35, child: UpdatedIndicatorStep(pageNum: 1)),
+          body: Center(
+              child: SizedBox(
+                  width: 1600,
+                  height: 35,
+                  child: UpdatedIndicatorStep(pageNum: 1))),
         ),
       ),
     );
