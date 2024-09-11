@@ -19,7 +19,6 @@ class Page2 extends StatelessWidget {
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
     return Scaffold(
-
       /// A stack is used to allow the art in the corner to be overlayed
       body: Stack(children: [
         /// Corner art
@@ -76,7 +75,6 @@ class Page2 extends StatelessWidget {
                     fontSize: 45,
                   ),
                 ),
-
               ),
 
               const SizedBox(
