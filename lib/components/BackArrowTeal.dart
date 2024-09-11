@@ -13,7 +13,7 @@ class BackArrowWelcome extends StatelessWidget {
         bottom: 35,
       ),
       child: Row(children: [
-        BackArrowTeal(),
+        Column(children: [BackArrowTeal(), SizedBox(height: 40)]),
         WelcomeColumn(),
       ]),
     );
@@ -43,8 +43,9 @@ class BackArrowTeal extends StatelessWidget {
         ],
       ),
       child: IconButton(
-        iconSize: 32,
-        icon: const Icon(Icons.arrow_back, color: Colors.white),
+        padding: EdgeInsets.zero,
+        iconSize: 48,
+        icon: const Icon(Icons.arrow_back_rounded, color: Colors.white),
         onPressed: onPressed ??
             () {
               Navigator.pop(context);
