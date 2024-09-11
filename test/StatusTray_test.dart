@@ -146,4 +146,27 @@ void main() {
     // Assert
     expect(find.byType(ContactHealthExpertWidget), findsOneWidget);
   });
+
+  testWidgets('WifiInfo is displayed when wifi icon is pressed',
+      (WidgetTester tester) async {
+    // Arrange
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Scaffold(
+          body: StatusTray(),
+        ),
+      ),
+    );
+
+    // Act
+    await tester.tap(find.byWidgetPredicate(
+      (widget) =>
+          widget is Image &&
+          widget.image.toString().contains('wifi-connection.png'),
+    ));
+    await tester.pump(); // Wait for the modal to open
+
+    // Assert
+    expect(find.byType(WifiInfo), findsOneWidget);
+  });
 }

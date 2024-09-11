@@ -1,16 +1,18 @@
+import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/pages/PatientProfile.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/components/StandaloneFunctions.dart';
 
 class StatusTray extends StatelessWidget {
-  var iconSize = 50.0;
+  final iconSize = 50.0;
 
   StatusTray({super.key});
 
   @override
   Widget build(BuildContext context) {
     final currentRoute = ModalRoute.of(context)?.settings.name;
+    final GlobalKey wifiKey = GlobalKey();
 
     return IntrinsicWidth(
       child: IntrinsicHeight(
@@ -25,8 +27,13 @@ class StatusTray extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               StatusIcon(
-                  iconSize: iconSize,
-                  image: 'assets/images/wifi-connection.png'),
+                key: wifiKey,
+                iconSize: iconSize,
+                image: 'assets/images/wifi-connection.png',
+                onPressed: () {
+                  showCustomModal(context, WifiInfo(parentKey: wifiKey));
+                },
+              ),
               StatusIcon(
                 iconSize: iconSize,
                 image: 'assets/images/globe.png',
@@ -459,5 +466,85 @@ class ContactHealthExpertWidget extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+class WifiInfo extends StatelessWidget {
+  final GlobalKey parentKey;
+
+  const WifiInfo({required this.parentKey});
+
+  @override
+  Widget build(BuildContext context) {
+    final RenderBox renderBox =
+        parentKey.currentContext?.findRenderObject() as RenderBox;
+    Offset position = renderBox.localToGlobal(Offset.zero);
+    Offset positionOffset = Offset(position.dx / 22, position.dy / 1.8);
+    Size screenSize = MediaQuery.of(context).size;
+
+    return Stack(children: [
+      Positioned(
+          left: position.dx - positionOffset.dx,
+          top: position.dy - positionOffset.dy,
+          child: Column(children: [
+            Container(
+                padding: const EdgeInsets.all(12.0),
+                decoration: BoxDecoration(
+                    color: AppColors.wifiInfoOverlayBlue,
+                    borderRadius: BorderRadius.circular(20.0),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey.withOpacity(0.5),
+                        spreadRadius: 5,
+                        blurRadius: 7,
+                        offset: Offset(0, 3),
+                      )
+                    ]),
+                child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Good Connection",
+                        style: TextStyle(
+                            fontSize:
+                                MediaQuery.of(context).size.width * 0.0083,
+                            color: AppColors.wifiInfoTextGreen),
+                      ),
+                      Text("Connected to 4G Cellular\nNetwork",
+                          style: TextStyle(
+                              fontSize:
+                                  MediaQuery.of(context).size.width * 0.0073,
+                              color: Colors.white)),
+                    ])),
+            CustomPaint(
+              size: Size(screenSize.width / 60, screenSize.height / 100),
+              painter: TrianglePainter(),
+            )
+          ]))
+    ]);
+  }
+}
+
+class TrianglePainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    var paint = Paint()
+      ..color = AppColors.wifiInfoOverlayBlue
+      ..strokeWidth = 4
+      ..style = PaintingStyle.fill;
+
+    var path = Path();
+
+    path.moveTo(0, 0);
+    path.lineTo(size.width, 0);
+    path.lineTo(size.width / 2, size.height);
+    path.close();
+
+    canvas.drawPath(path, paint);
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) {
+    return false;
   }
 }
