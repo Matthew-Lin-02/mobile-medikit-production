@@ -7,6 +7,35 @@ import 'package:comp30022/pages/PatientLookUp.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
 
 void main() {
+  Widget buildConfig({
+    required String title,
+    required int pageNum,
+    required Widget body,
+    Size size = const Size(1920, 1080),
+    double devicePixelRatio = 1.0,
+  }) {
+    // Set up the testing environment's screen size and pixel ratio
+    TestWidgetsFlutterBinding.ensureInitialized()
+        .window
+        .physicalSizeTestValue = size;
+    TestWidgetsFlutterBinding.ensureInitialized()
+        .window
+        .devicePixelRatioTestValue = devicePixelRatio;
+
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => GuidedConsultationState()),
+      ],
+      child: MaterialApp(
+        home: AbstractConsultationPage(
+          title: title,
+          pageNum: pageNum,
+          body: body,
+        ),
+      ),
+    );
+  }
+
   group('Existing Patient Tests', () {
     testWidgets('Displays the correct title', (WidgetTester tester) async {
       // Build the ExistingPatient widget
