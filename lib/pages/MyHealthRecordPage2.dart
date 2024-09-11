@@ -38,12 +38,14 @@ class MyHealthRecordPage2 extends StatelessWidget {
             const SizedBox(height: 25.0),
             const Text(
                 "By accepting I acknowledge that I understand my health data will be stored on My Health Record.",
-                style: TextStyle(fontSize: 30)),
+                style: TextStyle(fontSize: 30),
+                textAlign: TextAlign.center),
             const SizedBox(height: 15.0),
             const Text(
                 "I understand that I can opt out of sending my data to My Health Records, and in doing so I would"
                 "opt out of My Health Record related services",
-                style: TextStyle(fontSize: 30)),
+                style: TextStyle(fontSize: 30),
+                textAlign: TextAlign.center),
             const SizedBox(height: 10.0),
             const Text("Apply for My Health Record (placeholder)",
                 style: TextStyle(fontSize: 30)),
