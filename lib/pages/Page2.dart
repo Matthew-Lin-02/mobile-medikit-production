@@ -1,6 +1,6 @@
 import 'package:comp30022/pages/Pages.dart';
 import 'package:flutter/material.dart';
-import 'package:comp30022/components/BackArrowBlack.dart';
+import 'package:comp30022/components/BackArrowTeal.dart';
 import 'package:comp30022/components/RedActionButton.dart';
 import 'package:comp30022/main.dart';
 import 'package:provider/provider.dart';
@@ -19,7 +19,7 @@ class Page2 extends StatelessWidget {
             const EdgeInsets.only(top: 50, left: 70, right: 70, bottom: 50),
         child: Column(
           children: [
-            const BackArrowBlack(),
+            const BackArrowWelcome(),
             const Spacer(),
             const Text(
               "How are you feeling today?",
