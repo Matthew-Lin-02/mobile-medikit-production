@@ -92,6 +92,8 @@ class Page2 extends StatelessWidget {
                 alignment: Alignment.bottomRight,
                 child: RedActionButton(
                   iconData: Icons.check_circle,
+                  size: smallButtonSize,
+                  fontSize: 30.0,
                   label: "Submit",
                   onPressed: () {
                     Navigator.push(

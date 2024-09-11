@@ -113,6 +113,8 @@ Builder existingPatientBody = Builder(builder: (context) {
                   label: "Search",
                   imagePath: 'assets/images/person_search_white.png',
                   imageSize: const Size(52, 40),
+                  size: smallButtonSizeCompact,
+                  fontSize: 28,
                   onPressed: () {
                     Navigator.push(
                       context,

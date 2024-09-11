@@ -43,7 +43,7 @@ class MyHealthRecordPage1 extends StatelessWidget {
                 RedActionButton(
                   iconData: Icons.check_circle,
                   label: "Yes",
-                  size: const Size(400, 100),
+                  size: mediumButtonSize,
                   fontSize: 30,
                   onPressed: () {
                     Navigator.push(
@@ -56,7 +56,7 @@ class MyHealthRecordPage1 extends StatelessWidget {
                 RedActionButton(
                   iconData: Icons.cancel,
                   label: "No",
-                  size: const Size(400, 100),
+                  size: mediumButtonSize,
                   fontSize: 30,
                   onPressed: () {
                     Navigator.pop(context);

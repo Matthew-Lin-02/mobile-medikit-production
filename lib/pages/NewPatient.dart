@@ -121,6 +121,7 @@ Builder signUpBody = Builder(builder: (context) {
                   label: "Add Patient ",
                   iconData: Icons.add_sharp,
                   fontSize: 28,
+                  size: smallButtonSizeCompact,
                   onPressed: () {
                     Navigator.push(
                       context,

@@ -60,7 +60,7 @@ void main() {
 
     testWidgets('displays image when imagePath is provided',
         (WidgetTester tester) async {
-      const testImagePath = 'assets/test_image.png';
+      const testImagePath = 'assets/images/person_search_white.png';
 
       await tester.pumpWidget(
         const MaterialApp(
@@ -86,8 +86,10 @@ void main() {
         ),
       );
 
-      final button = tester.widget<ElevatedButton>(find.byType(ElevatedButton));
-      expect(button.style?.minimumSize?.resolve({}), const Size(200, 80));
+      expect(find.byType(RedActionButton), findsOneWidget);
+
+      final Size buttonSize = tester.getSize(find.byType(RedActionButton));
+      expect(buttonSize, const Size(250, 80));
     });
 
     testWidgets('uses provided size', (WidgetTester tester) async {
@@ -104,8 +106,10 @@ void main() {
         ),
       );
 
-      final button = tester.widget<ElevatedButton>(find.byType(ElevatedButton));
-      expect(button.style?.minimumSize?.resolve({}), testSize);
+      expect(find.byType(RedActionButton), findsOneWidget);
+
+      final Size buttonSize = tester.getSize(find.byType(RedActionButton));
+      expect(buttonSize, testSize);
     });
   });
 }

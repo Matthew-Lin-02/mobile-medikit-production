@@ -35,7 +35,7 @@ class Page3 extends StatelessWidget {
                               builder: (context) => const SignUp()),
                         );
                       },
-                      size: const Size(900, 130),
+                      size: largeButtonSize,
                       fontSize: 40),
                 ],
               ),
@@ -57,7 +57,7 @@ class Page3 extends StatelessWidget {
                               builder: (context) => const ExistingPatient()),
                         );
                       },
-                      size: const Size(900, 130),
+                      size: largeButtonSize,
                       fontSize: 40),
                 ],
               ),
@@ -79,7 +79,7 @@ class Page3 extends StatelessWidget {
                               builder: (context) => const SignUp()),
                         );
                       },
-                      size: const Size(900, 130),
+                      size: largeButtonSize,
                       fontSize: 40),
                 ],
               ),

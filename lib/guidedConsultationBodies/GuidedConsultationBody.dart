@@ -64,8 +64,8 @@ class GuidedConsultationBody extends StatelessWidget {
                         child: RedActionButton(
                           iconData: Icons.arrow_forward,
                           label: "Continue to Screening Tools",
-                          fontSize: 36,
-                          size: const Size(514, 63),
+                          fontSize: 30,
+                          size: mediumButtonSizeLong,
                           onPressed: guidedConsultationState.incrementPageNum,
                         ),
                       ),
