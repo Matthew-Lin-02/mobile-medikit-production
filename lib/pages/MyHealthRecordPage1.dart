@@ -1,6 +1,6 @@
 import 'package:comp30022/pages/MyHealthRecordPage2.dart';
 import 'package:flutter/material.dart';
-import 'package:comp30022/components/BackArrowBlack.dart';
+import 'package:comp30022/components/BackArrowTeal.dart';
 import 'package:comp30022/components/RedActionButton.dart';
 import 'package:comp30022/main.dart';
 import 'package:provider/provider.dart';
@@ -25,7 +25,7 @@ class MyHealthRecordPage1 extends StatelessWidget {
           child: Column(children: [
             const Align(
               alignment: Alignment.topLeft,
-              child: BackArrow(),
+              child: BackArrowTeal(),
             ),
             const SizedBox(height: 50.0),
             const Text(
