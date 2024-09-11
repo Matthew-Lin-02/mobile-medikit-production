@@ -117,7 +117,7 @@ Builder existingPatientBody = Builder(builder: (context) {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                        // TODO replace ExistingPatient with the correct page PatientLookUp
+                          // TODO replace ExistingPatient with the correct page PatientLookUp
                           builder: (context) => const ExistingPatient()),
                     );
                   },
