@@ -20,18 +20,19 @@ class MyApp extends StatelessWidget {
         // add other providers
       ],
       child: MaterialApp(
-        title: 'medi_kit',
-        theme: ThemeData(
-          fontFamily: 'VarelaRound',
-          useMaterial3: true,
-          colorScheme: ColorScheme.fromSeed(seedColor: AppColors.cream),
-          scaffoldBackgroundColor: AppColors.cream,
-        ),
-        home: const SignIn(),
-        routes: {
-          '/patientProfile': (context) => PatientProfile(),
-        },
-      ),
+          title: 'medi_kit',
+          theme: ThemeData(
+            fontFamily: 'VarelaRound',
+            useMaterial3: true,
+            colorScheme: ColorScheme.fromSeed(seedColor: AppColors.cream),
+            scaffoldBackgroundColor: AppColors.cream,
+          ),
+          home: AbstractConsultationPage(
+            title: " ScreeningTools",
+            pageNum: 3,
+            body: ScreeningTools(),
+          ),
+          routes: {'/patientProfile': (context) => PatientProfile()}),
     );
   }
 }
