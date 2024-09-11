@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:comp30022/components/StepIndicator.dart'; // Adjust the import to match your file structure
+import 'package:comp30022/components/StepIndicator.dart';
+import 'package:comp30022/components/BackArrowTeal.dart';
+import 'package:comp30022/color.dart';
+import 'package:comp30022/components/StatusTray.dart';
+import 'package:comp30022/pages/AbstractConsultationPage.dart'; // Adjust the import to match your file structure
 
 void main() {
   testWidgets(
@@ -58,5 +62,103 @@ void main() {
         lessThanOrEqualTo(largeScreenTextSize.height));
     expect(smallScreenTextSize.width,
         lessThanOrEqualTo(largeScreenTextSize.width));
+  });
+
+  testWidgets('Step indicator displays all names when screen size is 1920x1080',
+      (WidgetTester tester) async {
+    // Set display size to 1920x1080
+    await tester.binding
+        .setSurfaceSize(const Size(1920, 1080)); // Large screen size
+    await tester.pumpAndSettle();
+
+    // Build the widget under test
+    await tester.pumpWidget(
+      MaterialApp(
+          home: Scaffold(
+              body:
+
+                  /// Create duplicate of appbar
+
+                  AppBar(
+        automaticallyImplyLeading: false,
+        backgroundColor: AppColors.yellowCream,
+        elevation: 0,
+        bottom: PreferredSize(
+          preferredSize: const Size.fromHeight(160.0),
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.fromLTRB(12.0, 16.0, 0, 0),
+                child: Column(children: [
+                  SizedBox(height: 11),
+                  Row(children: [
+                    SizedBox(width: 115),
+                    UpdatedIndicatorStep(
+                      pageNum: 1,
+                    ),
+                  ]),
+                  SizedBox(height: 6),
+                  Row(
+                    children: [
+                      SizedBox(width: 12),
+                      const BackArrowTeal(),
+                      const SizedBox(width: 48),
+                      Expanded(
+                        child: Text(
+                          "Title",
+                          style: const TextStyle(
+                            fontSize: 44,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      //Expanded(child: BuildPageIndicator(pageNum: pageNum)),
+                    ],
+                  ),
+                ]),
+              ),
+              const SizedBox(height: 16),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 16.0),
+                    child: StatusTray(),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 16),
+              Container(
+                height: 1,
+                decoration: const BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      spreadRadius: 1,
+                      blurRadius: 1,
+                      offset: Offset(0, 2),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ))),
+    );
+
+    /// Check that the different page names are visible on the screen
+    expect(find.text('Sign Up').hitTestable(), findsOneWidget);
+
+    expect(find.text('Consultation').hitTestable(), findsOneWidget);
+
+    expect(find.text('Screening').hitTestable(), findsOneWidget);
+
+    expect(find.text('Results').hitTestable(), findsOneWidget);
+
+    expect(find.text('Next Steps').hitTestable(), findsOneWidget);
+
+    expect(find.text('Report').hitTestable(), findsOneWidget);
   });
 }

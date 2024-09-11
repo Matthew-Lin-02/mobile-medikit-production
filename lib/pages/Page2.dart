@@ -1,7 +1,7 @@
 import 'package:comp30022/components/BackArrowTeal.dart';
 import 'package:comp30022/pages/Pages.dart';
 import 'package:flutter/material.dart';
-import 'package:comp30022/components/BackArrowBlack.dart';
+import 'package:comp30022/components/BackArrowTeal.dart';
 import 'package:comp30022/components/RedActionButton.dart';
 import 'package:comp30022/main.dart';
 import 'package:provider/provider.dart';
@@ -19,6 +19,7 @@ class Page2 extends StatelessWidget {
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
     return Scaffold(
+
       /// A stack is used to allow the art in the corner to be overlayed
       body: Stack(children: [
         /// Corner art
@@ -75,6 +76,7 @@ class Page2 extends StatelessWidget {
                     fontSize: 45,
                   ),
                 ),
+
               ),
 
               const SizedBox(
