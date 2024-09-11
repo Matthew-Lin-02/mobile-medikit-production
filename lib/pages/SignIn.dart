@@ -1,4 +1,4 @@
-import 'package:comp30022/pages/Page2.dart';
+import 'package:comp30022/pages/MentalHealthCheck.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 
