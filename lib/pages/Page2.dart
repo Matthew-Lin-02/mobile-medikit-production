@@ -6,6 +6,10 @@ import 'package:comp30022/components/RedActionButton.dart';
 import 'package:comp30022/main.dart';
 import 'package:provider/provider.dart';
 
+/// Page 2 is the welcome page that asks the user how they are feeling.
+/// The user is able to respond using a series of coloured faces that
+/// colour themselves depending on which is selected.
+
 class Page2 extends StatelessWidget {
   const Page2({
     super.key,
@@ -15,7 +19,33 @@ class Page2 extends StatelessWidget {
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
     return Scaffold(
+      /// A stack is used to allow the art in the corner to be overlayed
       body: Stack(children: [
+        /// Corner art
+        SizedBox(
+            width: 1920,
+            height: 1080,
+            child: Row(children: [
+              Align(
+                  alignment: FractionalOffset.bottomLeft,
+                  child: SizedBox(
+                    width: 1200,
+                    height: 400,
+                    child: Image.asset('assets/images/Journey-Strip1.png',
+                        fit: BoxFit.cover),
+                  )),
+              Align(
+                  alignment: FractionalOffset.bottomRight,
+                  child: Text(
+                    "     Pukurlarringu\n\"To become happy.\"\n",
+                    style: TextStyle(
+                        fontSize: 40,
+                        color: Colors.black.withOpacity(0.6),
+                        fontStyle: FontStyle.italic),
+                  )),
+            ])),
+
+        /// Main part of page
         Padding(
           padding: const EdgeInsets.only(top: 50, left: 65, right: 75),
           child: Column(
@@ -23,33 +53,41 @@ class Page2 extends StatelessWidget {
             children: [
               Row(children: [
                 const BackArrowTeal(),
-                SizedBox(width: 50),
+                const SizedBox(width: 50),
                 Text("Welcome",
                     style: TextStyle(
                         fontSize: 50, color: Colors.black.withOpacity(0.7))),
-                SizedBox(width: 20),
-                Image(image: AssetImage('assets/images/yellow_art.png')),
+                const SizedBox(width: 20),
+                const Image(image: AssetImage('assets/images/yellow_art.png')),
               ]),
-              Row(children: [
+
+              const Row(children: [
                 SizedBox(width: 110),
                 Text("Olivia", style: TextStyle(fontSize: 100))
               ]),
-              SizedBox(height: 100),
-              Center(
-                child: const Text(
+
+              const SizedBox(height: 100),
+
+              const Center(
+                child: Text(
                   "How are you feeling today?",
                   style: TextStyle(
                     fontSize: 45,
                   ),
                 ),
               ),
+
               const SizedBox(
                 height: 70,
               ),
-              Center(child: FittedBox(child: WelcomeFaces())),
+
+              /// Welcome faces with colouring
+              const Center(child: FittedBox(child: WelcomeFaces())),
+
               const SizedBox(
                 height: 20,
               ),
+
               Align(
                 alignment: Alignment.bottomRight,
                 child: RedActionButton(
@@ -66,33 +104,12 @@ class Page2 extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(
-            width: 1920,
-            height: 1080,
-            child: Row(children: [
-              Align(
-                  alignment: FractionalOffset.bottomLeft,
-                  child: SizedBox(
-                    width: 1200,
-                    height: 400,
-                    child: Image.asset('assets/images/Journey-Strip1.png',
-                        fit: BoxFit.cover),
-                  )),
-              Align(
-                  child: Text(
-                    "     Pukurlarringu\n\"To become happy.\"\n",
-                    style: TextStyle(
-                        fontSize: 40,
-                        color: Colors.black.withOpacity(0.6),
-                        fontStyle: FontStyle.italic),
-                  ),
-                  alignment: FractionalOffset.bottomRight),
-            ])),
       ]),
     );
   }
 }
 
+/// The welcome faces that change colour to show which is selected
 class WelcomeFaces extends StatefulWidget {
   const WelcomeFaces({super.key});
 
@@ -119,10 +136,14 @@ class _WelcomeFacesState extends State<WelcomeFaces> {
               Border.all(color: const Color.fromARGB(0, 0, 0, 0), width: 2)),
       child: Stack(
         children: [
+          /// Display the current image (which face is currently selected)
           Image(image: AssetImage(image)),
+
+          /// Row of boxes above image to detect presses and change the image.
           Row(children: [
             GestureDetector(
                 onTap: () {
+                  /// Face 1 has been selected (worst)
                   setState(() {
                     image = 'assets/images/Faces_1.png';
                   });
@@ -133,10 +154,13 @@ class _WelcomeFacesState extends State<WelcomeFaces> {
                     decoration: BoxDecoration(
                         border: Border.all(
                             color: const Color.fromARGB(0, 0, 0, 0),
+
+                            /// Make sure the box cannot be seen
                             width: 2)))),
-            SizedBox(width: 125),
+            const SizedBox(width: 125),
             GestureDetector(
                 onTap: () {
+                  /// Face 2 has been selected
                   setState(() {
                     image = 'assets/images/Faces_2.png';
                   });
@@ -148,9 +172,10 @@ class _WelcomeFacesState extends State<WelcomeFaces> {
                         border: Border.all(
                             color: const Color.fromARGB(0, 0, 0, 0),
                             width: 2)))),
-            SizedBox(width: 125),
+            const SizedBox(width: 125),
             GestureDetector(
                 onTap: () {
+                  /// Face 3 has been selected
                   setState(() {
                     image = 'assets/images/Faces_3.png';
                   });
@@ -162,9 +187,10 @@ class _WelcomeFacesState extends State<WelcomeFaces> {
                         border: Border.all(
                             color: const Color.fromARGB(0, 0, 0, 0),
                             width: 2)))),
-            SizedBox(width: 125),
+            const SizedBox(width: 125),
             GestureDetector(
                 onTap: () {
+                  /// Face 4 has been selected
                   setState(() {
                     image = 'assets/images/Faces_4.png';
                   });
@@ -176,9 +202,10 @@ class _WelcomeFacesState extends State<WelcomeFaces> {
                         border: Border.all(
                             color: const Color.fromARGB(0, 0, 0, 0),
                             width: 2)))),
-            SizedBox(width: 120),
+            const SizedBox(width: 120),
             GestureDetector(
                 onTap: () {
+                  /// Face 5 has been selected (best)
                   setState(() {
                     image = 'assets/images/Faces_5.png';
                   });
@@ -197,6 +224,7 @@ class _WelcomeFacesState extends State<WelcomeFaces> {
   }
 }
 
+/// Old row of buttons for welcome faces
 class RowOfButtons extends StatelessWidget {
   const RowOfButtons({super.key});
 
