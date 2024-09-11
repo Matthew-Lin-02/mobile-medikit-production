@@ -7,7 +7,8 @@ Builder existingPatientBody = Builder(builder: (context) {
   return Container(
     color: AppColors.cream,
     child: Center(
-      child: FractionallySizedBox(
+      child: Expanded(
+          child: FractionallySizedBox(
         widthFactor: 0.8, // Set the width to 4/5 of the screen width
 
         child: Padding(
@@ -149,7 +150,7 @@ Builder existingPatientBody = Builder(builder: (context) {
             ],
           ),
         ),
-      ),
+      )),
     ),
   );
 });
