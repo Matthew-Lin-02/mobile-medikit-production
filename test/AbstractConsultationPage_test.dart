@@ -66,7 +66,7 @@ void main() {
         body: Container(),
       ));
 
-      expect(find.byType(BuildPageIndicator), findsOneWidget);
+      expect(find.byType(UpdatedIndicatorStep), findsOneWidget);
     });
 
     testWidgets('Contains BackArrowTeal widget', (WidgetTester tester) async {

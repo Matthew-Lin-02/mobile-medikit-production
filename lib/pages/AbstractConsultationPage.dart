@@ -31,28 +31,39 @@ class AbstractConsultationPage extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.fromLTRB(12.0, 16.0, 0, 0),
-              child: Row(
-                children: [
-                  SizedBox(width: 12),
-                  (guidedConsultationState.currentPageIndex == 0 ||
-                          this.title == "Patient Profile")
-                      ? const BackArrowTeal()
-                      : BackArrowTeal(
-                          onPressed: guidedConsultationState.decrementPageNum),
-                  const SizedBox(width: 48),
-                  Expanded(
-                    child: Text(
-                      title,
-                      style: const TextStyle(
-                        fontSize: 44,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.black,
+              child: Column(children: [
+                SizedBox(height: 11),
+                Row(children: [
+                  SizedBox(width: 115),
+                  UpdatedIndicatorStep(
+                    pageNum: pageNum,
+                  ),
+                ]),
+                SizedBox(height: 6),
+                Row(
+                  children: [
+                    SizedBox(width: 12),
+                    (guidedConsultationState.currentPageIndex == 0 ||
+                            this.title == "Patient Profile")
+                        ? const BackArrowTeal()
+                        : BackArrowTeal(
+                            onPressed:
+                                guidedConsultationState.decrementPageNum),
+                    const SizedBox(width: 48),
+                    Expanded(
+                      child: Text(
+                        title,
+                        style: const TextStyle(
+                          fontSize: 44,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
-                  ),
-                  Expanded(child: BuildPageIndicator(pageNum: pageNum)),
-                ],
-              ),
+                    //Expanded(child: BuildPageIndicator(pageNum: pageNum)),
+                  ],
+                ),
+              ]),
             ),
             const SizedBox(height: 16),
             Row(
