@@ -7,6 +7,8 @@ import 'package:comp30022/components/BackArrowTeal.dart';
 import 'package:provider/provider.dart';
 import 'package:comp30022/pages/GuidedConsultation.dart';
 
+const double VERTICAL_SPACING = 16;
+
 class AbstractConsultationPage extends StatelessWidget {
   final String title;
   final int pageNum;

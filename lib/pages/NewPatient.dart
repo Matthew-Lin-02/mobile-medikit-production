@@ -9,8 +9,6 @@ import 'package:comp30022/components/StepIndicator.dart';
 import 'package:comp30022/components/BackArrowTeal.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
 
-const double VERTICAL_SPACING = 16;
-
 Builder signUpBody = Builder(builder: (context) {
   return Container(
     color: AppColors.cream, // Matching cream background color

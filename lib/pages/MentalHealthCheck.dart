@@ -6,12 +6,12 @@ import 'package:comp30022/components/RedActionButton.dart';
 import 'package:comp30022/main.dart';
 import 'package:provider/provider.dart';
 
-/// Page 2 is the welcome page that asks the user how they are feeling.
+/// MentalHealthCheck is the welcome page that asks the user how they are feeling.
 /// The user is able to respond using a series of coloured faces that
 /// colour themselves depending on which is selected.
 
-class Page2 extends StatelessWidget {
-  const Page2({
+class MentalHealthCheck extends StatelessWidget {
+  const MentalHealthCheck({
     super.key,
   });
 
