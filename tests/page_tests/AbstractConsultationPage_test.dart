@@ -16,14 +16,11 @@ void main() {
     Size size = const Size(1920, 1080),
     double devicePixelRatio = 1.0,
   }) {
-    if (size != null) {
-      TestWidgetsFlutterBinding.ensureInitialized()
-          .window
-          .physicalSizeTestValue = size;
-      TestWidgetsFlutterBinding.ensureInitialized()
-          .window
-          .devicePixelRatioTestValue = devicePixelRatio;
-    }
+    TestWidgetsFlutterBinding.ensureInitialized().window.physicalSizeTestValue =
+        size;
+    TestWidgetsFlutterBinding.ensureInitialized()
+        .window
+        .devicePixelRatioTestValue = devicePixelRatio;
 
     return MultiProvider(
       providers: [

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/config.dart';
+import 'package:comp30022/font.dart';
 
 class YellowCard extends StatefulWidget {
   const YellowCard({
@@ -37,7 +38,7 @@ class YellowCardState extends State<YellowCard> {
           children: [
             Text(
               widget.cardData.title,
-              style: const TextStyle(fontSize: 32),
+              style: const TextStyle(fontSize: largeFontSize),
             ),
             if (expanded)
               Column(children: [
@@ -85,7 +86,7 @@ class CardContentClosed extends StatelessWidget {
                   Text(
                     entry.key, // Subtitle
                     style: TextStyle(
-                      fontSize: 24,
+                      fontSize: mediumFontSize,
                       fontWeight: FontWeight.w500,
                       color: Colors.black.withOpacity(0.5),
                     ),
@@ -127,12 +128,12 @@ class BulletedList {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text(" • ", style: TextStyle(fontSize: 24)),
+        const Text(" • ", style: TextStyle(fontSize: mediumFontSize)),
         const SizedBox(width: 8),
         Expanded(
             child: Text(
           text,
-          style: const TextStyle(fontSize: 24),
+          style: const TextStyle(fontSize: mediumFontSize),
         )),
       ],
     );

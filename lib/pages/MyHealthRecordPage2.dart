@@ -4,6 +4,7 @@ import 'package:comp30022/components/BackArrowTeal.dart';
 import 'package:comp30022/components/RedActionButton.dart';
 import 'package:comp30022/main.dart';
 import 'package:provider/provider.dart';
+import 'package:comp30022/font.dart';
 
 class MyHealthRecordPage2 extends StatelessWidget {
   const MyHealthRecordPage2({
@@ -30,25 +31,27 @@ class MyHealthRecordPage2 extends StatelessWidget {
             const SizedBox(height: 50.0),
             const Text(
               "My Health Record",
-              style: TextStyle(fontSize: 80, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: largeHeadingFontSize, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 25.0),
             const Text("Patient Consent",
-                style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold)),
+                style: TextStyle(
+                    fontSize: subHeadingFontSize, fontWeight: FontWeight.bold)),
             const SizedBox(height: 25.0),
             const Text(
                 "By accepting I acknowledge that I understand my health data will be stored on My Health Record.",
-                style: TextStyle(fontSize: 30),
+                style: TextStyle(fontSize: largeFontSize),
                 textAlign: TextAlign.center),
             const SizedBox(height: 15.0),
             const Text(
                 "I understand that I can opt out of sending my data to My Health Records, and in doing so I would"
                 "opt out of My Health Record related services",
-                style: TextStyle(fontSize: 30),
+                style: TextStyle(fontSize: largeFontSize),
                 textAlign: TextAlign.center),
             const SizedBox(height: 10.0),
-            const Text("Apply for My Health Record (placeholder)",
-                style: TextStyle(fontSize: 30)),
+            const Text("Apply for My Health Record",
+                style: TextStyle(fontSize: largeFontSize)),
             const SizedBox(height: 300.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -57,7 +60,7 @@ class MyHealthRecordPage2 extends StatelessWidget {
                   iconData: Icons.check_circle,
                   label: "Yes",
                   size: mediumButtonSize,
-                  fontSize: 30,
+                  fontSize: largeFontSize,
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -70,7 +73,7 @@ class MyHealthRecordPage2 extends StatelessWidget {
                   iconData: Icons.cancel,
                   label: "No",
                   size: mediumButtonSize,
-                  fontSize: 30,
+                  fontSize: largeFontSize,
                   onPressed: () {
                     Navigator.pop(context);
                   },

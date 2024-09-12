@@ -1,13 +1,14 @@
-import 'package:comp30022/components/ChatbotButton.dart';
+import 'package:comp30022/components/ChatBotButton.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
+import 'package:comp30022/font.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
 import 'package:comp30022/components/YellowBorderWhiteCard.dart';
 
 Builder patientProfileBody = Builder(builder: (context) {
   return Container(
     color: AppColors.cream, // Matching cream background color
-    padding: EdgeInsets.only(top: 70, bottom: 60, left: 120, right: 20),
+    padding: const EdgeInsets.only(top: 70, bottom: 60, left: 120, right: 20),
     child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -28,10 +29,10 @@ Builder patientProfileBody = Builder(builder: (context) {
               )
             ],
           ),
-          SizedBox(width: 40),
+          const SizedBox(width: 40),
           UserDetailTabs(),
-          SizedBox(width: 30),
-          ChatbotButton(),
+          const SizedBox(width: 30),
+          const ChatbotButton(),
         ]),
   );
 });
@@ -62,7 +63,7 @@ class UserInfoCard extends StatelessWidget {
           Text(
             'Darlene Pilbara',
             style: TextStyle(
-              fontSize: 40,
+              fontSize: extraLargeFontSize,
               color: Colors.black,
             ),
           ),
@@ -108,10 +109,14 @@ class UserInfoRow extends StatelessWidget {
             flex: 1,
             child: Text(attribute,
                 style: TextStyle(
-                    fontSize: 25, color: Colors.black.withOpacity(0.6))),
+                    fontSize: mediumFontSize,
+                    color: Colors.black.withOpacity(0.6))),
           ),
-          SizedBox(width: 10),
-          Expanded(flex: 1, child: Text(value, style: TextStyle(fontSize: 25)))
+          const SizedBox(width: 10),
+          Expanded(
+              flex: 1,
+              child:
+                  Text(value, style: const TextStyle(fontSize: mediumFontSize)))
         ],
       ),
     );
@@ -130,19 +135,20 @@ class AllergiesCard extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          const Text(
             'Allergies',
             style: TextStyle(
-              fontSize: 38,
+              fontSize: extraLargeFontSize,
               color: Colors.black,
             ),
           ),
-          SizedBox(height: 8),
-          Text('None known', style: TextStyle(fontSize: 25)),
-          SizedBox(height: 8),
+          const SizedBox(height: 8),
+          const Text('None known', style: TextStyle(fontSize: mediumFontSize)),
+          const SizedBox(height: 8),
           Text('+ Add Allergy',
               style: TextStyle(
-                  fontSize: 28, color: Colors.black.withOpacity(0.6))),
+                  fontSize: mediumFontSize,
+                  color: Colors.black.withOpacity(0.6))),
         ],
       ),
     );
@@ -175,7 +181,7 @@ class _UserDetailTabsState extends State<UserDetailTabs> {
         children: [
           // Tabs section
           Transform.translate(
-            offset: Offset(-2.25, 0),
+            offset: const Offset(-2.25, 0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -207,10 +213,10 @@ class _UserDetailTabsState extends State<UserDetailTabs> {
             child: Container(
                 width: 1153,
                 height: 697,
-                padding: EdgeInsets.all(5),
+                padding: const EdgeInsets.all(5),
                 decoration: BoxDecoration(
                     color: AppColors.yellowCream,
-                    borderRadius: BorderRadius.only(
+                    borderRadius: const BorderRadius.only(
                         bottomLeft: Radius.circular(14),
                         bottomRight: Radius.circular(14),
                         topRight: Radius.circular(14),
@@ -218,7 +224,7 @@ class _UserDetailTabsState extends State<UserDetailTabs> {
                     boxShadow: [
                       BoxShadow(
                         color: Colors.black.withOpacity(0.25),
-                        offset: Offset(0, 4),
+                        offset: const Offset(0, 4),
                         blurRadius: 4, // Match blur radius for consistency
                       ),
                     ]),
@@ -246,7 +252,7 @@ class _UserDetailTabsState extends State<UserDetailTabs> {
 
   Widget _buildGeneralContent() {
     return Container(
-      padding: EdgeInsets.all(10),
+      padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(14)),
       child: Column(
@@ -260,16 +266,17 @@ class _UserDetailTabsState extends State<UserDetailTabs> {
               Text(
                 'Personal details',
                 style: TextStyle(
-                    fontSize: 24, color: Colors.black.withOpacity(0.4)),
+                    fontSize: mediumFontSize,
+                    color: Colors.black.withOpacity(0.4)),
               ),
-              SizedBox(height: 15.0),
+              const SizedBox(height: 15.0),
               Table(
                 columnWidths: {
-                  0: FlexColumnWidth(3),
-                  1: FlexColumnWidth(3),
-                  2: FlexColumnWidth(2),
-                  3: FlexColumnWidth(2),
-                  4: FlexColumnWidth(3),
+                  0: const FlexColumnWidth(3),
+                  1: const FlexColumnWidth(3),
+                  2: const FlexColumnWidth(2),
+                  3: const FlexColumnWidth(2),
+                  4: const FlexColumnWidth(3),
                 },
                 border: TableBorder(
                   horizontalInside: BorderSide(
@@ -280,34 +287,38 @@ class _UserDetailTabsState extends State<UserDetailTabs> {
                     Text('Name',
                         style: TextStyle(
                             color: Colors.black.withOpacity(0.4),
-                            fontSize: 22)),
+                            fontSize: smallFontSize)),
                     Text('Other names',
                         style: TextStyle(
                             color: Colors.black.withOpacity(0.4),
-                            fontSize: 22)),
+                            fontSize: smallFontSize)),
                     Text('Birthdate',
                         style: TextStyle(
                             color: Colors.black.withOpacity(0.4),
-                            fontSize: 22)),
+                            fontSize: smallFontSize)),
                     Text('Phone No',
                         style: TextStyle(
                             color: Colors.black.withOpacity(0.4),
-                            fontSize: 22)),
+                            fontSize: smallFontSize)),
                     Text('Secondary Phone No(s)',
                         style: TextStyle(
                             color: Colors.black.withOpacity(0.4),
-                            fontSize: 22)),
+                            fontSize: smallFontSize)),
                   ]),
-                  TableRow(children: [
-                    Text('Darlene', style: TextStyle(fontSize: 22)),
-                    Text('', style: TextStyle(fontSize: 22)),
-                    Text('01/01/1980', style: TextStyle(fontSize: 22)),
-                    Text('0412 345 678', style: TextStyle(fontSize: 22)),
+                  const TableRow(children: [
+                    Text('Darlene', style: TextStyle(fontSize: smallFontSize)),
+                    Text('', style: TextStyle(fontSize: smallFontSize)),
+                    Text('01/01/1980',
+                        style: TextStyle(fontSize: smallFontSize)),
+                    Text('0412 345 678',
+                        style: TextStyle(fontSize: smallFontSize)),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text('0412 345 678', style: TextStyle(fontSize: 22)),
-                        Text('0498 765 432', style: TextStyle(fontSize: 22)),
+                        Text('0412 345 678',
+                            style: TextStyle(fontSize: smallFontSize)),
+                        Text('0498 765 432',
+                            style: TextStyle(fontSize: smallFontSize)),
                       ],
                     ),
                   ]),
@@ -323,12 +334,13 @@ class _UserDetailTabsState extends State<UserDetailTabs> {
               Text(
                 'Key notes',
                 style: TextStyle(
-                    fontSize: 24, color: Colors.black.withOpacity(0.4)),
+                    fontSize: mediumFontSize,
+                    color: Colors.black.withOpacity(0.4)),
               ),
-              SizedBox(height: 8.0),
-              Text(
+              const SizedBox(height: 8.0),
+              const Text(
                 'Knee and back pain, difficulty breathing during exercise, semi-frequent heart palpitations',
-                style: TextStyle(fontSize: 22),
+                style: TextStyle(fontSize: smallFontSize),
               ),
             ],
           ),
@@ -340,17 +352,18 @@ class _UserDetailTabsState extends State<UserDetailTabs> {
               Text(
                 'Prescriptions',
                 style: TextStyle(
-                    fontSize: 24, color: Colors.black.withOpacity(0.4)),
+                    fontSize: mediumFontSize,
+                    color: Colors.black.withOpacity(0.4)),
               ),
-              SizedBox(height: 15.0),
+              const SizedBox(height: 15.0),
               Table(
                 columnWidths: {
-                  0: FlexColumnWidth(3),
-                  1: FlexColumnWidth(3),
-                  2: FlexColumnWidth(1.5),
-                  3: FlexColumnWidth(1.5),
-                  4: FlexColumnWidth(1.5),
-                  5: FlexColumnWidth(2),
+                  0: const FlexColumnWidth(3),
+                  1: const FlexColumnWidth(3),
+                  2: const FlexColumnWidth(1.5),
+                  3: const FlexColumnWidth(1.5),
+                  4: const FlexColumnWidth(1.5),
+                  5: const FlexColumnWidth(2),
                 },
                 border: TableBorder(
                   horizontalInside: BorderSide(
@@ -360,43 +373,45 @@ class _UserDetailTabsState extends State<UserDetailTabs> {
                   TableRow(children: [
                     Text('Brand Name',
                         style: TextStyle(
-                            fontSize: 22,
+                            fontSize: smallFontSize,
                             color: Colors.black.withOpacity(0.5))),
                     Text('Generic Name',
                         style: TextStyle(
-                            fontSize: 22,
+                            fontSize: smallFontSize,
                             color: Colors.black.withOpacity(0.5))),
                     Text('Strength',
                         style: TextStyle(
-                            fontSize: 22,
+                            fontSize: smallFontSize,
                             color: Colors.black.withOpacity(0.5))),
                     Text('Frequency',
                         style: TextStyle(
-                            fontSize: 22,
+                            fontSize: smallFontSize,
                             color: Colors.black.withOpacity(0.5))),
                     Text('Form',
                         style: TextStyle(
-                            fontSize: 22,
+                            fontSize: smallFontSize,
                             color: Colors.black.withOpacity(0.5))),
                     Text('Date Prescribed',
                         style: TextStyle(
-                            fontSize: 22,
+                            fontSize: smallFontSize,
                             color: Colors.black.withOpacity(0.5))),
                   ]),
-                  TableRow(children: [
+                  const TableRow(children: [
                     Text(
                       'Norvasc',
-                      style: TextStyle(fontSize: 22),
+                      style: TextStyle(fontSize: smallFontSize),
                     ),
-                    Text('Amlodipine', style: TextStyle(fontSize: 22)),
-                    Text('5mg', style: TextStyle(fontSize: 22)),
-                    Text('1/Day', style: TextStyle(fontSize: 22)),
-                    Text('Tab', style: TextStyle(fontSize: 22)),
-                    Text('24/03/2024', style: TextStyle(fontSize: 22)),
+                    Text('Amlodipine',
+                        style: TextStyle(fontSize: smallFontSize)),
+                    Text('5mg', style: TextStyle(fontSize: smallFontSize)),
+                    Text('1/Day', style: TextStyle(fontSize: smallFontSize)),
+                    Text('Tab', style: TextStyle(fontSize: smallFontSize)),
+                    Text('24/03/2024',
+                        style: TextStyle(fontSize: smallFontSize)),
                   ]),
                 ],
               ),
-              SizedBox(height: 100.0),
+              const SizedBox(height: 100.0),
             ],
           ),
         ],
@@ -405,7 +420,7 @@ class _UserDetailTabsState extends State<UserDetailTabs> {
   }
 
   Widget _buildHistoryContent() {
-    return Text("");
+    return const Text("");
   }
 
   Widget _buildFamilyContent() {
@@ -416,7 +431,7 @@ class _UserDetailTabsState extends State<UserDetailTabs> {
         child: Container(
           width: 700,
           height: 500,
-          child: Column(
+          child: const Column(
             children: [
               UserInfoRow(attribute: "Language Group", value: "Martu"),
               UserInfoRow(attribute: "Country/Land", value: "Martu"),
@@ -429,7 +444,7 @@ class _UserDetailTabsState extends State<UserDetailTabs> {
   }
 
   Widget _buildActivityContent() {
-    return Text("");
+    return const Text("");
   }
 }
 
@@ -442,20 +457,20 @@ class TabWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.only(right: 4),
+      padding: const EdgeInsets.only(right: 4),
       child: Container(
         decoration: BoxDecoration(
           color: isSelected
               ? AppColors.yellowCream
               : AppColors.yellowCream.withOpacity(0.6),
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
               topLeft: Radius.circular(14), topRight: Radius.circular(14)),
         ),
-        padding: EdgeInsets.symmetric(vertical: 10, horizontal: 16),
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 16),
         child: Text(
           label,
           style: TextStyle(
-            fontSize: 24,
+            fontSize: mediumFontSize,
             color: isSelected ? Colors.black : Colors.grey[600],
           ),
         ),

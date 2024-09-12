@@ -1,7 +1,6 @@
 import 'package:comp30022/components/MedicalHistorySubItem.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:comp30022/components/MedicalHistorySubItem.dart';
 
 void main() {
   testWidgets('MedicalHistorySubItem displays the title correctly',

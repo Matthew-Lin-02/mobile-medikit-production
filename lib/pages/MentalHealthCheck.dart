@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:comp30022/components/RedActionButton.dart';
 import 'package:comp30022/main.dart';
 import 'package:provider/provider.dart';
+import 'package:comp30022/font.dart';
 
 /// MentalHealthCheck is the welcome page that asks the user how they are feeling.
 /// The user is able to respond using a series of coloured faces that
@@ -38,7 +39,7 @@ class MentalHealthCheck extends StatelessWidget {
                   child: Text(
                     "     Pukurlarringu\n\"To become happy.\"\n",
                     style: TextStyle(
-                        fontSize: 40,
+                        fontSize: extraLargeFontSize,
                         color: Colors.black.withOpacity(0.6),
                         fontStyle: FontStyle.italic),
                   )),
@@ -50,20 +51,7 @@ class MentalHealthCheck extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Row(children: [
-                const BackArrowTeal(),
-                const SizedBox(width: 50),
-                Text("Welcome",
-                    style: TextStyle(
-                        fontSize: 50, color: Colors.black.withOpacity(0.7))),
-                const SizedBox(width: 20),
-                const Image(image: AssetImage('assets/images/yellow_art.png')),
-              ]),
-
-              const Row(children: [
-                SizedBox(width: 110),
-                Text("Olivia", style: TextStyle(fontSize: 100))
-              ]),
+              const BackArrowWelcome(),
 
               const SizedBox(height: 100),
 
@@ -92,7 +80,7 @@ class MentalHealthCheck extends StatelessWidget {
                 child: RedActionButton(
                   iconData: Icons.check_circle,
                   size: smallButtonSize,
-                  fontSize: 30.0,
+                  fontSize: largeFontSize,
                   label: "Submit",
                   onPressed: () {
                     Navigator.push(

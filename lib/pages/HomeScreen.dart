@@ -36,7 +36,7 @@ class Page3 extends StatelessWidget {
                         );
                       },
                       size: largeButtonSize,
-                      fontSize: 40),
+                      fontSize: largeButtonFontSize),
                 ],
               ),
               const Spacer(),
@@ -58,7 +58,7 @@ class Page3 extends StatelessWidget {
                         );
                       },
                       size: largeButtonSize,
-                      fontSize: 40),
+                      fontSize: largeButtonFontSize),
                 ],
               ),
               const Spacer(),
@@ -80,7 +80,7 @@ class Page3 extends StatelessWidget {
                         );
                       },
                       size: largeButtonSize,
-                      fontSize: 40),
+                      fontSize: largeButtonFontSize),
                 ],
               ),
               const Spacer(flex: 4),

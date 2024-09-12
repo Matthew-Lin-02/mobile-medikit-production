@@ -1,5 +1,6 @@
 import 'package:comp30022/components/YellowTextField.dart';
 import 'package:flutter/material.dart';
+import 'package:comp30022/font.dart';
 
 class MedicalHistorySubItem extends StatelessWidget {
   final String title;
@@ -22,21 +23,21 @@ class MedicalHistorySubItem extends StatelessWidget {
       children: [
         Text(
           title,
-          style: TextStyle(
-            fontSize: 18,
+          style: const TextStyle(
+            fontSize: extraSmallFontSize,
             fontWeight: FontWeight.bold,
             color: Colors.black87,
           ),
         ),
-        SizedBox(height: 4),
+        const SizedBox(height: 4),
         Text(
           description,
-          style: TextStyle(
-            fontSize: 14,
+          style: const TextStyle(
+            fontSize: tinyFontSize,
             color: Colors.black87,
           ),
         ),
-        SizedBox(height: 8),
+        const SizedBox(height: 8),
         YellowTextField(hintText: hintText, maxLines: maxLines),
       ],
     );

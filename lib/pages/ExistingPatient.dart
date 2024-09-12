@@ -1,6 +1,7 @@
 import 'package:comp30022/pages/Pages.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
+import 'package:comp30022/font.dart';
 import 'package:comp30022/components/CustomInputFields.dart';
 import 'package:comp30022/components/RedActionButton.dart';
 
@@ -32,7 +33,7 @@ Builder existingPatientBody = Builder(builder: (context) {
                         SizedBox(width: 20),
                         Text('Personal Details',
                             style: TextStyle(
-                              fontSize: 48,
+                              fontSize: subHeadingFontSize,
                             )),
                       ],
                     ),
@@ -41,7 +42,7 @@ Builder existingPatientBody = Builder(builder: (context) {
               ),
               const SizedBox(height: 20),
               Padding(
-                padding: const EdgeInsets.only(bottom: VERTICAL_SPACING),
+                padding: const EdgeInsets.only(bottom: verticalSpacing),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -56,7 +57,7 @@ Builder existingPatientBody = Builder(builder: (context) {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: VERTICAL_SPACING),
+                padding: const EdgeInsets.only(bottom: verticalSpacing),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -87,7 +88,7 @@ Builder existingPatientBody = Builder(builder: (context) {
                         SizedBox(width: 20),
                         Text('Next of Kin Details',
                             style: TextStyle(
-                              fontSize: 48,
+                              fontSize: subHeadingFontSize,
                             )),
                       ],
                     ),
@@ -97,7 +98,7 @@ Builder existingPatientBody = Builder(builder: (context) {
               const SizedBox(
                   height: 20), // Add more vertical space between sections
               Padding(
-                  padding: const EdgeInsets.only(bottom: VERTICAL_SPACING),
+                  padding: const EdgeInsets.only(bottom: verticalSpacing),
                   child: Row(
                     children: [
                       Expanded(
@@ -115,7 +116,7 @@ Builder existingPatientBody = Builder(builder: (context) {
                   imagePath: 'assets/images/person_search_white.png',
                   imageSize: const Size(52, 40),
                   size: smallButtonSizeCompact,
-                  fontSize: 28,
+                  fontSize: smallButtonFontSize,
                   onPressed: () {
                     Navigator.push(
                       context,

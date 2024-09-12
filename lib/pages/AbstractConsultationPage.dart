@@ -7,12 +7,13 @@ import 'package:comp30022/components/BackArrowTeal.dart';
 import 'package:provider/provider.dart';
 import 'package:comp30022/pages/GuidedConsultation.dart';
 
-const double VERTICAL_SPACING = 16;
+const double verticalSpacing = 16;
+const double pageHeadingFontSize = 44.0;
 
 class AbstractConsultationPage extends StatelessWidget {
   final String title;
   final int pageNum;
-  Widget body;
+  final Widget body;
 
   AbstractConsultationPage({
     Key? key,
@@ -56,7 +57,7 @@ class AbstractConsultationPage extends StatelessWidget {
                       child: Text(
                         title,
                         style: const TextStyle(
-                          fontSize: 44,
+                          fontSize: pageHeadingFontSize,
                           fontWeight: FontWeight.bold,
                           color: Colors.black,
                         ),

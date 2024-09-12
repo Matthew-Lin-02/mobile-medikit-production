@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
+import 'package:comp30022/font.dart';
+
+const double stepIndicatorBoxSize = 95.0;
+const double stepIndicatorFontSize = 12.0;
 
 /// This component contains two different varients of the step indicator,
 /// the older style from the original Figma design is built using 'BuildPageIndicator()'
@@ -55,11 +59,11 @@ class _UpdatedStep extends StatelessWidget {
     return Row(children: [
       Icon(Icons.chevron_right,
           color: coloured ? AppColors.blue : AppColors.blue.withOpacity(0.3),
-          size: isFirst ? 0 : 25),
+          size: isFirst ? 0 : mediumFontSize),
       const SizedBox(width: 10),
       Text(text,
           style: TextStyle(
-              fontSize: 25,
+              fontSize: mediumFontSize,
               color:
                   coloured ? AppColors.blue : AppColors.blue.withOpacity(0.3))),
       const SizedBox(width: 10),
@@ -93,25 +97,21 @@ class IndicatorStep extends StatelessWidget {
         Container(
             width: 25.0, // Size of the circle
             height: 25.0,
+            decoration: BoxDecoration(
+                // Draw the circle around the text
+                shape: BoxShape.circle,
+                color: step >= currStep ? Colors.white : AppColors.mediumBlue,
+                border: step <= currStep
+                    ? Border.all(color: AppColors.darkBlue, width: 2)
+                    : Border.all(color: AppColors.grey, width: 2)),
             child: Center(
                 child: Text(
               stepNum,
               style: TextStyle(
                 color: step >= currStep ? Colors.black : Colors.white,
-                fontSize: (11.0),
+                fontSize: stepIndicatorFontSize,
               ),
-            )),
-            decoration: BoxDecoration(
-                // Draw the circle around the text
-                shape: BoxShape.circle,
-                color: step >= currStep
-                    ? Colors.white
-                    : Color.fromRGBO(35, 81, 104, 1),
-                border: step <= currStep
-                    ? Border.all(color: Color.fromRGBO(0, 68, 95, 1), width: 2)
-                    : Border.all(
-                        color: const Color.fromARGB(255, 143, 143, 143),
-                        width: 2))),
+            ))),
       ],
     );
   }
@@ -141,11 +141,9 @@ class IndicatorPageName extends StatelessWidget {
           child: Text(
             text,
             style: TextStyle(
-              fontSize: 11.0,
+              fontSize: stepIndicatorFontSize,
               fontWeight: bold ? FontWeight.bold : FontWeight.normal,
-              color: coloured
-                  ? Color.fromRGBO(35, 81, 104, 1)
-                  : Color.fromARGB(255, 88, 88, 88),
+              color: coloured ? AppColors.mediumBlue : AppColors.darkGrey,
             ),
           )),
     );
@@ -165,9 +163,7 @@ class IndicatorLine extends StatelessWidget {
         height: 2,
         width: 400,
         child: ColoredBox(
-          color: coloured
-              ? Color.fromRGBO(35, 81, 104, 1)
-              : Color.fromARGB(255, 142, 142, 142),
+          color: coloured ? AppColors.mediumBlue : AppColors.grey,
         ),
       ),
     );
@@ -250,49 +246,49 @@ class PageIndicatorNames extends StatelessWidget {
         child: Row(
           children: <Widget>[
             IndicatorPageName(
-              boxSize: 95.0,
+              boxSize: stepIndicatorBoxSize,
               text: "Patient sign up",
               bold: currPage > 1,
               coloured: currPage >= 1,
             ),
             IndicatorPageName(
-              boxSize: 95.0,
+              boxSize: stepIndicatorBoxSize,
               text: "Consultation",
               bold: currPage > 2,
               coloured: currPage >= 2,
             ),
             IndicatorPageName(
-              boxSize: 95.0,
+              boxSize: stepIndicatorBoxSize,
               text: "Screening Tools",
               bold: currPage > 3,
               coloured: currPage >= 3,
             ),
             IndicatorPageName(
-              boxSize: 95.0,
+              boxSize: stepIndicatorBoxSize,
               text: "Results",
               bold: currPage > 4,
               coloured: currPage >= 4,
             ),
             IndicatorPageName(
-              boxSize: 95.0,
+              boxSize: stepIndicatorBoxSize,
               text: "Explanation",
               bold: currPage > 5,
               coloured: currPage >= 5,
             ),
             IndicatorPageName(
-              boxSize: 95.0,
+              boxSize: stepIndicatorBoxSize,
               text: "Follow Up",
               bold: currPage > 6,
               coloured: currPage >= 6,
             ),
             IndicatorPageName(
-              boxSize: 95.0,
+              boxSize: stepIndicatorBoxSize,
               text: "Patient plan",
               bold: currPage > 7,
               coloured: currPage >= 7,
             ),
             IndicatorPageName(
-              boxSize: 95.0,
+              boxSize: stepIndicatorBoxSize,
               text: "Medical Report",
               bold: currPage > 8,
               coloured: currPage >= 8,

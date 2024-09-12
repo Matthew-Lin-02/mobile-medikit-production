@@ -1,24 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
-
-class BackArrowWelcome extends StatelessWidget {
-  const BackArrowWelcome({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(
-        bottom: 35,
-      ),
-      child: Row(children: [
-        Column(children: [BackArrowTeal(), SizedBox(height: 40)]),
-        WelcomeColumn(),
-      ]),
-    );
-  }
-}
+import 'package:comp30022/font.dart';
 
 class BackArrowTeal extends StatelessWidget {
   final VoidCallback? onPressed;
@@ -55,6 +37,33 @@ class BackArrowTeal extends StatelessWidget {
   }
 }
 
+class BackArrowWelcome extends StatelessWidget {
+  const BackArrowWelcome({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      Row(children: [
+        const BackArrowTeal(),
+        const SizedBox(width: 50),
+        Text("Welcome",
+            style: TextStyle(
+                fontSize: subHeadingFontSize,
+                color: Colors.black.withOpacity(0.7))),
+        const SizedBox(width: 20),
+        const Image(image: AssetImage('assets/images/yellow_art.png')),
+      ]),
+      const Row(children: [
+        SizedBox(width: 110),
+        Text("Olivia", style: TextStyle(fontSize: largeHeadingFontSize))
+      ]),
+    ]);
+  }
+}
+
+// Component from old design
 class ColoredWelcome extends StatelessWidget {
   const ColoredWelcome({super.key});
 
@@ -65,7 +74,7 @@ class ColoredWelcome extends StatelessWidget {
         text: TextSpan(
           text: 'Welcome',
           style: TextStyle(
-            fontSize: 40,
+            fontSize: extraLargeFontSize,
             fontWeight: FontWeight.normal,
             foreground: Paint()
               ..style = PaintingStyle.stroke
@@ -106,13 +115,15 @@ class ColoredWelcome extends StatelessWidget {
               style: TextStyle(color: AppColors.orange),
             ),
           ],
-          style: TextStyle(fontSize: 40, fontWeight: FontWeight.normal),
+          style: TextStyle(
+              fontSize: extraLargeFontSize, fontWeight: FontWeight.normal),
         ),
       ),
     ]);
   }
 }
 
+// Component from old design
 class WelcomeColumn extends StatelessWidget {
   const WelcomeColumn({
     super.key,

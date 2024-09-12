@@ -2,6 +2,7 @@ import 'package:comp30022/components/RedActionButton.dart';
 import 'package:comp30022/pages/MyHealthRecordPage1.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
+import 'package:comp30022/font.dart';
 
 import 'package:comp30022/components/CustomInputFields.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
@@ -33,7 +34,7 @@ Builder signUpBody = Builder(builder: (context) {
                         SizedBox(width: 20),
                         Text('Personal Details',
                             style: TextStyle(
-                              fontSize: 48,
+                              fontSize: subHeadingFontSize,
                             )),
                       ],
                     ),
@@ -43,7 +44,7 @@ Builder signUpBody = Builder(builder: (context) {
               const SizedBox(
                   height: 20), // Add more vertical space between sections
               Padding(
-                padding: const EdgeInsets.only(bottom: VERTICAL_SPACING),
+                padding: const EdgeInsets.only(bottom: verticalSpacing),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -58,7 +59,7 @@ Builder signUpBody = Builder(builder: (context) {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.only(bottom: VERTICAL_SPACING),
+                padding: const EdgeInsets.only(bottom: verticalSpacing),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -89,7 +90,7 @@ Builder signUpBody = Builder(builder: (context) {
                         SizedBox(width: 20),
                         Text('Next of Kin Details',
                             style: TextStyle(
-                              fontSize: 48,
+                              fontSize: subHeadingFontSize,
                             )),
                       ],
                     ),
@@ -99,7 +100,7 @@ Builder signUpBody = Builder(builder: (context) {
               const SizedBox(
                   height: 20), // Add more vertical space between sections
               Padding(
-                  padding: const EdgeInsets.only(bottom: VERTICAL_SPACING),
+                  padding: const EdgeInsets.only(bottom: verticalSpacing),
                   child: Row(
                     children: [
                       Expanded(
@@ -115,7 +116,7 @@ Builder signUpBody = Builder(builder: (context) {
                 child: RedActionButton(
                   label: "Add Patient ",
                   iconData: Icons.add_sharp,
-                  fontSize: 28,
+                  fontSize: smallButtonFontSize,
                   size: smallButtonSizeCompact,
                   onPressed: () {
                     Navigator.push(

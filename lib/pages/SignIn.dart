@@ -1,11 +1,9 @@
 import 'package:comp30022/pages/MentalHealthCheck.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
-
 import 'package:comp30022/components/CustomInputFields.dart';
 import 'package:comp30022/components/RedActionButton.dart';
-
-const double VERTICAL_SPACING_BIG = 50;
+import 'package:comp30022/font.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({
@@ -24,10 +22,11 @@ class SignIn extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                const Spacer(flex: 6),
                 const Text(
                   "Healthy Connections",
                   style: TextStyle(
-                    fontSize: 50,
+                    fontSize: subHeadingFontSize,
                     fontWeight: FontWeight.bold,
                     color: AppColors.turquoise,
                     fontStyle: FontStyle.italic,
@@ -36,30 +35,23 @@ class SignIn extends StatelessWidget {
                 const Text(
                   "Medi-Kit",
                   style: TextStyle(
-                    fontSize: 70,
+                    fontSize: headingFontSize,
                     fontWeight: FontWeight.bold,
                     color: AppColors.black,
                   ),
                 ),
-
-                const SizedBox(
-                    height: VERTICAL_SPACING_BIG), // Vertical spacing
+                const Spacer(flex: 2),
                 const TextBox(
                   hintText: 'Username',
-                  fontSize: 30.0,
                 ),
-
-                const SizedBox(height: 50), // Vertical spacing
+                const Spacer(),
                 const TextBox(
                   hintText: 'Password',
-                  fontSize: 30.0,
                 ),
-
-                const SizedBox(
-                    height: VERTICAL_SPACING_BIG), // Vertical spacing
+                const Spacer(),
                 RedActionButton(
                   label: "Sign In",
-                  fontSize: 35.0,
+                  fontSize: largeFontSize,
                   size: smallButtonSize,
                   onPressed: () {
                     Navigator.push(
@@ -69,6 +61,7 @@ class SignIn extends StatelessWidget {
                     );
                   },
                 ),
+                const Spacer(flex: 6),
               ],
             ),
           ),
