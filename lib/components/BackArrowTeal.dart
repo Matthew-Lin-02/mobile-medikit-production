@@ -88,31 +88,31 @@ class ColoredWelcome extends StatelessWidget {
           children: <TextSpan>[
             TextSpan(
               text: 'W',
-              style: TextStyle(color: AppColors.red),
+              style: TextStyle(color: Color(0xFFC0573B)),
             ),
             TextSpan(
               text: 'e',
-              style: TextStyle(color: AppColors.green),
+              style: TextStyle(color: Color.fromRGBO(68, 154, 117, 1.0)),
             ),
             TextSpan(
               text: 'l',
-              style: TextStyle(color: AppColors.orange),
+              style: TextStyle(color: Color.fromRGBO(239, 135, 51, 1.0)),
             ),
             TextSpan(
               text: 'c',
-              style: TextStyle(color: AppColors.blue),
+              style: TextStyle(color: Color.fromRGBO(59, 131, 159, 1.0)),
             ),
             TextSpan(
               text: 'o',
-              style: TextStyle(color: AppColors.red),
+              style: TextStyle(color: Color(0xFFC0573B)),
             ),
             TextSpan(
               text: 'm',
-              style: TextStyle(color: AppColors.green),
+              style: TextStyle(color: Color.fromRGBO(68, 154, 117, 1.0)),
             ),
             TextSpan(
               text: 'e',
-              style: TextStyle(color: AppColors.orange),
+              style: TextStyle(color: Color.fromRGBO(239, 135, 51, 1.0)),
             ),
           ],
           style: TextStyle(
