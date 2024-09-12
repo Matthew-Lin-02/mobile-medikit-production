@@ -6,7 +6,7 @@ void main() {
   testWidgets('StatusTray renders all icons', (WidgetTester tester) async {
     // Arrange
     await tester.pumpWidget(
-      MaterialApp(
+      const MaterialApp(
         home: Scaffold(
           body: StatusTray(),
         ),
@@ -80,7 +80,7 @@ void main() {
       (WidgetTester tester) async {
     // Arrange
     await tester.pumpWidget(
-      MaterialApp(
+      const MaterialApp(
         home: Scaffold(
           body: StatusTray(),
         ),
@@ -102,7 +102,7 @@ void main() {
       (WidgetTester tester) async {
     // Arrange
     await tester.pumpWidget(
-      MaterialApp(
+      const MaterialApp(
         home: Scaffold(
           body: StatusTray(),
         ),
@@ -129,7 +129,7 @@ void main() {
       (WidgetTester tester) async {
     // Arrange
     await tester.pumpWidget(
-      MaterialApp(
+      const MaterialApp(
         home: Scaffold(
           body: StatusTray(),
         ),
@@ -151,7 +151,7 @@ void main() {
       (WidgetTester tester) async {
     // Arrange
     await tester.pumpWidget(
-      MaterialApp(
+      const MaterialApp(
         home: Scaffold(
           body: StatusTray(),
         ),

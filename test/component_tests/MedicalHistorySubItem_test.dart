@@ -3,98 +3,84 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  testWidgets('MedicalHistorySubItem displays the title correctly',
-      (WidgetTester tester) async {
+  group('MedicalHistorySubItem Widget', () {
     const title = 'Cardiovascular Health';
     const description =
         'Any problems or details relating to the patient\'s cardiovascular health.';
     const hintText = 'Enter here...';
 
-    // Build the widget
-    await tester.pumpWidget(
-      const MaterialApp(
-        home: Scaffold(
-          body: MedicalHistorySubItem(
-            title: title,
-            description: description,
-            hintText: hintText,
+    testWidgets('displays the title correctly', (WidgetTester tester) async {
+      // Build the widget
+      await tester.pumpWidget(
+        const MaterialApp(
+          home: Scaffold(
+            body: MedicalHistorySubItem(
+              title: title,
+              description: description,
+              hintText: hintText,
+            ),
           ),
         ),
-      ),
-    );
+      );
 
-    // Verify the title is displayed
-    expect(find.text(title), findsOneWidget);
-  });
+      // Verify the title is displayed
+      expect(find.text(title), findsOneWidget);
+    });
 
-  testWidgets('MedicalHistorySubItem displays the description correctly',
-      (WidgetTester tester) async {
-    const title = 'Cardiovascular Health';
-    const description =
-        'Any problems or details relating to the patient\'s cardiovascular health.';
-    const hintText = 'Enter here...';
-
-    // Build the widget
-    await tester.pumpWidget(
-      const MaterialApp(
-        home: Scaffold(
-          body: MedicalHistorySubItem(
-            title: title,
-            description: description,
-            hintText: hintText,
+    testWidgets('displays the description correctly',
+        (WidgetTester tester) async {
+      // Build the widget
+      await tester.pumpWidget(
+        const MaterialApp(
+          home: Scaffold(
+            body: MedicalHistorySubItem(
+              title: title,
+              description: description,
+              hintText: hintText,
+            ),
           ),
         ),
-      ),
-    );
+      );
 
-    // Verify the description is displayed
-    expect(find.text(description), findsOneWidget);
-  });
+      // Verify the description is displayed
+      expect(find.text(description), findsOneWidget);
+    });
 
-  testWidgets(
-      'MedicalHistorySubItem displays the correct hint text in YellowTextField',
-      (WidgetTester tester) async {
-    const title = 'Cardiovascular Health';
-    const description =
-        'Any problems or details relating to the patient\'s cardiovascular health.';
-    const hintText = 'Enter here...';
-
-    // Build the widget
-    await tester.pumpWidget(
-      const MaterialApp(
-        home: Scaffold(
-          body: MedicalHistorySubItem(
-            title: title,
-            description: description,
-            hintText: hintText,
+    testWidgets('displays the correct hint text in YellowTextField',
+        (WidgetTester tester) async {
+      // Build the widget
+      await tester.pumpWidget(
+        const MaterialApp(
+          home: Scaffold(
+            body: MedicalHistorySubItem(
+              title: title,
+              description: description,
+              hintText: hintText,
+            ),
           ),
         ),
-      ),
-    );
+      );
 
-    // Verify the hint text in YellowTextField is correct
-    expect(find.text(hintText), findsOneWidget);
-  });
+      // Verify the hint text in YellowTextField is correct
+      expect(find.text(hintText), findsOneWidget);
+    });
 
-  testWidgets('MedicalHistorySubItem uses default hint text if not provided',
-      (WidgetTester tester) async {
-    const title = 'Cardiovascular Health';
-    const description =
-        'Any problems or details relating to the patient\'s cardiovascular health.';
-
-    // Build the widget without providing hintText
-    await tester.pumpWidget(
-      const MaterialApp(
-        home: Scaffold(
-          body: MedicalHistorySubItem(
-            title: title,
-            description: description,
+    testWidgets('uses default hint text if not provided',
+        (WidgetTester tester) async {
+      // Build the widget without providing hintText
+      await tester.pumpWidget(
+        const MaterialApp(
+          home: Scaffold(
+            body: MedicalHistorySubItem(
+              title: title,
+              description: description,
+            ),
           ),
         ),
-      ),
-    );
+      );
 
-    // Verify the default hint text 'Enter here...' is displayed
-    expect(find.text('Enter here...'), findsOneWidget);
+      // Verify the default hint text 'Enter here...' is displayed
+      expect(find.text('Enter here...'), findsOneWidget);
+    });
   });
 }
