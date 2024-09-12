@@ -8,7 +8,7 @@ import 'package:comp30022/components/YellowCard.dart';
 import 'package:comp30022/components/yarningCards/SocialYarningExpanded.dart';
 import 'package:comp30022/components/yarningCards/ClinicalDiagnosticYarningExpanded.dart';
 import 'package:comp30022/components/RedActionButton.dart';
-import 'package:comp30022/components/ChatBotButton.dart';
+import 'package:comp30022/components/ChatbotButton.dart';
 
 class GuidedConsultationBody extends StatelessWidget {
   const GuidedConsultationBody({super.key});
