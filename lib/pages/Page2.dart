@@ -17,7 +17,6 @@ class Page2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var appState = context.watch<MyAppState>();
     return Scaffold(
       /// A stack is used to allow the art in the corner to be overlayed
       body: Stack(children: [

@@ -16,7 +16,6 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => GuidedConsultationState()),
-        ChangeNotifierProvider(create: (_) => MyAppState())
         // add other providers
       ],
       child: MaterialApp(
@@ -36,8 +35,4 @@ class MyApp extends StatelessWidget {
           routes: {'/patientProfile': (context) => PatientProfile()}),
     );
   }
-}
-
-class MyAppState extends ChangeNotifier {
-  var current = WordPair.random();
 }

@@ -7,4 +7,5 @@ export 'SignIn.dart';
 export 'GuidedConsultation.dart';
 export 'ExistingPatient.dart';
 export 'AbstractConsultationPage.dart';
+export 'PatientProfile.dart';
 export 'package:comp30022/guidedConsultationBodies/Bodies.dart';

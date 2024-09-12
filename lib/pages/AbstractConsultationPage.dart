@@ -4,15 +4,12 @@ import 'package:comp30022/color.dart';
 import 'package:comp30022/components/StatusTray.dart';
 import 'package:comp30022/components/StepIndicator.dart';
 import 'package:comp30022/components/BackArrowTeal.dart';
-import 'package:provider/provider.dart';
-import 'package:comp30022/pages/GuidedConsultation.dart';
 
 class AbstractConsultationPage extends StatelessWidget {
   final String title;
   final int pageNum;
   final VoidCallback? tealBackArrowOnPressed;
-
-  Widget body;
+  final Widget body;
 
   AbstractConsultationPage({
     Key? key,
@@ -23,7 +20,6 @@ class AbstractConsultationPage extends StatelessWidget {
   }) : super(key: key);
 
   AppBar _buildAppBar(BuildContext context) {
-    var guidedConsultationState = context.watch<GuidedConsultationState>();
     return AppBar(
       automaticallyImplyLeading: false,
       backgroundColor: AppColors.yellowCream,

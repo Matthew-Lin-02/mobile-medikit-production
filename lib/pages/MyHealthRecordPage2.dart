@@ -12,7 +12,6 @@ class MyHealthRecordPage2 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var appState = context.watch<MyAppState>();
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(

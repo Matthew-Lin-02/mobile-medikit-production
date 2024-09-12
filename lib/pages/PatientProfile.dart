@@ -57,34 +57,36 @@ class UserInfoCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return const Padding(
       padding: EdgeInsets.all(16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'Darlene Pilbara',
-            style: TextStyle(
-              fontSize: 40,
-              color: Colors.black,
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Darlene Pilbara',
+              style: TextStyle(
+                fontSize: 40,
+                color: Colors.black,
+              ),
             ),
-          ),
-          SizedBox(height: 8),
-          UserInfoRow(
-            attribute: 'Gender',
-            value: 'Female',
-          ),
-          UserInfoRow(
-            attribute: 'Age',
-            value: '24',
-          ),
-          UserInfoRow(
-            attribute: 'Last Contacted',
-            value: '01/04/2024',
-          ),
-          UserInfoRow(
-            attribute: 'Languages',
-            value: 'Martu Wangka English',
-          )
-        ],
+            SizedBox(height: 8),
+            UserInfoRow(
+              attribute: 'Gender',
+              value: 'Female',
+            ),
+            UserInfoRow(
+              attribute: 'Age',
+              value: '24',
+            ),
+            UserInfoRow(
+              attribute: 'Last Contacted',
+              value: '01/04/2024',
+            ),
+            UserInfoRow(
+              attribute: 'Languages',
+              value: 'Martu Wangka English',
+            )
+          ],
+        ),
       ),
     );
   }
