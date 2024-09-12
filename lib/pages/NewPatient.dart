@@ -1,3 +1,4 @@
+import 'package:comp30022/components/RedActionButton.dart';
 import 'package:comp30022/pages/MyHealthRecordPage1.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
@@ -7,8 +8,6 @@ import 'package:comp30022/components/StatusTray.dart';
 import 'package:comp30022/components/StepIndicator.dart';
 import 'package:comp30022/components/BackArrowTeal.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
-
-const double VERTICAL_SPACING = 16;
 
 Builder signUpBody = Builder(builder: (context) {
   return Container(
@@ -116,7 +115,11 @@ Builder signUpBody = Builder(builder: (context) {
                   )),
               const SizedBox(height: 30),
               Center(
-                child: ElevatedButton(
+                child: RedActionButton(
+                  label: "Add Patient ",
+                  iconData: Icons.add_sharp,
+                  fontSize: 28,
+                  size: smallButtonSizeCompact,
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -124,23 +127,8 @@ Builder signUpBody = Builder(builder: (context) {
                           builder: (context) => const MyHealthRecordPage1()),
                     );
                   },
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor:
-                        AppColors.red, // Matching button background color
-                    shape: RoundedRectangleBorder(
-                      borderRadius:
-                          BorderRadius.circular(100.0), // Rounded corners
-                    ),
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 30.0, vertical: 20.0),
-                    elevation: 3, // Add slight shadow for depth
-                  ),
-                  child: const Text(
-                    '+ Add Patient',
-                    style: TextStyle(color: Colors.white, fontSize: 24),
-                  ),
                 ),
-              ),
+              )
             ],
           ),
         ),

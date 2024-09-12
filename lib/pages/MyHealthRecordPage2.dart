@@ -29,23 +29,25 @@ class MyHealthRecordPage2 extends StatelessWidget {
             const SizedBox(height: 50.0),
             const Text(
               "My Health Record",
-              style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 80, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 25.0),
             const Text("Patient Consent",
-                style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold)),
+                style: TextStyle(fontSize: 48, fontWeight: FontWeight.bold)),
             const SizedBox(height: 25.0),
             const Text(
                 "By accepting I acknowledge that I understand my health data will be stored on My Health Record.",
-                style: TextStyle(fontSize: 16)),
+                style: TextStyle(fontSize: 30),
+                textAlign: TextAlign.center),
             const SizedBox(height: 15.0),
             const Text(
                 "I understand that I can opt out of sending my data to My Health Records, and in doing so I would"
                 "opt out of My Health Record related services",
-                style: TextStyle(fontSize: 16)),
+                style: TextStyle(fontSize: 30),
+                textAlign: TextAlign.center),
             const SizedBox(height: 10.0),
             const Text("Apply for My Health Record (placeholder)",
-                style: TextStyle(fontSize: 12)),
+                style: TextStyle(fontSize: 30)),
             const SizedBox(height: 300.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -53,6 +55,8 @@ class MyHealthRecordPage2 extends StatelessWidget {
                 RedActionButton(
                   iconData: Icons.check_circle,
                   label: "Yes",
+                  size: mediumButtonSize,
+                  fontSize: 30,
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -64,6 +68,8 @@ class MyHealthRecordPage2 extends StatelessWidget {
                 RedActionButton(
                   iconData: Icons.cancel,
                   label: "No",
+                  size: mediumButtonSize,
+                  fontSize: 30,
                   onPressed: () {
                     Navigator.pop(context);
                   },

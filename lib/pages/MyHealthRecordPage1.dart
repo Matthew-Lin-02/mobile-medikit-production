@@ -29,11 +29,11 @@ class MyHealthRecordPage1 extends StatelessWidget {
             const SizedBox(height: 50.0),
             const Text(
               "My Health Record",
-              style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 80, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 25.0),
             const Text("Do you have an existing My Health Record?",
-                style: TextStyle(fontSize: 16)),
+                style: TextStyle(fontSize: 30)),
             // SizedBox(height:200.0),
             const SizedBox(height: 300.0),
             Row(
@@ -42,6 +42,8 @@ class MyHealthRecordPage1 extends StatelessWidget {
                 RedActionButton(
                   iconData: Icons.check_circle,
                   label: "Yes",
+                  size: mediumButtonSize,
+                  fontSize: 30,
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -53,6 +55,8 @@ class MyHealthRecordPage1 extends StatelessWidget {
                 RedActionButton(
                   iconData: Icons.cancel,
                   label: "No",
+                  size: mediumButtonSize,
+                  fontSize: 30,
                   onPressed: () {
                     Navigator.pop(context);
                   },

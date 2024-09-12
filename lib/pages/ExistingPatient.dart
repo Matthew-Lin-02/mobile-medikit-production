@@ -2,12 +2,14 @@ import 'package:comp30022/pages/Pages.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/components/CustomInputFields.dart';
+import 'package:comp30022/components/RedActionButton.dart';
 
 Builder existingPatientBody = Builder(builder: (context) {
   return Container(
     color: AppColors.cream,
     child: Center(
-      child: FractionallySizedBox(
+      child: Expanded(
+          child: FractionallySizedBox(
         widthFactor: 0.8, // Set the width to 4/5 of the screen width
 
         child: Padding(
@@ -108,48 +110,25 @@ Builder existingPatientBody = Builder(builder: (context) {
                   )),
               const SizedBox(height: 30),
               Center(
-                  child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        // TODO - Redirect to PatientLookUp (page not implemented yet)
-                        builder: (context) => const MyHealthRecordPage1()),
-                  );
-                },
-                style: ElevatedButton.styleFrom(
-                  backgroundColor:
-                      AppColors.red, // Matching button background color
-                  shape: RoundedRectangleBorder(
-                    borderRadius:
-                        BorderRadius.circular(100.0), // Rounded corners
-                  ),
-                  padding: const EdgeInsets.symmetric(
-                      horizontal: 30.0, vertical: 20.0),
-                  elevation: 3, // Add slight shadow for depth
+                child: RedActionButton(
+                  label: "Search",
+                  imagePath: 'assets/images/person_search_white.png',
+                  imageSize: const Size(52, 40),
+                  size: smallButtonSizeCompact,
+                  fontSize: 28,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const PatientLookUp()),
+                    );
+                  },
                 ),
-                child: const Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Image(
-                        height: 40,
-                        width: 52,
-                        image: AssetImage(
-                            'assets/images/person_search_white.png')),
-                    SizedBox(width: 20),
-                    Text(
-                      'Search',
-                      style: TextStyle(
-                          color: Colors.white, fontSize: 24), // Text style
-                    ),
-                  ],
-                ),
-              )),
+              )
             ],
           ),
         ),
-      ),
+      )),
     ),
   );
 });
