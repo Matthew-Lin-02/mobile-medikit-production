@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class ChatbotButton extends StatelessWidget {
-  const ChatbotButton({super.key});
+class ChatBotButton extends StatelessWidget {
+  const ChatBotButton({super.key});
 
   @override
   Widget build(BuildContext context) {

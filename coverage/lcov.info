@@ -690,7 +690,7 @@ DA:48,0
 LF:9
 LH:0
 end_of_record
-SF:lib/components/chatbotButton.dart
+SF:lib/components/chatBotButton.dart
 DA:4,0
 DA:6,0
 DA:7,0

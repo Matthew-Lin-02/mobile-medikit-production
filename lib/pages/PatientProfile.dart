@@ -32,7 +32,7 @@ Builder patientProfileBody = Builder(builder: (context) {
           const SizedBox(width: 40),
           UserDetailTabs(),
           const SizedBox(width: 30),
-          const ChatbotButton(),
+          const ChatBotButton(),
         ]),
   );
 });

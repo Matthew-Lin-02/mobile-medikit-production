@@ -78,7 +78,7 @@ class GuidedConsultationBody extends StatelessWidget {
             ),
           ),
         ),
-        Positioned(right: 30.0, top: 16.0, child: ChatbotButton()),
+        const Positioned(right: 30.0, top: 16.0, child: ChatBotButton()),
         Positioned(
           right: 21.0,
           bottom: 70,
