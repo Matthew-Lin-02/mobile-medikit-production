@@ -1,3 +1,5 @@
+import 'package:comp30022/components/ChatbotButton.dart';
+import 'package:comp30022/components/HelpButton.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/styles.dart';
@@ -5,11 +7,31 @@ import 'package:comp30022/components/RedActionButton.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:comp30022/components/BaseCustomCard.dart';
 import 'package:comp30022/pages/Pages.dart';
+import 'package:comp30022/components/CustomStack.dart';
 
 class ScreeningTools extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final containerWidth = context.screenWidth * 0.80;
+    return CustomStack(positionedObjects: [
+      PositionedObject(
+          child: ScreeningToolsMainContent(containerWidth: containerWidth)),
+      PositionedObject(right: 30.0, top: 50.0, child: ChatbotButton()),
+      PositionedObject(right: 21.0, bottom: 70, child: HelpButton())
+    ]);
+  }
+}
+
+class ScreeningToolsMainContent extends StatelessWidget {
+  const ScreeningToolsMainContent({
+    super.key,
+    required this.containerWidth,
+  });
+
+  final double containerWidth;
+
+  @override
+  Widget build(BuildContext context) {
     return Center(
       child: Container(
         width: containerWidth,
