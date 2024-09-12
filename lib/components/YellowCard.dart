@@ -1,10 +1,6 @@
-import 'package:comp30022/components/MedicalHistorySubItem.dart';
-import 'package:comp30022/main.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/config.dart';
-import 'package:provider/provider.dart';
-import 'package:comp30022/components/ResourceCarousel.dart';
 
 class YellowCard extends StatefulWidget {
   const YellowCard({

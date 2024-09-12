@@ -1,7 +1,6 @@
 import 'package:comp30022/components/BackArrowTeal.dart';
 import 'package:comp30022/pages/Pages.dart';
 import 'package:flutter/material.dart';
-import 'package:comp30022/components/BackArrowTeal.dart';
 import 'package:comp30022/components/RedActionButton.dart';
 import 'package:comp30022/main.dart';
 import 'package:provider/provider.dart';
@@ -17,7 +16,7 @@ class MentalHealthCheck extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var appState = context.watch<MyAppState>();
+    context.watch<MyAppState>();
     return Scaffold(
       /// A stack is used to allow the art in the corner to be overlayed
       body: Stack(children: [
