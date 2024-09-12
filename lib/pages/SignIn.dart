@@ -46,23 +46,26 @@ class SignIn extends StatelessWidget {
                     height: VERTICAL_SPACING_BIG), // Vertical spacing
                 const TextBox(
                   hintText: 'Username',
-                  fontSize: 24.0,
+                  fontSize: 30.0,
                 ),
 
                 const SizedBox(height: 50), // Vertical spacing
                 const TextBox(
                   hintText: 'Password',
-                  fontSize: 24.0,
+                  fontSize: 30.0,
                 ),
 
                 const SizedBox(
                     height: VERTICAL_SPACING_BIG), // Vertical spacing
                 RedActionButton(
                   label: "Sign In",
+                  fontSize: 35.0,
+                  size: smallButtonSize,
                   onPressed: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Page2()),
+                      MaterialPageRoute(
+                          builder: (context) => const MentalHealthCheck()),
                     );
                   },
                 ),
