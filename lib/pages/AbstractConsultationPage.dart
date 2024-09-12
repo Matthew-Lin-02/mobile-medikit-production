@@ -10,6 +10,8 @@ import 'package:comp30022/pages/GuidedConsultation.dart';
 class AbstractConsultationPage extends StatelessWidget {
   final String title;
   final int pageNum;
+  final VoidCallback? tealBackArrowOnPressed;
+
   Widget body;
 
   AbstractConsultationPage({
@@ -17,6 +19,7 @@ class AbstractConsultationPage extends StatelessWidget {
     required this.title,
     required this.pageNum,
     required this.body,
+    this.tealBackArrowOnPressed,
   }) : super(key: key);
 
   AppBar _buildAppBar(BuildContext context) {
@@ -43,12 +46,7 @@ class AbstractConsultationPage extends StatelessWidget {
                 Row(
                   children: [
                     SizedBox(width: 12),
-                    (guidedConsultationState.currentPageIndex == 0 ||
-                            this.title == "Patient Profile")
-                        ? const BackArrowTeal()
-                        : BackArrowTeal(
-                            onPressed:
-                                guidedConsultationState.decrementPageNum),
+                    BackArrowTeal(onPressed: tealBackArrowOnPressed),
                     const SizedBox(width: 48),
                     Expanded(
                       child: Text(

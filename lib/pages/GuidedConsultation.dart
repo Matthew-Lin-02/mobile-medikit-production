@@ -41,6 +41,7 @@ class GuidedConsultationState extends ChangeNotifier {
         title: " ScreeningTools",
         pageNum: 3,
         body: ScreeningTools(),
+        tealBackArrowOnPressed: decrementPageNum,
       )
     ];
     notifyListeners();

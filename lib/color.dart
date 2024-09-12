@@ -20,7 +20,10 @@ class AppColors {
   static const Color machineTranslationOverlayLeftCream = Color(0xFFFFF5DF);
   static const Color machineTranslationOverlayRightCream = yellowCream;
   static const Color machineTranslationOverlayBlueButton = Color(0xFF00B1B2);
-  static const Color ContactHealthExpertOverlayCream = Color(0xFFFFF5DF);
   static const Color wifiInfoOverlayBlue = Color.fromARGB(255, 0, 177, 178);
   static const Color wifiInfoTextGreen = Color.fromARGB(255, 0, 216, 89);
+
+  //Screening Tools
+  static const Color incomplete = Color(0xFFFC7474);
+  static const Color complete = Color(0xFF74FC82);
 }

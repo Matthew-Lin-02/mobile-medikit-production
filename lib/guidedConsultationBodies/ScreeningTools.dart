@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/styles.dart';
+import 'package:comp30022/components/RedActionButton.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:comp30022/components/BaseCustomCard.dart';
+import 'package:comp30022/pages/Pages.dart';
 
 class ScreeningTools extends StatelessWidget {
   @override
@@ -14,19 +18,25 @@ class ScreeningTools extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              const Text(
-                "Here are some tools to assist with the checkup.",
-                style: TextStyle(fontSize: 18),
-              ),
-              const SizedBox(height: 20),
               Expanded(
+                flex: 3,
+                child: Center(
+                  child: const Text(
+                    "Here are some tools to assist with the checkup.",
+                    style: TextStyle(fontSize: 30),
+                  ),
+                ),
+              ),
+
+              Expanded(
+                flex: 23,
                 child: GridView.count(
                   shrinkWrap:
                       true, // Stops the GridView from expanding unnecessarily
                   physics: NeverScrollableScrollPhysics(),
                   crossAxisCount: 2,
                   crossAxisSpacing: 75,
-                  mainAxisSpacing: 10,
+                  mainAxisSpacing: 35,
                   childAspectRatio: 2.5,
                   children: const [
                     // Vitals Section
@@ -34,24 +44,24 @@ class ScreeningTools extends StatelessWidget {
                       sectionTitle: "Vitals",
                       tools: [
                         ToolCard(
-                          icon: Icons.search,
+                          imagePath:
+                              '../assets/images/screening-tools/search.png',
                           label: "Observations",
-                          status: "Incomplete",
+                          destinationPage: SignIn(),
                         ),
                         ToolCard(
-                          icon: Icons.thermostat,
+                          imagePath:
+                              '../assets/images/screening-tools/temperature.png',
                           label: "Temperature",
-                          status: "Incomplete",
                         ),
                         ToolCard(
-                          icon: Icons.favorite,
+                          imagePath:
+                              '../assets/images/screening-tools/blood-pressure.png',
                           label: "Blood Pressure",
-                          status: "Incomplete",
                         ),
                         // ToolCard(
-                        //   icon: Icons.image,
+                        //   imagePath: '../assets/images/screening-tools/camera.png',
                         //   label: "Image",
-                        //   status: "Incomplete",
                         // ),
                       ],
                     ),
@@ -60,19 +70,19 @@ class ScreeningTools extends StatelessWidget {
                       sectionTitle: "Cardiovascular",
                       tools: [
                         ToolCard(
-                          icon: Icons.assessment,
+                          imagePath:
+                              '../assets/images/screening-tools/CVD-risk-assessment.png',
                           label: "CVD Risk Assessment",
-                          status: "Incomplete",
                         ),
                         ToolCard(
-                          icon: Icons.monitor_heart,
+                          imagePath:
+                              '../assets/images/screening-tools/ECG-test.png',
                           label: "ECG Test",
-                          status: "Incomplete",
                         ),
                         ToolCard(
-                          icon: Icons.accessibility,
+                          imagePath:
+                              '../assets/images/screening-tools/ankle.png',
                           label: "Ankle Brachial Index",
-                          status: "Incomplete",
                         ),
                       ],
                     ),
@@ -81,9 +91,9 @@ class ScreeningTools extends StatelessWidget {
                       sectionTitle: "Renal",
                       tools: [
                         ToolCard(
-                          icon: Icons.science,
+                          imagePath:
+                              '../assets/images/screening-tools/urinalysis.png',
                           label: "Urinalysis",
-                          status: "Incomplete",
                         ),
                       ],
                     ),
@@ -92,9 +102,9 @@ class ScreeningTools extends StatelessWidget {
                       sectionTitle: "Endocrine",
                       tools: [
                         ToolCard(
-                          icon: Icons.bloodtype,
+                          imagePath:
+                              '../assets/images/screening-tools/blood-glucose.png',
                           label: "Blood Glucose",
-                          status: "Incomplete",
                         ),
                       ],
                     ),
@@ -102,21 +112,20 @@ class ScreeningTools extends StatelessWidget {
                 ),
               ),
 
-              const SizedBox(height: 20),
-
               // Continue Button
-              ElevatedButton.icon(
-                onPressed: () {
-                  // Handle navigation to Results
-                },
-                icon: const Icon(Icons.arrow_forward),
-                label: const Text("Continue to Results"),
-                style: ElevatedButton.styleFrom(
-                  foregroundColor: Colors.brown,
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+              Expanded(flex: 1, child: SizedBox.shrink()),
+              RedActionButton(
+                iconData: Icons.arrow_forward,
+                iconSize: 32,
+                label: "Continue to Results",
+                fontSize: 32,
+                size: Size(
+                  context.screenWidth * 0.21,
+                  context.screenHeight * 0.06,
                 ),
+                useCircleAvatar: true,
               ),
+              Expanded(flex: 2, child: SizedBox.shrink())
             ],
           ),
         ),
@@ -166,69 +175,154 @@ class SectionCard extends StatelessWidget {
             ),
           ],
         ),
-        child: Padding(
-          padding: const EdgeInsets.all(28.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              Expanded(
-                flex: 1,
-                child: Text(
-                  sectionTitle,
-                  style: const TextStyle(
-                      fontWeight: FontWeight.bold, fontSize: 16),
-                ),
+        child: Row(
+          children: [
+            Expanded(flex: 1, child: SizedBox.shrink()),
+            Expanded(
+              flex: 30,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Expanded(flex: 1, child: SizedBox.shrink()),
+                  Text(
+                    sectionTitle,
+                    style: GoogleFonts.inter(
+                      fontWeight:
+                          FontWeight.w700, // Controls the weight (wght axis)
+                      fontSize:
+                          28, // This affects the appearance for the opsz axis
+                    ),
+                  ),
+                  Expanded(flex: 1, child: SizedBox.shrink()),
+                  // Expanded(flex: 1, child: SizedBox.shrink()),
+
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: tools,
+                  ),
+                  Expanded(flex: 3, child: SizedBox.shrink()),
+                ],
               ),
-              Expanded(flex: 1, child: SizedBox.shrink()),
-              Expanded(
-                flex: 8,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: tools,
-                ),
-              )
-            ],
-          ),
+            ),
+            Expanded(flex: 1, child: SizedBox.shrink()),
+          ],
         ),
       ),
     );
   }
 }
 
-class ToolCard extends StatelessWidget {
-  final IconData icon;
+class ToolCard extends StatefulWidget {
+  final String imagePath;
   final String label;
-  final String status;
+  final Widget? destinationPage;
 
   const ToolCard({
     Key? key,
-    required this.icon,
+    required this.imagePath,
     required this.label,
-    required this.status,
+    this.destinationPage,
   }) : super(key: key);
 
   @override
+  _ToolCardState createState() => _ToolCardState();
+}
+
+class _ToolCardState extends State<ToolCard> {
+  bool complete = false;
+
+  @override
   Widget build(BuildContext context) {
-    return Container(
-      color: AppColors.cream,
-      width: context.screenWidth * 0.078,
-      height: context.screenHeight * 0.133,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon, size: 32, color: Colors.brown),
-            const SizedBox(height: 10),
-            Text(label),
-            const SizedBox(height: 5),
-            Text(
-              status,
-              style: const TextStyle(color: Colors.red),
+    final toolCardWidth = MediaQuery.of(context).size.width * 0.078;
+    final toolCardHeight = MediaQuery.of(context).size.height * 0.133;
+
+    return BaseCustomCard(
+      borderColor: Colors.black,
+      backgroundColor: AppColors.yellowCream,
+      borderWidth: 1,
+      width: toolCardWidth,
+      height: toolCardHeight,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.stretch, // Ensure full width
+        children: [
+          Expanded(
+            flex: 1,
+            child: GestureDetector(
+              onTap: () {
+                if (widget.destinationPage != null) {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => widget.destinationPage!),
+                  );
+                }
+              },
+              child: Row(
+                children: [
+                  Expanded(flex: 1, child: SizedBox.shrink()),
+                  Expanded(
+                    flex: 30,
+                    child: Column(
+                      children: [
+                        Expanded(flex: 1, child: SizedBox.shrink()),
+                        Image(
+                            image: AssetImage(widget.imagePath),
+                            height: 70,
+                            width: 70),
+                        // Label text
+                        Expanded(flex: 1, child: SizedBox.shrink()),
+                        FittedBox(
+                          fit: BoxFit.scaleDown,
+                          child: Text(
+                            widget.label,
+                            style: const TextStyle(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Expanded(flex: 1, child: SizedBox.shrink()),
+                ],
+              ),
             ),
-          ],
-        ),
+          ),
+          GestureDetector(
+            onTap: () {
+              setState(() {
+                complete =
+                    !complete; // Flip the complete state and rebuild the widget
+              });
+            },
+            child: Container(
+              height: toolCardHeight * 0.21,
+              width: toolCardWidth,
+              decoration: BoxDecoration(
+                borderRadius:
+                    BorderRadius.vertical(bottom: Radius.circular(16)),
+                color: complete
+                    ? AppColors
+                        .complete // Change color based on completion state
+                    : AppColors.incomplete,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    complete ? 'Complete' : 'Incomplete',
+                    style: const TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
