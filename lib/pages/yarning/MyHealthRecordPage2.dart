@@ -1,4 +1,4 @@
-import 'package:comp30022/pages/MyHealthRecordPage2.dart';
+import 'package:comp30022/pages/yarning/GuidedConsultation.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/components/BackArrowTeal.dart';
 import 'package:comp30022/components/RedActionButton.dart';
@@ -6,8 +6,8 @@ import 'package:comp30022/main.dart';
 import 'package:provider/provider.dart';
 import 'package:comp30022/font.dart';
 
-class MyHealthRecordPage1 extends StatelessWidget {
-  const MyHealthRecordPage1({
+class MyHealthRecordPage2 extends StatelessWidget {
+  const MyHealthRecordPage2({
     super.key,
   });
 
@@ -35,7 +35,22 @@ class MyHealthRecordPage1 extends StatelessWidget {
                   fontSize: largeHeadingFontSize, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 25.0),
-            const Text("Do you have an existing My Health Record?",
+            const Text("Patient Consent",
+                style: TextStyle(
+                    fontSize: subHeadingFontSize, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 25.0),
+            const Text(
+                "By accepting I acknowledge that I understand my health data will be stored on My Health Record.",
+                style: TextStyle(fontSize: largeFontSize),
+                textAlign: TextAlign.center),
+            const SizedBox(height: 15.0),
+            const Text(
+                "I understand that I can opt out of sending my data to My Health Records, and in doing so I would"
+                "opt out of My Health Record related services",
+                style: TextStyle(fontSize: largeFontSize),
+                textAlign: TextAlign.center),
+            const SizedBox(height: 10.0),
+            const Text("Apply for My Health Record",
                 style: TextStyle(fontSize: largeFontSize)),
             const SizedBox(height: 300.0),
             Row(
@@ -50,7 +65,7 @@ class MyHealthRecordPage1 extends StatelessWidget {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const MyHealthRecordPage2()),
+                          builder: (context) => const GuidedConsultation()),
                     );
                   },
                 ),

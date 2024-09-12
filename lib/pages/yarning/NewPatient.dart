@@ -1,5 +1,5 @@
 import 'package:comp30022/components/RedActionButton.dart';
-import 'package:comp30022/pages/MyHealthRecordPage1.dart';
+import 'package:comp30022/pages/yarning/MyHealthRecordPage1.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/font.dart';

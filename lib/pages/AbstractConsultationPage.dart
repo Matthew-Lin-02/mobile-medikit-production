@@ -5,7 +5,7 @@ import 'package:comp30022/components/StatusTray.dart';
 import 'package:comp30022/components/StepIndicator.dart';
 import 'package:comp30022/components/BackArrowTeal.dart';
 import 'package:provider/provider.dart';
-import 'package:comp30022/pages/GuidedConsultation.dart';
+import 'package:comp30022/pages/yarning/GuidedConsultation.dart';
 
 const double verticalSpacing = 16;
 const double pageHeadingFontSize = 44.0;

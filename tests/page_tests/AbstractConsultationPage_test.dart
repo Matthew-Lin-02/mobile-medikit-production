@@ -6,7 +6,7 @@ import 'package:comp30022/color.dart';
 import 'package:comp30022/components/StatusTray.dart';
 import 'package:comp30022/components/StepIndicator.dart';
 import 'package:comp30022/components/BackArrowTeal.dart';
-import 'package:comp30022/pages/GuidedConsultation.dart';
+import 'package:comp30022/pages/yarning/GuidedConsultation.dart';
 
 void main() {
   Widget buildConfig({
