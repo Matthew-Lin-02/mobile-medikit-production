@@ -1,18 +1,19 @@
-import 'package:comp30022/pages/MyHealthRecordPage2.dart';
+import 'package:comp30022/pages/yarning/GuidedConsultation.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/components/BackArrowTeal.dart';
 import 'package:comp30022/components/RedActionButton.dart';
 import 'package:comp30022/main.dart';
 import 'package:provider/provider.dart';
+import 'package:comp30022/font.dart';
 
-class MyHealthRecordPage1 extends StatelessWidget {
-  const MyHealthRecordPage1({
+class MyHealthRecordPage2 extends StatelessWidget {
+  const MyHealthRecordPage2({
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
-    var appState = context.watch<MyAppState>();
+    context.watch<MyAppState>();
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(
@@ -30,12 +31,27 @@ class MyHealthRecordPage1 extends StatelessWidget {
             const SizedBox(height: 50.0),
             const Text(
               "My Health Record",
-              style: TextStyle(fontSize: 80, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: largeHeadingFontSize, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 25.0),
-            const Text("Do you have an existing My Health Record?",
-                style: TextStyle(fontSize: 30)),
-            // SizedBox(height:200.0),
+            const Text("Patient Consent",
+                style: TextStyle(
+                    fontSize: subHeadingFontSize, fontWeight: FontWeight.bold)),
+            const SizedBox(height: 25.0),
+            const Text(
+                "By accepting I acknowledge that I understand my health data will be stored on My Health Record.",
+                style: TextStyle(fontSize: largeFontSize),
+                textAlign: TextAlign.center),
+            const SizedBox(height: 15.0),
+            const Text(
+                "I understand that I can opt out of sending my data to My Health Records, and in doing so I would"
+                "opt out of My Health Record related services",
+                style: TextStyle(fontSize: largeFontSize),
+                textAlign: TextAlign.center),
+            const SizedBox(height: 10.0),
+            const Text("Apply for My Health Record",
+                style: TextStyle(fontSize: largeFontSize)),
             const SizedBox(height: 300.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -44,12 +60,12 @@ class MyHealthRecordPage1 extends StatelessWidget {
                   iconData: Icons.check_circle,
                   label: "Yes",
                   size: mediumButtonSize,
-                  fontSize: 30,
+                  fontSize: largeFontSize,
                   onPressed: () {
                     Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const MyHealthRecordPage2()),
+                          builder: (context) => const GuidedConsultation()),
                     );
                   },
                 ),
@@ -57,7 +73,7 @@ class MyHealthRecordPage1 extends StatelessWidget {
                   iconData: Icons.cancel,
                   label: "No",
                   size: mediumButtonSize,
-                  fontSize: 30,
+                  fontSize: largeFontSize,
                   onPressed: () {
                     Navigator.pop(context);
                   },
