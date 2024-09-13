@@ -1,13 +1,14 @@
-import 'package:comp30022/components/RedActionButton.dart';
-import 'package:comp30022/components/ChatbotButton.dart';
 import 'package:comp30022/pages/Pages.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/config.dart';
+import 'package:provider/provider.dart';
+import 'package:comp30022/font.dart';
 import 'package:comp30022/components/YellowCard.dart';
 import 'package:comp30022/components/yarningCards/SocialYarningExpanded.dart';
 import 'package:comp30022/components/yarningCards/ClinicalDiagnosticYarningExpanded.dart';
-import 'package:provider/provider.dart';
+import 'package:comp30022/components/RedActionButton.dart';
+import 'package:comp30022/components/ChatbotButton.dart';
 import 'package:comp30022/components/HelpButton.dart';
 
 class GuidedConsultationBody extends StatelessWidget {
@@ -65,7 +66,7 @@ class GuidedConsultationBody extends StatelessWidget {
                         child: RedActionButton(
                           iconData: Icons.arrow_forward,
                           label: "Continue to Screening Tools",
-                          fontSize: 30,
+                          fontSize: largeFontSize,
                           size: mediumButtonSizeLong,
                           onPressed: guidedConsultationState.incrementPageNum,
                         ),
@@ -78,8 +79,8 @@ class GuidedConsultationBody extends StatelessWidget {
             ),
           ),
         ),
-        Positioned(right: 30.0, top: 16.0, child: ChatbotButton()),
-        Positioned(
+        const Positioned(right: 30.0, top: 16.0, child: ChatBotButton()),
+        const Positioned(
           right: 21.0,
           bottom: 70,
           child: HelpButton(),

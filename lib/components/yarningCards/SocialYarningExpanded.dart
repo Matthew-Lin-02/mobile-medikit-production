@@ -1,3 +1,4 @@
+import 'package:comp30022/font.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/components/MedicalHistorySubItem.dart';
 
@@ -170,7 +171,7 @@ class _SocialYarningCardContentState extends State<SocialYarningCardContent> {
         Text(
           title,
           style: const TextStyle(
-            fontSize: 18,
+            fontSize: extraSmallFontSize,
             fontWeight: FontWeight.bold,
             color: Colors.black87,
           ),
@@ -208,7 +209,7 @@ class _SocialYarningCardContentState extends State<SocialYarningCardContent> {
         const Text(
           "Study and work",
           style: TextStyle(
-            fontSize: 18,
+            fontSize: extraSmallFontSize,
             fontWeight: FontWeight.bold,
             color: Colors.black87,
           ),

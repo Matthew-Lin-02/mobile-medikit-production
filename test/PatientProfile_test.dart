@@ -2,8 +2,6 @@ import 'package:comp30022/pages/Pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
-import 'package:comp30022/pages/AbstractConsultationPage.dart';
-import 'package:comp30022/pages/GuidedConsultation.dart';
 import 'package:comp30022/components/YellowBorderWhiteCard.dart';
 import 'package:comp30022/components/ChatbotButton.dart';
 
@@ -78,7 +76,7 @@ void main() {
       expect(find.byType(YellowBorderWhiteCard), findsNWidgets(2));
       expect(find.byType(UserInfoCard), findsOneWidget);
       expect(find.byType(AllergiesCard), findsOneWidget);
-      expect(find.byType(ChatbotButton), findsOneWidget);
+      expect(find.byType(ChatBotButton), findsOneWidget);
     });
     testWidgets('Switches tabs when different tabs are tapped',
         (WidgetTester tester) async {

@@ -1,4 +1,3 @@
-import 'package:comp30022/pages/PatientProfile.dart';
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -26,13 +25,13 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: AppColors.cream),
             scaffoldBackgroundColor: AppColors.cream,
           ),
-          home: SignIn(),
+          home: const SignIn(),
           // home: AbstractConsultationPage(
           //   title: " ScreeningTools",
           //   pageNum: 3,
           //   body: ScreeningTools(),
           // ),
-          routes: {'/patientProfile': (context) => PatientProfile()}),
+          routes: {'/patientProfile': (context) => const PatientProfile()}),
     );
   }
 }

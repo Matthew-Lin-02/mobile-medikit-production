@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:comp30022/pages/Pages.dart';
 import 'package:comp30022/components/YellowBorderWhiteCard.dart';
 import 'package:comp30022/color.dart';
+import 'package:comp30022/font.dart';
 
 Widget buildConfig({
   required String title,
@@ -40,13 +41,10 @@ void main() {
       body: patientLookUpBody,
     ));
 
-    // Verify the title
     expect(find.text('Existing Patient'), findsOneWidget);
 
-    // Verify the presence of YellowBorderWhiteCard
     expect(find.byType(YellowBorderWhiteCard), findsOneWidget);
 
-    // Verify the background color
     final container = tester.widget<Container>(find.byType(Container).first);
     expect(container.color, AppColors.cream);
   });
@@ -68,10 +66,10 @@ void main() {
     // Verify the header style
     final nameText = tester.widget<Text>(find.text('Name'));
     expect(nameText.style?.color, Colors.black);
-    expect(nameText.style?.fontSize, 30);
+    expect(nameText.style?.fontSize, largeFontSize);
   });
 
-  testWidgets('PatientLookUp table content test', (WidgetTester tester) async {
+  testWidgets('PatientLookUp table content text', (WidgetTester tester) async {
     await tester.pumpWidget(buildConfig(
       title: "Existing Patient",
       pageNum: 1,
@@ -96,7 +94,7 @@ void main() {
       body: patientLookUpBody,
     ));
 
-    // Verify the presence of SingleChildScrollView
+    // Check if scroll view is present
     expect(find.byType(SingleChildScrollView), findsOneWidget);
   });
 
@@ -113,7 +111,6 @@ void main() {
     expect(card.width, 1718);
     expect(card.height, 600);
 
-    // Verify the presence of Table widget
     expect(
         find.byType(Table), findsNWidgets(2)); // Header table and content table
 

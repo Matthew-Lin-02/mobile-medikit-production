@@ -2,6 +2,7 @@ import 'package:comp30022/components/YellowBorderWhiteCard.dart';
 import 'package:comp30022/pages/Pages.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
+import 'package:comp30022/font.dart';
 
 Builder patientLookUpBody = Builder(builder: (context) {
   return Container(
@@ -56,20 +57,25 @@ Widget _buildLookUpTable() {
                     children: [
                       Text(
                         'Name',
-                        style: TextStyle(color: Colors.black, fontSize: 30),
+                        style: TextStyle(
+                            color: Colors.black, fontSize: largeFontSize),
                         textAlign: TextAlign.center,
                       ),
                       Text('Alias',
-                          style: TextStyle(color: Colors.black, fontSize: 30),
+                          style: TextStyle(
+                              color: Colors.black, fontSize: largeFontSize),
                           textAlign: TextAlign.center),
                       Text('Date of Birth',
-                          style: TextStyle(color: Colors.black, fontSize: 30),
+                          style: TextStyle(
+                              color: Colors.black, fontSize: largeFontSize),
                           textAlign: TextAlign.center),
                       Text('Sex',
-                          style: TextStyle(color: Colors.black, fontSize: 30),
+                          style: TextStyle(
+                              color: Colors.black, fontSize: largeFontSize),
                           textAlign: TextAlign.center),
                       Text('Number',
-                          style: TextStyle(color: Colors.black, fontSize: 30),
+                          style: TextStyle(
+                              color: Colors.black, fontSize: largeFontSize),
                           textAlign: TextAlign.center),
                     ]),
               ],
@@ -114,15 +120,21 @@ List<TableRow> _buildTableRows() {
     const TableRow(children: [
       Text(
         'Darlene Pilbara',
-        style: TextStyle(fontSize: 22),
+        style: TextStyle(fontSize: smallFontSize),
         textAlign: TextAlign.center,
       ),
-      Text('N/A', style: TextStyle(fontSize: 22), textAlign: TextAlign.center),
+      Text('N/A',
+          style: TextStyle(fontSize: smallFontSize),
+          textAlign: TextAlign.center),
       Text('01/01/2001',
-          style: TextStyle(fontSize: 22), textAlign: TextAlign.center),
+          style: TextStyle(fontSize: smallFontSize),
+          textAlign: TextAlign.center),
       Text('Female',
-          style: TextStyle(fontSize: 22), textAlign: TextAlign.center),
-      Text('N/A', style: TextStyle(fontSize: 22), textAlign: TextAlign.center),
+          style: TextStyle(fontSize: smallFontSize),
+          textAlign: TextAlign.center),
+      Text('N/A',
+          style: TextStyle(fontSize: smallFontSize),
+          textAlign: TextAlign.center),
     ]),
   ];
 }

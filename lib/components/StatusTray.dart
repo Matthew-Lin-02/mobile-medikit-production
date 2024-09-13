@@ -1,13 +1,14 @@
-import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
-import 'package:comp30022/pages/PatientProfile.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/components/StandaloneFunctions.dart';
+import 'package:comp30022/font.dart';
+
+const double translationFontSize = 32.0;
 
 class StatusTray extends StatelessWidget {
   final iconSize = 50.0;
 
-  StatusTray({super.key});
+  const StatusTray({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -38,7 +39,7 @@ class StatusTray extends StatelessWidget {
                 iconSize: iconSize,
                 image: 'assets/images/globe.png',
                 onPressed: () {
-                  showCustomModal(context, MachineTranslationOverlay());
+                  showCustomModal(context, const MachineTranslationOverlay());
                 },
               ),
               StatusIcon(
@@ -132,13 +133,13 @@ class MachineTranslationOverlay extends StatelessWidget {
                             decoration: BoxDecoration(
                               color:
                                   AppColors.machineTranslationOverlayLeftCream,
-                              borderRadius: BorderRadius.only(
+                              borderRadius: const BorderRadius.only(
                                   bottomLeft: Radius.circular(10),
                                   topLeft: Radius.circular(10)),
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.black.withOpacity(0.25),
-                                  offset: Offset(0, 4),
+                                  offset: const Offset(0, 4),
                                   blurRadius:
                                       8, // Match blur radius for consistency
                                 ),
@@ -149,32 +150,32 @@ class MachineTranslationOverlay extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 70.0, top: 25),
+                                const Padding(
+                                  padding: EdgeInsets.only(left: 70.0, top: 25),
                                   child: Text(
                                     'Enter English text',
                                     style: TextStyle(
                                       color: Colors.grey,
-                                      fontSize: 32.0,
+                                      fontSize: translationFontSize,
                                     ),
                                   ),
                                 ),
                                 Align(
                                   alignment: Alignment.bottomLeft,
                                   child: Container(
-                                    margin:
-                                        EdgeInsets.only(bottom: 30, left: 40),
+                                    margin: const EdgeInsets.only(
+                                        bottom: 30, left: 40),
                                     transform:
                                         Matrix4.diagonal3Values(1.2, 1.2, 1.0),
                                     child: FloatingActionButton(
-                                        shape: CircleBorder(),
+                                        shape: const CircleBorder(),
                                         onPressed: () {
                                           // Handle speaker action
                                         },
                                         backgroundColor: AppColors
                                             .machineTranslationOverlayBlueButton,
-                                        child: Icon(Icons.mic_none_outlined,
+                                        child: const Icon(
+                                            Icons.mic_none_outlined,
                                             size: 35)),
                                   ),
                                 ),
@@ -186,7 +187,7 @@ class MachineTranslationOverlay extends StatelessWidget {
                         Expanded(
                           child: Container(
                             decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
+                              borderRadius: const BorderRadius.only(
                                   bottomRight: Radius.circular(10),
                                   topRight: Radius.circular(10)),
                               color:
@@ -194,7 +195,7 @@ class MachineTranslationOverlay extends StatelessWidget {
                               boxShadow: [
                                 BoxShadow(
                                   color: Colors.black.withOpacity(0.25),
-                                  offset: Offset(0, 4),
+                                  offset: const Offset(0, 4),
                                   blurRadius:
                                       8, // Match blur radius for consistency
                                 ),
@@ -205,32 +206,32 @@ class MachineTranslationOverlay extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 70.0, top: 25),
+                                const Padding(
+                                  padding: EdgeInsets.only(left: 70.0, top: 25),
                                   child: Text(
                                     'Martu Wangka translation',
                                     style: TextStyle(
                                       color: Colors.grey,
-                                      fontSize: 32.0,
+                                      fontSize: translationFontSize,
                                     ),
                                   ),
                                 ),
                                 Align(
                                     alignment: Alignment.bottomRight,
                                     child: Container(
-                                      margin: EdgeInsets.only(
+                                      margin: const EdgeInsets.only(
                                           bottom: 30, right: 40),
                                       transform: Matrix4.diagonal3Values(
                                           1.2, 1.2, 1.0),
                                       child: FloatingActionButton(
-                                        shape: CircleBorder(),
+                                        shape: const CircleBorder(),
                                         onPressed: () {
                                           // Handle speaker action
                                         },
                                         backgroundColor: AppColors
                                             .machineTranslationOverlayBlueButton,
-                                        child: Icon(Icons.volume_up, size: 30),
+                                        child: const Icon(Icons.volume_up,
+                                            size: 30),
                                       ),
                                     ))
                               ],
@@ -253,13 +254,13 @@ class MachineTranslationOverlay extends StatelessWidget {
               height: 92,
               decoration: BoxDecoration(
                 color: AppColors.machineTranslationOverlayRed,
-                borderRadius: BorderRadius.only(
+                borderRadius: const BorderRadius.only(
                     topLeft: Radius.circular(10),
                     topRight: Radius.circular(10)),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.black.withOpacity(0.25),
-                    offset: Offset(0, 4), // Slight downward offset
+                    offset: const Offset(0, 4), // Slight downward offset
                     blurRadius:
                         8, // Increase blur to make the shadow more noticeable
                   ),
@@ -270,28 +271,28 @@ class MachineTranslationOverlay extends StatelessWidget {
                 children: [
                   Container(
                     width: 300,
-                    child: Text(
+                    child: const Text(
                       'English',
                       style: TextStyle(
                         fontFamily: 'Inter',
-                        fontSize: 38,
+                        fontSize: extraLargeFontSize,
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                   ),
-                  Icon(
+                  const Icon(
                     Icons.swap_horiz,
                     color: Colors.black,
                     size: 50,
                   ),
                   Container(
                     width: 300,
-                    child: Text(
+                    child: const Text(
                       'Martu Wangka',
                       style: TextStyle(
                         fontFamily: 'Inter',
-                        fontSize: 40,
+                        fontSize: extraLargeFontSize,
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
                       ),
@@ -311,39 +312,39 @@ class ContactHealthExpertWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       width: 1200,
       height: 460,
       decoration: BoxDecoration(
-        color: Color(0xFFFDF1E6), // Background color of the card
+        color: const Color(0xFFFDF1E6), // Background color of the card
         borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Center(
+          const Center(
             child: Text(
               'Contact a Health Expert',
               style: TextStyle(
-                fontSize: 35,
+                fontSize: largeFontSize,
               ),
             ),
           ),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           Row(
             children: [
               Expanded(
                 child: Text(
                   'AVAILABLE STAFF',
                   style: TextStyle(
-                    fontSize: 24,
+                    fontSize: mediumFontSize,
                     color: Colors.black.withOpacity(0.6),
                   ),
                 ),
               ),
             ],
           ),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -352,7 +353,7 @@ class ContactHealthExpertWidget extends StatelessWidget {
                 child: Text(
                   'Name',
                   style: TextStyle(
-                    fontSize: 24,
+                    fontSize: mediumFontSize,
                     color: Colors.black.withOpacity(0.6),
                   ),
                 ),
@@ -362,36 +363,37 @@ class ContactHealthExpertWidget extends StatelessWidget {
                 child: Text(
                   'Position',
                   style: TextStyle(
-                      fontSize: 24, color: Colors.black.withOpacity(0.6)),
+                      fontSize: mediumFontSize,
+                      color: Colors.black.withOpacity(0.6)),
                 ),
               ),
-              SizedBox(width: 318) // to align the button to the right
+              const SizedBox(width: 318) // to align the button to the right
             ],
           ),
-          SizedBox(height: 20),
-          Divider(),
+          const SizedBox(height: 20),
+          const Divider(),
           _buildStaffTile(
             context,
             'Dr. Health Expert 1',
             'General Practitioner',
           ),
-          Divider(),
+          const Divider(),
           _buildStaffTile(
             context,
             'AHW 1',
             'Aboriginal Health Worker',
           ),
-          Divider(),
-          SizedBox(height: 17),
+          const Divider(),
+          const SizedBox(height: 17),
           GestureDetector(
             onTap: () {
               // Handle "View Unavailable Staff" action
             },
-            child: Center(
+            child: const Center(
               child: Text(
                 'View Unavailable Staff..',
                 style: TextStyle(
-                  fontSize: 24,
+                  fontSize: mediumFontSize,
                   color: Colors.grey,
                   decoration: TextDecoration.underline,
                 ),
@@ -416,8 +418,8 @@ class ContactHealthExpertWidget extends StatelessWidget {
                   flex: 1,
                   child: Text(
                     name,
-                    style: TextStyle(
-                      fontSize: 24,
+                    style: const TextStyle(
+                      fontSize: mediumFontSize,
                     ),
                   ),
                 ),
@@ -425,8 +427,8 @@ class ContactHealthExpertWidget extends StatelessWidget {
                   flex: 1,
                   child: Text(
                     position,
-                    style: TextStyle(
-                      fontSize: 24,
+                    style: const TextStyle(
+                      fontSize: mediumFontSize,
                     ),
                   ),
                 ),
@@ -438,20 +440,21 @@ class ContactHealthExpertWidget extends StatelessWidget {
               // Handle Webex call action
             },
             style: ElevatedButton.styleFrom(
-              padding: EdgeInsets.all(20),
-              backgroundColor: Color(0xFF00B3A4), // Color for the button
+              padding: const EdgeInsets.all(20),
+              backgroundColor: const Color(0xFF00B3A4), // Color for the button
               shape: RoundedRectangleBorder(
                 borderRadius:
                     BorderRadius.circular(14), // Adjust the radius here
               ),
             ),
-            child: Row(
+            child: const Row(
               mainAxisSize:
                   MainAxisSize.min, // Shrink the button to fit its content
               children: <Widget>[
                 Text(
                   'Call Using Webex',
-                  style: TextStyle(color: Colors.white, fontSize: 24),
+                  style:
+                      TextStyle(color: Colors.white, fontSize: mediumFontSize),
                 ),
                 SizedBox(width: 16), // Space between the text and the icon
                 Icon(
@@ -462,7 +465,7 @@ class ContactHealthExpertWidget extends StatelessWidget {
               ],
             ),
           ),
-          SizedBox(width: 30),
+          const SizedBox(width: 30),
         ],
       ),
     );
@@ -497,7 +500,7 @@ class WifiInfo extends StatelessWidget {
                         color: Colors.grey.withOpacity(0.5),
                         spreadRadius: 5,
                         blurRadius: 7,
-                        offset: Offset(0, 3),
+                        offset: const Offset(0, 3),
                       )
                     ]),
                 child: Column(

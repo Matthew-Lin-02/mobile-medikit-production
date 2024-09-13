@@ -5,7 +5,8 @@ import 'package:comp30022/components/StatusTray.dart';
 import 'package:comp30022/components/StepIndicator.dart';
 import 'package:comp30022/components/BackArrowTeal.dart';
 
-const double VERTICAL_SPACING = 16;
+const double verticalSpacing = 16;
+const double pageHeadingFontSize = 44.0;
 
 class AbstractConsultationPage extends StatelessWidget {
   final String title;
@@ -13,13 +14,13 @@ class AbstractConsultationPage extends StatelessWidget {
   final VoidCallback? tealBackArrowOnPressed;
   final Widget body;
 
-  AbstractConsultationPage({
-    Key? key,
+  const AbstractConsultationPage({
+    super.key,
     required this.title,
     required this.pageNum,
     required this.body,
     this.tealBackArrowOnPressed,
-  }) : super(key: key);
+  });
 
   AppBar _buildAppBar(BuildContext context) {
     return AppBar(
@@ -33,24 +34,24 @@ class AbstractConsultationPage extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.fromLTRB(12.0, 16.0, 0, 0),
               child: Column(children: [
-                SizedBox(height: 11),
+                const SizedBox(height: 11),
                 Row(children: [
-                  SizedBox(width: 115),
+                  const SizedBox(width: 115),
                   UpdatedIndicatorStep(
                     pageNum: pageNum,
                   ),
                 ]),
-                SizedBox(height: 6),
+                const SizedBox(height: 6),
                 Row(
                   children: [
-                    SizedBox(width: 12),
+                    const SizedBox(width: 12),
                     BackArrowTeal(onPressed: tealBackArrowOnPressed),
                     const SizedBox(width: 48),
                     Expanded(
                       child: Text(
                         title,
                         style: const TextStyle(
-                          fontSize: 44,
+                          fontSize: pageHeadingFontSize,
                           fontWeight: FontWeight.bold,
                           color: Colors.black,
                         ),
@@ -62,11 +63,11 @@ class AbstractConsultationPage extends StatelessWidget {
               ]),
             ),
             const SizedBox(height: 16),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(right: 16.0),
+                  padding: EdgeInsets.only(right: 16.0),
                   child: StatusTray(),
                 ),
               ],

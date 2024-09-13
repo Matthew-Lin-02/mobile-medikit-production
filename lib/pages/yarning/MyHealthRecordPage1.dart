@@ -1,9 +1,10 @@
-import 'package:comp30022/pages/MyHealthRecordPage2.dart';
+import 'package:comp30022/pages/yarning/MyHealthRecordPage2.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/components/BackArrowTeal.dart';
 import 'package:comp30022/components/RedActionButton.dart';
 import 'package:comp30022/main.dart';
 import 'package:provider/provider.dart';
+import 'package:comp30022/font.dart';
 
 class MyHealthRecordPage1 extends StatelessWidget {
   const MyHealthRecordPage1({
@@ -12,6 +13,7 @@ class MyHealthRecordPage1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // context.watch<MyAppState>();
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(
@@ -29,12 +31,12 @@ class MyHealthRecordPage1 extends StatelessWidget {
             const SizedBox(height: 50.0),
             const Text(
               "My Health Record",
-              style: TextStyle(fontSize: 80, fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: largeHeadingFontSize, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 25.0),
             const Text("Do you have an existing My Health Record?",
-                style: TextStyle(fontSize: 30)),
-            // SizedBox(height:200.0),
+                style: TextStyle(fontSize: largeFontSize)),
             const SizedBox(height: 300.0),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -43,7 +45,7 @@ class MyHealthRecordPage1 extends StatelessWidget {
                   iconData: Icons.check_circle,
                   label: "Yes",
                   size: mediumButtonSize,
-                  fontSize: 30,
+                  fontSize: largeFontSize,
                   onPressed: () {
                     Navigator.push(
                       context,
@@ -56,7 +58,7 @@ class MyHealthRecordPage1 extends StatelessWidget {
                   iconData: Icons.cancel,
                   label: "No",
                   size: mediumButtonSize,
-                  fontSize: 30,
+                  fontSize: largeFontSize,
                   onPressed: () {
                     Navigator.pop(context);
                   },

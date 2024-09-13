@@ -16,8 +16,8 @@ class ScreeningTools extends StatelessWidget {
     return CustomStack(positionedObjects: [
       PositionedObject(
           child: ScreeningToolsMainContent(containerWidth: containerWidth)),
-      PositionedObject(right: 30.0, top: 50.0, child: ChatbotButton()),
-      PositionedObject(right: 21.0, bottom: 70, child: HelpButton())
+      PositionedObject(right: 30.0, top: 50.0, child: const ChatBotButton()),
+      PositionedObject(right: 21.0, bottom: 70, child: const HelpButton())
     ]);
   }
 }
@@ -40,10 +40,10 @@ class ScreeningToolsMainContent extends StatelessWidget {
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              Expanded(
+              const Expanded(
                 flex: 3,
                 child: Center(
-                  child: const Text(
+                  child: Text(
                     "Here are some tools to assist with the checkup.",
                     style: TextStyle(fontSize: 30),
                   ),
@@ -55,7 +55,7 @@ class ScreeningToolsMainContent extends StatelessWidget {
                 child: GridView.count(
                   shrinkWrap:
                       true, // Stops the GridView from expanding unnecessarily
-                  physics: NeverScrollableScrollPhysics(),
+                  physics: const NeverScrollableScrollPhysics(),
                   crossAxisCount: 2,
                   crossAxisSpacing: 75,
                   mainAxisSpacing: 35,
@@ -135,7 +135,7 @@ class ScreeningToolsMainContent extends StatelessWidget {
               ),
 
               // Continue Button
-              Expanded(flex: 1, child: SizedBox.shrink()),
+              const Expanded(flex: 1, child: SizedBox.shrink()),
               RedActionButton(
                 iconData: Icons.arrow_forward,
                 iconSize: 32,
@@ -147,7 +147,7 @@ class ScreeningToolsMainContent extends StatelessWidget {
                 ),
                 useCircleAvatar: true,
               ),
-              Expanded(flex: 2, child: SizedBox.shrink())
+              const Expanded(flex: 2, child: SizedBox.shrink())
             ],
           ),
         ),
@@ -169,12 +169,12 @@ class SectionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.all(Radius.circular(14)),
+      borderRadius: const BorderRadius.all(Radius.circular(14)),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(14),
           border: Border.all(width: 1),
-          boxShadow: [
+          boxShadow: const [
             BoxShadow(
               color: Colors.grey,
             ),
@@ -199,13 +199,13 @@ class SectionCard extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Expanded(flex: 1, child: SizedBox.shrink()),
+            const Expanded(flex: 1, child: SizedBox.shrink()),
             Expanded(
               flex: 30,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Expanded(flex: 1, child: SizedBox.shrink()),
+                  const Expanded(flex: 1, child: SizedBox.shrink()),
                   Text(
                     sectionTitle,
                     style: GoogleFonts.inter(
@@ -215,18 +215,18 @@ class SectionCard extends StatelessWidget {
                           28, // This affects the appearance for the opsz axis
                     ),
                   ),
-                  Expanded(flex: 1, child: SizedBox.shrink()),
+                  const Expanded(flex: 1, child: SizedBox.shrink()),
                   // Expanded(flex: 1, child: SizedBox.shrink()),
 
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: tools,
                   ),
-                  Expanded(flex: 3, child: SizedBox.shrink()),
+                  const Expanded(flex: 3, child: SizedBox.shrink()),
                 ],
               ),
             ),
-            Expanded(flex: 1, child: SizedBox.shrink()),
+            const Expanded(flex: 1, child: SizedBox.shrink()),
           ],
         ),
       ),
@@ -282,18 +282,18 @@ class _ToolCardState extends State<ToolCard> {
               },
               child: Row(
                 children: [
-                  Expanded(flex: 1, child: SizedBox.shrink()),
+                  const Expanded(flex: 1, child: SizedBox.shrink()),
                   Expanded(
                     flex: 30,
                     child: Column(
                       children: [
-                        Expanded(flex: 1, child: SizedBox.shrink()),
+                        const Expanded(flex: 1, child: SizedBox.shrink()),
                         Image(
                             image: AssetImage(widget.imagePath),
                             height: 70,
                             width: 70),
                         // Label text
-                        Expanded(flex: 1, child: SizedBox.shrink()),
+                        const Expanded(flex: 1, child: SizedBox.shrink()),
                         FittedBox(
                           fit: BoxFit.scaleDown,
                           child: Text(
@@ -307,7 +307,7 @@ class _ToolCardState extends State<ToolCard> {
                       ],
                     ),
                   ),
-                  Expanded(flex: 1, child: SizedBox.shrink()),
+                  const Expanded(flex: 1, child: SizedBox.shrink()),
                 ],
               ),
             ),
@@ -324,7 +324,7 @@ class _ToolCardState extends State<ToolCard> {
               width: toolCardWidth,
               decoration: BoxDecoration(
                 borderRadius:
-                    BorderRadius.vertical(bottom: Radius.circular(16)),
+                    const BorderRadius.vertical(bottom: Radius.circular(16)),
                 color: complete
                     ? AppColors
                         .complete // Change color based on completion state

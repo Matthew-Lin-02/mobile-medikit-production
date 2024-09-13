@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
-import 'package:comp30022/pages/GuidedConsultation.dart';
+import 'package:comp30022/pages/yarning/GuidedConsultation.dart';
 import 'package:comp30022/components/YellowCard.dart';
 
 void main() {
