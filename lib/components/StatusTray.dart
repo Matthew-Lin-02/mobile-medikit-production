@@ -91,14 +91,11 @@ class StatusIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: iconSize,
-      width: iconSize,
-      child: IconButton(
-          onPressed: onPressed ?? () {},
-          icon: Image.asset(image),
-          padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 5),
-          style: const ButtonStyle(overlayColor: WidgetStateColor.transparent)),
+    return IconButton(
+      onPressed: onPressed ?? () {},
+      icon: Image.asset(image),
+      padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 5),
+      style: const ButtonStyle(overlayColor: WidgetStateColor.transparent),
     );
   }
 }
