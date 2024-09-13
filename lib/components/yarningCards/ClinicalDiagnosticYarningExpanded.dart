@@ -1,6 +1,9 @@
+import 'package:comp30022/font.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/components/ResourceCarousel.dart';
 import 'package:comp30022/components/YellowTextField.dart';
+
+const double yarningSubHeadingFontSize = 18.0;
 
 class ClinicalDiagnosisYarningCardExpanded extends StatefulWidget {
   ClinicalDiagnosisYarningCardExpanded({super.key});
@@ -40,18 +43,21 @@ class _ClinicalDiagnosisYarningCardExpandedState
       children: [
         Text(
           "Sharing healthcare knowledge and actively listening to patient stories.",
-          style: TextStyle(fontSize: 18, color: Colors.black.withOpacity(0.5)),
+          style: TextStyle(
+              fontSize: extraSmallFontSize,
+              color: Colors.black.withOpacity(0.5)),
         ),
         const Text(
           "Resources",
-          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+          style:
+              TextStyle(fontSize: largeFontSize, fontWeight: FontWeight.bold),
         ),
         SizedBox(
             width: 1540,
             child: Column(children: [
               const Text(
                   "Tap for some resources that can help you explain health concepts.",
-                  style: TextStyle(fontSize: 18)),
+                  style: TextStyle(fontSize: extraSmallFontSize)),
               const SizedBox(
                 height: 20,
               ),
@@ -79,12 +85,14 @@ class _ClinicalDiagnosisYarningCardExpandedState
                     Text(
                       "Does the patient take any regular medications?",
                       style: TextStyle(
-                          fontSize: 18, color: Colors.black.withOpacity(0.7)),
+                          fontSize: extraSmallFontSize,
+                          color: Colors.black.withOpacity(0.7)),
                     ),
                     Text(
                       "(prescribed, over-the-counter, traditional, complementary and alternative)\n",
                       style: TextStyle(
-                          fontSize: 18, color: Colors.black.withOpacity(0.5)),
+                          fontSize: extraSmallFontSize,
+                          color: Colors.black.withOpacity(0.5)),
                     ),
                     Row(children: [
                       const SizedBox(width: 150),
@@ -94,7 +102,8 @@ class _ClinicalDiagnosisYarningCardExpandedState
                           updateCheckbox('medicalCheckbox1', value);
                         },
                       ),
-                      const Text("Yes", style: TextStyle(fontSize: 18)),
+                      const Text("Yes",
+                          style: TextStyle(fontSize: extraSmallFontSize)),
                       const SizedBox(width: 200),
                       Checkbox(
                         value: checkboxStates['medicalCheckbox2'],
@@ -102,7 +111,8 @@ class _ClinicalDiagnosisYarningCardExpandedState
                           updateCheckbox('medicalCheckbox2', value);
                         },
                       ),
-                      const Text("No", style: TextStyle(fontSize: 18)),
+                      const Text("No",
+                          style: TextStyle(fontSize: extraSmallFontSize)),
                     ]),
                     const SizedBox(height: 20),
                     Row(children: [
@@ -114,7 +124,7 @@ class _ClinicalDiagnosisYarningCardExpandedState
                         },
                       ),
                       const Text("Understanding and adherence checked",
-                          style: TextStyle(fontSize: 18)),
+                          style: TextStyle(fontSize: extraSmallFontSize)),
                     ]),
                     _ClinicalSubItem(
                       heading: "",
@@ -153,7 +163,7 @@ class _ClinicalDiagnosisYarningCardExpandedState
                         },
                       ),
                       const Text("Never smoked",
-                          style: TextStyle(fontSize: 18)),
+                          style: TextStyle(fontSize: extraSmallFontSize)),
                     ]),
                     Row(children: [
                       Checkbox(
@@ -162,7 +172,8 @@ class _ClinicalDiagnosisYarningCardExpandedState
                           updateCheckbox('exSmokerCheckbox', value);
                         },
                       ),
-                      const Text("Ex-smoker", style: TextStyle(fontSize: 18)),
+                      const Text("Ex-smoker",
+                          style: TextStyle(fontSize: extraSmallFontSize)),
                       const SizedBox(width: 80),
                       Checkbox(
                         value: checkboxStates['quitLessThan12MonthsCheckbox'],
@@ -171,7 +182,7 @@ class _ClinicalDiagnosisYarningCardExpandedState
                         },
                       ),
                       const Text("Quit < 12 months",
-                          style: TextStyle(fontSize: 18)),
+                          style: TextStyle(fontSize: extraSmallFontSize)),
                       const SizedBox(width: 80),
                       Checkbox(
                         value: checkboxStates['quitMoreThan12MonthsCheckbox'],
@@ -180,7 +191,7 @@ class _ClinicalDiagnosisYarningCardExpandedState
                         },
                       ),
                       const Text("Quit ≥ 12 months",
-                          style: TextStyle(fontSize: 18)),
+                          style: TextStyle(fontSize: extraSmallFontSize)),
                     ]),
                     Row(children: [
                       Checkbox(
@@ -190,15 +201,17 @@ class _ClinicalDiagnosisYarningCardExpandedState
                         },
                       ),
                       const Text("Current smoker",
-                          style: TextStyle(fontSize: 18)),
+                          style: TextStyle(fontSize: extraSmallFontSize)),
                       const SizedBox(width: 42),
-                      const Text("How many? ", style: TextStyle(fontSize: 18)),
+                      const Text("How many? ",
+                          style: TextStyle(fontSize: extraSmallFontSize)),
                       const SizedBox(
                           height: 43,
                           width: 125,
                           child: YellowTextField(hintText: "Enter Here...")),
                       const SizedBox(width: 20),
-                      const Text("How long? ", style: TextStyle(fontSize: 18)),
+                      const Text("How long? ",
+                          style: TextStyle(fontSize: extraSmallFontSize)),
                       SizedBox(
                           height: 43,
                           width: 125,
@@ -212,7 +225,7 @@ class _ClinicalDiagnosisYarningCardExpandedState
                         },
                       ),
                       const Text("Wants to quit",
-                          style: TextStyle(fontSize: 18)),
+                          style: TextStyle(fontSize: extraSmallFontSize)),
                     ]),
                     Row(children: [
                       Checkbox(
@@ -222,7 +235,7 @@ class _ClinicalDiagnosisYarningCardExpandedState
                         },
                       ),
                       const Text("Other tobacco use",
-                          style: TextStyle(fontSize: 18)),
+                          style: TextStyle(fontSize: extraSmallFontSize)),
                     ]),
                     Row(children: [
                       Checkbox(
@@ -234,7 +247,7 @@ class _ClinicalDiagnosisYarningCardExpandedState
                       ),
                       const Text(
                           "Environmental exposure to tobacco smoke (home, car, etc)",
-                          style: TextStyle(fontSize: 18)),
+                          style: TextStyle(fontSize: extraSmallFontSize)),
                     ]),
                   ],
                 ))
@@ -267,11 +280,12 @@ class _ClinicalSubItem extends StatelessWidget {
           style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
         ),
         Text(subheading,
-            style:
-                TextStyle(fontSize: 18, color: Colors.black.withOpacity(0.7))),
+            style: TextStyle(
+                fontSize: extraSmallFontSize,
+                color: Colors.black.withOpacity(0.7))),
         Text(subsubtext,
             style: TextStyle(
-                fontSize: (subsubtext.isNotEmpty ? 18 : 0),
+                fontSize: (subsubtext.isNotEmpty ? extraSmallFontSize : 0),
                 color: Colors.black.withOpacity(0.5))),
         SizedBox(height: 10),
         YellowTextField(
