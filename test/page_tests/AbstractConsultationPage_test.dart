@@ -6,7 +6,7 @@ import 'package:comp30022/color.dart';
 import 'package:comp30022/components/StatusTray.dart';
 import 'package:comp30022/components/StepIndicator.dart';
 import 'package:comp30022/components/BackArrowTeal.dart';
-import 'package:comp30022/pages/GuidedConsultation.dart';
+import 'package:comp30022/pages/yarning/GuidedConsultation.dart';
 
 void main() {
   Widget buildConfig({
@@ -16,14 +16,11 @@ void main() {
     Size size = const Size(1920, 1080),
     double devicePixelRatio = 1.0,
   }) {
-    if (size != null) {
-      TestWidgetsFlutterBinding.ensureInitialized()
-          .window
-          .physicalSizeTestValue = size;
-      TestWidgetsFlutterBinding.ensureInitialized()
-          .window
-          .devicePixelRatioTestValue = devicePixelRatio;
-    }
+    TestWidgetsFlutterBinding.ensureInitialized().window.physicalSizeTestValue =
+        size;
+    TestWidgetsFlutterBinding.ensureInitialized()
+        .window
+        .devicePixelRatioTestValue = devicePixelRatio;
 
     return MultiProvider(
       providers: [
@@ -39,8 +36,8 @@ void main() {
     );
   }
 
-  group('AbstractConsultationPage Tests', () {
-    testWidgets('Displays the correct title with custom page size',
+  group('AbstractConsultationPage', () {
+    testWidgets('displays the correct title with custom page size',
         (WidgetTester tester) async {
       const title = 'Test Title';
 
@@ -56,7 +53,7 @@ void main() {
       addTearDown(tester.binding.window.clearDevicePixelRatioTestValue);
     });
 
-    testWidgets('Displays the correct page indicator',
+    testWidgets('displays the correct page indicator',
         (WidgetTester tester) async {
       const pageNum = 3;
 
@@ -69,7 +66,7 @@ void main() {
       expect(find.byType(UpdatedIndicatorStep), findsOneWidget);
     });
 
-    testWidgets('Contains BackArrowTeal widget', (WidgetTester tester) async {
+    testWidgets('contains BackArrowTeal widget', (WidgetTester tester) async {
       await tester.pumpWidget(buildConfig(
         title: 'BackArrowTeal Test',
         pageNum: 1,
@@ -79,7 +76,7 @@ void main() {
       expect(find.byType(BackArrowTeal), findsOneWidget);
     });
 
-    testWidgets('Contains StatusTray widget', (WidgetTester tester) async {
+    testWidgets('contains StatusTray widget', (WidgetTester tester) async {
       await tester.pumpWidget(buildConfig(
         title: 'StatusTray Test',
         pageNum: 1,

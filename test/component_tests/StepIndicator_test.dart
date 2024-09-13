@@ -4,7 +4,6 @@ import 'package:comp30022/components/StepIndicator.dart';
 import 'package:comp30022/components/BackArrowTeal.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/components/StatusTray.dart';
-import 'package:comp30022/pages/AbstractConsultationPage.dart'; // Adjust the import to match your file structure
 
 void main() {
   testWidgets(
@@ -17,10 +16,10 @@ void main() {
             body: Row(
           children: [
             IndicatorPageName(
-              boxSize: 90, text: 'This is an example of a potential page name',
-              bold: false, coloured: false,
-
-              // Assuming IndicatorPageName takes some parameters; adjust accordingly
+              boxSize: 90,
+              text: 'This is an example of a potential page name',
+              bold: false,
+              coloured: false,
             ),
           ],
         )),
@@ -90,23 +89,23 @@ void main() {
               Padding(
                 padding: const EdgeInsets.fromLTRB(12.0, 16.0, 0, 0),
                 child: Column(children: [
-                  SizedBox(height: 11),
+                  const SizedBox(height: 11),
                   Row(children: [
-                    SizedBox(width: 115),
+                    const SizedBox(width: 115),
                     UpdatedIndicatorStep(
                       pageNum: 1,
                     ),
                   ]),
-                  SizedBox(height: 6),
-                  Row(
+                  const SizedBox(height: 6),
+                  const Row(
                     children: [
                       SizedBox(width: 12),
-                      const BackArrowTeal(),
-                      const SizedBox(width: 48),
+                      BackArrowTeal(),
+                      SizedBox(width: 48),
                       Expanded(
                         child: Text(
                           "Title",
-                          style: const TextStyle(
+                          style: TextStyle(
                             fontSize: 44,
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
@@ -119,11 +118,11 @@ void main() {
                 ]),
               ),
               const SizedBox(height: 16),
-              Row(
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Padding(
-                    padding: const EdgeInsets.only(right: 16.0),
+                    padding: EdgeInsets.only(right: 16.0),
                     child: StatusTray(),
                   ),
                 ],

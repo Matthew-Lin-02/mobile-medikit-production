@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:comp30022/font.dart';
 
 class DropDown extends StatelessWidget {
   final String label;
@@ -33,7 +34,7 @@ class DropDown extends StatelessWidget {
                         const EdgeInsets.only(left: 4.0), // Apply left padding
                     child: Text(
                       value,
-                      style: const TextStyle(fontSize: 18),
+                      style: const TextStyle(fontSize: tinyFontSize),
                       textAlign: TextAlign.center,
                     ),
                   ),
