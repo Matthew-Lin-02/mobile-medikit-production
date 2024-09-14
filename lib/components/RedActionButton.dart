@@ -15,7 +15,7 @@ class RedActionButton extends StatelessWidget {
     super.key,
     this.iconData,
     required this.label,
-    this.onPressed = _defaultButtonFunction,
+    this.onPressed,
     this.size = smallButtonSize,
     this.fontSize = smallButtonFontSize,
     this.imagePath,
@@ -24,13 +24,9 @@ class RedActionButton extends StatelessWidget {
     this.useCircleAvatar = false,
   });
 
-  static void _defaultButtonFunction() {
-    print('Button pressed');
-  }
-
   final IconData? iconData;
   final String label;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final Size? size;
   final double fontSize;
   final String? imagePath;
@@ -44,7 +40,10 @@ class RedActionButton extends StatelessWidget {
       width: size?.width,
       height: size?.height,
       child: ElevatedButton.icon(
-        onPressed: onPressed,
+        onPressed: onPressed ??
+            () {
+              Navigator.pop(context);
+            },
         icon: imagePath != null
             ? Image(
                 image: AssetImage(imagePath!),

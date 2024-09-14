@@ -71,10 +71,10 @@ Builder observationsBody = Builder(builder: (context) {
               RedActionButton(
                 iconData: Icons.arrow_back,
                 iconSize: largeFontSize,
-                label: "Continue to Results",
+                label: "Back to screening tools",
                 fontSize: largeFontSize,
                 size: const Size(
-                  403,
+                  500,
                   64,
                 ),
               ),
@@ -120,7 +120,7 @@ class ObservationsSubsection extends StatelessWidget {
             borderRadius: 32,
             isShadowOn: false,
             child: TextField(
-              style: const TextStyle(fontSize: mediumFontSize),
+              style: GoogleFonts.inter(fontSize: mediumFontSize),
               maxLines: maxLines,
               decoration: InputDecoration(
                   hintText: hintText,

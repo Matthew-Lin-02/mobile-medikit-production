@@ -1,4 +1,6 @@
+import 'package:comp30022/pages/screening/BloodPressure.dart';
 import 'package:comp30022/pages/screening/Observations.dart';
+import 'package:comp30022/pages/screening/Temperature.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'color.dart';
@@ -25,7 +27,7 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: AppColors.cream),
             scaffoldBackgroundColor: AppColors.cream,
           ),
-          home: const SignIn(),
+          home: SignIn(),
           routes: {'/patientProfile': (context) => const PatientProfile()}),
     );
   }

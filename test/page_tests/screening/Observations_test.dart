@@ -63,14 +63,14 @@ void main() {
     expect(find.text("   Additional Notes:"), findsOneWidget);
 
     // // Check if the RedActionButton exists with correct label.
-    expect(find.text("Continue to Results"), findsOneWidget);
+    expect(find.text("Back to screening tools"), findsOneWidget);
 
     // // Check if the ChatBotButton and HelpButton are present.
     expect(find.byType(ChatBotButton), findsOneWidget);
     expect(find.byType(HelpButton), findsOneWidget);
 
     // // Check if the RedActionButton can be tapped.
-    await tester.tap(warnIfMissed: false, find.text("Continue to Results"));
+    await tester.tap(warnIfMissed: false, find.text("Back to screening tools"));
     await tester.pump(); // Rebuild after the tap.
 
     // // Ensure all the text fields are functional (focusing, entering text).
