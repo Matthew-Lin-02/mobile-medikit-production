@@ -16,14 +16,14 @@ Builder patientProfileBody = Builder(builder: (context) {
           const Column(
             children: [
               YellowBorderWhiteCard(
-                widget: UserInfoCard(),
+                child: UserInfoCard(),
                 isShadowOn: true,
                 width: 432,
                 height: 417,
               ),
               SizedBox(height: 35),
               YellowBorderWhiteCard(
-                widget: AllergiesCard(),
+                child: AllergiesCard(),
                 isShadowOn: true,
                 width: 432,
                 height: 244,

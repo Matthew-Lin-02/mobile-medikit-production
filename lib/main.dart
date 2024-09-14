@@ -1,3 +1,4 @@
+import 'package:comp30022/pages/screening/Observations.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'color.dart';
@@ -25,11 +26,6 @@ class MyApp extends StatelessWidget {
             scaffoldBackgroundColor: AppColors.cream,
           ),
           home: const SignIn(),
-          // home: AbstractConsultationPage(
-          //   title: " ScreeningTools",
-          //   pageNum: 3,
-          //   body: ScreeningTools(),
-          // ),
           routes: {'/patientProfile': (context) => const PatientProfile()}),
     );
   }
