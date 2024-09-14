@@ -63,7 +63,7 @@ void main() {
     expect(find.text("   Additional Notes:"), findsOneWidget);
 
     // // Check if the RedActionButton exists with correct label.
-    expect(find.text("Continue to Results"), findsOneWidget);
+    expect(find.text("Back to screening tools"), findsOneWidget);
 
     // // Check if the ChatBotButton and HelpButton are present.
     expect(find.byType(ChatBotButton), findsOneWidget);
