@@ -70,7 +70,7 @@ void main() {
     expect(find.byType(HelpButton), findsOneWidget);
 
     // // Check if the RedActionButton can be tapped.
-    await tester.tap(warnIfMissed: false, find.text("Continue to Results"));
+    await tester.tap(warnIfMissed: false, find.text("Back to screening tools"));
     await tester.pump(); // Rebuild after the tap.
 
     // // Ensure all the text fields are functional (focusing, entering text).
