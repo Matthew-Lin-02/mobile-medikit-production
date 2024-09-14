@@ -1,45 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
+import 'package:comp30022/components/BaseCustomCard.dart';
 
-class YellowBorderWhiteCard extends StatelessWidget {
-  final Widget? widget;
-  final bool? isShadowOn;
-  final double width;
-  final double height;
+class YellowBorderWhiteCard extends BaseCustomCard {
   const YellowBorderWhiteCard({
-    super.key,
-    this.widget,
-    this.isShadowOn,
-    required this.width,
-    required this.height,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      width: width,
-      height: height,
-      padding: EdgeInsets.all(2),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(14),
-          color: AppColors.yellowCream,
-          boxShadow: isShadowOn != null
-              ? [
-                  BoxShadow(
-                    color: Colors.black.withOpacity(0.25),
-                    offset: Offset(0, 4),
-                    blurRadius: 4, // Match blur radius for consistency
-                  ),
-                ]
-              : null),
-      child: Card(
-        elevation: 0,
-        color: Colors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(8),
-        ),
-        child: widget ?? const SizedBox.shrink(),
-      ),
-    );
-  }
+    Key? key,
+    Widget? widget,
+    bool? isShadowOn,
+    double? width,
+    double? height,
+    double borderWidth = 6.0,
+    double borderRadius = 16.0,
+  }) : super(
+          key: key,
+          child: widget,
+          borderColor: AppColors.yellowCream, // Yellow border color
+          backgroundColor: Colors.white, // White background
+          isShadowOn: isShadowOn ?? true,
+          width: width, // Pass width to base class
+          height: height, // Pass height to base class
+          borderWidth: borderWidth,
+          borderRadius: borderRadius,
+        );
 }

@@ -38,9 +38,10 @@ class GuidedConsultationState extends ChangeNotifier {
       ),
 
       AbstractConsultationPage(
-        title: " ScreeningTools",
+        title: " Screening",
         pageNum: 3,
         body: ScreeningTools(),
+        tealBackArrowOnPressed: decrementPageNum,
       )
     ];
     notifyListeners();
