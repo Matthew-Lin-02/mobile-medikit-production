@@ -8,3 +8,5 @@ export 'yarning/MyHealthRecordPage2.dart';
 export 'yarning/ExistingPatient.dart';
 export 'yarning/PatientLookUp.dart';
 export 'yarning/GuidedConsultation.dart';
+export 'PatientProfile.dart';
+export 'package:comp30022/guidedConsultationBodies/Bodies.dart';

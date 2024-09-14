@@ -11,15 +11,18 @@ const double smallButtonFontSize = 28.0;
 const double largeButtonFontSize = 40.0;
 
 class RedActionButton extends StatelessWidget {
-  const RedActionButton(
-      {super.key,
-      this.iconData,
-      required this.label,
-      this.onPressed = _defaultButtonFunction,
-      this.size = smallButtonSize,
-      this.fontSize = smallButtonFontSize,
-      this.imagePath,
-      this.imageSize});
+  RedActionButton({
+    super.key,
+    this.iconData,
+    required this.label,
+    this.onPressed = _defaultButtonFunction,
+    this.size = smallButtonSize,
+    this.fontSize = smallButtonFontSize,
+    this.imagePath,
+    this.imageSize,
+    this.iconSize = 28,
+    this.useCircleAvatar = false,
+  });
 
   static void _defaultButtonFunction() {
     print('Button pressed');
@@ -32,6 +35,8 @@ class RedActionButton extends StatelessWidget {
   final double fontSize;
   final String? imagePath;
   final Size? imageSize;
+  final double iconSize;
+  final bool useCircleAvatar; // New field for CircleAvatar option
 
   @override
   Widget build(BuildContext context) {
@@ -47,8 +52,26 @@ class RedActionButton extends StatelessWidget {
                 height: imageSize?.height,
               )
             : iconData != null
-                ? Icon(iconData)
-                : const SizedBox.shrink(), // Conditionally show the icon/image
+                ? useCircleAvatar
+                    ? CircleAvatar(
+                        radius: iconSize / 2, // Control the size of the circle
+                        backgroundColor:
+                            Colors.white, // Circle background color
+                        child: Icon(
+                          iconData,
+                          size: iconSize,
+                          color: AppColors.red, // Red forward arrow color
+                        ),
+                      )
+                    : Icon(
+                        iconData,
+                        size:
+                            iconSize, // Default icon size without CircleAvatar
+                        color: Colors
+                            .white, // Default icon color if CircleAvatar is not used
+                      )
+                : const SizedBox
+                    .shrink(), // Default to nothing if no icon or image
         label: Text(
           label,
           style: TextStyle(color: Colors.white, fontSize: fontSize),

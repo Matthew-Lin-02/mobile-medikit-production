@@ -2,8 +2,6 @@ import 'package:comp30022/components/BackArrowTeal.dart';
 import 'package:comp30022/pages/Pages.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/components/RedActionButton.dart';
-import 'package:comp30022/main.dart';
-import 'package:provider/provider.dart';
 import 'package:comp30022/font.dart';
 
 /// MentalHealthCheck is the welcome page that asks the user how they are feeling.
@@ -17,7 +15,6 @@ class MentalHealthCheck extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<MyAppState>();
     return Scaffold(
       /// A stack is used to allow the art in the corner to be overlayed
       body: Stack(children: [

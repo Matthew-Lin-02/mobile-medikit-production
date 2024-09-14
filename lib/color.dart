@@ -28,4 +28,8 @@ class AppColors {
   static const Color contactHealthExpertOverlayCream = Color(0xFFFFF5DF);
   static const Color wifiInfoOverlayBlue = Color.fromARGB(255, 0, 177, 178);
   static const Color wifiInfoTextGreen = Color.fromARGB(255, 0, 216, 89);
+
+  //Screening Tools
+  static const Color incomplete = Color(0xFFFC7474);
+  static const Color complete = Color(0xFF74FC82);
 }

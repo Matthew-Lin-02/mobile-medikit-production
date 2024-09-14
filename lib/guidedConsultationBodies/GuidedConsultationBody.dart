@@ -9,6 +9,7 @@ import 'package:comp30022/components/yarningCards/SocialYarningExpanded.dart';
 import 'package:comp30022/components/yarningCards/ClinicalDiagnosticYarningExpanded.dart';
 import 'package:comp30022/components/RedActionButton.dart';
 import 'package:comp30022/components/ChatbotButton.dart';
+import 'package:comp30022/components/HelpButton.dart';
 
 class GuidedConsultationBody extends StatelessWidget {
   const GuidedConsultationBody({super.key});
@@ -79,32 +80,10 @@ class GuidedConsultationBody extends StatelessWidget {
           ),
         ),
         const Positioned(right: 30.0, top: 16.0, child: ChatBotButton()),
-        Positioned(
+        const Positioned(
           right: 21.0,
           bottom: 70,
-          child: Column(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(
-                      color: const Color.fromRGBO(15, 13, 11, 1.0), width: 2.5),
-                ),
-                child: IconButton(
-                  onPressed: () {
-                    ;
-                  },
-                  color: const Color.fromRGBO(15, 13, 11, 1.0),
-                  iconSize: 33,
-                  icon: const Icon(Icons.question_mark),
-                ),
-              ),
-              const Text("Help",
-                  style: TextStyle(
-                      fontSize: extraSmallFontSize,
-                      fontWeight: FontWeight.bold))
-            ],
-          ),
+          child: HelpButton(),
         ),
       ]),
     );

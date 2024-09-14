@@ -1,5 +1,3 @@
-import 'package:comp30022/pages/PatientProfile.dart';
-import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'color.dart';
@@ -16,26 +14,23 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => GuidedConsultationState()),
-        ChangeNotifierProvider(create: (_) => MyAppState())
         // add other providers
       ],
       child: MaterialApp(
-        title: 'medi_kit',
-        theme: ThemeData(
-          fontFamily: 'VarelaRound',
-          useMaterial3: true,
-          colorScheme: ColorScheme.fromSeed(seedColor: AppColors.cream),
-          scaffoldBackgroundColor: AppColors.cream,
-        ),
-        home: const SignIn(),
-        routes: {
-          '/patientProfile': (context) => PatientProfile(),
-        },
-      ),
+          title: 'medi_kit',
+          theme: ThemeData(
+            fontFamily: 'VarelaRound',
+            useMaterial3: true,
+            colorScheme: ColorScheme.fromSeed(seedColor: AppColors.cream),
+            scaffoldBackgroundColor: AppColors.cream,
+          ),
+          home: const SignIn(),
+          // home: AbstractConsultationPage(
+          //   title: " ScreeningTools",
+          //   pageNum: 3,
+          //   body: ScreeningTools(),
+          // ),
+          routes: {'/patientProfile': (context) => const PatientProfile()}),
     );
   }
-}
-
-class MyAppState extends ChangeNotifier {
-  var current = WordPair.random();
 }
