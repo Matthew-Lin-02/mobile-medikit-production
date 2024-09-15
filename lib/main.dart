@@ -26,9 +26,7 @@ class MyApp extends StatelessWidget {
             colorScheme: ColorScheme.fromSeed(seedColor: AppColors.cream),
             scaffoldBackgroundColor: AppColors.cream,
           ),
-          // home: SignIn(),
-          home: AbstractConsultationPage(
-              title: 'asdf', pageNum: 3, body: ScreeningTools()),
+          home: SignIn(),
           routes: {'/patientProfile': (context) => const PatientProfile()}),
     );
   }
