@@ -68,6 +68,7 @@ class StatusTray extends StatelessWidget {
               )),
               Expanded(
                 child: Container(
+                  alignment: Alignment.centerRight,
                   margin: EdgeInsets.zero,
                   decoration: BoxDecoration(
                     color: Colors.red,
