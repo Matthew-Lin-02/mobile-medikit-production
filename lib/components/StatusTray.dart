@@ -30,21 +30,21 @@ class StatusTray extends StatelessWidget {
               StatusIcon(
                 key: wifiKey,
                 iconSize: iconSize,
-                image: 'assets/images/wifi-connection.png',
+                image: 'assets/images/wifi_figma.png',
                 onPressed: () {
                   showCustomModal(context, WifiInfo(parentKey: wifiKey));
                 },
               ),
               StatusIcon(
                 iconSize: iconSize,
-                image: 'assets/images/globe.png',
+                image: 'assets/images/group_figma.png',
                 onPressed: () {
                   showCustomModal(context, const MachineTranslationOverlay());
                 },
               ),
               StatusIcon(
                   iconSize: iconSize,
-                  image: 'assets/images/person-outline.png',
+                  image: 'assets/images/person_figma.png',
                   onPressed: () {
                     if (currentRoute != '/patientProfile') {
                       Navigator.pushNamed(context, '/patientProfile');
@@ -52,11 +52,11 @@ class StatusTray extends StatelessWidget {
                   }),
               StatusIcon(
                 iconSize: iconSize,
-                image: 'assets/images/settings.png',
+                image: 'assets/images/settings_figma.png',
               ),
               StatusIcon(
                 iconSize: iconSize,
-                image: 'assets/images/phone.png',
+                image: 'assets/images/phone_figma.png',
                 onPressed: () {
                   showCustomModal(context, ContactHealthExpertWidget());
                 },
@@ -67,7 +67,8 @@ class StatusTray extends StatelessWidget {
                   borderRadius: BorderRadius.circular(20.0),
                 ),
                 child: StatusIcon(
-                    iconSize: iconSize, image: 'assets/images/ambulance.png'),
+                    iconSize: iconSize,
+                    image: 'assets/images/ambulance_figma.png'),
               ),
             ],
           ),
