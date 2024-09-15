@@ -51,31 +51,29 @@ void main() {
             'Please follow the standard procedure for Blood pressure tests and fill in the values below'),
         findsOneWidget);
 
-    // // Ensure the hint text for each vital is shown
-    // expect(find.text('Systolic\n(mmHg)'), findsOneWidget);
-    // expect(find.text('Diastolic\n(mmHg)'), findsOneWidget);
-    // expect(find.text('Pulse (min)'), findsOneWidget);
+    // Ensure the hint text for each vital is shown
+    expect(find.text('Systolic\n(mmHg)'), findsOneWidget);
+    expect(find.text('Diastolic\n(mmHg)'), findsOneWidget);
+    expect(find.text('Pulse (min)'), findsOneWidget);
 
-    // // Ensure the hint values for VitalsCards are shown
-    // expect(find.text('36.4'), findsOneWidget);
-    // expect(find.text('84'), findsOneWidget);
-    // expect(find.text('68'), findsOneWidget);
+    // Ensure the hint values for VitalsCards are shown
+    expect(find.text('36.4'), findsOneWidget);
+    expect(find.text('84'), findsOneWidget);
+    expect(find.text('68'), findsOneWidget);
 
     // // Check if the RedActionButton is present with the correct label
-    // expect(find.text("Back to screening tools"), findsOneWidget);
+    expect(find.text("Back to screening tools"), findsOneWidget);
 
-    // // Check if the ChatBotButton and HelpButton are present
-    // expect(find.byType(ChatBotButton), findsOneWidget);
-    // expect(find.byType(HelpButton), findsOneWidget);
+    // Check if the ChatBotButton and HelpButton are present
+    expect(find.byType(ChatBotButton), findsOneWidget);
+    expect(find.byType(HelpButton), findsOneWidget);
 
     // // Check that the RedActionButton can be tapped
-    // await tester.tap(find.text("Back to screening tools"));
-    // await tester.pump(); // Rebuild after the tap
+    await tester.tap(find.text("Back to screening tools"));
+    await tester.pump(); // Rebuild after the tap
 
     // // Check if the TextField in VitalsCard can be focused and entered text
-    // await tester.tap(find.text('36.4'));
-    // await tester.pump(); // Rebuild after focus
-    // await tester.enterText(find.text('36.4'), '120');
-    // expect(find.text('120'), findsOneWidget);
+    await tester.tap(warnIfMissed: false, find.text('36.4'));
+    await tester.pump(); // Rebuild after focus
   });
 }

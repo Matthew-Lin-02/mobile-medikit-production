@@ -8,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:comp30022/components/ChatbotButton.dart';
 import 'package:comp30022/components/HelpButton.dart';
 import 'package:comp30022/components/RedActionButton.dart';
+import 'package:comp30022/pages/screening/Temperature.dart';
 
 class Temperature extends StatelessWidget {
   const Temperature({super.key});

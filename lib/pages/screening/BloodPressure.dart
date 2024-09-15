@@ -27,59 +27,69 @@ Builder bloodPressureBody = Builder(builder: (context) {
           color: AppColors.cream,
           child: Column(
             children: [
-              const Expanded(flex: 4, child: SizedBox.shrink()),
-              FractionallySizedBox(
-                  widthFactor: 0.5,
-                  child: Text(
-                    "Please follow the standard procedure for Blood pressure tests and fill in the values below",
-                    textAlign: TextAlign.center,
-                    style: GoogleFonts.inter(
-                      fontSize: extraLargeFontSize,
-                      fontWeight: FontWeight.w500,
-                    ),
-                  )),
               const Expanded(flex: 1, child: SizedBox.shrink()),
-              Text(
-                "Press help button on the bottom corner to view standard procedure",
-                textAlign: TextAlign.center,
-                style: GoogleFonts.inter(
-                    fontSize: smallFontSize,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black.withOpacity(0.6)),
+              Expanded(
+                flex: 3,
+                child: FractionallySizedBox(
+                    widthFactor: 0.5,
+                    child: Text(
+                      "Please follow the standard procedure for Blood pressure tests and fill in the values below",
+                      textAlign: TextAlign.center,
+                      style: GoogleFonts.inter(
+                        fontSize: extraLargeFontSize,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    )),
               ),
-              const Expanded(flex: 8, child: SizedBox.shrink()),
-              const FractionallySizedBox(
-                widthFactor: 0.7,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    VitalsCard(
-                      heading: 'Systolic\n(mmHg)',
-                      hintText: '36.4',
-                    ),
-                    VitalsCard(
-                      heading: 'Diastolic\n(mmHg)',
-                      hintText: '84',
-                    ),
-                    VitalsCard(
-                      heading: 'Pulse (min)',
-                      hintText: '68',
-                    ),
-                  ],
+              Expanded(
+                flex: 4,
+                child: Text(
+                  "Press help button on the bottom corner to view standard procedure",
+                  textAlign: TextAlign.center,
+                  style: GoogleFonts.inter(
+                      fontSize: smallFontSize,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black.withOpacity(0.6)),
                 ),
               ),
-              const Expanded(flex: 10, child: SizedBox.shrink()),
-              RedActionButton(
-                iconData: Icons.arrow_back,
-                iconSize: extraLargeFontSize,
-                label: "Back to screening tools",
-                fontSize: largeFontSize,
-                size: const Size(
-                  450,
-                  64,
+              Expanded(
+                flex: 9,
+                child: FractionallySizedBox(
+                  widthFactor: 0.7,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      VitalsCard(
+                        heading: 'Systolic\n(mmHg)',
+                        hintText: '36.4',
+                      ),
+                      VitalsCard(
+                        heading: 'Diastolic\n(mmHg)',
+                        hintText: '84',
+                      ),
+                      VitalsCard(
+                        heading: 'Pulse (min)',
+                        hintText: '68',
+                      ),
+                    ],
+                  ),
                 ),
               ),
-              const Expanded(flex: 8, child: SizedBox.shrink()),
+              Expanded(flex: 1, child: SizedBox.shrink()),
+              Expanded(
+                flex: 2,
+                child: RedActionButton(
+                  iconData: Icons.arrow_back,
+                  iconSize: extraLargeFontSize,
+                  label: "Back to screening tools",
+                  fontSize: largeFontSize,
+                  size: const Size(
+                    450,
+                    64,
+                  ),
+                ),
+              ),
+              const Expanded(flex: 2, child: SizedBox.shrink()),
             ],
           )),
     ),
