@@ -2,8 +2,6 @@ import 'package:comp30022/pages/yarning/MyHealthRecordPage2.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/components/BackArrowTeal.dart';
 import 'package:comp30022/components/RedActionButton.dart';
-import 'package:comp30022/main.dart';
-import 'package:provider/provider.dart';
 import 'package:comp30022/font.dart';
 
 class MyHealthRecordPage1 extends StatelessWidget {
@@ -13,7 +11,6 @@ class MyHealthRecordPage1 extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<MyAppState>();
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.only(
