@@ -18,7 +18,7 @@ class StatusTray extends StatelessWidget {
     return IntrinsicWidth(
       child: IntrinsicHeight(
         child: Container(
-          padding: const EdgeInsets.all(2.0),
+          padding: const EdgeInsets.only(left: 8.0),
           decoration: BoxDecoration(
             color: const Color.fromARGB(255, 5, 161, 182),
             borderRadius: BorderRadius.circular(80.0),
@@ -98,6 +98,7 @@ class StatusIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
         child: IconButton(
+      constraints: BoxConstraints.expand(),
       onPressed: onPressed ?? () {},
       icon: Image.asset(image),
       padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 5),
