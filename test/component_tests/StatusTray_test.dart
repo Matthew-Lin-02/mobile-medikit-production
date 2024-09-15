@@ -94,7 +94,7 @@ void main() {
     await tester.tap(find.byWidgetPredicate(
       (widget) =>
           widget is Image &&
-          widget.image.toString().contains('group_figma.png'),
+          widget.image.toString().contains('Group_figma.png'),
     ));
     await tester.pump(); // Wait for the modal to open
 
@@ -117,7 +117,7 @@ void main() {
     await tester.tap(find.byWidgetPredicate(
       (widget) =>
           widget is Image &&
-          widget.image.toString().contains('group_figma.png'),
+          widget.image.toString().contains('Group_figma.png'),
     ));
     await tester.pump(); // Wait for the modal to open
 

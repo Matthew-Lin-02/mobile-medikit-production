@@ -39,7 +39,7 @@ class StatusTray extends StatelessWidget {
               Expanded(
                   child: StatusIcon(
                 iconSize: iconSize,
-                image: 'assets/images/group_figma.png',
+                image: 'assets/images/Group_figma.png',
                 onPressed: () {
                   showCustomModal(context, const MachineTranslationOverlay());
                 },
