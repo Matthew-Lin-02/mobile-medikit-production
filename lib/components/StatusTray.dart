@@ -27,40 +27,45 @@ class StatusTray extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              StatusIcon(
+              Expanded(
+                  child: StatusIcon(
                 key: wifiKey,
                 iconSize: iconSize,
                 image: 'assets/images/wifi_figma.png',
                 onPressed: () {
                   showCustomModal(context, WifiInfo(parentKey: wifiKey));
                 },
-              ),
-              StatusIcon(
+              )),
+              Expanded(
+                  child: StatusIcon(
                 iconSize: iconSize,
                 image: 'assets/images/group_figma.png',
                 onPressed: () {
                   showCustomModal(context, const MachineTranslationOverlay());
                 },
-              ),
-              StatusIcon(
-                  iconSize: iconSize,
-                  image: 'assets/images/person_figma.png',
-                  onPressed: () {
-                    if (currentRoute != '/patientProfile') {
-                      Navigator.pushNamed(context, '/patientProfile');
-                    }
-                  }),
-              StatusIcon(
+              )),
+              Expanded(
+                  child: StatusIcon(
+                      iconSize: iconSize,
+                      image: 'assets/images/person_figma.png',
+                      onPressed: () {
+                        if (currentRoute != '/patientProfile') {
+                          Navigator.pushNamed(context, '/patientProfile');
+                        }
+                      })),
+              Expanded(
+                  child: StatusIcon(
                 iconSize: iconSize,
                 image: 'assets/images/settings_figma.png',
-              ),
-              StatusIcon(
+              )),
+              Expanded(
+                  child: StatusIcon(
                 iconSize: iconSize,
                 image: 'assets/images/phone_figma.png',
                 onPressed: () {
                   showCustomModal(context, ContactHealthExpertWidget());
                 },
-              ),
+              )),
               Expanded(
                 child: Container(
                   margin: EdgeInsets.zero,
@@ -96,14 +101,12 @@ class StatusIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-        child: IconButton(
-      constraints: BoxConstraints.expand(),
+    return IconButton(
       onPressed: onPressed ?? () {},
       icon: Image.asset(image),
       padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 5),
       style: const ButtonStyle(overlayColor: WidgetStateColor.transparent),
-    ));
+    );
   }
 }
 
@@ -482,51 +485,51 @@ class WifiInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final RenderBox renderBox =
-        parentKey.currentContext?.findRenderObject() as RenderBox;
-    Offset position = renderBox.localToGlobal(Offset.zero);
-    Offset positionOffset = Offset(position.dx / 22, position.dy / 1.8);
     Size screenSize = MediaQuery.of(context).size;
 
-    return Stack(children: [
-      Positioned(
-          left: position.dx - positionOffset.dx,
-          top: position.dy - positionOffset.dy,
-          child: Column(children: [
-            Container(
-                padding: const EdgeInsets.all(12.0),
-                decoration: BoxDecoration(
-                    color: AppColors.wifiInfoOverlayBlue,
-                    borderRadius: BorderRadius.circular(20.0),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 5,
-                        blurRadius: 7,
-                        offset: const Offset(0, 3),
-                      )
-                    ]),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Good Connection",
-                        style: TextStyle(
-                            fontSize:
-                                MediaQuery.of(context).size.width * 0.0083,
-                            color: AppColors.wifiInfoTextGreen),
-                      ),
-                      Text("Connected to 4G Cellular\nNetwork",
-                          style: TextStyle(
-                              fontSize:
-                                  MediaQuery.of(context).size.width * 0.0073,
-                              color: Colors.white)),
-                    ])),
-            CustomPaint(
-              size: Size(screenSize.width / 60, screenSize.height / 100),
-              painter: TrianglePainter(),
-            )
-          ]))
+    return Row(children: [
+      const Spacer(flex: 88),
+      Column(children: [
+        const Spacer(
+          flex: 1,
+        ),
+        Container(
+            padding: const EdgeInsets.all(12.0),
+            decoration: BoxDecoration(
+                color: AppColors.wifiInfoOverlayBlue,
+                borderRadius: BorderRadius.circular(20.0),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: const Offset(0, 3),
+                  )
+                ]),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Text(
+                "Good Connection",
+                style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.width * 0.0083,
+                    color: AppColors.wifiInfoTextGreen),
+              ),
+              Text("Connected to 4G Cellular\nNetwork",
+                  style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.width * 0.0073,
+                      color: Colors.white)),
+            ])),
+        CustomPaint(
+          size: Size(screenSize.width / 60, screenSize.height / 100),
+          painter: TrianglePainter(),
+        ),
+        const Spacer(
+          flex: 30,
+        ),
+      ]),
+      const Spacer(
+        flex: 32,
+      )
     ]);
   }
 }
