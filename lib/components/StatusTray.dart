@@ -18,7 +18,7 @@ class StatusTray extends StatelessWidget {
     return IntrinsicWidth(
       child: IntrinsicHeight(
         child: Container(
-          padding: const EdgeInsets.only(left: 2.0),
+          padding: const EdgeInsets.all(2.0),
           decoration: BoxDecoration(
             color: const Color.fromARGB(255, 5, 161, 182),
             borderRadius: BorderRadius.circular(80.0),
@@ -61,14 +61,17 @@ class StatusTray extends StatelessWidget {
                   showCustomModal(context, ContactHealthExpertWidget());
                 },
               ),
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                  borderRadius: BorderRadius.circular(20.0),
+              Expanded(
+                child: Container(
+                  margin: EdgeInsets.zero,
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                    borderRadius: BorderRadius.circular(80.0),
+                  ),
+                  child: StatusIcon(
+                      iconSize: iconSize,
+                      image: 'assets/images/ambulance_figma.png'),
                 ),
-                child: StatusIcon(
-                    iconSize: iconSize,
-                    image: 'assets/images/ambulance_figma.png'),
               ),
             ],
           ),
@@ -93,12 +96,13 @@ class StatusIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
+    return Expanded(
+        child: IconButton(
       onPressed: onPressed ?? () {},
       icon: Image.asset(image),
       padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 5),
       style: const ButtonStyle(overlayColor: WidgetStateColor.transparent),
-    );
+    ));
   }
 }
 

@@ -67,7 +67,7 @@ class AbstractConsultationPage extends StatelessWidget {
                       child: Container(
                         alignment: Alignment.centerRight,
                         padding: const EdgeInsets.only(right: 16.0),
-                        child: StatusTray(),
+                        child: const StatusTray(),
                       ),
                     )
 
