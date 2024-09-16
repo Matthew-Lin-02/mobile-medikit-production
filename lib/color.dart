@@ -21,6 +21,8 @@ class AppColors {
   static const Color turquoise = Color(0xFF00B9B5);
 
   //Status Tray
+  static const Color statusTrayBackgroundBlue =
+      Color.fromARGB(255, 80, 199, 190);
   static const Color machineTranslationOverlayRed = Color(0xFFB74534);
   static const Color machineTranslationOverlayLeftCream = Color(0xFFFFF5DF);
   static const Color machineTranslationOverlayRightCream = yellowCream;
