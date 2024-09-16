@@ -1,3 +1,4 @@
+import 'package:comp30022/pages/results/ResultsPage.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
 import 'package:provider/provider.dart';
@@ -38,11 +39,12 @@ class GuidedConsultationState extends ChangeNotifier {
       ),
 
       AbstractConsultationPage(
-        title: " Screening",
+        title: "Screening",
         pageNum: 3,
         body: ScreeningTools(),
         tealBackArrowOnPressed: decrementPageNum,
-      )
+      ),
+      Results()
     ];
     notifyListeners();
   }

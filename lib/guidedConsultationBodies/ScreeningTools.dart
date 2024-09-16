@@ -1,3 +1,8 @@
+import 'package:comp30022/pages/results/ResultsPage.dart';
+import 'package:comp30022/pages/screening/BloodPressure.dart';
+import 'package:comp30022/pages/screening/Temperature.dart';
+import 'package:comp30022/pages/screening/Urinalysis.dart';
+import 'package:comp30022/pages/yarning/GuidedConsultation.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/styles.dart';
@@ -7,6 +12,8 @@ import 'package:comp30022/components/BaseCustomCard.dart';
 import 'package:comp30022/pages/screening/Observations.dart';
 import 'package:comp30022/components/ChatbotButton.dart';
 import 'package:comp30022/components/HelpButton.dart';
+import 'package:comp30022/pages/results/ResultsPage.dart';
+import 'package:provider/provider.dart';
 
 class ScreeningTools extends StatelessWidget {
   @override
@@ -26,6 +33,7 @@ class ScreeningToolsMainContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var guidedConsultationState = context.watch<GuidedConsultationState>();
     final containerWidth = context.screenWidth * 0.80;
     return Center(
       child: Container(
@@ -70,16 +78,19 @@ class ScreeningToolsMainContent extends StatelessWidget {
                           imagePath:
                               '../assets/images/screening-tools/temperature.png',
                           label: "Temperature",
+                          destinationPage: Temperature(),
                         ),
                         ToolCard(
                           imagePath:
                               '../assets/images/screening-tools/blood-pressure.png',
                           label: "Blood Pressure",
+                          destinationPage: BloodPressure(),
                         ),
-                        // ToolCard(
-                        //   imagePath: '../assets/images/screening-tools/camera.png',
-                        //   label: "Image",
-                        // ),
+                        ToolCard(
+                          imagePath:
+                              '../assets/images/screening-tools/camera.png',
+                          label: "Image",
+                        ),
                       ],
                     ),
                     // Cardiovascular Section
@@ -111,6 +122,7 @@ class ScreeningToolsMainContent extends StatelessWidget {
                           imagePath:
                               '../assets/images/screening-tools/urinalysis.png',
                           label: "Urinalysis",
+                          destinationPage: Urinalysis(),
                         ),
                       ],
                     ),
@@ -132,6 +144,7 @@ class ScreeningToolsMainContent extends StatelessWidget {
               // Continue Button
               const Expanded(flex: 1, child: SizedBox.shrink()),
               RedActionButton(
+                onPressed: guidedConsultationState.incrementPageNum,
                 iconData: Icons.arrow_forward,
                 iconSize: 32,
                 label: "Continue to Results",
@@ -163,6 +176,15 @@ class SectionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final toolCardWidth = MediaQuery.of(context).size.width * 0.078;
+    final toolCardHeight = MediaQuery.of(context).size.height * 0.133;
+
+    // Create a list of tool cards ensuring there are at least 3 by adding invisible placeholders
+    final paddedTools = List<Widget>.from(tools);
+    while (paddedTools.length < 3) {
+      paddedTools.add(_buildInvisibleToolCard(toolCardWidth, toolCardHeight));
+    }
+
     return ClipRRect(
       borderRadius: const BorderRadius.all(Radius.circular(14)),
       child: Container(
@@ -204,18 +226,14 @@ class SectionCard extends StatelessWidget {
                   Text(
                     sectionTitle,
                     style: GoogleFonts.inter(
-                      fontWeight:
-                          FontWeight.w700, // Controls the weight (wght axis)
-                      fontSize:
-                          28, // This affects the appearance for the opsz axis
+                      fontWeight: FontWeight.w700,
+                      fontSize: 28,
                     ),
                   ),
                   const Expanded(flex: 1, child: SizedBox.shrink()),
-                  // Expanded(flex: 1, child: SizedBox.shrink()),
-
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: tools,
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: paddedTools,
                   ),
                   const Expanded(flex: 3, child: SizedBox.shrink()),
                 ],
@@ -224,6 +242,17 @@ class SectionCard extends StatelessWidget {
             const Expanded(flex: 1, child: SizedBox.shrink()),
           ],
         ),
+      ),
+    );
+  }
+
+  // Invisible placeholder ToolCard
+  Widget _buildInvisibleToolCard(double width, double height) {
+    return Container(
+      width: width,
+      height: height,
+      decoration: BoxDecoration(
+        border: Border.all(width: 1, color: Colors.transparent),
       ),
     );
   }
