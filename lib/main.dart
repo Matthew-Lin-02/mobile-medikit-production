@@ -1,5 +1,4 @@
-import 'package:comp30022/pages/screening/BloodPressure.dart';
-import 'package:comp30022/pages/screening/Observations.dart';
+import 'package:comp30022/pages/screening/Electrocardiogram.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'color.dart';

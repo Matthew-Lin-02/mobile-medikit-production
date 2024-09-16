@@ -18,7 +18,7 @@ class AppColors {
   static const Color darkGrey = Color.fromARGB(255, 88, 88, 88);
 
   // Back Arrow
-  static const Color turquoise = Color(0xFF00B9B5);
+  static const Color turquoise = Color(0xFF50C7BE);
 
   //Status Tray
   static const Color machineTranslationOverlayRed = Color(0xFFB74534);
@@ -32,4 +32,6 @@ class AppColors {
   //Screening Tools
   static const Color incomplete = Color(0xFFFC7474);
   static const Color complete = Color(0xFF74FC82);
+
+  static const Color lightGrey = Color(0xFFE5E5E5);
 }
