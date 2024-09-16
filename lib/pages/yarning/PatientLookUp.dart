@@ -17,7 +17,7 @@ Builder patientLookUpBody = Builder(builder: (context) {
               isShadowOn: true,
               width: 1718,
               height: 600,
-              widget: _buildLookUpTable(),
+              child: _buildLookUpTable(),
             ),
           ],
         ),

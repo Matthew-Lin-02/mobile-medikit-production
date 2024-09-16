@@ -5,7 +5,7 @@ import 'package:comp30022/components/BaseCustomCard.dart';
 class YellowBorderWhiteCard extends BaseCustomCard {
   const YellowBorderWhiteCard({
     Key? key,
-    Widget? widget,
+    Widget? child,
     bool? isShadowOn,
     double? width,
     double? height,
@@ -13,7 +13,7 @@ class YellowBorderWhiteCard extends BaseCustomCard {
     double borderRadius = 16.0,
   }) : super(
           key: key,
-          child: widget,
+          child: child,
           borderColor: AppColors.yellowCream, // Yellow border color
           backgroundColor: Colors.white, // White background
           isShadowOn: isShadowOn ?? true,
