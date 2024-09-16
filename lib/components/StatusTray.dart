@@ -20,7 +20,7 @@ class StatusTray extends StatelessWidget {
         child: Container(
           padding: const EdgeInsets.only(left: 8.0),
           decoration: BoxDecoration(
-            color: AppColors.statusTrayBackgroundBlue,
+            color: AppColors.turquoise,
             borderRadius: BorderRadius.circular(80.0),
           ),
           child: Row(
