@@ -18,56 +18,66 @@ class StatusTray extends StatelessWidget {
     return IntrinsicWidth(
       child: IntrinsicHeight(
         child: Container(
-          padding: const EdgeInsets.only(left: 2.0),
+          padding: const EdgeInsets.only(left: 8.0),
           decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 5, 161, 182),
+            color: AppColors.turquoise,
             borderRadius: BorderRadius.circular(80.0),
           ),
           child: Row(
             mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              StatusIcon(
+              Expanded(
+                  child: StatusIcon(
                 key: wifiKey,
                 iconSize: iconSize,
-                image: 'assets/images/wifi-connection.png',
+                image: 'assets/images/wifi_figma.png',
                 onPressed: () {
                   showCustomModal(context, WifiInfo(parentKey: wifiKey));
                 },
-              ),
-              StatusIcon(
+              )),
+              Expanded(
+                  child: StatusIcon(
                 iconSize: iconSize,
-                image: 'assets/images/globe.png',
+                image: 'assets/images/Group_figma.png',
                 onPressed: () {
                   showCustomModal(context, const MachineTranslationOverlay());
                 },
-              ),
-              StatusIcon(
-                  iconSize: iconSize,
-                  image: 'assets/images/person-outline.png',
-                  onPressed: () {
-                    if (currentRoute != '/patientProfile') {
-                      Navigator.pushNamed(context, '/patientProfile');
-                    }
-                  }),
-              StatusIcon(
+              )),
+              Expanded(
+                  child: StatusIcon(
+                      iconSize: iconSize,
+                      image: 'assets/images/person_figma.png',
+                      onPressed: () {
+                        if (currentRoute != '/patientProfile') {
+                          Navigator.pushNamed(context, '/patientProfile');
+                        }
+                      })),
+              Expanded(
+                  child: StatusIcon(
                 iconSize: iconSize,
-                image: 'assets/images/settings.png',
-              ),
-              StatusIcon(
+                image: 'assets/images/settings_figma.png',
+              )),
+              Expanded(
+                  child: StatusIcon(
                 iconSize: iconSize,
-                image: 'assets/images/phone.png',
+                image: 'assets/images/phone_figma.png',
                 onPressed: () {
                   showCustomModal(context, ContactHealthExpertWidget());
                 },
-              ),
-              Container(
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                  borderRadius: BorderRadius.circular(20.0),
+              )),
+              Expanded(
+                child: Container(
+                  alignment: Alignment.centerRight,
+                  margin: EdgeInsets.zero,
+                  decoration: BoxDecoration(
+                    color: Colors.red,
+                    borderRadius: BorderRadius.circular(80.0),
+                  ),
+                  child: StatusIcon(
+                      iconSize: iconSize,
+                      image: 'assets/images/ambulance_figma.png'),
                 ),
-                child: StatusIcon(
-                    iconSize: iconSize, image: 'assets/images/ambulance.png'),
               ),
             ],
           ),
@@ -92,14 +102,11 @@ class StatusIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: iconSize,
-      width: iconSize,
-      child: IconButton(
-          onPressed: onPressed ?? () {},
-          icon: Image.asset(image),
-          padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 5),
-          style: const ButtonStyle(overlayColor: WidgetStateColor.transparent)),
+    return IconButton(
+      onPressed: onPressed ?? () {},
+      icon: Image.asset(image),
+      padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 5),
+      style: const ButtonStyle(overlayColor: WidgetStateColor.transparent),
     );
   }
 }
@@ -479,51 +486,51 @@ class WifiInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final RenderBox renderBox =
-        parentKey.currentContext?.findRenderObject() as RenderBox;
-    Offset position = renderBox.localToGlobal(Offset.zero);
-    Offset positionOffset = Offset(position.dx / 22, position.dy / 1.8);
     Size screenSize = MediaQuery.of(context).size;
 
-    return Stack(children: [
-      Positioned(
-          left: position.dx - positionOffset.dx,
-          top: position.dy - positionOffset.dy,
-          child: Column(children: [
-            Container(
-                padding: const EdgeInsets.all(12.0),
-                decoration: BoxDecoration(
-                    color: AppColors.wifiInfoOverlayBlue,
-                    borderRadius: BorderRadius.circular(20.0),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.grey.withOpacity(0.5),
-                        spreadRadius: 5,
-                        blurRadius: 7,
-                        offset: const Offset(0, 3),
-                      )
-                    ]),
-                child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Good Connection",
-                        style: TextStyle(
-                            fontSize:
-                                MediaQuery.of(context).size.width * 0.0083,
-                            color: AppColors.wifiInfoTextGreen),
-                      ),
-                      Text("Connected to 4G Cellular\nNetwork",
-                          style: TextStyle(
-                              fontSize:
-                                  MediaQuery.of(context).size.width * 0.0073,
-                              color: Colors.white)),
-                    ])),
-            CustomPaint(
-              size: Size(screenSize.width / 60, screenSize.height / 100),
-              painter: TrianglePainter(),
-            )
-          ]))
+    return Row(children: [
+      const Spacer(flex: 177),
+      Column(children: [
+        const Spacer(
+          flex: 1,
+        ),
+        Container(
+            padding: const EdgeInsets.all(12.0),
+            decoration: BoxDecoration(
+                color: AppColors.wifiInfoOverlayBlue,
+                borderRadius: BorderRadius.circular(20.0),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey.withOpacity(0.5),
+                    spreadRadius: 5,
+                    blurRadius: 7,
+                    offset: const Offset(0, 3),
+                  )
+                ]),
+            child:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Text(
+                "Good Connection",
+                style: TextStyle(
+                    fontSize: MediaQuery.of(context).size.width * 0.0083,
+                    color: AppColors.wifiInfoTextGreen),
+              ),
+              Text("Connected to 4G Cellular\nNetwork",
+                  style: TextStyle(
+                      fontSize: MediaQuery.of(context).size.width * 0.0073,
+                      color: Colors.white)),
+            ])),
+        CustomPaint(
+          size: Size(screenSize.width / 60, screenSize.height / 100),
+          painter: TrianglePainter(),
+        ),
+        const Spacer(
+          flex: 75,
+        ),
+      ]),
+      const Spacer(
+        flex: 64,
+      )
     ]);
   }
 }

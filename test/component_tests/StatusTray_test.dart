@@ -16,29 +16,32 @@ void main() {
     // Act
     final wifiFinder = find.byWidgetPredicate(
       (widget) =>
-          widget is Image &&
-          widget.image.toString().contains('wifi-connection.png'),
+          widget is Image && widget.image.toString().contains('wifi_figma.png'),
     );
     final globeFinder = find.byWidgetPredicate(
       (widget) =>
-          widget is Image && widget.image.toString().contains('globe.png'),
+          widget is Image &&
+          widget.image.toString().contains('Group_figma.png'),
     );
     final personFinder = find.byWidgetPredicate(
       (widget) =>
           widget is Image &&
-          widget.image.toString().contains('person-outline.png'),
+          widget.image.toString().contains('person_figma.png'),
     );
     final settingsFinder = find.byWidgetPredicate(
       (widget) =>
-          widget is Image && widget.image.toString().contains('settings.png'),
+          widget is Image &&
+          widget.image.toString().contains('settings_figma.png'),
     );
     final phoneFinder = find.byWidgetPredicate(
       (widget) =>
-          widget is Image && widget.image.toString().contains('phone.png'),
+          widget is Image &&
+          widget.image.toString().contains('phone_figma.png'),
     );
     final ambulanceFinder = find.byWidgetPredicate(
       (widget) =>
-          widget is Image && widget.image.toString().contains('ambulance.png'),
+          widget is Image &&
+          widget.image.toString().contains('ambulance_figma.png'),
     );
 
     // Assert
@@ -90,7 +93,8 @@ void main() {
     // Act
     await tester.tap(find.byWidgetPredicate(
       (widget) =>
-          widget is Image && widget.image.toString().contains('globe.png'),
+          widget is Image &&
+          widget.image.toString().contains('Group_figma.png'),
     ));
     await tester.pump(); // Wait for the modal to open
 
@@ -112,7 +116,8 @@ void main() {
     // Act
     await tester.tap(find.byWidgetPredicate(
       (widget) =>
-          widget is Image && widget.image.toString().contains('globe.png'),
+          widget is Image &&
+          widget.image.toString().contains('Group_figma.png'),
     ));
     await tester.pump(); // Wait for the modal to open
 
@@ -139,7 +144,8 @@ void main() {
     // Act
     await tester.tap(find.byWidgetPredicate(
       (widget) =>
-          widget is Image && widget.image.toString().contains('phone.png'),
+          widget is Image &&
+          widget.image.toString().contains('phone_figma.png'),
     ));
     await tester.pump(); // Wait for the modal to open
 
@@ -161,8 +167,7 @@ void main() {
     // Act
     await tester.tap(find.byWidgetPredicate(
       (widget) =>
-          widget is Image &&
-          widget.image.toString().contains('wifi-connection.png'),
+          widget is Image && widget.image.toString().contains('wifi_figma.png'),
     ));
     await tester.pump(); // Wait for the modal to open
 

@@ -57,21 +57,18 @@ class AbstractConsultationPage extends StatelessWidget {
                         ),
                       ),
                     ),
+                    Expanded(
+                      child: Container(
+                          alignment: Alignment.centerRight,
+                          padding: const EdgeInsets.only(right: 16.0),
+                          child: const StatusTray()),
+                    )
                     //Expanded(child: BuildPageIndicator(pageNum: pageNum)),
                   ],
                 ),
               ]),
             ),
             const SizedBox(height: 16),
-            const Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(right: 16.0),
-                  child: StatusTray(),
-                ),
-              ],
-            ),
             const SizedBox(height: 16),
             Container(
               height: 1,
