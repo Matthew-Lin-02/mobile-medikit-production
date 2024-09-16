@@ -489,7 +489,7 @@ class WifiInfo extends StatelessWidget {
     Size screenSize = MediaQuery.of(context).size;
 
     return Row(children: [
-      const Spacer(flex: 88),
+      const Spacer(flex: 177),
       Column(children: [
         const Spacer(
           flex: 1,
@@ -525,11 +525,11 @@ class WifiInfo extends StatelessWidget {
           painter: TrianglePainter(),
         ),
         const Spacer(
-          flex: 30,
+          flex: 75,
         ),
       ]),
       const Spacer(
-        flex: 32,
+        flex: 64,
       )
     ]);
   }
