@@ -1,6 +1,8 @@
+import 'package:comp30022/pages/results/ResultsPage.dart';
 import 'package:comp30022/pages/screening/BloodPressure.dart';
 import 'package:comp30022/pages/screening/Temperature.dart';
 import 'package:comp30022/pages/screening/Urinalysis.dart';
+import 'package:comp30022/pages/yarning/GuidedConsultation.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/styles.dart';
@@ -10,6 +12,8 @@ import 'package:comp30022/components/BaseCustomCard.dart';
 import 'package:comp30022/pages/screening/Observations.dart';
 import 'package:comp30022/components/ChatbotButton.dart';
 import 'package:comp30022/components/HelpButton.dart';
+import 'package:comp30022/pages/results/ResultsPage.dart';
+import 'package:provider/provider.dart';
 
 class ScreeningTools extends StatelessWidget {
   @override
@@ -29,6 +33,7 @@ class ScreeningToolsMainContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var guidedConsultationState = context.watch<GuidedConsultationState>();
     final containerWidth = context.screenWidth * 0.80;
     return Center(
       child: Container(
@@ -139,6 +144,7 @@ class ScreeningToolsMainContent extends StatelessWidget {
               // Continue Button
               const Expanded(flex: 1, child: SizedBox.shrink()),
               RedActionButton(
+                onPressed: guidedConsultationState.incrementPageNum,
                 iconData: Icons.arrow_forward,
                 iconSize: 32,
                 label: "Continue to Results",

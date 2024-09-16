@@ -16,7 +16,7 @@ class BloodPressure extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AbstractConsultationPage(
-        title: "BloodPressure", pageNum: 3, body: bloodPressureBody);
+        title: "Blood Pressure", pageNum: 3, body: bloodPressureBody);
   }
 }
 

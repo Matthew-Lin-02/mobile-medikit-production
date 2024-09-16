@@ -41,7 +41,8 @@ class VitalsCard extends StatelessWidget {
                   12), // Limits total input length to 12 characters
             ],
             textAlign: TextAlign.center,
-            style: GoogleFonts.inter(fontSize: largerFontSize),
+            style: GoogleFonts.inter(
+                fontSize: extraLargeFontSize, fontWeight: FontWeight.w500),
             decoration: InputDecoration(
               hintText: hintText,
               hintStyle: GoogleFonts.inter(
