@@ -1,8 +1,7 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 import '../../components/RedActionButton.dart';
+import 'package:comp30022/font.dart';
 
 class ECGResults extends StatelessWidget {
   const ECGResults({super.key});
@@ -19,12 +18,12 @@ class ECGResults extends StatelessWidget {
               const Text(
                 'Below are the results of the ECG Test',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 30),
+                style: TextStyle(fontSize: largeFontSize),
               ),
               const Text(
                 'Patient\'s graph and normal graph for comparison',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 24),
+                style: TextStyle(fontSize: mediumFontSize),
               ),
               const FractionallySizedBox(
                   widthFactor: 0.75, child: Divider(color: Colors.black)),
@@ -46,7 +45,7 @@ class ECGResults extends StatelessWidget {
               const Text(
                 'ECG AI Analysis Results',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 30),
+                style: TextStyle(fontSize: mediumFontSize),
               ),
               const FractionallySizedBox(
                   widthFactor: 0.75, child: Divider(color: Colors.black)),
@@ -111,7 +110,8 @@ class ClassAnalysisButton extends StatelessWidget {
                   children: [
                     Text(
                       label,
-                      style: const TextStyle(color: Colors.white, fontSize: 48),
+                      style: const TextStyle(
+                          color: Colors.white, fontSize: subHeadingFontSize),
                     ),
                     SizedBox(width: iconSpacing),
                     Image(
