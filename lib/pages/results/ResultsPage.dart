@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
 import 'package:comp30022/pages/yarning/GuidedConsultation.dart';
 import 'package:provider/provider.dart';
+import 'package:comp30022/pages/results/ECGResults.dart';
 
 class Results extends StatefulWidget {
   const Results({Key? key}) : super(key: key);
@@ -54,7 +55,7 @@ class _ResultsState extends State<Results> with SingleTickerProviderStateMixin {
             text,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 16, // Larger font for selected tab
+              fontSize: 24, // Larger font for selected tab
               fontWeight: FontWeight.bold,
               color: isSelected ? Colors.black : Colors.black54,
             ),
@@ -99,7 +100,7 @@ class _ResultsState extends State<Results> with SingleTickerProviderStateMixin {
                 controller: _tabController,
                 children: [
                   Center(child: Text('Observations and Vital Sign Content')),
-                  Center(child: Text('ECG Results Content')),
+                  ECGResults(),
                   Center(child: Text('Image Analysis Results Content')),
                   Center(child: Text('Urinalysis Results Content')),
                 ],
