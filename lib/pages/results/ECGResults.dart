@@ -50,65 +50,15 @@ class ECGResults extends StatelessWidget {
               ),
               const FractionallySizedBox(
                   widthFactor: 0.75, child: Divider(color: Colors.black)),
-              GestureDetector(
-                onTap: () {
-                  log("Diagnostic pressed");
-                },
-                child: FractionallySizedBox(
-                    widthFactor: 0.65,
-                    child: Container(
-                      padding: EdgeInsets.only(top: 15),
-                      decoration: BoxDecoration(
-                          color: AppColors.diagnosticGreen,
-                          borderRadius: BorderRadius.circular(15.0)),
-                      child: const Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              "Diagnostic Classes",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 48),
-                            ),
-                            SizedBox(width: 30),
-                            Image(
-                              image: AssetImage("assets/images/Touch_Icon.png"),
-                              color: null,
-                            ),
-                            SizedBox(width: 340),
-                          ]),
-                    )),
-              ),
+              const ClassAnalysisButton(
+                  imagePath: "assets/images/Touch_Icon.png",
+                  iconSpacing: 30,
+                  label: "Diagnostic Classes"),
               const SizedBox(height: 100),
-              GestureDetector(
-                onTap: () {
-                  log("Rhythm pressed");
-                },
-                child: FractionallySizedBox(
-                    widthFactor: 0.65,
-                    child: Container(
-                      padding: EdgeInsets.only(top: 15),
-                      decoration: BoxDecoration(
-                          color: AppColors.diagnosticGreen,
-                          borderRadius: BorderRadius.circular(15.0)),
-                      child: const Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          mainAxisSize: MainAxisSize.min,
-                          children: [
-                            Text(
-                              "Rhythm Classes",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 48),
-                            ),
-                            SizedBox(width: 60),
-                            Image(
-                              image: AssetImage("assets/images/Touch_Icon.png"),
-                              color: null,
-                            ),
-                            SizedBox(width: 340),
-                          ]),
-                    )),
-              ),
+              const ClassAnalysisButton(
+                  imagePath: "assets/images/Touch_Icon.png",
+                  iconSpacing: 60,
+                  label: "Rhythm Classes"),
               const SizedBox(height: 100)
             ]))
           ]),
@@ -120,6 +70,7 @@ class ECGResults extends StatelessWidget {
               child:
                   Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 RedActionButton(
+                  onPressed: () {},
                   label: "Continue To Patient Education",
                   iconData: Icons.arrow_forward,
                   useCircleAvatar: true,
@@ -127,5 +78,48 @@ class ECGResults extends StatelessWidget {
                 )
               ]))),
     ]);
+  }
+}
+
+class ClassAnalysisButton extends StatelessWidget {
+  const ClassAnalysisButton(
+      {super.key,
+      required this.imagePath,
+      required this.iconSpacing,
+      required this.label,
+      this.onPressed});
+
+  final VoidCallback? onPressed;
+  final String imagePath;
+  final double iconSpacing;
+  final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+        onTap: onPressed,
+        child: FractionallySizedBox(
+            widthFactor: 0.65,
+            child: Container(
+              padding: const EdgeInsets.only(top: 15),
+              decoration: BoxDecoration(
+                  color: AppColors.diagnosticGreen,
+                  borderRadius: BorderRadius.circular(15.0)),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      label,
+                      style: const TextStyle(color: Colors.white, fontSize: 48),
+                    ),
+                    SizedBox(width: iconSpacing),
+                    Image(
+                      image: AssetImage(imagePath),
+                      color: null,
+                    ),
+                    const SizedBox(width: 340),
+                  ]),
+            )));
   }
 }
