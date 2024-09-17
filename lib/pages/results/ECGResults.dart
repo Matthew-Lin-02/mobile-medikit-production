@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
-import '../../components/RedActionButton.dart';
+import 'package:comp30022/components/RedActionButton.dart';
 import 'package:comp30022/font.dart';
+import 'package:comp30022/components/HelpButton.dart';
+import 'package:comp30022/components/ChatbotButton.dart';
 
 class ECGResults extends StatelessWidget {
   const ECGResults({super.key});
@@ -76,6 +78,8 @@ class ECGResults extends StatelessWidget {
                   size: const Size(500, 50),
                 )
               ]))),
+      const Positioned(right: 30.0, top: 50.0, child: ChatBotButton()),
+      const Positioned(right: 21.0, bottom: 70.0, child: HelpButton()),
     ]);
   }
 }
