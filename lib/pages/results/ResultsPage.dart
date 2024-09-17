@@ -99,7 +99,41 @@ class _ResultsState extends State<Results> with SingleTickerProviderStateMixin {
                 controller: _tabController,
                 children: [
                   Center(child: Text('Observations and Vital Sign Content')),
-                  Center(child: Text('ECG Results Content')),
+                  Column(children: [
+                    Expanded(
+                        child: ListView(children: [
+                      const Text('Below are the results of the ECG Test'),
+                      const Text(
+                          'Patient\'s graph and normal graph for comparison'),
+                      const FractionallySizedBox(
+                          widthFactor: 0.6, child: Divider()),
+                      SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Image.asset("assets/images/Normal_ECG.png")),
+                      SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(children: [
+                            const SizedBox(width: 200),
+                            Image.asset("assets/images/Normal_ECG.png"),
+                            const SizedBox(width: 80)
+                          ])),
+                      const Text('ECG AI Analysis Results'),
+                      const FractionallySizedBox(
+                          widthFactor: 0.6, child: Divider()),
+                      TextButton(
+                          onPressed: () {},
+                          child: const Row(children: [
+                            Text("Diagnostic Classes"),
+                            Icon(Icons.touch_app_outlined)
+                          ])),
+                      TextButton(
+                          onPressed: () {},
+                          child: const Row(children: [
+                            Text("Rhythm Classes"),
+                            Icon(Icons.touch_app_outlined)
+                          ]))
+                    ]))
+                  ]),
                   Center(child: Text('Image Analysis Results Content')),
                   Center(child: Text('Urinalysis Results Content')),
                 ],
