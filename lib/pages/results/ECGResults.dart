@@ -39,7 +39,7 @@ class ECGResults extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   child: Row(children: [
                     const SizedBox(width: 35),
-                    Image.asset("assets/images/Normal_ECG.png"),
+                    Image.asset("assets/images/Patients_ECG.png"),
                     const SizedBox(width: 80)
                   ])),
               const SizedBox(height: 40),
@@ -71,10 +71,9 @@ class ECGResults extends StatelessWidget {
                                   TextStyle(color: Colors.white, fontSize: 48),
                             ),
                             SizedBox(width: 30),
-                            Icon(
-                              Icons.touch_app_outlined,
-                              color: Colors.white,
-                              size: 70,
+                            Image(
+                              image: AssetImage("assets/images/Touch_Icon.png"),
+                              color: null,
                             ),
                             SizedBox(width: 340),
                           ]),
@@ -102,10 +101,9 @@ class ECGResults extends StatelessWidget {
                                   TextStyle(color: Colors.white, fontSize: 48),
                             ),
                             SizedBox(width: 60),
-                            Icon(
-                              Icons.touch_app_outlined,
-                              color: Colors.white,
-                              size: 70,
+                            Image(
+                              image: AssetImage("assets/images/Touch_Icon.png"),
+                              color: null,
                             ),
                             SizedBox(width: 340),
                           ]),
