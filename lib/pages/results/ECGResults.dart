@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 import '../../components/RedActionButton.dart';
@@ -48,47 +50,67 @@ class ECGResults extends StatelessWidget {
               ),
               const FractionallySizedBox(
                   widthFactor: 0.75, child: Divider(color: Colors.black)),
-              FractionallySizedBox(
-                  widthFactor: 0.65,
-                  child: TextButton.icon(
-                    onPressed: () {},
-                    style: ButtonStyle(
-                        padding: const WidgetStatePropertyAll(
-                            EdgeInsets.only(top: 15)),
-                        iconSize: const WidgetStatePropertyAll(70),
-                        iconColor: const WidgetStatePropertyAll(Colors.white),
-                        backgroundColor: const WidgetStatePropertyAll(
-                            AppColors.diagnosticGreen),
-                        shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15.0)))),
-                    label: const Text(
-                      "Diagnostic Classes",
-                      style: TextStyle(color: Colors.white, fontSize: 48),
-                    ),
-                    icon: const Icon(Icons.touch_app_outlined),
-                    iconAlignment: IconAlignment.end,
-                  )),
+              GestureDetector(
+                onTap: () {
+                  log("Diagnostic pressed");
+                },
+                child: FractionallySizedBox(
+                    widthFactor: 0.65,
+                    child: Container(
+                      padding: EdgeInsets.only(top: 15),
+                      decoration: BoxDecoration(
+                          color: AppColors.diagnosticGreen,
+                          borderRadius: BorderRadius.circular(15.0)),
+                      child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              "Diagnostic Classes",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 48),
+                            ),
+                            SizedBox(width: 30),
+                            Icon(
+                              Icons.touch_app_outlined,
+                              color: Colors.white,
+                              size: 70,
+                            ),
+                            SizedBox(width: 340),
+                          ]),
+                    )),
+              ),
               const SizedBox(height: 100),
-              FractionallySizedBox(
-                  widthFactor: 0.65,
-                  child: TextButton.icon(
-                    onPressed: () {},
-                    style: ButtonStyle(
-                        padding: const WidgetStatePropertyAll(
-                            EdgeInsets.only(top: 15)),
-                        iconSize: const WidgetStatePropertyAll(70),
-                        iconColor: const WidgetStatePropertyAll(Colors.white),
-                        backgroundColor: const WidgetStatePropertyAll(
-                            AppColors.diagnosticGreen),
-                        shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15.0)))),
-                    label: const Text(
-                      "Rhythm Classes",
-                      style: TextStyle(color: Colors.white, fontSize: 48),
-                    ),
-                    icon: const Icon(Icons.touch_app_outlined),
-                    iconAlignment: IconAlignment.end,
-                  )),
+              GestureDetector(
+                onTap: () {
+                  log("Rhythm pressed");
+                },
+                child: FractionallySizedBox(
+                    widthFactor: 0.65,
+                    child: Container(
+                      padding: EdgeInsets.only(top: 15),
+                      decoration: BoxDecoration(
+                          color: AppColors.diagnosticGreen,
+                          borderRadius: BorderRadius.circular(15.0)),
+                      child: const Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              "Rhythm Classes",
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 48),
+                            ),
+                            SizedBox(width: 60),
+                            Icon(
+                              Icons.touch_app_outlined,
+                              color: Colors.white,
+                              size: 70,
+                            ),
+                            SizedBox(width: 340),
+                          ]),
+                    )),
+              ),
               const SizedBox(height: 100)
             ]))
           ]),
