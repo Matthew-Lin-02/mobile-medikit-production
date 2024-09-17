@@ -108,11 +108,13 @@ class ClassAnalysisButton extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   mainAxisSize: MainAxisSize.min,
                   children: [
-                    Text(
+                    Expanded(
+                        child: Text(
+                      textAlign: TextAlign.end,
                       label,
                       style: const TextStyle(
                           color: Colors.white, fontSize: subHeadingFontSize),
-                    ),
+                    )),
                     SizedBox(width: iconSpacing),
                     Image(
                       image: AssetImage(imagePath),
