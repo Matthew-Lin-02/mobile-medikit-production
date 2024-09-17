@@ -93,15 +93,19 @@ class ECGResults extends StatelessWidget {
             ]))
           ]),
       Align(
-          alignment: const Alignment(0, 0.95),
-          child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            RedActionButton(
-              label: "Continue To Patient Education",
-              iconData: Icons.arrow_forward,
-              useCircleAvatar: true,
-              size: const Size(500, 50),
-            )
-          ])),
+          alignment: Alignment.bottomCenter,
+          child: Container(
+              padding: const EdgeInsets.only(top: 10, bottom: 20),
+              color: AppColors.cream,
+              child:
+                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                RedActionButton(
+                  label: "Continue To Patient Education",
+                  iconData: Icons.arrow_forward,
+                  useCircleAvatar: true,
+                  size: const Size(500, 50),
+                )
+              ]))),
     ]);
   }
 }
