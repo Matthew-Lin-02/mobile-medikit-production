@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'color.dart';
 import 'package:comp30022/pages/Pages.dart';
+import 'package:flutter/gestures.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,6 +19,8 @@ class MyApp extends StatelessWidget {
         // add other providers
       ],
       child: MaterialApp(
+          scrollBehavior: const MaterialScrollBehavior().copyWith(
+              dragDevices: {PointerDeviceKind.touch, PointerDeviceKind.mouse}),
           title: 'medi_kit',
           theme: ThemeData(
             fontFamily: 'VarelaRound',
