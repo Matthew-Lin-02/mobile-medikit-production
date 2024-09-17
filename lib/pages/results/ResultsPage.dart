@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
 import 'package:comp30022/pages/yarning/GuidedConsultation.dart';
 import 'package:provider/provider.dart';
+import 'package:comp30022/pages/results/ECGResults.dart';
 
 class Results extends StatefulWidget {
   const Results({Key? key}) : super(key: key);
@@ -54,7 +55,7 @@ class _ResultsState extends State<Results> with SingleTickerProviderStateMixin {
             text,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 16, // Larger font for selected tab
+              fontSize: 24, // Larger font for selected tab
               fontWeight: FontWeight.bold,
               color: isSelected ? Colors.black : Colors.black54,
             ),
@@ -99,41 +100,7 @@ class _ResultsState extends State<Results> with SingleTickerProviderStateMixin {
                 controller: _tabController,
                 children: [
                   Center(child: Text('Observations and Vital Sign Content')),
-                  Column(children: [
-                    Expanded(
-                        child: ListView(children: [
-                      const Text('Below are the results of the ECG Test'),
-                      const Text(
-                          'Patient\'s graph and normal graph for comparison'),
-                      const FractionallySizedBox(
-                          widthFactor: 0.6, child: Divider()),
-                      SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Image.asset("assets/images/Normal_ECG.png")),
-                      SingleChildScrollView(
-                          scrollDirection: Axis.horizontal,
-                          child: Row(children: [
-                            const SizedBox(width: 200),
-                            Image.asset("assets/images/Normal_ECG.png"),
-                            const SizedBox(width: 80)
-                          ])),
-                      const Text('ECG AI Analysis Results'),
-                      const FractionallySizedBox(
-                          widthFactor: 0.6, child: Divider()),
-                      TextButton(
-                          onPressed: () {},
-                          child: const Row(children: [
-                            Text("Diagnostic Classes"),
-                            Icon(Icons.touch_app_outlined)
-                          ])),
-                      TextButton(
-                          onPressed: () {},
-                          child: const Row(children: [
-                            Text("Rhythm Classes"),
-                            Icon(Icons.touch_app_outlined)
-                          ]))
-                    ]))
-                  ]),
+                  ECGResults(),
                   Center(child: Text('Image Analysis Results Content')),
                   Center(child: Text('Urinalysis Results Content')),
                 ],
