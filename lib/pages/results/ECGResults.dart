@@ -17,12 +17,12 @@ class ECGResults extends StatelessWidget {
               const Text(
                 'Below are the results of the ECG Test',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 24),
+                style: TextStyle(fontSize: 30),
               ),
               const Text(
                 'Patient\'s graph and normal graph for comparison',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 18),
+                style: TextStyle(fontSize: 24),
               ),
               const FractionallySizedBox(
                   widthFactor: 0.75, child: Divider(color: Colors.black)),
@@ -40,10 +40,11 @@ class ECGResults extends StatelessWidget {
                     Image.asset("assets/images/Normal_ECG.png"),
                     const SizedBox(width: 80)
                   ])),
+              const SizedBox(height: 40),
               const Text(
                 'ECG AI Analysis Results',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 24),
+                style: TextStyle(fontSize: 30),
               ),
               const FractionallySizedBox(
                   widthFactor: 0.75, child: Divider(color: Colors.black)),
@@ -92,12 +93,13 @@ class ECGResults extends StatelessWidget {
             ]))
           ]),
       Align(
-          alignment: Alignment.bottomCenter,
+          alignment: const Alignment(0, 0.95),
           child: Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             RedActionButton(
               label: "Continue To Patient Education",
               iconData: Icons.arrow_forward,
               useCircleAvatar: true,
+              size: const Size(500, 50),
             )
           ])),
     ]);
