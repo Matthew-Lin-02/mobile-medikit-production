@@ -74,7 +74,6 @@ class ECGResults extends StatelessWidget {
                   onPressed: () {},
                   label: "Continue To Patient Education",
                   iconData: Icons.arrow_forward,
-                  iconSize: mediumIconSize,
                   useCircleAvatar: true,
                   size: mediumButtonSizeLong,
                 )
