@@ -17,8 +17,6 @@ class ObservationsAndVitalSign extends StatelessWidget {
         alignment: Alignment.topCenter,
         child: Padding(
           padding: EdgeInsets.symmetric(vertical: 60.0),
-          // padding: EdgeInsets.fromLTRB(100, 50, 100, 150),
-          // child: Expanded(
           child: FractionallySizedBox(
             widthFactor: 0.8,
             heightFactor: 0.8,
@@ -35,11 +33,12 @@ class ObservationsAndVitalSign extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: largeFontSize,
                               )),
+                          Spacer(),
                           YellowBorderYellowCard(
                             height: 400,
-                            width: 650,
+                            width: 700,
                             child: Padding(
-                              padding: EdgeInsets.all(10),
+                              padding: EdgeInsets.all(20),
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
@@ -56,6 +55,7 @@ class ObservationsAndVitalSign extends StatelessWidget {
                         ],
                       ),
                     ),
+                    SizedBox(width: 150),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -111,6 +111,7 @@ class ObservationsAndVitalSign extends StatelessWidget {
                                   ],
                                 ),
                               ),
+                              Spacer(),
                             ],
                           ),
                           Spacer(),
@@ -141,8 +142,8 @@ class ObservationsAndVitalSign extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(vertical: 60.0),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
+              const Spacer(flex: 3),
               RedActionButton(
                 onPressed: () => Navigator.pop(context),
                 label: "Back To Screening Tools",
@@ -151,6 +152,7 @@ class ObservationsAndVitalSign extends StatelessWidget {
                 useCircleAvatar: true,
                 size: mediumButtonSizeLong,
               ),
+              const Spacer(),
               RedActionButton(
                 onPressed: () {},
                 label: "Continue To Patient Education",
@@ -159,6 +161,7 @@ class ObservationsAndVitalSign extends StatelessWidget {
                 useCircleAvatar: true,
                 size: mediumButtonSizeLong,
               ),
+              const Spacer(flex: 3),
             ],
           ),
         ),
