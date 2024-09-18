@@ -146,7 +146,7 @@ class ObservationsAndVitalSign extends StatelessWidget {
               const Spacer(flex: 3),
               RedActionButton(
                 onPressed: () => Navigator.pop(context),
-                label: "Back To Screening Tools",
+                label: "Back to Screening Tools",
                 iconData: Icons.arrow_back,
                 iconSize: mediumIconSize,
                 useCircleAvatar: true,
@@ -155,7 +155,7 @@ class ObservationsAndVitalSign extends StatelessWidget {
               const Spacer(),
               RedActionButton(
                 onPressed: () {},
-                label: "Continue To Patient Education",
+                label: "Continue to Patient Education",
                 iconData: Icons.arrow_forward,
                 iconSize: mediumIconSize,
                 useCircleAvatar: true,
