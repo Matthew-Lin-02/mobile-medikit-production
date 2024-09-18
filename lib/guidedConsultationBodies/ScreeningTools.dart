@@ -196,6 +196,8 @@ class SectionCard extends StatelessWidget {
 
     // Create a list of tool cards ensuring there are at least 3 by adding invisible placeholders
     final paddedTools = List<Widget>.from(tools);
+
+    /// No longer need to add extra blank tools
     /*
     while (paddedTools.length < 3) {
       paddedTools.add(_buildInvisibleToolCard(toolCardWidth, toolCardHeight));
