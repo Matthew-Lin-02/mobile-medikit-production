@@ -30,16 +30,15 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
   english_words: ^4.0.0
   provider: ^6.0.0
   google_fonts: ^6.1.0
-
-
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   carousel_slider: ^5.0.0
+
+
 
 dev_dependencies:
   flutter_test:
@@ -65,6 +64,13 @@ flutter:
   uses-material-design: true
   assets:
   - assets/images/
+  - assets/images/screening-tools/
+  - assets/images/art/
+  - assets/images/art/animals/
+  - assets/images/art/big-symbols/
+  - assets/images/art/small-symbols/
+  - assets/images/art/x-ray-animals/
+
   fonts:
     - family: VarelaRound
       fonts:

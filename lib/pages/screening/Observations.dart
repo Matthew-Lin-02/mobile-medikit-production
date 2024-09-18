@@ -1,5 +1,4 @@
 import 'package:comp30022/components/YellowBorderWhiteCard.dart';
-import 'package:comp30022/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/font.dart';
@@ -8,6 +7,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:comp30022/components/ChatbotButton.dart';
 import 'package:comp30022/components/HelpButton.dart';
 import 'package:comp30022/components/RedActionButton.dart';
+import 'dart:math';
 
 const double bodyFontSize = 28;
 
@@ -22,71 +22,121 @@ class Observations extends StatelessWidget {
 }
 
 Builder observationsBody = Builder(builder: (context) {
-  return Stack(children: [
-    Positioned(
+  return Stack(
+    children: [
+      // Positioned the "journey strip" in the background
+      Positioned(
+        bottom: 0,
+        left: -500,
+        child: Transform.rotate(
+          angle: 36 * pi / 180,
+          child: Image(
+            image: AssetImage('assets/images/art/journey-strip.png'),
+            fit: BoxFit.cover, // Ensure it covers the area
+          ),
+        ),
+      ),
+      // Main container with YellowBorderWhiteCard sections
+      Positioned(
         child: ScrollConfiguration(
-      behavior: const ScrollBehavior().copyWith(scrollbars: false),
-      child: ListView(children: [
-        Container(
-          color: AppColors.cream,
-          child: Center(
-              child: FractionallySizedBox(
-            widthFactor: 0.8,
-            child: Column(children: [
-              const ObservationsSubsection(
-                  heading: "General Appearance",
-                  hintText: "Enter here...",
-                  maxLines: 3),
-              const SizedBox(height: mediumFontSize),
-              const Row(
-                children: [
-                  Expanded(
-                    flex: 4,
-                    child: ObservationsSubsection(
-                        heading: "Posture and mobility",
-                        hintText: "How the patient sits, stands and moves.",
-                        maxLines: 5),
+          behavior: const ScrollBehavior().copyWith(scrollbars: false),
+          child: ListView(
+            children: [
+              Container(
+                color:
+                    Colors.transparent, // Transparent to reveal the background
+                child: Center(
+                  child: FractionallySizedBox(
+                    widthFactor: 0.90,
+                    child: Stack(children: [
+                      Positioned(
+                          top: 260,
+                          right: -30,
+                          child: Transform.flip(
+                            flipX: true,
+                            child: Image(
+                                width: 141,
+                                height: 141,
+                                image: AssetImage(
+                                    'assets/images/art/animals/cockatoo.png')),
+                          )),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                            left: 30.0, right: 30.0, top: 10, bottom: 50),
+                        child: Column(
+                          children: [
+                            const ObservationsSubsection(
+                              heading: "General Appearance",
+                              hintText: "Enter here...",
+                              maxLines: 3,
+                            ),
+                            const SizedBox(height: mediumFontSize),
+                            const Row(
+                              children: [
+                                Expanded(
+                                  flex: 4,
+                                  child: ObservationsSubsection(
+                                    heading: "Posture and mobility",
+                                    hintText:
+                                        "How the patient sits, stands and moves.",
+                                    maxLines: 5,
+                                  ),
+                                ),
+                                Expanded(flex: 1, child: SizedBox.shrink()),
+                                Expanded(
+                                  flex: 4,
+                                  child: ObservationsSubsection(
+                                    heading: "Signs of Distress",
+                                    hintText:
+                                        "Signs of discomfort, pain, distress etc",
+                                    maxLines: 5,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            const SizedBox(height: mediumFontSize),
+                            const ObservationsSubsection(
+                              heading: "Cognitive Function",
+                              hintText:
+                                  "Behaviour, speech, responsiveness etc.",
+                              maxLines: 4,
+                            ),
+                            const SizedBox(height: 64),
+                            const ObservationsSubsection(
+                              heading: "Additional Notes:",
+                              hintText: "Enter here...",
+                              maxLines: 8,
+                            ),
+                            const SizedBox(height: 64),
+                            RedActionButton(
+                              iconData: Icons.arrow_back,
+                              iconSize: largeFontSize,
+                              label: "Back to screening tools",
+                              fontSize: largeFontSize,
+                              size: const Size(500, 64),
+                            ),
+                            const SizedBox(height: 64),
+                          ],
+                        ),
+                      ),
+                    ]),
                   ),
-                  Expanded(flex: 1, child: SizedBox.shrink()),
-                  Expanded(
-                    flex: 4,
-                    child: ObservationsSubsection(
-                        heading: "Signs of Distress",
-                        hintText: "Signs of discomfort, pain, distress etc",
-                        maxLines: 5),
-                  ),
-                ],
-              ),
-              const SizedBox(height: mediumFontSize),
-              const ObservationsSubsection(
-                  heading: "Cognitive Function",
-                  hintText: "Behaviour, speech, responsiveness etc.",
-                  maxLines: 4),
-              const SizedBox(height: 64),
-              const ObservationsSubsection(
-                  heading: "Additional Notes:",
-                  hintText: "Enter here...",
-                  maxLines: 8),
-              const SizedBox(height: 64),
-              RedActionButton(
-                iconData: Icons.arrow_back,
-                iconSize: largeFontSize,
-                label: "Back to screening tools",
-                fontSize: largeFontSize,
-                size: const Size(
-                  500,
-                  64,
                 ),
               ),
-              const SizedBox(height: 64),
-            ]),
-          )),
+            ],
+          ),
         ),
-      ]),
-    )),
-    const Positioned(right: 30.0, top: 50.0, child: ChatBotButton()),
-    const Positioned(right: 21.0, bottom: 70.0, child: HelpButton()),
-  ]);
+      ),
+
+      // UI elements like chatbot and help buttons
+      const Positioned(right: 30.0, top: 50.0, child: ChatBotButton()),
+      const Positioned(right: 21.0, bottom: 70.0, child: HelpButton()),
+      const Positioned(
+          bottom: 0,
+          child:
+              Image(image: AssetImage('assets/images/art/footer-strip.png'))),
+    ],
+  );
 });
 
 class ObservationsSubsection extends StatelessWidget {
