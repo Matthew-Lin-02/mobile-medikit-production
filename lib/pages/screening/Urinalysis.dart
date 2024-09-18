@@ -48,5 +48,8 @@ Builder urinalysisBody = Builder(builder: (context) {
           )),
     ),
     const Positioned(right: 30.0, top: 50.0, child: ChatBotButton()),
+    const Positioned(
+        bottom: 0,
+        child: Image(image: AssetImage('assets/images/art/footer-strip.png'))),
   ]);
 });

@@ -9,6 +9,7 @@ import 'package:comp30022/components/ChatbotButton.dart';
 import 'package:comp30022/components/HelpButton.dart';
 import 'package:comp30022/components/RedActionButton.dart';
 import 'package:comp30022/pages/screening/Temperature.dart';
+import 'dart:math';
 
 class Temperature extends StatelessWidget {
   const Temperature({super.key});
@@ -69,5 +70,28 @@ Builder temperatureBody = Builder(builder: (context) {
     ),
     const Positioned(right: 30.0, top: 50.0, child: ChatBotButton()),
     const Positioned(right: 21.0, bottom: 70.0, child: HelpButton()),
+    const Positioned(
+        right: 100,
+        top: 200,
+        child: Image(
+            width: 493,
+            height: 500,
+            image:
+                AssetImage('assets/images/art/big-symbols/person-circle.png'))),
+    Positioned(
+        top: 250,
+        left: 196,
+        child: Transform.rotate(
+          angle: 4 * pi / 180,
+          child: Image(
+              width: 380,
+              height: 380,
+              fit: BoxFit.cover,
+              image: AssetImage(
+                  'assets/images/art/x-ray-animals/x-ray-goanna.png')),
+        )),
+    const Positioned(
+        bottom: 0,
+        child: Image(image: AssetImage('assets/images/art/footer-strip.png'))),
   ]);
 });

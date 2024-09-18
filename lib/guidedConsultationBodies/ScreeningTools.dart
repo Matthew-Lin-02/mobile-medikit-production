@@ -1,5 +1,6 @@
 import 'package:comp30022/pages/results/ResultsPage.dart';
 import 'package:comp30022/pages/screening/BloodPressure.dart';
+import 'package:comp30022/pages/screening/Electrocardiogram.dart';
 import 'package:comp30022/pages/screening/Temperature.dart';
 import 'package:comp30022/pages/screening/Urinalysis.dart';
 import 'package:comp30022/pages/yarning/GuidedConsultation.dart';
@@ -72,25 +73,25 @@ class ScreeningToolsMainContent extends StatelessWidget {
                         MultiPurposeCarousel(widgets: [
                           ToolCard(
                             imagePath:
-                                '../assets/images/screening-tools/search.png',
+                                'assets/images/screening-tools/search.png',
                             label: "Observations",
                             destinationPage: Observations(),
                           ),
                           ToolCard(
                             imagePath:
-                                '../assets/images/screening-tools/temperature.png',
+                                'assets/images/screening-tools/temperature.png',
                             label: "Temperature",
                             destinationPage: Temperature(),
                           ),
                           ToolCard(
                             imagePath:
-                                '../assets/images/screening-tools/blood-pressure.png',
+                                'assets/images/screening-tools/blood-pressure.png',
                             label: "Blood Pressure",
                             destinationPage: BloodPressure(),
                           ),
                           ToolCard(
                             imagePath:
-                                '../assets/images/screening-tools/camera.png',
+                                'assets/images/screening-tools/camera.png',
                             label: "Image",
                           ),
                         ]),
@@ -104,17 +105,17 @@ class ScreeningToolsMainContent extends StatelessWidget {
                           widgets: [
                             ToolCard(
                               imagePath:
-                                  '../assets/images/screening-tools/CVD-risk-assessment.png',
+                                  'assets/images/screening-tools/CVD-risk-assessment.png',
                               label: "CVD Risk Assessment",
                             ),
                             ToolCard(
                               imagePath:
-                                  '../assets/images/screening-tools/ECG-test.png',
+                                  'assets/images/screening-tools/ECG-test.png',
                               label: "ECG Test",
                             ),
                             ToolCard(
                               imagePath:
-                                  '../assets/images/screening-tools/ankle.png',
+                                  'assets/images/screening-tools/ankle.png',
                               label: "Ankle Brachial Index",
                             ),
                           ],
@@ -129,7 +130,7 @@ class ScreeningToolsMainContent extends StatelessWidget {
                           widgets: [
                             ToolCard(
                               imagePath:
-                                  '../assets/images/screening-tools/urinalysis.png',
+                                  'assets/images/screening-tools/urinalysis.png',
                               label: "Urinalysis",
                               destinationPage: Urinalysis(),
                             ),
@@ -145,7 +146,7 @@ class ScreeningToolsMainContent extends StatelessWidget {
                           widgets: [
                             ToolCard(
                               imagePath:
-                                  '../assets/images/screening-tools/blood-glucose.png',
+                                  'assets/images/screening-tools/blood-glucose.png',
                               label: "Blood Glucose",
                             ),
                           ],

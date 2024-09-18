@@ -32,4 +32,6 @@ class AppColors {
   //Screening Tools
   static const Color incomplete = Color(0xFFFC7474);
   static const Color complete = Color(0xFF74FC82);
+  static const Color lightGrey = Color(0xFFE5E5E5);
+  static const Color diagnosticGreen = Color(0xFF08B67F);
 }

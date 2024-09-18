@@ -9,3 +9,4 @@ const double extraLargeFontSize = 40.0;
 const double subHeadingFontSize = 48.0;
 const double headingFontSize = 72.0;
 const double largeHeadingFontSize = 80.0;
+const double giantFontSize = 104.0;
