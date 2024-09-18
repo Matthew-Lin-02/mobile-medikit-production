@@ -14,6 +14,7 @@ import 'package:comp30022/pages/screening/Observations.dart';
 import 'package:comp30022/components/ChatbotButton.dart';
 import 'package:comp30022/components/HelpButton.dart';
 import 'package:comp30022/pages/results/ResultsPage.dart';
+import 'package:comp30022/components/MultiPurposeCarousel.dart';
 import 'package:provider/provider.dart';
 
 class ScreeningTools extends StatelessWidget {
@@ -69,71 +70,87 @@ class ScreeningToolsMainContent extends StatelessWidget {
                     SectionCard(
                       sectionTitle: "Vitals",
                       tools: [
-                        ToolCard(
-                          imagePath: 'assets/images/screening-tools/search.png',
-                          label: "Observations",
-                          destinationPage: Observations(),
-                        ),
-                        ToolCard(
-                          imagePath:
-                              'assets/images/screening-tools/temperature.png',
-                          label: "Temperature",
-                          destinationPage: Temperature(),
-                        ),
-                        ToolCard(
-                          imagePath:
-                              'assets/images/screening-tools/blood-pressure.png',
-                          label: "Blood Pressure",
-                          destinationPage: BloodPressure(),
-                        ),
-                        ToolCard(
-                          imagePath: 'assets/images/screening-tools/camera.png',
-                          label: "Image",
-                        ),
+                        MultiPurposeCarousel(widgets: [
+                          ToolCard(
+                            imagePath:
+                                'assets/images/screening-tools/search.png',
+                            label: "Observations",
+                            destinationPage: Observations(),
+                          ),
+                          ToolCard(
+                            imagePath:
+                                'assets/images/screening-tools/temperature.png',
+                            label: "Temperature",
+                            destinationPage: Temperature(),
+                          ),
+                          ToolCard(
+                            imagePath:
+                                'assets/images/screening-tools/blood-pressure.png',
+                            label: "Blood Pressure",
+                            destinationPage: BloodPressure(),
+                          ),
+                          ToolCard(
+                            imagePath:
+                                'assets/images/screening-tools/camera.png',
+                            label: "Image",
+                          ),
+                        ]),
                       ],
                     ),
                     // Cardiovascular Section
                     SectionCard(
                       sectionTitle: "Cardiovascular",
                       tools: [
-                        ToolCard(
-                          imagePath:
-                              'assets/images/screening-tools/CVD-risk-assessment.png',
-                          label: "CVD Risk Assessment",
-                        ),
-                        ToolCard(
-                          imagePath:
-                              'assets/images/screening-tools/ECG-test.png',
-                          label: "ECG Test",
-                          destinationPage: Electrocardiogram(),
-                        ),
-                        ToolCard(
-                          imagePath: 'assets/images/screening-tools/ankle.png',
-                          label: "Ankle Brachial Index",
-                        ),
+                        MultiPurposeCarousel(
+                          widgets: [
+                            ToolCard(
+                              imagePath:
+                                  'assets/images/screening-tools/CVD-risk-assessment.png',
+                              label: "CVD Risk Assessment",
+                            ),
+                            ToolCard(
+                              imagePath:
+                                  'assets/images/screening-tools/ECG-test.png',
+                              label: "ECG Test",
+                            ),
+                            ToolCard(
+                              imagePath:
+                                  'assets/images/screening-tools/ankle.png',
+                              label: "Ankle Brachial Index",
+                            ),
+                          ],
+                        )
                       ],
                     ),
                     // Renal Section
                     SectionCard(
                       sectionTitle: "Renal",
                       tools: [
-                        ToolCard(
-                          imagePath:
-                              'assets/images/screening-tools/urinalysis.png',
-                          label: "Urinalysis",
-                          destinationPage: Urinalysis(),
-                        ),
+                        MultiPurposeCarousel(
+                          widgets: [
+                            ToolCard(
+                              imagePath:
+                                  'assets/images/screening-tools/urinalysis.png',
+                              label: "Urinalysis",
+                              destinationPage: Urinalysis(),
+                            ),
+                          ],
+                        )
                       ],
                     ),
                     // Endocrine Section
                     SectionCard(
                       sectionTitle: "Endocrine",
                       tools: [
-                        ToolCard(
-                          imagePath:
-                              'assets/images/screening-tools/blood-glucose.png',
-                          label: "Blood Glucose",
-                        ),
+                        MultiPurposeCarousel(
+                          widgets: [
+                            ToolCard(
+                              imagePath:
+                                  'assets/images/screening-tools/blood-glucose.png',
+                              label: "Blood Glucose",
+                            ),
+                          ],
+                        )
                       ],
                     ),
                   ],
@@ -180,9 +197,13 @@ class SectionCard extends StatelessWidget {
 
     // Create a list of tool cards ensuring there are at least 3 by adding invisible placeholders
     final paddedTools = List<Widget>.from(tools);
+
+    /// No longer need to add extra blank tools
+    /*
     while (paddedTools.length < 3) {
       paddedTools.add(_buildInvisibleToolCard(toolCardWidth, toolCardHeight));
     }
+    */
 
     return ClipRRect(
       borderRadius: const BorderRadius.all(Radius.circular(14)),
@@ -230,11 +251,14 @@ class SectionCard extends StatelessWidget {
                     ),
                   ),
                   const Expanded(flex: 1, child: SizedBox.shrink()),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: paddedTools,
+                  Expanded(
+                    flex: 5,
+                    child: Row(
+                      //mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: paddedTools,
+                    ),
                   ),
-                  const Expanded(flex: 3, child: SizedBox.shrink()),
+                  const Expanded(flex: 2, child: SizedBox.shrink()),
                 ],
               ),
             ),
@@ -281,95 +305,96 @@ class _ToolCardState extends State<ToolCard> {
     final toolCardWidth = MediaQuery.of(context).size.width * 0.078;
     final toolCardHeight = MediaQuery.of(context).size.height * 0.133;
 
-    return BaseCustomCard(
-      borderColor: Colors.black,
-      backgroundColor: AppColors.yellowCream,
-      borderWidth: 1,
-      width: toolCardWidth,
-      height: toolCardHeight,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.stretch, // Ensure full width
-        children: [
-          Expanded(
-            flex: 1,
-            child: GestureDetector(
-              onTap: () {
-                if (widget.destinationPage != null) {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => widget.destinationPage!),
-                  );
-                }
-              },
-              child: Row(
-                children: [
-                  const Expanded(flex: 1, child: SizedBox.shrink()),
-                  Expanded(
-                    flex: 30,
-                    child: Column(
-                      children: [
-                        const Expanded(flex: 1, child: SizedBox.shrink()),
-                        Image(
-                          image: AssetImage(widget.imagePath),
-                          height: 70, // Set the fixed height
-                          fit: BoxFit.contain,
-                        ),
-                        // Label text
-                        const Expanded(flex: 1, child: SizedBox.shrink()),
-                        FittedBox(
-                          fit: BoxFit.scaleDown,
-                          child: Text(
-                            widget.label,
-                            style: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
+    return Padding(
+        padding: EdgeInsets.only(right: 20, left: 20),
+        child: BaseCustomCard(
+          borderColor: Colors.black,
+          backgroundColor: AppColors.yellowCream,
+          borderWidth: 1,
+          width: toolCardWidth,
+          height: toolCardHeight,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.stretch, // Ensure full width
+            children: [
+              Expanded(
+                flex: 1,
+                child: GestureDetector(
+                  onTap: () {
+                    if (widget.destinationPage != null) {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => widget.destinationPage!),
+                      );
+                    }
+                  },
+                  child: Row(
+                    children: [
+                      const Expanded(flex: 1, child: SizedBox.shrink()),
+                      Expanded(
+                        flex: 30,
+                        child: Column(
+                          children: [
+                            const Expanded(flex: 1, child: SizedBox.shrink()),
+                            Image(
+                                image: AssetImage(widget.imagePath),
+                                height: 70,
+                                width: 70),
+                            // Label text
+                            const Expanded(flex: 1, child: SizedBox.shrink()),
+                            FittedBox(
+                              fit: BoxFit.scaleDown,
+                              child: Text(
+                                widget.label,
+                                style: const TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
                             ),
-                          ),
+                          ],
                         ),
-                      ],
-                    ),
+                      ),
+                      const Expanded(flex: 1, child: SizedBox.shrink()),
+                    ],
                   ),
-                  const Expanded(flex: 1, child: SizedBox.shrink()),
-                ],
+                ),
               ),
-            ),
-          ),
-          GestureDetector(
-            onTap: () {
-              setState(() {
-                complete =
-                    !complete; // Flip the complete state and rebuild the widget
-              });
-            },
-            child: Container(
-              height: toolCardHeight * 0.21,
-              width: toolCardWidth,
-              decoration: BoxDecoration(
-                borderRadius:
-                    const BorderRadius.vertical(bottom: Radius.circular(16)),
-                color: complete
-                    ? AppColors
-                        .complete // Change color based on completion state
-                    : AppColors.incomplete,
-              ),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    complete ? 'Complete' : 'Incomplete',
-                    style: const TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                    ),
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    complete =
+                        !complete; // Flip the complete state and rebuild the widget
+                  });
+                },
+                child: Container(
+                  height: toolCardHeight * 0.21,
+                  width: toolCardWidth,
+                  decoration: BoxDecoration(
+                    borderRadius: const BorderRadius.vertical(
+                        bottom: Radius.circular(16)),
+                    color: complete
+                        ? AppColors
+                            .complete // Change color based on completion state
+                        : AppColors.incomplete,
                   ),
-                ],
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        complete ? 'Complete' : 'Incomplete',
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
               ),
-            ),
+            ],
           ),
-        ],
-      ),
-    );
+        ));
   }
 }
