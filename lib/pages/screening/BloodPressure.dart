@@ -89,11 +89,23 @@ Builder bloodPressureBody = Builder(builder: (context) {
                   ),
                 ),
               ),
-              const Expanded(flex: 2, child: SizedBox.shrink()),
+              const Expanded(flex: 3, child: SizedBox.shrink()),
             ],
           )),
     ),
     const Positioned(right: 30.0, top: 50.0, child: ChatBotButton()),
     const Positioned(right: 21.0, bottom: 70.0, child: HelpButton()),
+    const Positioned(
+        bottom: 0,
+        child: Image(image: AssetImage('assets/images/art/footer-strip.png'))),
+    const Positioned(
+        top: -114,
+        left: -104,
+        child: Image(
+            width: 450,
+            height: 450,
+            fit: BoxFit.cover,
+            image: AssetImage(
+                'assets/images/art/big-symbols/kangaroo-footprint-circle.png'))),
   ]);
 });

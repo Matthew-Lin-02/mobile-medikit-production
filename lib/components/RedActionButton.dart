@@ -22,6 +22,7 @@ class RedActionButton extends StatelessWidget {
     this.imageSize,
     this.iconSize = 28,
     this.useCircleAvatar = false,
+    this.backgroundColor = AppColors.red,
   });
 
   final IconData? iconData;
@@ -33,6 +34,7 @@ class RedActionButton extends StatelessWidget {
   final Size? imageSize;
   final double iconSize;
   final bool useCircleAvatar; // New field for CircleAvatar option
+  final Color backgroundColor;
 
   @override
   Widget build(BuildContext context) {
@@ -77,7 +79,7 @@ class RedActionButton extends StatelessWidget {
         ),
         style: ButtonStyle(
           iconColor: WidgetStateProperty.all(Colors.white),
-          backgroundColor: WidgetStateProperty.all(AppColors.red),
+          backgroundColor: WidgetStateProperty.all(backgroundColor),
           minimumSize: WidgetStateProperty.all<Size>(size!),
           shadowColor: WidgetStateProperty.all(Colors.black),
           elevation: WidgetStateProperty.all(3),

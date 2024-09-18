@@ -1,4 +1,4 @@
-import 'package:comp30022/pages/screening/BloodPressure.dart';
+import 'package:comp30022/pages/screening/Electrocardiogram.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:comp30022/components/ChatbotButton.dart';
@@ -35,44 +35,42 @@ void main() {
     );
   }
 
-  testWidgets('BloodPressure page displays correctly',
+  testWidgets('Electrocardiogram page displays correctly',
       (WidgetTester tester) async {
-    // Pump the BloodPressure widget into the test environment.
+    // Pump the Electrocardiogram widget into the test environment.
     await tester.pumpWidget(buildConfig(
-      title: "BloodPressure",
+      title: "ECG Test",
       pageNum: 3,
-      body: BloodPressure(),
+      body: electrocardiogramBody,
     ));
-
+    await tester.binding.setSurfaceSize(Size(1920, 1080));
     // Ensure the instruction text is shown
     expect(
         find.text(
-            'Please follow the standard procedure for Blood pressure tests and fill in the values below'),
+            'Please follow the standard procedure for single lead ECG assessment'),
         findsOneWidget);
 
-    // Ensure the hint text for each vital is shown
-    expect(find.text('Systolic\n(mmHg)'), findsOneWidget);
-    expect(find.text('Diastolic\n(mmHg)'), findsOneWidget);
-    expect(find.text('Pulse (min)'), findsOneWidget);
+    // Ensure the prompt for the help button is shown
+    expect(
+        find.text(
+            'Press help button on the bottom corner to view standard procedure'),
+        findsOneWidget);
 
-    // Ensure the hint values for VitalsCards are shown
-    expect(find.text('36.4'), findsOneWidget);
-    expect(find.text('84'), findsOneWidget);
-    expect(find.text('68'), findsOneWidget);
+    // Ensure the 'Begin ECG test' button is present
+    expect(find.text('  Begin ECG test'), findsOneWidget);
 
-    // // Check if the RedActionButton is present with the correct label
-    expect(find.text("Back to screening tools"), findsOneWidget);
+    // Ensure the 'Back to screening tools' button is present
+    expect(find.text('Back to screening tools'), findsOneWidget);
 
     // Check if the ChatBotButton and HelpButton are present
     expect(find.byType(ChatBotButton), findsOneWidget);
     expect(find.byType(HelpButton), findsOneWidget);
 
-    // // Check that the RedActionButton can be tapped
-    await tester.tap(find.text("Back to screening tools"));
+    // Check that the 'Back to screening tools' RedActionButton can be tapped
+    await tester.tap(find.text('Back to screening tools'));
     await tester.pump(); // Rebuild after the tap
 
-    // // Check if the TextField in VitalsCard can be focused and entered text
-    await tester.tap(warnIfMissed: false, find.text('36.4'));
-    await tester.pump(); // Rebuild after focus
+    // Check that the timer text shows initially as "12 s"
+    expect(find.text('12 s'), findsOneWidget);
   });
 }

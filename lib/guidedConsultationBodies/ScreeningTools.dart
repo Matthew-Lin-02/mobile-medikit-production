@@ -1,5 +1,6 @@
 import 'package:comp30022/pages/results/ResultsPage.dart';
 import 'package:comp30022/pages/screening/BloodPressure.dart';
+import 'package:comp30022/pages/screening/Electrocardiogram.dart';
 import 'package:comp30022/pages/screening/Temperature.dart';
 import 'package:comp30022/pages/screening/Urinalysis.dart';
 import 'package:comp30022/pages/yarning/GuidedConsultation.dart';
@@ -69,26 +70,24 @@ class ScreeningToolsMainContent extends StatelessWidget {
                       sectionTitle: "Vitals",
                       tools: [
                         ToolCard(
-                          imagePath:
-                              '../assets/images/screening-tools/search.png',
+                          imagePath: 'assets/images/screening-tools/search.png',
                           label: "Observations",
                           destinationPage: Observations(),
                         ),
                         ToolCard(
                           imagePath:
-                              '../assets/images/screening-tools/temperature.png',
+                              'assets/images/screening-tools/temperature.png',
                           label: "Temperature",
                           destinationPage: Temperature(),
                         ),
                         ToolCard(
                           imagePath:
-                              '../assets/images/screening-tools/blood-pressure.png',
+                              'assets/images/screening-tools/blood-pressure.png',
                           label: "Blood Pressure",
                           destinationPage: BloodPressure(),
                         ),
                         ToolCard(
-                          imagePath:
-                              '../assets/images/screening-tools/camera.png',
+                          imagePath: 'assets/images/screening-tools/camera.png',
                           label: "Image",
                         ),
                       ],
@@ -99,17 +98,17 @@ class ScreeningToolsMainContent extends StatelessWidget {
                       tools: [
                         ToolCard(
                           imagePath:
-                              '../assets/images/screening-tools/CVD-risk-assessment.png',
+                              'assets/images/screening-tools/CVD-risk-assessment.png',
                           label: "CVD Risk Assessment",
                         ),
                         ToolCard(
                           imagePath:
-                              '../assets/images/screening-tools/ECG-test.png',
+                              'assets/images/screening-tools/ECG-test.png',
                           label: "ECG Test",
+                          destinationPage: Electrocardiogram(),
                         ),
                         ToolCard(
-                          imagePath:
-                              '../assets/images/screening-tools/ankle.png',
+                          imagePath: 'assets/images/screening-tools/ankle.png',
                           label: "Ankle Brachial Index",
                         ),
                       ],
@@ -120,7 +119,7 @@ class ScreeningToolsMainContent extends StatelessWidget {
                       tools: [
                         ToolCard(
                           imagePath:
-                              '../assets/images/screening-tools/urinalysis.png',
+                              'assets/images/screening-tools/urinalysis.png',
                           label: "Urinalysis",
                           destinationPage: Urinalysis(),
                         ),
@@ -132,7 +131,7 @@ class ScreeningToolsMainContent extends StatelessWidget {
                       tools: [
                         ToolCard(
                           imagePath:
-                              '../assets/images/screening-tools/blood-glucose.png',
+                              'assets/images/screening-tools/blood-glucose.png',
                           label: "Blood Glucose",
                         ),
                       ],
@@ -313,9 +312,10 @@ class _ToolCardState extends State<ToolCard> {
                       children: [
                         const Expanded(flex: 1, child: SizedBox.shrink()),
                         Image(
-                            image: AssetImage(widget.imagePath),
-                            height: 70,
-                            width: 70),
+                          image: AssetImage(widget.imagePath),
+                          height: 70, // Set the fixed height
+                          fit: BoxFit.contain,
+                        ),
                         // Label text
                         const Expanded(flex: 1, child: SizedBox.shrink()),
                         FittedBox(
