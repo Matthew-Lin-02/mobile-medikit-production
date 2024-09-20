@@ -112,6 +112,7 @@ class ScreeningToolsMainContent extends StatelessWidget {
                               imagePath:
                                   'assets/images/screening-tools/ECG-test.png',
                               label: "ECG Test",
+                              destinationPage: Electrocardiogram(),
                             ),
                             ToolCard(
                               imagePath:

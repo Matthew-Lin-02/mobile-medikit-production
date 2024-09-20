@@ -75,7 +75,7 @@ class ECGResults extends StatelessWidget {
                   label: "Continue To Patient Education",
                   iconData: Icons.arrow_forward,
                   useCircleAvatar: true,
-                  size: const Size(500, 50),
+                  size: mediumButtonSizeLong,
                 )
               ]))),
       const Positioned(right: 30.0, top: 50.0, child: ChatBotButton()),

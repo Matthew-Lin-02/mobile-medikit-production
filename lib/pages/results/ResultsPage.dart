@@ -1,13 +1,13 @@
 import 'package:comp30022/color.dart';
-import 'package:comp30022/guidedConsultationBodies/GuidedConsultationBody.dart';
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
 import 'package:comp30022/pages/yarning/GuidedConsultation.dart';
-import 'package:provider/provider.dart';
+import 'package:comp30022/pages/results/ObservationsAndVitalSign.dart';
 import 'package:comp30022/pages/results/ECGResults.dart';
 
 class Results extends StatefulWidget {
-  const Results({Key? key}) : super(key: key);
+  const Results({super.key});
 
   @override
   _ResultsState createState() => _ResultsState();
@@ -98,8 +98,8 @@ class _ResultsState extends State<Results> with SingleTickerProviderStateMixin {
             Expanded(
               child: TabBarView(
                 controller: _tabController,
-                children: [
-                  Center(child: Text('Observations and Vital Sign Content')),
+                children: const [
+                  ObservationsAndVitalSign(),
                   ECGResults(),
                   Center(child: Text('Image Analysis Results Content')),
                   Center(child: Text('Urinalysis Results Content')),

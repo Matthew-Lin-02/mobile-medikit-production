@@ -10,6 +10,8 @@ const Size largeButtonSize = Size(900, 130);
 const double smallButtonFontSize = 28.0;
 const double largeButtonFontSize = 40.0;
 
+const double mediumIconSize = 40.0;
+
 class RedActionButton extends StatelessWidget {
   RedActionButton({
     super.key,
