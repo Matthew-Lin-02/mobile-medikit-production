@@ -80,7 +80,8 @@ Builder electrocardiogramBody = Builder(builder: (context) {
         ),
       ),
       const Positioned(right: 30.0, top: 50.0, child: ChatBotButton()),
-      const Positioned(right: 21.0, bottom: 70.0, child: HelpButton()),
+      const Positioned(
+          right: 21.0, bottom: 70.0, child: HelpButton(pageName: 'ECG')),
       const Positioned(
           left: 118.0,
           top: 250.0,
