@@ -24,20 +24,16 @@ void main() {
         .window
         .devicePixelRatioTestValue = devicePixelRatio;
 
-    return MultiProvider(
-        providers: [
-          ChangeNotifierProvider(create: (_) => GuidedConsultationState()),
-        ],
-        child: MaterialApp(
-          home: MediaQuery(
-            data: MediaQueryData(size: testScreenSize),
-            child: AbstractConsultationPage(
-              title: title,
-              pageNum: pageNum,
-              body: body,
-            ),
-          ),
-        ));
+    return MaterialApp(
+      home: MediaQuery(
+        data: MediaQueryData(size: testScreenSize),
+        child: AbstractConsultationPage(
+          title: title,
+          pageNum: pageNum,
+          body: body,
+        ),
+      ),
+    );
   }
 
   testWidgets('Urinalysis page displays correctly',

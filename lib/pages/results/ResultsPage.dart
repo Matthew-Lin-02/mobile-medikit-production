@@ -2,7 +2,7 @@ import 'package:comp30022/color.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
-import 'package:comp30022/pages/yarning/GuidedConsultation.dart';
+
 import 'package:comp30022/pages/results/ObservationsAndVitalSign.dart';
 import 'package:comp30022/pages/results/ECGResults.dart';
 
@@ -67,13 +67,11 @@ class _ResultsState extends State<Results> with SingleTickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    var guidedConsultationState = context.watch<GuidedConsultationState>();
     return DefaultTabController(
       length: 4,
       child: AbstractConsultationPage(
         title: "Results",
         pageNum: 4,
-        tealBackArrowOnPressed: guidedConsultationState.decrementPageNum,
         body: Column(
           children: [
             Container(
