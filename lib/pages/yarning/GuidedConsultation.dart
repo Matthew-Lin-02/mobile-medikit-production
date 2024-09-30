@@ -1,5 +1,5 @@
 import 'package:comp30022/pages/Pages.dart';
-import 'package:comp30022/pages/yarning/ScreeningTools.dart';
+import 'package:comp30022/pages/screening/ScreeningTools.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/config.dart';
