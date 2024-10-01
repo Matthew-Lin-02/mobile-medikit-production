@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 class HelpButton extends StatelessWidget {
   const HelpButton({
     super.key,
+    this.onPressed,
   });
+  final VoidCallback? onPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -16,9 +18,10 @@ class HelpButton extends StatelessWidget {
                 color: const Color.fromRGBO(15, 13, 11, 1.0), width: 2.5),
           ),
           child: IconButton(
-            onPressed: () {
-              ;
-            },
+            onPressed: onPressed ??
+                () {
+                  ;
+                },
             color: const Color.fromRGBO(15, 13, 11, 1.0),
             iconSize: 33,
             icon: const Icon(Icons.question_mark),

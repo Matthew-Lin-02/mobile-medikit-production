@@ -1,8 +1,6 @@
 import 'package:comp30022/color.dart';
-import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
-
 import 'package:comp30022/pages/results/ObservationsAndVitalSign.dart';
 import 'package:comp30022/pages/results/ECGResults.dart';
 
