@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:comp30022/components/StandaloneFunctions.dart';
 import 'package:comp30022/color.dart';
+import 'package:comp30022/font.dart';
+
+const double helpIconSize = 33;
 
 class HelpButton extends StatelessWidget {
   final String pageName;
@@ -30,12 +33,13 @@ class HelpButton extends StatelessWidget {
               }
             },
             color: const Color.fromRGBO(15, 13, 11, 1.0),
-            iconSize: 33,
+            iconSize: helpIconSize,
             icon: const Icon(Icons.question_mark),
           ),
         ),
         const Text("Help",
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold))
+            style: TextStyle(
+                fontSize: extraSmallFontSize, fontWeight: FontWeight.bold))
       ],
     );
   }
@@ -85,7 +89,8 @@ class ECGHelp extends StatelessWidget {
                                       width: 50,
                                       height: 50)),
                               Text("LA sensor: below left clavicle bone",
-                                  style: TextStyle(fontSize: 18))
+                                  style:
+                                      TextStyle(fontSize: extraSmallFontSize))
                             ]),
                         Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -99,7 +104,8 @@ class ECGHelp extends StatelessWidget {
                                       width: 50,
                                       height: 50)),
                               Text("RA sensor: below right clavicle bone",
-                                  style: TextStyle(fontSize: 18))
+                                  style:
+                                      TextStyle(fontSize: extraSmallFontSize))
                             ]),
                         Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
@@ -113,7 +119,8 @@ class ECGHelp extends StatelessWidget {
                                       width: 50,
                                       height: 50)),
                               Text("RL sensor: lower right abdoment",
-                                  style: TextStyle(fontSize: 18))
+                                  style:
+                                      TextStyle(fontSize: extraSmallFontSize))
                             ]),
                       ]),
                 ),
@@ -128,18 +135,19 @@ class ECGHelp extends StatelessWidget {
                             child: Text("Targeted Waveform: Lead 1",
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 38))),
+                                    fontSize: extraLargeFontSize))),
                         Center(
                             child: Text("Methodology",
                                 style: TextStyle(
                                     fontWeight: FontWeight.bold,
-                                    fontSize: 32))),
+                                    fontSize: largeFontSize))),
                         SizedBox(height: 50),
                         Center(
                           /// Methodology text
                           child: Text(
                               "1. Remove any jewellery or other objects from the patient that may interfere\n    with the ECG test.\n\n2. Ensure area of skin in contact with ECG pads is clean. Use skin cleansing\n    (alcohol) wipes to ensure the area of skin is clean and dry, and free of oils\n    and lotions.\n\n3. Attach the LA (Yellow), RA (Green) and RL (Red) sensors as per the diagram\n    on the left in their labelled positions.\n\n4. Ensure patient is comfortable, clam and breathing normally\n\n5. Once ready, begin ECG Test by tapping \"Begin ECG Test\" button and follow\n    instructions displayed on screen\n",
-                              style: TextStyle(fontSize: 25, height: 1.2)),
+                              style: TextStyle(
+                                  fontSize: mediumFontSize, height: 1.2)),
                         ),
                       ],
                     ))
