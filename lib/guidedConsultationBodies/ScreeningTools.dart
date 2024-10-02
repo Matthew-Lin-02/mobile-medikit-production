@@ -3,6 +3,7 @@ import 'package:comp30022/pages/screening/BloodPressure.dart';
 import 'package:comp30022/pages/screening/Electrocardiogram.dart';
 import 'package:comp30022/pages/screening/Temperature.dart';
 import 'package:comp30022/pages/screening/Urinalysis.dart';
+import 'package:comp30022/pages/screening/Images.dart';
 import 'package:comp30022/pages/yarning/GuidedConsultation.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
@@ -93,6 +94,7 @@ class ScreeningToolsMainContent extends StatelessWidget {
                             imagePath:
                                 'assets/images/screening-tools/camera.png',
                             label: "Image",
+                            destinationPage: Images(),
                           ),
                         ]),
                       ],
