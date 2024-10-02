@@ -13,23 +13,17 @@ void main() {
     Size size = const Size(1920, 1080),
     double devicePixelRatio = 1.0,
   }) {
-    // Set the screen size for the test
     TestWidgetsFlutterBinding.ensureInitialized().window.physicalSizeTestValue =
         size;
     TestWidgetsFlutterBinding.ensureInitialized()
         .window
         .devicePixelRatioTestValue = devicePixelRatio;
 
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => GuidedConsultationState()),
-      ],
-      child: MaterialApp(
-        home: AbstractConsultationPage(
-          title: title,
-          pageNum: pageNum,
-          body: body,
-        ),
+    return MaterialApp(
+      home: AbstractConsultationPage(
+        title: title,
+        pageNum: pageNum,
+        body: body,
       ),
     );
   }
