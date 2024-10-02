@@ -1,3 +1,4 @@
+import 'package:comp30022/pages/AbstractConsultationPage.dart';
 import 'package:comp30022/pages/results/ResultsPage.dart';
 import 'package:comp30022/pages/screening/BloodPressure.dart';
 import 'package:comp30022/pages/screening/Electrocardiogram.dart';
@@ -14,18 +15,23 @@ import 'package:comp30022/components/BaseCustomCard.dart';
 import 'package:comp30022/pages/screening/Observations.dart';
 import 'package:comp30022/components/ChatbotButton.dart';
 import 'package:comp30022/components/HelpButton.dart';
-import 'package:comp30022/pages/results/ResultsPage.dart';
 import 'package:comp30022/components/MultiPurposeCarousel.dart';
-import 'package:provider/provider.dart';
+
+Builder screeningToolsBody = Builder(builder: (context) {
+  return const Stack(children: [
+    Positioned(right: 30.0, top: 50.0, child: ChatBotButton()),
+    Positioned(right: 21.0, bottom: 70.0, child: HelpButton()),
+    Positioned(child: ScreeningToolsMainContent())
+  ]);
+});
 
 class ScreeningTools extends StatelessWidget {
+  const ScreeningTools({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
-      Positioned(right: 30.0, top: 50.0, child: const ChatBotButton()),
-      Positioned(right: 21.0, bottom: 70.0, child: const HelpButton()),
-      Positioned(child: ScreeningToolsMainContent())
-    ]);
+    return AbstractConsultationPage(
+        title: "Existing Patient", pageNum: 1, body: screeningToolsBody);
   }
 }
 
@@ -36,7 +42,6 @@ class ScreeningToolsMainContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var guidedConsultationState = context.watch<GuidedConsultationState>();
     final containerWidth = context.screenWidth * 0.80;
     return Center(
       child: Container(
@@ -163,7 +168,12 @@ class ScreeningToolsMainContent extends StatelessWidget {
               // Continue Button
               const Expanded(flex: 1, child: SizedBox.shrink()),
               RedActionButton(
-                onPressed: guidedConsultationState.incrementPageNum,
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => Results()),
+                  );
+                },
                 iconData: Icons.arrow_forward,
                 iconSize: 32,
                 label: "Continue to Results",
