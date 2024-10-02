@@ -3,9 +3,8 @@ import 'package:comp30022/components/BaseCustomCard.dart';
 import 'package:comp30022/components/HelpButton.dart';
 import 'package:comp30022/components/RedActionButton.dart';
 import 'package:comp30022/components/StandaloneFunctions.dart';
-import 'package:comp30022/components/StatusTray.dart';
 import 'package:comp30022/components/YellowBorderWhiteCard.dart';
-import 'package:comp30022/pages/results/ECGResults.dart';
+import 'package:comp30022/pages/results/FollowUpPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -520,8 +519,7 @@ Builder resultsExplanationBody = Builder(builder: (context) {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) =>
-                                  const ResultsExplanationPage(),
+                              builder: (context) => const FollowUpPage(),
                             ),
                           );
                         },
