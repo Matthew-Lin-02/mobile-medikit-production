@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'color.dart';
 import 'package:comp30022/pages/Pages.dart';
 import 'package:flutter/gestures.dart';

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/font.dart';
-import 'package:flutter/services.dart';
 import 'package:comp30022/components/ChatbotButton.dart';
 import 'package:comp30022/components/HelpButton.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';

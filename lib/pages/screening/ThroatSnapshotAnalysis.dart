@@ -1,26 +1,43 @@
 import 'package:flutter/material.dart';
+import 'package:comp30022/color.dart';
 import 'package:comp30022/components/RedActionButton.dart';
+import 'package:comp30022/components/StandaloneFunctions.dart';
+import 'package:comp30022/components/screening/Snapshot.dart';
+import 'package:comp30022/components/BaseCustomCard.dart';
 
 class ThroatSnapshotAnalysis extends StatelessWidget {
   const ThroatSnapshotAnalysis({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Get screen width and height
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return Stack(
-      alignment: Alignment.center, // Align the images to the top center
+      alignment: Alignment.center,
       children: [
-        const Image(
-          image: AssetImage('assets/images/screening-tools/throat.png'),
-          width: 550,
-          height: 550,
+        Image(
+          image: const AssetImage('assets/images/screening-tools/throat.png'),
+          width: screenWidth * 0.5,
+          height: screenWidth * 0.5,
         ),
-        const Image(
-          image: AssetImage('assets/images/screening-tools/images_border.png'),
-          width: 550,
-          height: 550,
+        Image(
+          image: const AssetImage(
+              'assets/images/screening-tools/images_border.png'),
+          width: screenWidth * 0.5,
+          height: screenWidth * 0.5,
         ),
         Positioned(
-            top: 100,
+            bottom: 100,
+            child: CameraIcon(
+                iconData: Icons.camera_alt,
+                iconSize: largeIconSize,
+                onPressed: () {
+                  showCustomModal(context, const ThroatSnapshotOverlap());
+                })),
+        Positioned(
+            top: 150,
             left: 50,
             child: RedActionButton(
                 label: "Back to Screening Tools",
@@ -29,23 +46,22 @@ class ThroatSnapshotAnalysis extends StatelessWidget {
                 onPressed: () {
                   Navigator.pop(context);
                 })),
-        const Positioned(
-          top: 150,
-          right: 100,
+        Positioned(
+          top: 50,
+          right: 125,
           child: Image(
-              width: 400,
-              height: 250,
-              fit: BoxFit.cover,
-              image: AssetImage('assets/images/art/big-symbols/fish.png')),
+              width: screenWidth * 0.2,
+              height: screenHeight * 0.35,
+              image:
+                  const AssetImage('assets/images/art/big-symbols/fish.png')),
         ),
-        const Positioned(
-          bottom: 150,
+        Positioned(
+          bottom: 125,
           left: 100,
           child: Image(
-              width: 380,
-              height: 380,
-              fit: BoxFit.cover,
-              image: AssetImage(
+              width: screenWidth * 0.2,
+              height: screenHeight * 0.35,
+              image: const AssetImage(
                   'assets/images/art/big-symbols/goanna-circle.png')),
         ),
       ],
@@ -53,8 +69,37 @@ class ThroatSnapshotAnalysis extends StatelessWidget {
   }
 }
 
-// TODO
-// shift images up slightly 
-// insert camera red action button
-// clicking on camera results in overlay popup
-// clicking submit snashot will open another overlay popup
+class ThroatSnapshotOverlap extends StatelessWidget {
+  const ThroatSnapshotOverlap({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+    final screenHeight = MediaQuery.of(context).size.height;
+
+    return BaseCustomCard(
+      borderColor: AppColors.cream,
+      backgroundColor: AppColors.cream,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const SizedBox(height: 10),
+          Image(
+            image: const AssetImage('assets/images/screening-tools/throat.png'),
+            width: screenWidth * 0.4,
+            height: screenHeight * 0.5,
+          ),
+          RedActionButton(
+              label: "Submit Snapshot",
+              size: mediumButtonSizeShort,
+              onPressed: () {
+                Navigator.pop(context);
+                showCustomModal(context, const SnapshotSubmitted());
+              }),
+          const SizedBox(height: 10),
+        ],
+      ),
+    );
+  }
+}
