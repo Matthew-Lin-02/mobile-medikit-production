@@ -8,44 +8,106 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:comp30022/components/ChatbotButton.dart';
 import 'package:comp30022/components/HelpButton.dart';
 import 'package:comp30022/components/RedActionButton.dart';
+import 'package:comp30022/pages/screening/ThroatSnapshotAnalysis.dart';
+import 'package:comp30022/pages/screening/SkinSnapshotAnalysis.dart';
 
-class Images extends StatelessWidget {
+class Images extends StatefulWidget {
   const Images({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return AbstractConsultationPage(
-        title: "Images", pageNum: 3, body: imagesBody);
-  }
+  _ImagesState createState() => _ImagesState();
 }
 
-Builder imagesBody = Builder(builder: (context) {
-  return Stack(fit: StackFit.expand, children: [
-    Positioned(
-      child: Container(
-          color: AppColors.cream,
-          child: Column(
-            children: [
-              // const Expanded(flex: 1, child: SizedBox.shrink()),
-              // RedActionButton(
-              //   iconData: Icons.arrow_back,
-              //   iconSize: largeFontSize,
-              //   label: "Back to screening tools",
-              //   fontSize: largeFontSize,
-              //   // change the size below to be constant
-              //   size: const Size(
-              //     450,
-              //     64,
-              //   ),
-              // ),
-              // const Expanded(flex: 1, child: SizedBox.shrink()),
-            ],
-          )),
-    ),
-    const Positioned(right: 30.0, top: 50.0, child: ChatBotButton()),
-    const Positioned(right: 21.0, bottom: 70.0, child: HelpButton()),
-    const Positioned(
-        bottom: 0,
-        child: Image(image: AssetImage('assets/images/art/footer-strip.png'))),
-  ]);
-});
+class _ImagesState extends State<Images> with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    super.initState();
+    _tabController = TabController(length: 4, vsync: this);
+    _tabController.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  Widget _buildTab(String text, int index) {
+    bool isSelected = _tabController.index == index;
+    return Expanded(
+      child: InkWell(
+        onTap: () {
+          _tabController.animateTo(index);
+        },
+        child: Container(
+          padding: const EdgeInsets.symmetric(vertical: 16),
+          alignment: Alignment.center,
+          decoration: BoxDecoration(
+            color:
+                isSelected ? AppColors.cream.withOpacity(0.7) : AppColors.cream,
+            border: Border(
+              bottom: BorderSide(
+                color: isSelected ? Colors.black45 : Colors.transparent,
+                width: 3, // Increased width for visibility
+              ),
+            ),
+          ),
+          child: Text(
+            text,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 24, // Larger font for selected tab
+              fontWeight: FontWeight.bold,
+              color: isSelected ? Colors.black : Colors.black54,
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: 2,
+      child: AbstractConsultationPage(
+        title: "Images",
+        pageNum: 3,
+        body: Column(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                color: AppColors.cream,
+                border: Border(
+                  bottom: BorderSide(
+                    color: Colors.grey.shade300,
+                    width: 2,
+                  ),
+                ),
+              ),
+              child: Row(
+                children: [
+                  _buildTab('Throat Snapshot Analysis', 0),
+                  _buildTab('Skin Snapshot Analysis', 1),
+                ],
+              ),
+            ),
+            Expanded(
+              child: TabBarView(
+                controller: _tabController,
+                children: const [
+                  ThroatSnapshotAnalysis(),
+                  SkinSnapshotAnalysis(),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
