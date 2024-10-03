@@ -62,7 +62,7 @@ void main() {
         home: Scaffold(
           body: StatusIcon(
             iconSize: 50.0,
-            image: 'assets/images/globe.png',
+            image: 'assets/images/status-tray/globe_figma.png',
             onPressed: () {
               pressed = true;
             },
