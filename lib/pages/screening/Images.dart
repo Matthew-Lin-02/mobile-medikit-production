@@ -1,13 +1,10 @@
-import 'package:comp30022/components/screening/VitalsCard.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/font.dart';
-import 'package:comp30022/pages/AbstractConsultationPage.dart';
 import 'package:flutter/services.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:comp30022/components/ChatbotButton.dart';
 import 'package:comp30022/components/HelpButton.dart';
-import 'package:comp30022/components/RedActionButton.dart';
+import 'package:comp30022/pages/AbstractConsultationPage.dart';
 import 'package:comp30022/pages/screening/ThroatSnapshotAnalysis.dart';
 import 'package:comp30022/pages/screening/SkinSnapshotAnalysis.dart';
 
