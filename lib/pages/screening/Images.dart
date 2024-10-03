@@ -109,25 +109,6 @@ class _ImagesState extends State<Images> with SingleTickerProviderStateMixin {
             const Positioned(right: 30.0, top: 90.0, child: ChatBotButton()),
             const Positioned(right: 21.0, bottom: 70.0, child: HelpButton()),
             const Positioned(
-              top: 150,
-              right: 100,
-              child: Image(
-                  width: 400,
-                  height: 250,
-                  fit: BoxFit.cover,
-                  image: AssetImage('assets/images/art/big-symbols/fish.png')),
-            ),
-            const Positioned(
-              bottom: 150,
-              left: 100,
-              child: Image(
-                  width: 380,
-                  height: 380,
-                  fit: BoxFit.cover,
-                  image: AssetImage(
-                      'assets/images/art/big-symbols/goanna-circle.png')),
-            ),
-            const Positioned(
                 bottom: 0,
                 child: Image(
                     image: AssetImage('assets/images/art/footer-strip.png'))),
