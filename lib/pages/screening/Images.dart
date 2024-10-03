@@ -60,7 +60,7 @@ class _ImagesState extends State<Images> with SingleTickerProviderStateMixin {
             text,
             textAlign: TextAlign.center,
             style: TextStyle(
-              fontSize: 24, // Larger font for selected tab
+              fontSize: mediumFontSize, // Larger font for selected tab
               fontWeight: FontWeight.bold,
               color: isSelected ? Colors.black : Colors.black54,
             ),
@@ -77,34 +77,44 @@ class _ImagesState extends State<Images> with SingleTickerProviderStateMixin {
       child: AbstractConsultationPage(
         title: "Images",
         pageNum: 3,
-        body: Column(
+        body: Stack(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                color: AppColors.cream,
-                border: Border(
-                  bottom: BorderSide(
-                    color: Colors.grey.shade300,
-                    width: 2,
+            Column(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: AppColors.cream,
+                    border: Border(
+                      bottom: BorderSide(
+                        color: Colors.grey.shade300,
+                        width: 2,
+                      ),
+                    ),
+                  ),
+                  child: Row(
+                    children: [
+                      _buildTab('Throat Snapshot Analysis', 0),
+                      _buildTab('Skin Snapshot Analysis', 1),
+                    ],
                   ),
                 ),
-              ),
-              child: Row(
-                children: [
-                  _buildTab('Throat Snapshot Analysis', 0),
-                  _buildTab('Skin Snapshot Analysis', 1),
-                ],
-              ),
+                Expanded(
+                  child: TabBarView(
+                    controller: _tabController,
+                    children: const [
+                      ThroatSnapshotAnalysis(),
+                      SkinSnapshotAnalysis(),
+                    ],
+                  ),
+                ),
+              ],
             ),
-            Expanded(
-              child: TabBarView(
-                controller: _tabController,
-                children: const [
-                  ThroatSnapshotAnalysis(),
-                  SkinSnapshotAnalysis(),
-                ],
-              ),
-            ),
+            const Positioned(right: 30.0, top: 90.0, child: ChatBotButton()),
+            const Positioned(right: 21.0, bottom: 70.0, child: HelpButton()),
+            const Positioned(
+                bottom: 0,
+                child: Image(
+                    image: AssetImage('assets/images/art/footer-strip.png'))),
           ],
         ),
       ),
