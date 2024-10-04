@@ -34,7 +34,7 @@ class ThroatSnapshotAnalysis extends StatelessWidget {
                 iconData: Icons.camera_alt,
                 iconSize: largeIconSize,
                 onPressed: () {
-                  showCustomModal(context, const ThroatSnapshotOverlap());
+                  showCustomModal(context, const ThroatSnapshotOverlay());
                 })),
         Positioned(
             top: 150,
@@ -69,8 +69,8 @@ class ThroatSnapshotAnalysis extends StatelessWidget {
   }
 }
 
-class ThroatSnapshotOverlap extends StatelessWidget {
-  const ThroatSnapshotOverlap({super.key});
+class ThroatSnapshotOverlay extends StatelessWidget {
+  const ThroatSnapshotOverlay({super.key});
 
   @override
   Widget build(BuildContext context) {
