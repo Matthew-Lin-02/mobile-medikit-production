@@ -1,3 +1,4 @@
+import 'package:comp30022/pages/results/ResultsExplanationPage.dart';
 import 'package:flutter/material.dart';
 import 'color.dart';
 import 'package:comp30022/pages/Pages.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: AppColors.cream),
           scaffoldBackgroundColor: AppColors.cream,
         ),
-        home: SignIn(),
+        home: const SignIn(),
         routes: {'/patientProfile': (context) => const PatientProfile()});
   }
 }
