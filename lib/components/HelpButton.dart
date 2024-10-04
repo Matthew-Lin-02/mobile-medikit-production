@@ -6,9 +6,9 @@ import 'package:comp30022/font.dart';
 const double helpIconSize = 33;
 
 class HelpButton extends StatelessWidget {
+  const HelpButton({super.key, this.onPressed, this.pageName = ''});
+  final VoidCallback? onPressed;
   final String pageName;
-
-  const HelpButton({this.pageName = '', super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,17 +21,18 @@ class HelpButton extends StatelessWidget {
                 color: const Color.fromRGBO(15, 13, 11, 1.0), width: 2.5),
           ),
           child: IconButton(
-            onPressed: () {
-              /// Change what the help button does depending on what page it is on
+            onPressed: onPressed ??
+                () {
+                  /// Change what the help button does depending on what page it is on
 
-              switch (pageName) {
-                case '':
-                  break;
-                case 'ECG':
-                  showCustomModal(context, const ECGHelp());
-                  break;
-              }
-            },
+                  switch (pageName) {
+                    case '':
+                      break;
+                    case 'ECG':
+                      showCustomModal(context, const ECGHelp());
+                      break;
+                  }
+                },
             color: const Color.fromRGBO(15, 13, 11, 1.0),
             iconSize: helpIconSize,
             icon: const Icon(Icons.question_mark),

@@ -70,6 +70,7 @@ flutter:
   - assets/images/art/big-symbols/
   - assets/images/art/small-symbols/
   - assets/images/art/x-ray-animals/
+  - assets/images/results/
 
   fonts:
     - family: VarelaRound

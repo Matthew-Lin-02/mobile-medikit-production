@@ -1,5 +1,6 @@
 import 'package:comp30022/components/YellowBorderYellowCard.dart';
 import 'package:comp30022/components/YellowBorderWhiteCard.dart';
+import 'package:comp30022/pages/results/ResultsExplanationPage.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/font.dart';
 import 'package:comp30022/components/RedActionButton.dart';
@@ -154,7 +155,13 @@ class ObservationsAndVitalSign extends StatelessWidget {
               ),
               const Spacer(),
               RedActionButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const ResultsExplanationPage()),
+                  );
+                },
                 label: "Continue to Patient Education",
                 iconData: Icons.arrow_forward,
                 iconSize: mediumIconSize,
