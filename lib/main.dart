@@ -1,9 +1,7 @@
-import 'package:comp30022/pages/results/ResultsExplanationPage.dart';
 import 'package:flutter/material.dart';
 import 'color.dart';
 import 'package:comp30022/pages/Pages.dart';
 import 'package:flutter/gestures.dart';
-import 'package:comp30022/pages/results/FollowUpPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -23,7 +21,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: AppColors.cream),
           scaffoldBackgroundColor: AppColors.cream,
         ),
-        home: const FollowUpPage(),
+        home: const SignIn(),
         routes: {'/patientProfile': (context) => const PatientProfile()});
   }
 }
