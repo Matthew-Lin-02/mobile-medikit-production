@@ -1,3 +1,4 @@
+import 'package:comp30022/components/StandaloneFunctions.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/components/RedActionButton.dart';
@@ -51,12 +52,18 @@ class ECGResults extends StatelessWidget {
               ),
               const FractionallySizedBox(
                   widthFactor: 0.75, child: Divider(color: Colors.black)),
-              const ClassAnalysisButton(
+              ClassAnalysisButton(
+                  onPressed: () {
+                    showCustomModal(context, const DiagnosticOverlay());
+                  },
                   imagePath: "assets/images/Touch_Icon.png",
                   iconSpacing: 30,
                   label: "Diagnostic Classes"),
               const SizedBox(height: 100),
-              const ClassAnalysisButton(
+              ClassAnalysisButton(
+                  onPressed: () {
+                    showCustomModal(context, const RhythmOverlay());
+                  },
                   imagePath: "assets/images/Touch_Icon.png",
                   iconSpacing: 60,
                   label: "Rhythm Classes"),
@@ -127,5 +134,23 @@ class ClassAnalysisButton extends StatelessWidget {
                     const SizedBox(width: 340),
                   ]),
             )));
+  }
+}
+
+class DiagnosticOverlay extends StatelessWidget {
+  const DiagnosticOverlay({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
+  }
+}
+
+class RhythmOverlay extends StatelessWidget {
+  const RhythmOverlay({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }
