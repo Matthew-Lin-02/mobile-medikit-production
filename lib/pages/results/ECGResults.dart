@@ -6,6 +6,7 @@ import 'package:comp30022/components/RedActionButton.dart';
 import 'package:comp30022/font.dart';
 import 'package:comp30022/components/HelpButton.dart';
 import 'package:comp30022/components/ChatbotButton.dart';
+import 'package:comp30022/components/YellowBorderWhiteCard.dart';
 
 class ECGResults extends StatelessWidget {
   const ECGResults({super.key});
@@ -149,7 +150,132 @@ class DiagnosticOverlay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return FractionallySizedBox(
+        widthFactor: 0.9,
+        heightFactor: 0.8,
+        child: Container(
+            padding: const EdgeInsets.only(top: 20),
+            decoration: BoxDecoration(
+              color: AppColors.cream,
+              borderRadius: BorderRadius.circular(25),
+            ),
+            child: ListView(
+              children: const [
+                Text(
+                  "ECG AI Diagnostic Classes Results",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: largeFontSize),
+                ),
+                FractionallySizedBox(
+                    widthFactor: 0.8, child: Divider(color: Colors.black)),
+                FractionallySizedBox(
+                  widthFactor: 0.75,
+                  child: YellowBorderWhiteCard(
+                      child: Column(children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'NORM',
+                              style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: mediumFontSize,
+                                  height: 2.0),
+                            )
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                              'MI',
+                              style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: mediumFontSize,
+                                  height: 2.0),
+                            ),
+                            Text('AMI', style: OverlayText.analysisClass),
+                            Text('IMI', style: OverlayText.analysisClass),
+                            Text('LMI', style: OverlayText.analysisClass),
+                            Text('PMI', style: OverlayText.analysisClass),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                              'STTC',
+                              style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: mediumFontSize,
+                                  height: 2.0),
+                            ),
+                            Text('ISCA', style: OverlayText.analysisClass),
+                            Text('ISCI', style: OverlayText.analysisClass),
+                            Text('ISC_', style: OverlayText.analysisClass),
+                            Text('STTC', style: OverlayText.analysisClass),
+                            Text('NST_', style: OverlayText.analysisClass),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                              'CD',
+                              style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: mediumFontSize,
+                                  height: 2.0),
+                            ),
+                            Text('LAFB/LPFB', style: OverlayText.analysisClass),
+                            Text('IRBBB', style: OverlayText.analysisClass),
+                            Text('IVCD', style: OverlayText.analysisClass),
+                            Text('_AVB', style: OverlayText.analysisClass),
+                            Text('CRBBB', style: OverlayText.analysisClass),
+                            Text('CLBBB', style: OverlayText.analysisClass),
+                            Text('ILBBB', style: OverlayText.analysisClass),
+                            Text('WPW', style: OverlayText.analysisClass),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                              'HYP',
+                              style: TextStyle(
+                                  decoration: TextDecoration.underline,
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: mediumFontSize,
+                                  height: 2.0),
+                            ),
+                            Text('LVH', style: OverlayText.analysisClass),
+                            Text('LAO/LAE', style: OverlayText.analysisClass),
+                            Text('RVH', style: OverlayText.analysisClass),
+                            Text('RAO/RAE', style: OverlayText.analysisClass),
+                            Text('SEHYP', style: OverlayText.analysisClass),
+                          ],
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 50)
+                  ])),
+                ),
+                SizedBox(height: 20),
+                FractionallySizedBox(
+                    widthFactor: 0.9,
+                    child: YellowBorderWhiteCard(
+                        child: Text(
+                      'No diagnostic class detection made, see rhythm classes',
+                      textAlign: TextAlign.center,
+                      style: TextStyle(fontSize: subHeadingFontSize),
+                    )))
+              ],
+            )));
   }
 }
 
@@ -158,6 +284,14 @@ class RhythmOverlay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return FractionallySizedBox(
+      widthFactor: 0.75,
+      heightFactor: 0.8,
+    );
   }
+}
+
+abstract class OverlayText {
+  static const TextStyle analysisClass =
+      TextStyle(fontSize: mediumFontSize, height: 1.8);
 }
