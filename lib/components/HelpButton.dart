@@ -6,9 +6,9 @@ import 'package:comp30022/font.dart';
 const double helpIconSize = 33;
 
 class HelpButton extends StatelessWidget {
+  const HelpButton({super.key, this.onPressed, this.pageName = ''});
+  final VoidCallback? onPressed;
   final String pageName;
-
-  const HelpButton({this.pageName = '', super.key});
 
   @override
   Widget build(BuildContext context) {

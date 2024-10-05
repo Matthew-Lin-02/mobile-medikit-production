@@ -4,6 +4,7 @@ const double tinyFontSize = 14.0;
 const double extraSmallFontSize = 18.0;
 const double smallFontSize = 22.0;
 const double mediumFontSize = 24.0;
+const double biggishFontSize = 28.0;
 const double largeFontSize = 32.0;
 const double extraLargeFontSize = 40.0;
 const double subHeadingFontSize = 48.0;
