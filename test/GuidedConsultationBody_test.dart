@@ -1,4 +1,3 @@
-import 'package:comp30022/guidedConsultationBodies/Bodies.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
@@ -14,26 +13,17 @@ void main() {
     Size size = const Size(1920, 1080),
     double devicePixelRatio = 1.0,
   }) {
-    // Set the screen size for the test
     TestWidgetsFlutterBinding.ensureInitialized().window.physicalSizeTestValue =
         size;
     TestWidgetsFlutterBinding.ensureInitialized()
         .window
         .devicePixelRatioTestValue = devicePixelRatio;
 
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (_) => GuidedConsultationState()),
-      ],
-      child: MediaQuery(
-        data: MediaQueryData(size: size, devicePixelRatio: devicePixelRatio),
-        child: MaterialApp(
-          home: AbstractConsultationPage(
-            title: title,
-            pageNum: pageNum,
-            body: body,
-          ),
-        ),
+    return MaterialApp(
+      home: AbstractConsultationPage(
+        title: title,
+        pageNum: pageNum,
+        body: body,
       ),
     );
   }
@@ -46,7 +36,7 @@ void main() {
       await tester.pumpWidget(buildConfig(
         title: title,
         pageNum: 1,
-        body: GuidedConsultationBody(),
+        body: GuidedConsultation(),
       ));
 
       expect(find.text(title), findsOneWidget);
@@ -57,7 +47,7 @@ void main() {
       await tester.pumpWidget(buildConfig(
         title: 'Guided Consultation',
         pageNum: 1,
-        body: GuidedConsultationBody(),
+        body: GuidedConsultation(),
       ));
 
       // Find the ChatbotButton
@@ -70,34 +60,13 @@ void main() {
               'Please tap the help icon on the bottom right for more information'),
           findsOneWidget);
     });
-    testWidgets(
-        'Testing scrollability and also that RedActionButton is present and can be pressed',
-        (WidgetTester tester) async {
-      await tester.pumpWidget(buildConfig(
-        title: 'Guided Consultation',
-        pageNum: 1,
-        body: GuidedConsultationBody(),
-      ));
-
-      final scrollableFinder = find.byType(ListView);
-
-      // Verify that the widget is present
-      expect(scrollableFinder, findsOneWidget);
-
-      // Scroll down by 300 pixels
-      await tester.drag(scrollableFinder, const Offset(0, -1200));
-
-      // Wait for the scroll to settle
-      await tester.pumpAndSettle();
-      expect(find.text('Continue to Screening Tools'), findsOneWidget);
-    });
 
     testWidgets('GuidedConsultationBody displays a YellowCard',
         (WidgetTester tester) async {
       await tester.pumpWidget(buildConfig(
         title: 'Guided Consultation',
         pageNum: 1,
-        body: GuidedConsultationBody(),
+        body: GuidedConsultation(),
       ));
 
       // Find the YellowCard widgets

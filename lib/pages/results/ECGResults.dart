@@ -1,4 +1,5 @@
 import 'package:comp30022/components/StandaloneFunctions.dart';
+import 'package:comp30022/pages/results/ResultsExplanationPage.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/components/RedActionButton.dart';
@@ -78,7 +79,13 @@ class ECGResults extends StatelessWidget {
               child:
                   Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 RedActionButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const ResultsExplanationPage()),
+                    );
+                  },
                   label: "Continue To Patient Education",
                   iconData: Icons.arrow_forward,
                   useCircleAvatar: true,

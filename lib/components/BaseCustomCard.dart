@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 class BaseCustomCard extends StatelessWidget {
   final Widget? child;
-  final Color borderColor;
+  final Color? borderColor;
   final Color backgroundColor;
   final double borderRadius;
-  final double borderWidth;
+  final double? borderWidth; // Optional border width (null or 0 for no border)
   final bool isShadowOn;
   final double? width; // Optional width
   final double? height; // Optional height
@@ -13,10 +13,10 @@ class BaseCustomCard extends StatelessWidget {
   const BaseCustomCard({
     Key? key,
     this.child,
-    required this.borderColor,
+    this.borderColor,
     required this.backgroundColor,
     this.borderRadius = 16.0,
-    this.borderWidth = 2.0,
+    this.borderWidth, // Optional border width
     this.isShadowOn = false,
     this.width, // Optional width
     this.height, // Optional height
@@ -30,16 +30,19 @@ class BaseCustomCard extends StatelessWidget {
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(borderRadius),
         color: backgroundColor, // Customizable background color
-        border: Border.all(
-          color: borderColor, // Customizable border color
-          width: borderWidth,
-          style: BorderStyle.solid, // You can adjust the border width here
-        ),
+        border: (borderWidth != null && borderWidth! > 0)
+            ? Border.all(
+                color: borderColor ??
+                    Colors
+                        .transparent, // Use transparent if no color is provided
+                width: borderWidth!,
+              )
+            : null, // No border if borderWidth is null or 0
         boxShadow: isShadowOn
             ? [
                 BoxShadow(
                   color: Colors.black.withOpacity(0.25),
-                  offset: Offset(0, 4),
+                  offset: const Offset(0, 4),
                   blurRadius: 4,
                 ),
               ]
