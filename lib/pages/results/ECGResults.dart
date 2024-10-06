@@ -270,7 +270,7 @@ class RhythmOverlay extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseOverlay(
       detectedClass: detectedClass,
-      title: "ECG AI Diagnostic Classes Results",
+      title: "ECG AI Rhythm Classes Results",
       analysisClasses: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -297,7 +297,7 @@ class RhythmOverlay extends StatelessWidget {
         ],
       ),
       noDetectionMessage:
-          'No rhytm class detection made, see diagnostic classes',
+          'No rhythm class detection made, see diagnostic classes',
       biologicalText: 'placeholder text',
       clinicalText: 'placeholder text',
       testingText: 'placeholder text',
