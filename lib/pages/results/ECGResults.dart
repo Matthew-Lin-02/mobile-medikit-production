@@ -159,141 +159,157 @@ class DiagnosticOverlay extends StatelessWidget {
   Widget build(BuildContext context) {
     return FractionallySizedBox(
         widthFactor: 0.9,
-        heightFactor: 0.8,
+        heightFactor: (detectedClass == null) ? 0.6 : 0.8,
         child: Container(
-            padding: const EdgeInsets.only(top: 20),
+            padding: const EdgeInsets.symmetric(vertical: 20),
             decoration: BoxDecoration(
               color: AppColors.cream,
               borderRadius: BorderRadius.circular(25),
             ),
-            child: ListView(
-              children: [
-                const Text(
-                  "ECG AI Diagnostic Classes Results",
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: largeFontSize),
-                ),
-                const FractionallySizedBox(
-                    widthFactor: 0.8, child: Divider(color: Colors.black)),
-                FractionallySizedBox(
-                  widthFactor: 0.75,
-                  child: YellowBorderWhiteCard(
-                      child: Column(children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              'NORM',
-                              style: TextStyle(
-                                  decoration: TextDecoration.underline,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: mediumFontSize,
-                                  height: 2.0),
-                            )
-                          ],
+            child: Stack(children: [
+              ListView(
+                children: [
+                  const Text(
+                    "ECG AI Diagnostic Classes Results",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: largeFontSize),
+                  ),
+                  const FractionallySizedBox(
+                      widthFactor: 0.8, child: Divider(color: Colors.black)),
+                  FractionallySizedBox(
+                    widthFactor: 0.75,
+                    child: YellowBorderWhiteCard(
+                        child: Column(children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          const Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'NORM',
+                                style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: mediumFontSize,
+                                    height: 2.0),
+                              )
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              const Text(
+                                'MI',
+                                style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: mediumFontSize,
+                                    height: 2.0),
+                              ),
+                              AnalysisClassText('AMI', detectedClass),
+                              AnalysisClassText('IMI', detectedClass),
+                              AnalysisClassText('LMI', detectedClass),
+                              AnalysisClassText('PMI', detectedClass),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              const Text(
+                                'STTC',
+                                style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: mediumFontSize,
+                                    height: 2.0),
+                              ),
+                              AnalysisClassText('ISCA', detectedClass),
+                              AnalysisClassText('ISCI', detectedClass),
+                              AnalysisClassText('ISC_', detectedClass),
+                              AnalysisClassText('STTC', detectedClass),
+                              AnalysisClassText('NST', detectedClass),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              const Text(
+                                'CD',
+                                style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: mediumFontSize,
+                                    height: 2.0),
+                              ),
+                              AnalysisClassText('LAFB/LPFB', detectedClass),
+                              AnalysisClassText('IRBBB', detectedClass),
+                              AnalysisClassText('IVCD', detectedClass),
+                              AnalysisClassText('_AVB', detectedClass),
+                              AnalysisClassText('CRBBB', detectedClass),
+                              AnalysisClassText('CLBBB', detectedClass),
+                              AnalysisClassText('WPW', detectedClass),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              const Text(
+                                'HYP',
+                                style: TextStyle(
+                                    decoration: TextDecoration.underline,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: mediumFontSize,
+                                    height: 2.0),
+                              ),
+                              AnalysisClassText('LVH', detectedClass),
+                              AnalysisClassText('LAO/LAE', detectedClass),
+                              AnalysisClassText('RVH', detectedClass),
+                              AnalysisClassText('RAO/RAE', detectedClass),
+                              AnalysisClassText('SEHYP', detectedClass),
+                            ],
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 50)
+                    ])),
+                  ),
+                  const SizedBox(height: 50),
+                  detectedClass == null
+                      ? const FractionallySizedBox(
+                          widthFactor: 0.9,
+                          child: YellowBorderWhiteCard(
+                              child: Text(
+                            'No diagnostic class detection made, see rhythm classes',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: subHeadingFontSize),
+                          )))
+                      : const FractionallySizedBox(
+                          widthFactor: 0.75,
+                          child: AIGeneratedAnalysis(
+                            biologicalText:
+                                'Left ventricular hypertrophy (LVH) is a condition where the left ventricle of the heart  becomes thicker than normal due to increased pressure or volume. This can be caused by various factors such as hypertension, aortic stenosis or regurgitation, mitral regurgitation, coarctation of the aorta, and hypertrophic cardiomyopathy.',
+                            clinicalText:
+                                'In terms of ECG presentation, LVH can cause changes in the QRS complex, ST segment, and T wave. The most characteristic finding is an increased amplitude of the  QRS complex. In lead I, the ECG pattern may show a wide and tall R wave with a small or absent S wave. This is known as a "R-wave dominance" pattern and is often associated with LVH.',
+                            testingText:
+                                'However, it\'s important to note that this pattern can also be seen in other conditions such as ventricular tachycardia, so further evaluation such as an echocardiogram is necessary for a definitive diagnosis.',
+                          ),
                         ),
-                        Column(
-                          children: [
-                            const Text(
-                              'MI',
-                              style: TextStyle(
-                                  decoration: TextDecoration.underline,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: mediumFontSize,
-                                  height: 2.0),
-                            ),
-                            AnalysisClassText('AMI', detectedClass),
-                            AnalysisClassText('IMI', detectedClass),
-                            AnalysisClassText('LMI', detectedClass),
-                            AnalysisClassText('PMI', detectedClass),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            const Text(
-                              'STTC',
-                              style: TextStyle(
-                                  decoration: TextDecoration.underline,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: mediumFontSize,
-                                  height: 2.0),
-                            ),
-                            AnalysisClassText('ISCA', detectedClass),
-                            AnalysisClassText('ISCI', detectedClass),
-                            AnalysisClassText('ISC_', detectedClass),
-                            AnalysisClassText('STTC', detectedClass),
-                            AnalysisClassText('NST', detectedClass),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            const Text(
-                              'CD',
-                              style: TextStyle(
-                                  decoration: TextDecoration.underline,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: mediumFontSize,
-                                  height: 2.0),
-                            ),
-                            AnalysisClassText('LAFB/LPFB', detectedClass),
-                            AnalysisClassText('IRBBB', detectedClass),
-                            AnalysisClassText('IVCD', detectedClass),
-                            AnalysisClassText('_AVB', detectedClass),
-                            AnalysisClassText('CRBBB', detectedClass),
-                            AnalysisClassText('CLBBB', detectedClass),
-                            AnalysisClassText('WPW', detectedClass),
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            const Text(
-                              'HYP',
-                              style: TextStyle(
-                                  decoration: TextDecoration.underline,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: mediumFontSize,
-                                  height: 2.0),
-                            ),
-                            AnalysisClassText('LVH', detectedClass),
-                            AnalysisClassText('LAO/LAE', detectedClass),
-                            AnalysisClassText('RVH', detectedClass),
-                            AnalysisClassText('RAO/RAE', detectedClass),
-                            AnalysisClassText('SEHYP', detectedClass),
-                          ],
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 50)
-                  ])),
-                ),
-                const SizedBox(height: 20),
-                detectedClass == null
-                    ? const FractionallySizedBox(
-                        widthFactor: 0.9,
-                        child: YellowBorderWhiteCard(
-                            child: Text(
-                          'No diagnostic class detection made, see rhythm classes',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: subHeadingFontSize),
-                        )))
-                    : const FractionallySizedBox(
-                        widthFactor: 0.9,
-                        child: AIGeneratedAnalysis(
-                          biologicalText:
-                              'Left ventricular hypertrophy (LVH) is a condition where the left ventricle of the heart  becomes thicker than normal due to increased pressure or volume. This can be caused by various factors such as hypertension, aortic stenosis or regurgitation, mitral regurgitation, coarctation of the aorta, and hypertrophic cardiomyopathy.',
-                          clinicalText:
-                              'In terms of ECG presentation, LVH can cause changes in the QRS complex, ST segment, and T wave. The most characteristic finding is an increased amplitude of the  QRS complex. In lead I, the ECG pattern may show a wide and tall R wave with a small or absent S wave. This is known as a "R-wave dominance" pattern and is often associated with LVH.',
-                          testingText:
-                              'However, it\'s important to note that this pattern can also be seen in other conditions such as ventricular tachycardia, so further evaluation such as an echocardiogram is necessary for a definitive diagnosis.',
-                        ),
-                      )
-              ],
-            )));
+                  const SizedBox(height: 40),
+                ],
+              ),
+              Positioned(
+                top: 0,
+                right: 10,
+                child: GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Icon(
+                      Icons.close,
+                      size: 50,
+                      color: AppColors.red,
+                    )),
+              )
+            ])));
   }
 }
 
@@ -306,9 +322,9 @@ class RhythmOverlay extends StatelessWidget {
   Widget build(BuildContext context) {
     return FractionallySizedBox(
         widthFactor: 0.9,
-        heightFactor: 0.8,
+        heightFactor: (detectedClass == null) ? 0.6 : 0.8,
         child: Container(
-            padding: const EdgeInsets.only(top: 20),
+            padding: const EdgeInsets.symmetric(vertical: 20),
             decoration: BoxDecoration(
               color: AppColors.cream,
               borderRadius: BorderRadius.circular(25),
@@ -355,7 +371,7 @@ class RhythmOverlay extends StatelessWidget {
                       const SizedBox(height: 50)
                     ])),
                   ),
-                  const SizedBox(height: 20),
+                  const SizedBox(height: 50),
                   detectedClass == null
                       ? const FractionallySizedBox(
                           widthFactor: 0.9,
@@ -366,22 +382,29 @@ class RhythmOverlay extends StatelessWidget {
                             style: TextStyle(fontSize: subHeadingFontSize),
                           )))
                       : const FractionallySizedBox(
-                          widthFactor: 0.9,
+                          widthFactor: 0.75,
                           child: AIGeneratedAnalysis(
                             biologicalText: 'placeholder text',
                             clinicalText: 'placeholder text',
                             testingText: 'placeholder text',
                           ),
-                        )
+                        ),
+                  const SizedBox(height: 40),
                 ],
               ),
-              const Positioned(
-                  top: 0,
-                  right: 0,
-                  child: Icon(
-                    Icons.close,
-                    color: Colors.red,
-                  ))
+              Positioned(
+                top: 0,
+                right: 10,
+                child: GestureDetector(
+                    onTap: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Icon(
+                      Icons.close,
+                      size: 50,
+                      color: AppColors.red,
+                    )),
+              )
             ])));
   }
 }
@@ -398,6 +421,7 @@ class AnalysisClassText extends StatelessWidget {
         style: TextStyle(
             fontSize: mediumFontSize,
             height: 1.8,
+            fontWeight: FontWeight.w500,
             color: (detectedClass == text) ? Colors.red : Colors.black));
   }
 }
@@ -419,44 +443,74 @@ class AIGeneratedAnalysis extends StatelessWidget {
     return DarkGreenBorderGreenCard(
         child: Column(
       children: [
+        const SizedBox(height: 20),
         const Text(
           'Generative AI Analysis:',
-          style: TextStyle(color: Colors.white, fontSize: largeFontSize),
+          style: TextStyle(
+              color: Colors.white,
+              fontSize: largeFontSize,
+              fontWeight: FontWeight.bold),
         ),
+        const SizedBox(height: 50),
         const Align(
             alignment: Alignment.centerLeft,
-            child: Text(
-              'Biological Description of classification:',
-              style: TextStyle(color: Colors.white, fontSize: mediumFontSize),
-              textAlign: TextAlign.left,
-            )),
-        Text(biologicalText,
-            style:
-                const TextStyle(color: Colors.white, fontSize: smallFontSize),
-            textAlign: TextAlign.left),
+            child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: Text(
+                  'Biological Description of classification:',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: mediumFontSize,
+                      fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.left,
+                ))),
+        Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Text(biologicalText,
+                style: const TextStyle(
+                    color: Colors.white, fontSize: smallFontSize, height: 1.8),
+                textAlign: TextAlign.left)),
+        const SizedBox(height: 20),
         const Align(
             alignment: Alignment.centerLeft,
+            child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: Text(
+                  'Clinical Presentation in ECG of classification:',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: mediumFontSize,
+                      fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.left,
+                ))),
+        Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Text(
-              'Clinical Presentation in ECG of classification:',
-              style: TextStyle(color: Colors.white, fontSize: mediumFontSize),
+              clinicalText,
+              style: const TextStyle(
+                  color: Colors.white, fontSize: smallFontSize, height: 1.8),
               textAlign: TextAlign.left,
             )),
-        Text(
-          clinicalText,
-          style: const TextStyle(color: Colors.white, fontSize: smallFontSize),
-          textAlign: TextAlign.left,
-        ),
+        const SizedBox(height: 20),
         const Align(
             alignment: Alignment.centerLeft,
-            child: Text(
-              'Testing Limitations and next step recommendations:',
-              style: TextStyle(color: Colors.white, fontSize: mediumFontSize),
-              textAlign: TextAlign.left,
-            )),
-        Text(testingText,
-            style:
-                const TextStyle(color: Colors.white, fontSize: smallFontSize),
-            textAlign: TextAlign.left),
+            child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                child: Text(
+                  'Testing Limitations and next step recommendations:',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: mediumFontSize,
+                      fontWeight: FontWeight.bold),
+                  textAlign: TextAlign.left,
+                ))),
+        Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Text(testingText,
+                style: const TextStyle(
+                    color: Colors.white, fontSize: smallFontSize, height: 1.8),
+                textAlign: TextAlign.left)),
+        const SizedBox(height: 20),
       ],
     ));
   }
