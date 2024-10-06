@@ -4,6 +4,7 @@ import 'package:comp30022/components/RedActionButton.dart';
 import 'package:comp30022/components/StandaloneFunctions.dart';
 import 'package:comp30022/components/screening/Snapshot.dart';
 import 'package:comp30022/components/BaseCustomCard.dart';
+import 'package:comp30022/components/HelpButton.dart';
 
 class ThroatSnapshotAnalysis extends StatelessWidget {
   const ThroatSnapshotAnalysis({super.key});
@@ -64,6 +65,8 @@ class ThroatSnapshotAnalysis extends StatelessWidget {
               image: const AssetImage(
                   'assets/images/art/big-symbols/goanna-circle.png')),
         ),
+        const Positioned(
+            right: 21.0, bottom: 70.0, child: HelpButton(pageName: 'Throat')),
       ],
     );
   }
