@@ -80,8 +80,8 @@ class ECGHelp extends StatelessWidget {
                         Padding(
                             padding: EdgeInsets.all(60),
                             child: Image(
-                                image:
-                                    AssetImage('assets/images/ecg_image.png'))),
+                                image: AssetImage(
+                                    'assets/images/help/ecg_image.png'))),
                         Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
@@ -90,7 +90,7 @@ class ECGHelp extends StatelessWidget {
                                       left: 60, right: 20, bottom: 20),
                                   child: Image(
                                       image: AssetImage(
-                                          'assets/images/LA_sensor.png'),
+                                          'assets/images/help/LA_sensor.png'),
                                       width: 50,
                                       height: 50)),
                               Text("LA sensor: below left clavicle bone",
@@ -105,7 +105,7 @@ class ECGHelp extends StatelessWidget {
                                       left: 60, right: 20, bottom: 20),
                                   child: Image(
                                       image: AssetImage(
-                                          'assets/images/RA_sensor.png'),
+                                          'assets/images/help/RA_sensor.png'),
                                       width: 50,
                                       height: 50)),
                               Text("RA sensor: below right clavicle bone",
@@ -120,7 +120,7 @@ class ECGHelp extends StatelessWidget {
                                       left: 60, right: 20, bottom: 20),
                                   child: Image(
                                       image: AssetImage(
-                                          'assets/images/RL_sensor.png'),
+                                          'assets/images/help/RL_sensor.png'),
                                       width: 50,
                                       height: 50)),
                               Text("RL sensor: lower right abdoment",

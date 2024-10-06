@@ -50,7 +50,7 @@ void main() {
         widget is Image &&
         widget.image is AssetImage &&
         (widget.image as AssetImage).assetName ==
-            "assets/images/Normal_ECG.png");
+            "assets/images/results/Normal_ECG.png");
     expect(normalEcgImage, findsOneWidget);
 
     // Find Patient ECG image
@@ -58,7 +58,7 @@ void main() {
         widget is Image &&
         widget.image is AssetImage &&
         (widget.image as AssetImage).assetName ==
-            "assets/images/Patients_ECG.png");
+            "assets/images/results/Patients_ECG.png");
     expect(patientsEcgImage, findsOneWidget);
 
     // Find Analysis Button Section Title
