@@ -64,7 +64,11 @@ class ECGResults extends StatelessWidget {
               const SizedBox(height: 100),
               ClassAnalysisButton(
                   onPressed: () {
-                    showCustomModal(context, const RhythmOverlay());
+                    showCustomModal(
+                        context,
+                        const RhythmOverlay(
+                          detectedClass: 'AFIB',
+                        ));
                   },
                   imagePath: "assets/images/Touch_Icon.png",
                   iconSpacing: 60,
@@ -146,7 +150,9 @@ class ClassAnalysisButton extends StatelessWidget {
 }
 
 class DiagnosticOverlay extends StatelessWidget {
-  const DiagnosticOverlay({super.key});
+  const DiagnosticOverlay({super.key, this.detectedClass});
+
+  final String? detectedClass;
 
   @override
   Widget build(BuildContext context) {
@@ -160,13 +166,13 @@ class DiagnosticOverlay extends StatelessWidget {
               borderRadius: BorderRadius.circular(25),
             ),
             child: ListView(
-              children: const [
-                Text(
+              children: [
+                const Text(
                   "ECG AI Diagnostic Classes Results",
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: largeFontSize),
                 ),
-                FractionallySizedBox(
+                const FractionallySizedBox(
                     widthFactor: 0.8, child: Divider(color: Colors.black)),
                 FractionallySizedBox(
                   widthFactor: 0.75,
@@ -176,7 +182,7 @@ class DiagnosticOverlay extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Column(
+                        const Column(
                           mainAxisAlignment: MainAxisAlignment.start,
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -192,7 +198,7 @@ class DiagnosticOverlay extends StatelessWidget {
                         ),
                         Column(
                           children: [
-                            Text(
+                            const Text(
                               'MI',
                               style: TextStyle(
                                   decoration: TextDecoration.underline,
@@ -200,15 +206,15 @@ class DiagnosticOverlay extends StatelessWidget {
                                   fontSize: mediumFontSize,
                                   height: 2.0),
                             ),
-                            Text('AMI', style: OverlayText.analysisClass),
-                            Text('IMI', style: OverlayText.analysisClass),
-                            Text('LMI', style: OverlayText.analysisClass),
-                            Text('PMI', style: OverlayText.analysisClass),
+                            AnalysisClassText('AMI', detectedClass),
+                            AnalysisClassText('IMI', detectedClass),
+                            AnalysisClassText('LMI', detectedClass),
+                            AnalysisClassText('PMI', detectedClass),
                           ],
                         ),
                         Column(
                           children: [
-                            Text(
+                            const Text(
                               'STTC',
                               style: TextStyle(
                                   decoration: TextDecoration.underline,
@@ -216,16 +222,16 @@ class DiagnosticOverlay extends StatelessWidget {
                                   fontSize: mediumFontSize,
                                   height: 2.0),
                             ),
-                            Text('ISCA', style: OverlayText.analysisClass),
-                            Text('ISCI', style: OverlayText.analysisClass),
-                            Text('ISC_', style: OverlayText.analysisClass),
-                            Text('STTC', style: OverlayText.analysisClass),
-                            Text('NST_', style: OverlayText.analysisClass),
+                            AnalysisClassText('ISCA', detectedClass),
+                            AnalysisClassText('ISCI', detectedClass),
+                            AnalysisClassText('ISC_', detectedClass),
+                            AnalysisClassText('STTC', detectedClass),
+                            AnalysisClassText('NST', detectedClass),
                           ],
                         ),
                         Column(
                           children: [
-                            Text(
+                            const Text(
                               'CD',
                               style: TextStyle(
                                   decoration: TextDecoration.underline,
@@ -233,19 +239,18 @@ class DiagnosticOverlay extends StatelessWidget {
                                   fontSize: mediumFontSize,
                                   height: 2.0),
                             ),
-                            Text('LAFB/LPFB', style: OverlayText.analysisClass),
-                            Text('IRBBB', style: OverlayText.analysisClass),
-                            Text('IVCD', style: OverlayText.analysisClass),
-                            Text('_AVB', style: OverlayText.analysisClass),
-                            Text('CRBBB', style: OverlayText.analysisClass),
-                            Text('CLBBB', style: OverlayText.analysisClass),
-                            Text('ILBBB', style: OverlayText.analysisClass),
-                            Text('WPW', style: OverlayText.analysisClass),
+                            AnalysisClassText('LAFB/LPFB', detectedClass),
+                            AnalysisClassText('IRBBB', detectedClass),
+                            AnalysisClassText('IVCD', detectedClass),
+                            AnalysisClassText('_AVB', detectedClass),
+                            AnalysisClassText('CRBBB', detectedClass),
+                            AnalysisClassText('CLBBB', detectedClass),
+                            AnalysisClassText('WPW', detectedClass),
                           ],
                         ),
                         Column(
                           children: [
-                            Text(
+                            const Text(
                               'HYP',
                               style: TextStyle(
                                   decoration: TextDecoration.underline,
@@ -253,20 +258,20 @@ class DiagnosticOverlay extends StatelessWidget {
                                   fontSize: mediumFontSize,
                                   height: 2.0),
                             ),
-                            Text('LVH', style: OverlayText.analysisClass),
-                            Text('LAO/LAE', style: OverlayText.analysisClass),
-                            Text('RVH', style: OverlayText.analysisClass),
-                            Text('RAO/RAE', style: OverlayText.analysisClass),
-                            Text('SEHYP', style: OverlayText.analysisClass),
+                            AnalysisClassText('LVH', detectedClass),
+                            AnalysisClassText('LAO/LAE', detectedClass),
+                            AnalysisClassText('RVH', detectedClass),
+                            AnalysisClassText('RAO/RAE', detectedClass),
+                            AnalysisClassText('SEHYP', detectedClass),
                           ],
                         ),
                       ],
                     ),
-                    SizedBox(height: 50)
+                    const SizedBox(height: 50)
                   ])),
                 ),
-                SizedBox(height: 20),
-                FractionallySizedBox(
+                const SizedBox(height: 20),
+                const FractionallySizedBox(
                     widthFactor: 0.9,
                     child: YellowBorderWhiteCard(
                         child: Text(
@@ -280,18 +285,97 @@ class DiagnosticOverlay extends StatelessWidget {
 }
 
 class RhythmOverlay extends StatelessWidget {
-  const RhythmOverlay({super.key});
+  const RhythmOverlay({super.key, this.detectedClass});
+
+  final String? detectedClass;
 
   @override
   Widget build(BuildContext context) {
     return FractionallySizedBox(
-      widthFactor: 0.75,
-      heightFactor: 0.8,
-    );
+        widthFactor: 0.9,
+        heightFactor: 0.8,
+        child: Container(
+            padding: const EdgeInsets.only(top: 20),
+            decoration: BoxDecoration(
+              color: AppColors.cream,
+              borderRadius: BorderRadius.circular(25),
+            ),
+            child: Stack(children: [
+              ListView(
+                children: [
+                  const Text(
+                    "ECG AI Diagnostic Classes Results",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: largeFontSize),
+                  ),
+                  const FractionallySizedBox(
+                      widthFactor: 0.8, child: Divider(color: Colors.black)),
+                  FractionallySizedBox(
+                    widthFactor: 0.75,
+                    child: YellowBorderWhiteCard(
+                        child: Column(children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Column(
+                            children: [
+                              AnalysisClassText('SR', detectedClass),
+                              AnalysisClassText('AFIB', detectedClass),
+                              AnalysisClassText('STACH', detectedClass),
+                              AnalysisClassText('SARRH', detectedClass),
+                              AnalysisClassText('SBRAD', detectedClass),
+                            ],
+                          ),
+                          Column(
+                            children: [
+                              AnalysisClassText('SVARR', detectedClass),
+                              AnalysisClassText('TRIGU', detectedClass),
+                              AnalysisClassText('BIGU', detectedClass),
+                              AnalysisClassText('AFLT', detectedClass),
+                              AnalysisClassText('SVTAC', detectedClass),
+                              AnalysisClassText('PSVT', detectedClass),
+                            ],
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 50)
+                    ])),
+                  ),
+                  const SizedBox(height: 20),
+                  const FractionallySizedBox(
+                      widthFactor: 0.9,
+                      child: YellowBorderWhiteCard(
+                          child: Text(
+                        'No rhytm class detection made, see diagnostic classes',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: subHeadingFontSize),
+                      )))
+                ],
+              ),
+              const Positioned(
+                  top: 0,
+                  right: 0,
+                  child: Icon(
+                    Icons.close,
+                    color: Colors.red,
+                  ))
+            ])));
   }
 }
 
-abstract class OverlayText {
-  static const TextStyle analysisClass =
-      TextStyle(fontSize: mediumFontSize, height: 1.8);
+class AnalysisClassText extends StatelessWidget {
+  final String text;
+  final String? detectedClass;
+
+  const AnalysisClassText(this.text, this.detectedClass, {super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(text,
+        style: TextStyle(
+            fontSize: mediumFontSize,
+            height: 1.8,
+            color: (detectedClass == text) ? Colors.red : Colors.black));
+  }
 }
