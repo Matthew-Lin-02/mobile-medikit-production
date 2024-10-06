@@ -104,6 +104,6 @@ void main() {
     await tester.pump();
 
     // Checks that overlay closes when tapping outside
-    expect(find.byType(DiagnosticOverlay), findsNothing);
+    expect(find.byType(RhythmOverlay), findsNothing);
   });
 }
