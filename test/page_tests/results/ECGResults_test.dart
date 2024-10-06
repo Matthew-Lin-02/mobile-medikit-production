@@ -71,22 +71,39 @@ void main() {
     expect(find.byType(RedActionButton), findsOneWidget);
   });
 
-  testWidgets("Class Analysis Button is clickable",
+  testWidgets("Class Analysis Buttons display overlay when clicked",
       (WidgetTester tester) async {
-    bool wasPressed = false;
-    await tester.pumpWidget(MaterialApp(
-        home: Scaffold(
-      body: ClassAnalysisButton(
-          imagePath: "assets/images/Touch_Icon.png",
-          iconSpacing: 20,
-          label: "Test",
-          onPressed: () {
-            wasPressed = true;
-          }),
-    )));
-    await tester.tap(find.text("Test"));
+    await tester.pumpWidget(buildConfig(
+      title: "BloodPressure",
+      pageNum: 3,
+      body: ECGResults(),
+    ));
+
+    await tester.drag(find.byType(ListView), const Offset(0, -800));
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text("Diagnostic Classes"));
     await tester.pump();
 
-    expect(wasPressed, isTrue);
+    // Check that diagnostic overlay is displayed
+    expect(find.byType(DiagnosticOverlay), findsOneWidget);
+
+    await tester.tapAt(const Offset(0, 0));
+    await tester.pump();
+
+    // Checks that overlay closes when tapping outside
+    expect(find.byType(DiagnosticOverlay), findsNothing);
+
+    await tester.tap(find.text("Rhythm Classes"));
+    await tester.pump();
+
+    // Check that rhythm overlay is displayed
+    expect(find.byType(RhythmOverlay), findsOneWidget);
+
+    await tester.tapAt(Offset(0, 0));
+    await tester.pump();
+
+    // Checks that overlay closes when tapping outside
+    expect(find.byType(DiagnosticOverlay), findsNothing);
   });
 }
