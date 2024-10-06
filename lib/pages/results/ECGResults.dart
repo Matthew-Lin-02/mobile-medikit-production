@@ -7,6 +7,7 @@ import 'package:comp30022/font.dart';
 import 'package:comp30022/components/HelpButton.dart';
 import 'package:comp30022/components/ChatbotButton.dart';
 import 'package:comp30022/components/YellowBorderWhiteCard.dart';
+import 'package:comp30022/components/DarkGreenBorderGreenCard.dart';
 
 class ECGResults extends StatelessWidget {
   const ECGResults({super.key});
@@ -56,7 +57,11 @@ class ECGResults extends StatelessWidget {
                   widthFactor: 0.75, child: Divider(color: Colors.black)),
               ClassAnalysisButton(
                   onPressed: () {
-                    showCustomModal(context, const DiagnosticOverlay());
+                    showCustomModal(
+                        context,
+                        const DiagnosticOverlay(
+                          detectedClass: 'LVH',
+                        ));
                   },
                   imagePath: "assets/images/Touch_Icon.png",
                   iconSpacing: 30,
@@ -64,11 +69,7 @@ class ECGResults extends StatelessWidget {
               const SizedBox(height: 100),
               ClassAnalysisButton(
                   onPressed: () {
-                    showCustomModal(
-                        context,
-                        const RhythmOverlay(
-                          detectedClass: 'AFIB',
-                        ));
+                    showCustomModal(context, const RhythmOverlay());
                   },
                   imagePath: "assets/images/Touch_Icon.png",
                   iconSpacing: 60,
@@ -271,14 +272,26 @@ class DiagnosticOverlay extends StatelessWidget {
                   ])),
                 ),
                 const SizedBox(height: 20),
-                const FractionallySizedBox(
-                    widthFactor: 0.9,
-                    child: YellowBorderWhiteCard(
-                        child: Text(
-                      'No diagnostic class detection made, see rhythm classes',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: subHeadingFontSize),
-                    )))
+                detectedClass == null
+                    ? const FractionallySizedBox(
+                        widthFactor: 0.9,
+                        child: YellowBorderWhiteCard(
+                            child: Text(
+                          'No diagnostic class detection made, see rhythm classes',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(fontSize: subHeadingFontSize),
+                        )))
+                    : const FractionallySizedBox(
+                        widthFactor: 0.9,
+                        child: AIGeneratedAnalysis(
+                          biologicalText:
+                              'Left ventricular hypertrophy (LVH) is a condition where the left ventricle of the heart  becomes thicker than normal due to increased pressure or volume. This can be caused by various factors such as hypertension, aortic stenosis or regurgitation, mitral regurgitation, coarctation of the aorta, and hypertrophic cardiomyopathy.',
+                          clinicalText:
+                              'In terms of ECG presentation, LVH can cause changes in the QRS complex, ST segment, and T wave. The most characteristic finding is an increased amplitude of the  QRS complex. In lead I, the ECG pattern may show a wide and tall R wave with a small or absent S wave. This is known as a "R-wave dominance" pattern and is often associated with LVH.',
+                          testingText:
+                              'However, it\'s important to note that this pattern can also be seen in other conditions such as ventricular tachycardia, so further evaluation such as an echocardiogram is necessary for a definitive diagnosis.',
+                        ),
+                      )
               ],
             )));
   }
@@ -343,14 +356,23 @@ class RhythmOverlay extends StatelessWidget {
                     ])),
                   ),
                   const SizedBox(height: 20),
-                  const FractionallySizedBox(
-                      widthFactor: 0.9,
-                      child: YellowBorderWhiteCard(
-                          child: Text(
-                        'No rhytm class detection made, see diagnostic classes',
-                        textAlign: TextAlign.center,
-                        style: TextStyle(fontSize: subHeadingFontSize),
-                      )))
+                  detectedClass == null
+                      ? const FractionallySizedBox(
+                          widthFactor: 0.9,
+                          child: YellowBorderWhiteCard(
+                              child: Text(
+                            'No rhytm class detection made, see diagnostic classes',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(fontSize: subHeadingFontSize),
+                          )))
+                      : const FractionallySizedBox(
+                          widthFactor: 0.9,
+                          child: AIGeneratedAnalysis(
+                            biologicalText: 'placeholder text',
+                            clinicalText: 'placeholder text',
+                            testingText: 'placeholder text',
+                          ),
+                        )
                 ],
               ),
               const Positioned(
@@ -377,5 +399,65 @@ class AnalysisClassText extends StatelessWidget {
             fontSize: mediumFontSize,
             height: 1.8,
             color: (detectedClass == text) ? Colors.red : Colors.black));
+  }
+}
+
+class AIGeneratedAnalysis extends StatelessWidget {
+  const AIGeneratedAnalysis(
+      {super.key,
+      required this.biologicalText,
+      required this.clinicalText,
+      required this.testingText});
+
+  // Text generated from AI explaning results (currently uses placeholder text)
+  final String biologicalText;
+  final String clinicalText;
+  final String testingText;
+
+  @override
+  Widget build(BuildContext context) {
+    return DarkGreenBorderGreenCard(
+        child: Column(
+      children: [
+        const Text(
+          'Generative AI Analysis:',
+          style: TextStyle(color: Colors.white, fontSize: largeFontSize),
+        ),
+        const Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              'Biological Description of classification:',
+              style: TextStyle(color: Colors.white, fontSize: mediumFontSize),
+              textAlign: TextAlign.left,
+            )),
+        Text(biologicalText,
+            style:
+                const TextStyle(color: Colors.white, fontSize: smallFontSize),
+            textAlign: TextAlign.left),
+        const Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              'Clinical Presentation in ECG of classification:',
+              style: TextStyle(color: Colors.white, fontSize: mediumFontSize),
+              textAlign: TextAlign.left,
+            )),
+        Text(
+          clinicalText,
+          style: const TextStyle(color: Colors.white, fontSize: smallFontSize),
+          textAlign: TextAlign.left,
+        ),
+        const Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              'Testing Limitations and next step recommendations:',
+              style: TextStyle(color: Colors.white, fontSize: mediumFontSize),
+              textAlign: TextAlign.left,
+            )),
+        Text(testingText,
+            style:
+                const TextStyle(color: Colors.white, fontSize: smallFontSize),
+            textAlign: TextAlign.left),
+      ],
+    ));
   }
 }

@@ -40,4 +40,5 @@ class AppColors {
   static Color resultsOrange = const Color(0xFFFF5F15).withOpacity(0.8);
   static Color resultsGreen = const Color(0xFF169D15).withOpacity(0.75);
   static Color resultsBlue = const Color(0xFF48a4fc);
+  static const Color darkGreen = Color(0xFF006847);
 }
