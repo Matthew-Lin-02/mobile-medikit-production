@@ -27,7 +27,8 @@ Builder signUpBody = Builder(builder: (context) {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Image(
-                          image: AssetImage('assets/images/red_art.png'),
+                          image: AssetImage(
+                              'assets/images/art/small-symbols/person-simple.png'),
                           width: 60,
                           height: 60,
                         ),
@@ -83,7 +84,8 @@ Builder signUpBody = Builder(builder: (context) {
                       children: [
                         SizedBox(height: 20),
                         Image(
-                          image: AssetImage('assets/images/yellow_art.png'),
+                          image: AssetImage(
+                              'assets/images/art/small-symbols/people-sitting.png'),
                           width: 60,
                           height: 60,
                         ),

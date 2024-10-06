@@ -28,7 +28,7 @@ class MentalHealthCheck extends StatelessWidget {
                   child: SizedBox(
                     width: 1200,
                     height: 400,
-                    child: Image.asset('assets/images/Journey-Strip1.png',
+                    child: Image.asset('assets/images/art/journey-strip2.png',
                         fit: BoxFit.cover),
                   )),
               Align(
@@ -104,12 +104,12 @@ class WelcomeFaces extends StatefulWidget {
 }
 
 class _WelcomeFacesState extends State<WelcomeFaces> {
-  String image = 'assets/images/Faces_empty.png';
+  String image = 'assets/images/mental-health-check/Faces_empty.png';
 
   @override
   initState() {
     super.initState();
-    image = 'assets/images/Faces_empty.png';
+    image = 'assets/images/mental-health-check/Faces_empty.png';
   }
 
   @override
@@ -131,7 +131,7 @@ class _WelcomeFacesState extends State<WelcomeFaces> {
                 onTap: () {
                   /// Face 1 has been selected (worst)
                   setState(() {
-                    image = 'assets/images/Faces_1.png';
+                    image = 'assets/images/mental-health-check/Faces_1.png';
                   });
                 },
                 child: Container(
@@ -148,7 +148,7 @@ class _WelcomeFacesState extends State<WelcomeFaces> {
                 onTap: () {
                   /// Face 2 has been selected
                   setState(() {
-                    image = 'assets/images/Faces_2.png';
+                    image = 'assets/images/mental-health-check/Faces_2.png';
                   });
                 },
                 child: Container(
@@ -163,7 +163,7 @@ class _WelcomeFacesState extends State<WelcomeFaces> {
                 onTap: () {
                   /// Face 3 has been selected
                   setState(() {
-                    image = 'assets/images/Faces_3.png';
+                    image = 'assets/images/mental-health-check/Faces_3.png';
                   });
                 },
                 child: Container(
@@ -178,7 +178,7 @@ class _WelcomeFacesState extends State<WelcomeFaces> {
                 onTap: () {
                   /// Face 4 has been selected
                   setState(() {
-                    image = 'assets/images/Faces_4.png';
+                    image = 'assets/images/mental-health-check/Faces_4.png';
                   });
                 },
                 child: Container(
@@ -193,7 +193,7 @@ class _WelcomeFacesState extends State<WelcomeFaces> {
                 onTap: () {
                   /// Face 5 has been selected (best)
                   setState(() {
-                    image = 'assets/images/Faces_5.png';
+                    image = 'assets/images/mental-health-check/Faces_5.png';
                   });
                 },
                 child: Container(
