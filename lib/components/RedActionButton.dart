@@ -3,6 +3,7 @@ import 'package:comp30022/color.dart';
 
 const Size smallButtonSize = Size(250, 80);
 const Size smallButtonSizeCompact = Size(250, 65);
+const Size mediumButtonSizeShort = Size(300, 60);
 const Size mediumButtonSize = Size(400, 100);
 const Size mediumButtonSizeLong = Size(515, 60);
 const Size largeButtonSize = Size(900, 130);
@@ -11,6 +12,7 @@ const double smallButtonFontSize = 28.0;
 const double largeButtonFontSize = 40.0;
 
 const double mediumIconSize = 40.0;
+const double largeIconSize = 80.0;
 
 class RedActionButton extends StatelessWidget {
   RedActionButton({

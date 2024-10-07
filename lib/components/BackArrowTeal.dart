@@ -53,7 +53,12 @@ class BackArrowWelcome extends StatelessWidget {
                 fontSize: subHeadingFontSize,
                 color: Colors.black.withOpacity(0.7))),
         const SizedBox(width: 20),
-        const Image(image: AssetImage('assets/images/yellow_art.png')),
+        const Image(
+          image:
+              AssetImage('assets/images/art/small-symbols/people-sitting.png'),
+          width: 60,
+          height: 60,
+        ),
       ]),
       const Row(children: [
         SizedBox(width: 110),

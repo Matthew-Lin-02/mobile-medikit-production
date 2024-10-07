@@ -37,14 +37,14 @@ class ECGResults extends StatelessWidget {
                   scrollDirection: Axis.horizontal,
                   child: Row(children: [
                     const SizedBox(width: 35),
-                    Image.asset("assets/images/Normal_ECG.png"),
+                    Image.asset("assets/images/results/Normal_ECG.png"),
                     const SizedBox(width: 80)
                   ])),
               SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(children: [
                     const SizedBox(width: 35),
-                    Image.asset("assets/images/Patients_ECG.png"),
+                    Image.asset("assets/images/results/Patients_ECG.png"),
                     const SizedBox(width: 80)
                   ])),
               const SizedBox(height: 40),

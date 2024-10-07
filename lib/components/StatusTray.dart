@@ -31,7 +31,7 @@ class StatusTray extends StatelessWidget {
                   child: StatusIcon(
                 key: wifiKey,
                 iconSize: iconSize,
-                image: 'assets/images/wifi_figma.png',
+                image: 'assets/images/status-tray/wifi_figma.png',
                 onPressed: () {
                   showCustomModal(context, WifiInfo(parentKey: wifiKey));
                 },
@@ -39,7 +39,7 @@ class StatusTray extends StatelessWidget {
               Expanded(
                   child: StatusIcon(
                 iconSize: iconSize,
-                image: 'assets/images/Group_figma.png',
+                image: 'assets/images/status-tray/globe_figma.png',
                 onPressed: () {
                   showCustomModal(context, const MachineTranslationOverlay());
                 },
@@ -47,7 +47,7 @@ class StatusTray extends StatelessWidget {
               Expanded(
                   child: StatusIcon(
                       iconSize: iconSize,
-                      image: 'assets/images/person_figma.png',
+                      image: 'assets/images/status-tray/person_figma.png',
                       onPressed: () {
                         if (currentRoute != '/patientProfile') {
                           Navigator.pushNamed(context, '/patientProfile');
@@ -56,12 +56,12 @@ class StatusTray extends StatelessWidget {
               Expanded(
                   child: StatusIcon(
                 iconSize: iconSize,
-                image: 'assets/images/settings_figma.png',
+                image: 'assets/images/status-tray/settings_figma.png',
               )),
               Expanded(
                   child: StatusIcon(
                 iconSize: iconSize,
-                image: 'assets/images/phone_figma.png',
+                image: 'assets/images/status-tray/phone_figma.png',
                 onPressed: () {
                   showCustomModal(context, ContactHealthExpertWidget());
                 },
@@ -76,7 +76,7 @@ class StatusTray extends StatelessWidget {
                   ),
                   child: StatusIcon(
                       iconSize: iconSize,
-                      image: 'assets/images/ambulance_figma.png'),
+                      image: 'assets/images/status-tray/ambulance_figma.png'),
                 ),
               ),
             ],
