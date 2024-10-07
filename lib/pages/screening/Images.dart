@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/font.dart';
 import 'package:comp30022/components/ChatbotButton.dart';
-import 'package:comp30022/components/HelpButton.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
 import 'package:comp30022/pages/screening/ThroatSnapshotAnalysis.dart';
 import 'package:comp30022/pages/screening/SkinSnapshotAnalysis.dart';
@@ -106,7 +105,6 @@ class _ImagesState extends State<Images> with SingleTickerProviderStateMixin {
               ],
             ),
             const Positioned(right: 30.0, top: 90.0, child: ChatBotButton()),
-            const Positioned(right: 21.0, bottom: 70.0, child: HelpButton()),
             const Positioned(
                 bottom: 0,
                 child: Image(
