@@ -55,8 +55,7 @@ void main() {
       expect(find.byType(SkinSnapshotAnalysis), findsOneWidget);
     });
 
-    testWidgets('displays Chat Bot Button and Help Button',
-        (WidgetTester tester) async {
+    testWidgets('displays Chat Bot Button', (WidgetTester tester) async {
       await tester.pumpWidget(buildConfig(
         title: 'Images',
         pageNum: 3,
@@ -64,7 +63,6 @@ void main() {
       ));
 
       expect(find.byType(ChatBotButton), findsOneWidget);
-      expect(find.byType(HelpButton), findsOneWidget);
     });
   });
 
@@ -159,6 +157,30 @@ void main() {
       await tester.pumpAndSettle();
       expect(find.byType(ThroatSnapshotOverlay), findsNothing);
     });
+
+    testWidgets('displays the help button and help button contents',
+        (WidgetTester tester) async {
+      await tester.pumpWidget(buildConfig(
+        title: 'Images',
+        pageNum: 3,
+        body: const Images(),
+      ));
+
+      // Tap the Throat Snapshot Analysis tab
+      await tester.tap(find.text('Throat Snapshot Analysis'));
+      await tester.pumpAndSettle();
+      expect(find.byType(HelpButton), findsOneWidget);
+
+      // Tap the help button
+      await tester.tap(find.byType(HelpButton));
+      await tester.pumpAndSettle();
+      expect(find.byType(ThroatHelp), findsOneWidget);
+
+      // Tap outside the overlay to close it
+      await tester.tapAt(const Offset(10, 10));
+      await tester.pumpAndSettle();
+      expect(find.byType(ThroatHelp), findsNothing);
+    });
   });
 
   group('Skin Snapshot Analysis', () {
@@ -251,6 +273,30 @@ void main() {
       await tester.tapAt(const Offset(10, 10));
       await tester.pumpAndSettle();
       expect(find.byType(SkinSnapshotOverlay), findsNothing);
+    });
+
+    testWidgets('displays the help button and help button contents',
+        (WidgetTester tester) async {
+      await tester.pumpWidget(buildConfig(
+        title: 'Images',
+        pageNum: 3,
+        body: const Images(),
+      ));
+
+      // Tap the Skin Snapshot Analysis tab
+      await tester.tap(find.text('Skin Snapshot Analysis'));
+      await tester.pumpAndSettle();
+      expect(find.byType(HelpButton), findsOneWidget);
+
+      // Tap the help button
+      await tester.tap(find.byType(HelpButton));
+      await tester.pumpAndSettle();
+      expect(find.byType(SkinHelp), findsOneWidget);
+
+      // Tap outside the overlay to close it
+      await tester.tapAt(const Offset(10, 10));
+      await tester.pumpAndSettle();
+      expect(find.byType(SkinHelp), findsNothing);
     });
   });
 }

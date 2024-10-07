@@ -190,48 +190,53 @@ class ThroatHelp extends StatelessWidget {
             borderRadius: BorderRadius.circular(25),
           ),
           child: Stack(children: [
-            const Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Text("Throat Imaging: Help Page",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: extraLargeFontSize)),
-                ]),
-                Row(
-                  children: [
-                    Expanded(
-                        child: Image(
-                            width: 660,
-                            height: 520,
-                            image: AssetImage(
-                                'assets/images/screening-tools/throat-help.png'))),
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.only(right: 100),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Center(
-                                child: Text("Methodology",
+            const SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                    Padding(
+                      padding: EdgeInsets.all(40.0),
+                      child: Text("Throat Imaging: Help Page",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: extraLargeFontSize)),
+                    ),
+                  ]),
+                  Row(
+                    children: [
+                      Expanded(
+                          child: Image(
+                              width: 660,
+                              height: 520,
+                              image: AssetImage(
+                                  'assets/images/screening-tools/throat-help.png'))),
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsets.only(right: 100),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Center(
+                                  child: Text("Methodology",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: largeFontSize))),
+                              SizedBox(height: 30),
+                              Center(
+                                child: Text(
+                                    "1. Ask patient to be in a position where they are comfortable and within range of the camera\n    \u2022 If the patient is a restless child, kindly ask the parents to hold them still while completing the check up\n2. Utilise a torch for better lighting\n3. Take a clear picture of the back of the throat\n    \u2022 If the uvula is in the way - Ask the patient to say “ahhh” so that it will be lifted up\n    \u2022 If the tongue is in the way - Use a tongue depressor (e.g. popstick) to gently press down the tongue\n4. Once happy with an image taken, press “Submit Snapshot” and then “Complete Vision Analysis” to view the analysis results\n",
                                     style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: largeFontSize))),
-                            SizedBox(height: 30),
-                            Center(
-                              child: Text(
-                                  "1. Ask patient to be in a position where they are comfortable and within range of the camera\n    \u2022 If the patient is a restless child, kindly ask the parents to hold them still while completing the check up\n2. Utilise a torch for better lighting\n3. Take a clear picture of the back of the throat\n    \u2022 If the uvula is in the way - Ask the patient to say “ahhh” so that it will be lifted up\n    \u2022 If the tongue is in the way - Use a tongue depressor (e.g. popstick) to gently press down the tongue\n4. Once happy with an image taken, press “Submit Snapshot” and then “Complete Vision Analysis” to view the analysis results\n",
-                                  style: TextStyle(
-                                      fontSize: mediumFontSize, height: 1.5)),
-                            ),
-                          ],
+                                        fontSize: mediumFontSize, height: 1.5)),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
 
             // Exit cross
@@ -265,70 +270,75 @@ class SkinHelp extends StatelessWidget {
             borderRadius: BorderRadius.circular(25),
           ),
           child: Stack(children: [
-            const Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Text("Skin Imaging: Help Page",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: extraLargeFontSize)),
-                ]),
-                Row(
-                  children: [
-                    Expanded(
-                        child: Padding(
-                      padding: EdgeInsets.only(left: 100.0, right: 100.0),
-                      child: Column(
-                        children: [
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              Image(
-                                  width: 300,
-                                  height: 300,
-                                  image: AssetImage(
-                                      'assets/images/screening-tools/skin-help2.png')),
-                            ],
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Image(
-                                  width: 300,
-                                  height: 300,
-                                  image: AssetImage(
-                                      'assets/images/screening-tools/skin-help1.png')),
-                            ],
-                          ),
-                        ],
-                      ),
-                    )),
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsets.only(right: 100),
+            const SingleChildScrollView(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                    Padding(
+                      padding: EdgeInsets.all(40.0),
+                      child: Text("Skin Imaging: Help Page",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: extraLargeFontSize)),
+                    ),
+                  ]),
+                  Row(
+                    children: [
+                      Expanded(
+                          child: Padding(
+                        padding: EdgeInsets.only(left: 100.0, right: 100.0),
                         child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Center(
-                                child: Text("Methodology",
-                                    style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: largeFontSize))),
-                            SizedBox(height: 30),
-                            Center(
-                              child: Text(
-                                  "1. Ask patient to be in a position where they are comfortable and within range of the camera\n    \u2022 If the patient is a restless child, kindly ask the parents to hold them still while completing the check up\n2. Utilise a torch for better lighting\n3. Take a clear picture of the skin area of interest\n    \u2022 Ensure that the body part of the skin area can be identified\n    \u2022 Ensure that the details of the skin sore can be seen from the photo\n4. Once happy with an image taken, press “Submit Snapshot” and then “Complete Vision Analysis” to view the analysis results\n",
-                                  style: TextStyle(
-                                      fontSize: mediumFontSize, height: 1.5)),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Image(
+                                    width: 300,
+                                    height: 300,
+                                    image: AssetImage(
+                                        'assets/images/screening-tools/skin-help2.png')),
+                              ],
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.end,
+                              children: [
+                                Image(
+                                    width: 300,
+                                    height: 300,
+                                    image: AssetImage(
+                                        'assets/images/screening-tools/skin-help1.png')),
+                              ],
                             ),
                           ],
                         ),
+                      )),
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsets.only(right: 100),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              Center(
+                                  child: Text("Methodology",
+                                      style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          fontSize: largeFontSize))),
+                              SizedBox(height: 30),
+                              Center(
+                                child: Text(
+                                    "1. Ask patient to be in a position where they are comfortable and within range of the camera\n    \u2022 If the patient is a restless child, kindly ask the parents to hold them still while completing the check up\n2. Utilise a torch for better lighting\n3. Take a clear picture of the skin area of interest\n    \u2022 Ensure that the body part of the skin area can be identified\n    \u2022 Ensure that the details of the skin sore can be seen from the photo\n4. Once happy with an image taken, press “Submit Snapshot” and then “Complete Vision Analysis” to view the analysis results\n",
+                                    style: TextStyle(
+                                        fontSize: mediumFontSize, height: 1.5)),
+                              ),
+                            ],
+                          ),
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              ],
+                    ],
+                  ),
+                ],
+              ),
             ),
 
             // Exit cross
