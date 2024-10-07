@@ -41,4 +41,5 @@ class AppColors {
   static Color resultsGreen = const Color(0xFF169D15).withOpacity(0.75);
   static Color resultsBlue = const Color(0xFF48a4fc);
   static const Color darkGreen = Color(0xFF006847);
+  static const Color fadedGrey = Color.fromARGB(255, 170, 175, 180);
 }
