@@ -69,9 +69,14 @@ class PatientPlanMainContent extends StatelessWidget {
                           child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                const Text(
-                                  'General Practitioner Booking',
-                                  style: TextStyle(fontSize: largeFontSize),
+                                Row(
+                                  children: [
+                                    const CheckboxTick(),
+                                    const Text(
+                                      'General Practitioner Booking',
+                                      style: TextStyle(fontSize: largeFontSize),
+                                    ),
+                                  ],
                                 ),
                                 RedActionButton(
                                   size: mediumButtonSizeShort,
@@ -131,13 +136,15 @@ class PatientPlanMainContent extends StatelessWidget {
                               const Text('QR Code to App',
                                   style: TextStyle(
                                       fontSize: largeFontSize, height: 1.5)),
-                              const Text(
-                                'The companion app will help the patient with adhering to their plan.',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                    fontSize: extraSmallFontSize,
-                                    fontWeight: FontWeight.w500),
-                              ),
+                              Container(
+                                  width: 280,
+                                  child: const Text(
+                                    'The companion app will help the patient with adhering to their plan.',
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                        fontSize: extraSmallFontSize,
+                                        fontWeight: FontWeight.w500),
+                                  )),
                               Container(
                                   padding: const EdgeInsets.all(10),
                                   decoration: BoxDecoration(
@@ -156,7 +163,32 @@ class PatientPlanMainContent extends StatelessWidget {
                     label: 'Submit Patient Plan and Generate Medical Report',
                     iconData: Icons.check_circle,
                   ),
-                  const Spacer(flex: 2)
+                  const Spacer(flex: 3)
                 ])));
+  }
+}
+
+class CheckboxTick extends StatefulWidget {
+  const CheckboxTick({super.key});
+
+  @override
+  State<StatefulWidget> createState() => _CheckboxTickState();
+}
+
+class _CheckboxTickState extends State<CheckboxTick> {
+  bool isChecked = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Checkbox(
+      checkColor: Colors.white,
+      activeColor: Colors.black,
+      value: isChecked,
+      onChanged: (bool? value) {
+        setState(() {
+          isChecked = value!;
+        });
+      },
+    );
   }
 }
