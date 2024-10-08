@@ -63,7 +63,7 @@ class PatientPlanMainContent extends StatelessWidget {
             child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Spacer(),
+                  const Spacer(),
                   const Row(children: [
                     Spacer(flex: 7),
                     Text(
@@ -84,14 +84,14 @@ class PatientPlanMainContent extends StatelessWidget {
                   Spacer(),
                   YellowBorderWhiteCard(
                       child: Padding(
-                          padding: EdgeInsets.all(15),
+                          padding: const EdgeInsets.all(15),
                           child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Row(
+                                const Row(
                                   children: [
-                                    const CheckboxTick(),
-                                    const Text(
+                                    CheckboxTick(),
+                                    Text(
                                       'General Practitioner Booking',
                                       style: TextStyle(fontSize: largeFontSize),
                                     ),
@@ -155,8 +155,8 @@ class PatientPlanMainContent extends StatelessWidget {
                               const Text('QR Code to App',
                                   style: TextStyle(
                                       fontSize: largeFontSize, height: 1.5)),
-                              Container(
-                                  width: 280,
+                              SizedBox(
+                                  width: context.screenWidth * 0.14,
                                   child: const Text(
                                     'The companion app will help the patient with adhering to their plan.',
                                     textAlign: TextAlign.center,
