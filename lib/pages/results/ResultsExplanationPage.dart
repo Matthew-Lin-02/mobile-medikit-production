@@ -546,200 +546,195 @@ Builder resultsExplanationBody = Builder(builder: (context) {
           right: 21.0,
           bottom: 70.0,
           child: HelpButton(onPressed: () {
-            showCustomModal(
-                context,
-                Container(
-                  width: 1676,
-                  height: 816,
-                  decoration: BoxDecoration(
-                      color: AppColors.cream,
-                      borderRadius: BorderRadius.circular(cardPadding)),
-                  child: Padding(
-                    padding: const EdgeInsets.all(20.0),
-                    child: Stack(children: [
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Center(
-                            child: Text(
-                              "Results Explanation Help Page",
-                              style: GoogleFonts.inter(
-                                  fontSize: cardPadding,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                          Text(
-                            "Key Notes",
-                            style: GoogleFonts.inter(
-                                fontSize: cardPadding,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                              "• Ensure the patient is also able to view this page as you go through it.",
-                              style:
-                                  GoogleFonts.inter(fontSize: mediumFontSize)),
-                          const SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            "Sections Information",
-                            style: GoogleFonts.inter(
-                                fontSize: cardPadding,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          BoldThenNormalSentence(
-                              boldText: '[SELECTED TEST] Result:',
-                              normalText:
-                                  'Displays the final results of the selected conducted test.'),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          BoldThenNormalSentence(
-                              boldText: 'Your risk: ',
-                              normalText:
-                                  ' States what level of risk the patient is at after these tests. '
-                                  'The graphs will vary slightly depending on each test. Tap the icon to display the graph and show the patient where they are on the risk scale.'),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          BoldThenNormalSentence(
-                              boldText: 'You might experience: ',
-                              normalText:
-                                  'Visual images provided of the potential symptoms the patient may experience.'),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          BoldThenNormalSentence(
-                              boldText: 'Similar to: ',
-                              normalText:
-                                  'Visual representation of a real world example of what the condition is similar to.'),
-                          const SizedBox(
-                            height: 20,
-                          ),
-                          BoldThenNormalSentence(
-                              boldText: 'Listen to your rhythm (ECG section):',
-                              normalText:
-                                  'Press play to play a visual sound of the heartbeat'),
-                          SizedBox(
-                            height: 20,
-                          ),
-                          Text(
-                            "Example Section:",
-                            style: GoogleFonts.inter(
-                                fontSize: cardPadding,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
-                      Positioned(
-                        top: 0,
-                        right: 0,
-                        child: GestureDetector(
-                            onTap: () {
-                              Navigator.pop(context);
-                            },
-                            child: Icon(Icons.close, size: 50)),
-                      ),
-                      Positioned(
-                        child: Align(
-                          alignment: Alignment.bottomCenter,
-                          child: Container(
-                            width: 850,
-                            height: 263,
-                            decoration: BoxDecoration(
-                                border: Border.all(color: Colors.black)),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Row(
-                                children: [
-                                  Expanded(
-                                    flex: 3,
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text("[SELECTED TEST] Result",
-                                            style: GoogleFonts.inter(
-                                                fontSize: smallFontSize,
-                                                fontWeight: FontWeight.bold)),
-                                        Expanded(child: SizedBox.shrink()),
-                                        Text("{Test results}",
-                                            style: GoogleFonts.inter(
-                                                fontSize: smallFontSize,
-                                                fontWeight: FontWeight.bold)),
-                                        Expanded(child: SizedBox.shrink()),
-                                        Text("Your Risk:",
-                                            style: GoogleFonts.inter(
-                                                fontSize: smallFontSize,
-                                                fontWeight: FontWeight.bold)),
-                                        Expanded(child: SizedBox.shrink()),
-                                        RiskLevelCard(
-                                            borderRadius: 10,
-                                            width: 287,
-                                            height: 80,
-                                            textFontSize: smallFontSize,
-                                            imageWidth: 40,
-                                            imageHeight: 40,
-                                            imageCaptionFont: tinyFontSize,
-                                            color: AppColors.resultsBlue,
-                                            text: 'RISK LEVEL'),
-                                      ],
-                                    ),
-                                  ),
-                                  Expanded(
-                                      flex: 3,
-                                      child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            Text("You might experience:"),
-                                            SizedBox(
-                                              height: 10,
-                                            ),
-                                            SquareGrid(),
-                                          ])),
-                                  Expanded(
-                                      flex: 2,
-                                      child: Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.center,
-                                          children: [
-                                            Text("You might experience:"),
-                                            SizedBox(
-                                              height: 20,
-                                            ),
-                                            Container(
-                                                width: 250,
-                                                height: 180,
-                                                color: AppColors.yellowCream,
-                                                child: Center(
-                                                  child: Text(
-                                                    'Image 5',
-                                                    style: GoogleFonts.inter(
-                                                        fontWeight:
-                                                            FontWeight.bold),
-                                                  ),
-                                                ))
-                                          ]))
-                                ],
-                              ),
-                            ),
-                          ),
-                        ),
-                      )
-                    ]),
-                  ),
-                ));
+            ResultsExplanationsHelp(context);
           }))
     ],
   );
 });
+
+void ResultsExplanationsHelp(BuildContext context) {
+  return showCustomModal(
+      context,
+      Container(
+        width: 1676,
+        height: 816,
+        decoration: BoxDecoration(
+            color: AppColors.cream,
+            borderRadius: BorderRadius.circular(cardPadding)),
+        child: Padding(
+          padding: const EdgeInsets.all(20.0),
+          child: Stack(children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: Text(
+                    "Results Explanation Help Page",
+                    style: GoogleFonts.inter(
+                        fontSize: cardPadding, fontWeight: FontWeight.bold),
+                  ),
+                ),
+                Text(
+                  "Key Notes",
+                  style: GoogleFonts.inter(
+                      fontSize: cardPadding, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Text(
+                    "• Ensure the patient is also able to view this page as you go through it.",
+                    style: GoogleFonts.inter(fontSize: mediumFontSize)),
+                const SizedBox(
+                  height: 10,
+                ),
+                Text(
+                  "Sections Information",
+                  style: GoogleFonts.inter(
+                      fontSize: cardPadding, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                BoldThenNormalSentence(
+                    boldText: '[SELECTED TEST] Result:',
+                    normalText:
+                        'Displays the final results of the selected conducted test.'),
+                const SizedBox(
+                  height: 20,
+                ),
+                BoldThenNormalSentence(
+                    boldText: 'Your risk: ',
+                    normalText:
+                        ' States what level of risk the patient is at after these tests. '
+                        'The graphs will vary slightly depending on each test. Tap the icon to display the graph and show the patient where they are on the risk scale.'),
+                const SizedBox(
+                  height: 20,
+                ),
+                BoldThenNormalSentence(
+                    boldText: 'You might experience: ',
+                    normalText:
+                        'Visual images provided of the potential symptoms the patient may experience.'),
+                const SizedBox(
+                  height: 20,
+                ),
+                BoldThenNormalSentence(
+                    boldText: 'Similar to: ',
+                    normalText:
+                        'Visual representation of a real world example of what the condition is similar to.'),
+                const SizedBox(
+                  height: 20,
+                ),
+                BoldThenNormalSentence(
+                    boldText: 'Listen to your rhythm (ECG section):',
+                    normalText:
+                        'Press play to play a visual sound of the heartbeat'),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  "Example Section:",
+                  style: GoogleFonts.inter(
+                      fontSize: cardPadding, fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
+            Positioned(
+              top: 0,
+              right: 0,
+              child: GestureDetector(
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                  child: Icon(Icons.close, size: 50)),
+            ),
+            Positioned(
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                  width: 850,
+                  height: 263,
+                  decoration:
+                      BoxDecoration(border: Border.all(color: Colors.black)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      children: [
+                        Expanded(
+                          flex: 3,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text("[SELECTED TEST] Result",
+                                  style: GoogleFonts.inter(
+                                      fontSize: smallFontSize,
+                                      fontWeight: FontWeight.bold)),
+                              Expanded(child: SizedBox.shrink()),
+                              Text("{Test results}",
+                                  style: GoogleFonts.inter(
+                                      fontSize: smallFontSize,
+                                      fontWeight: FontWeight.bold)),
+                              Expanded(child: SizedBox.shrink()),
+                              Text("Your Risk:",
+                                  style: GoogleFonts.inter(
+                                      fontSize: smallFontSize,
+                                      fontWeight: FontWeight.bold)),
+                              Expanded(child: SizedBox.shrink()),
+                              RiskLevelCard(
+                                  borderRadius: 10,
+                                  width: 287,
+                                  height: 80,
+                                  textFontSize: smallFontSize,
+                                  imageWidth: 40,
+                                  imageHeight: 40,
+                                  imageCaptionFont: tinyFontSize,
+                                  color: AppColors.resultsBlue,
+                                  text: 'RISK LEVEL'),
+                            ],
+                          ),
+                        ),
+                        Expanded(
+                            flex: 3,
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text("You might experience:"),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  SquareGrid(),
+                                ])),
+                        Expanded(
+                            flex: 2,
+                            child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text("You might experience:"),
+                                  SizedBox(
+                                    height: 20,
+                                  ),
+                                  Container(
+                                      width: 250,
+                                      height: 180,
+                                      color: AppColors.yellowCream,
+                                      child: Center(
+                                        child: Text(
+                                          'Image 5',
+                                          style: GoogleFonts.inter(
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                      ))
+                                ]))
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            )
+          ]),
+        ),
+      ));
+}
 
 class ECGPopupWindow extends StatelessWidget {
   const ECGPopupWindow({super.key});

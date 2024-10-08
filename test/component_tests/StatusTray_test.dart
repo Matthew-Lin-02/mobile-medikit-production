@@ -21,7 +21,7 @@ void main() {
     final globeFinder = find.byWidgetPredicate(
       (widget) =>
           widget is Image &&
-          widget.image.toString().contains('Group_figma.png'),
+          widget.image.toString().contains('globe_figma.png'),
     );
     final personFinder = find.byWidgetPredicate(
       (widget) =>
@@ -62,7 +62,7 @@ void main() {
         home: Scaffold(
           body: StatusIcon(
             iconSize: 50.0,
-            image: 'assets/images/globe.png',
+            image: 'assets/images/status-tray/globe_figma.png',
             onPressed: () {
               pressed = true;
             },
@@ -94,7 +94,7 @@ void main() {
     await tester.tap(find.byWidgetPredicate(
       (widget) =>
           widget is Image &&
-          widget.image.toString().contains('Group_figma.png'),
+          widget.image.toString().contains('globe_figma.png'),
     ));
     await tester.pump(); // Wait for the modal to open
 
@@ -117,7 +117,7 @@ void main() {
     await tester.tap(find.byWidgetPredicate(
       (widget) =>
           widget is Image &&
-          widget.image.toString().contains('Group_figma.png'),
+          widget.image.toString().contains('globe_figma.png'),
     ));
     await tester.pump(); // Wait for the modal to open
 
