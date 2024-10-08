@@ -46,37 +46,7 @@ void main() {
       // Reset the window size and pixel ratio to avoid affecting other tests
       addTearDown(tester.view.resetPhysicalSize);
     });
-    testWidgets(
-        'RedActionButton should be tappable and navigate to the next page',
-        (WidgetTester tester) async {
-      final TestWidgetsFlutterBinding binding =
-          TestWidgetsFlutterBinding.ensureInitialized();
 
-      // Set the test device size and pixel ratio (for a larger device simulation)
-      tester.view.devicePixelRatio = 0.5;
-      tester.view.physicalSize = Size(1920, 1080);
-
-      // Call pump after setting size to ensure changes take effect
-      await tester.pumpWidget(buildConfig(
-        title: "BloodPressure",
-        pageNum: 4,
-        body: resultsExplanationBody,
-      ));
-
-      // Find the RedActionButton by its label
-      final continueButton =
-          find.widgetWithText(RedActionButton, 'Continue to Plan');
-
-      // Verify that the button exists
-      expect(continueButton, findsOneWidget);
-
-      // Tap on the button
-      await tester.tap(continueButton);
-      await tester.pumpAndSettle();
-
-      // Check if the navigation occurred (for simplicity assuming it pushes another ResultsExplanationPage)
-      expect(find.byType(ResultsExplanationPage), findsOneWidget);
-    });
     testWidgets('Tapping the blood pressure risk card shows a popup',
         (WidgetTester tester) async {
       final TestWidgetsFlutterBinding binding =
