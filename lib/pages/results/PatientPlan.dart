@@ -81,17 +81,18 @@ class PatientPlanMainContent extends StatelessWidget {
                           fontStyle: FontStyle.italic),
                     )
                   ]),
-                  Spacer(),
+                  const Spacer(),
                   YellowBorderWhiteCard(
                       child: Padding(
                           padding: const EdgeInsets.all(15),
                           child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                const Row(
+                                Row(
                                   children: [
-                                    CheckboxTick(),
-                                    Text(
+                                    const CheckboxTick(),
+                                    SizedBox(width: context.screenWidth * 0.02),
+                                    const Text(
                                       'General Practitioner Booking',
                                       style: TextStyle(fontSize: largeFontSize),
                                     ),
@@ -104,47 +105,50 @@ class PatientPlanMainContent extends StatelessWidget {
                                   iconData: Icons.calendar_month,
                                 )
                               ]))),
-                  Spacer(),
+                  const Spacer(),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Flexible(
+                      Flexible(
                           flex: 10,
                           child: FractionallySizedBox(
                               widthFactor: 0.95,
                               child: Column(children: [
-                                Text(
+                                const Text(
                                   'Selected Recommendations',
                                   style: TextStyle(
                                       fontSize: extraLargeFontSize,
                                       height: 1.5),
                                 ),
-                                //TODO: Use selected reccomendations from follow-up page
-                                DarkGreenBorderGreenCard(
-                                    borderRadius: 30,
-                                    child: Padding(
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 15, vertical: 20),
-                                        child: Text(
-                                          'Add a cup of frozen veggies to your meal. Balanced eating helps heal the heart.',
-                                          style: TextStyle(
-                                              fontSize: largeFontSize,
-                                              height: 1.5,
-                                              color: Colors.white),
-                                        ))),
-                                SizedBox(height: 20),
-                                DarkGreenBorderGreenCard(
-                                    borderRadius: 30,
-                                    child: Padding(
-                                        padding: EdgeInsets.symmetric(
-                                            horizontal: 15, vertical: 20),
-                                        child: Text(
-                                            'Have a bushwalk with family, lookout for goanna and emu eggs.',
-                                            style: TextStyle(
-                                                fontSize: largeFontSize,
-                                                height: 1.5,
-                                                color: Colors.white))))
+                                SizedBox(
+                                    height: context.screenHeight * 0.35,
+                                    child: ListView(children: const [
+                                      DarkGreenBorderGreenCard(
+                                          borderRadius: 30,
+                                          child: Padding(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 15, vertical: 20),
+                                              child: Text(
+                                                'Add a cup of frozen veggies to your meal. Balanced eating helps heal the heart.',
+                                                style: TextStyle(
+                                                    fontSize: largeFontSize,
+                                                    height: 1.5,
+                                                    color: Colors.white),
+                                              ))),
+                                      SizedBox(height: 20),
+                                      DarkGreenBorderGreenCard(
+                                          borderRadius: 30,
+                                          child: Padding(
+                                              padding: EdgeInsets.symmetric(
+                                                  horizontal: 15, vertical: 20),
+                                              child: Text(
+                                                  'Have a bushwalk with family, lookout for goanna and emu eggs.',
+                                                  style: TextStyle(
+                                                      fontSize: largeFontSize,
+                                                      height: 1.5,
+                                                      color: Colors.white))))
+                                    ]))
                               ]))),
                       const Spacer(flex: 2),
                       Flexible(
