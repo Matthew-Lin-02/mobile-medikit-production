@@ -6,13 +6,32 @@ import 'package:comp30022/components/YellowBorderWhiteCard.dart';
 import 'package:comp30022/font.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
+import 'package:comp30022/styles.dart';
 
 Builder patientPlanBody = Builder(builder: (context) {
-  return const Stack(
+  double eagleSize = context.screenHeight * 0.4;
+
+  return Stack(
     children: [
-      Positioned(child: PatientPlanMainContent()),
-      Positioned(right: 30.0, top: 50.0, child: ChatBotButton()),
       Positioned(
+          left: 62,
+          top: -150,
+          child: Container(
+              transform: Matrix4.rotationZ(0.5),
+              child: Image.asset(
+                fit: BoxFit.fill,
+                'assets/images/art/big-symbols/eagle-circle.png',
+                height: eagleSize,
+                width: eagleSize,
+              ))),
+      const Positioned(
+          right: 0,
+          bottom: 50,
+          child: Image(
+              image: AssetImage('assets/images/art/big-symbols/fish.png'))),
+      const Positioned(child: PatientPlanMainContent()),
+      const Positioned(right: 30.0, top: 50.0, child: ChatBotButton()),
+      const Positioned(
           bottom: 0,
           child:
               Image(image: AssetImage('assets/images/art/footer-strip.png'))),
@@ -148,6 +167,7 @@ class PatientPlanMainContent extends StatelessWidget {
                               Container(
                                   padding: const EdgeInsets.all(10),
                                   decoration: BoxDecoration(
+                                      color: AppColors.cream,
                                       border: Border.all(
                                           color: Colors.black, width: 2)),
                                   child: Image.asset(
