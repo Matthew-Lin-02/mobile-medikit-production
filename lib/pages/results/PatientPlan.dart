@@ -104,7 +104,7 @@ class PatientPlanMainContent extends StatelessWidget {
                                     label: 'Select a date',
                                     iconSize: mediumIconSize,
                                     iconData: Icons.calendar_month,
-                                    onPressed: () {
+                                    onPressed: () async {
                                       DateTime now = DateTime.now();
                                       DateTime oneYearFromNow = DateTime(
                                           now.year + 1, now.month, now.day);
