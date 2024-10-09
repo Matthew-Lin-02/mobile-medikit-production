@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:comp30022/checkBoxTickTheme.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/components/ChatbotButton.dart';
 import 'package:comp30022/components/RedActionButton.dart';
@@ -153,7 +154,7 @@ class MedicalReportContent extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: AppColors.fieldCream,
                       border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(5)),
+                      borderRadius: BorderRadius.circular(15)),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -198,17 +199,26 @@ class MedicalReportContent extends StatelessWidget {
                   decoration: BoxDecoration(
                       color: AppColors.fieldCream,
                       border: Border.all(color: Colors.black),
-                      borderRadius: BorderRadius.circular(5)),
-                  child: const Row(
+                      borderRadius: BorderRadius.circular(15)),
+                  child: Row(
                     children: [
-                      Text(
-                          'I have read this report and agree with the results. Any incorrect results have been amended and I will be held responsible for issues arising from this record')
+                      CheckboxTheme(
+                          data: checkBoxTickTheme, child: const CheckboxTick()),
+                      const Text(
+                        'I have read this report and agree with the results. Any incorrect results have been amended and I will be held responsible for issues arising from this record',
+                        style: TextStyle(fontSize: smallFontSize),
+                      )
                     ],
                   )),
-              RedActionButton(
-                label: 'Submit report and complete checkup',
-                iconData: Icons.arrow_forward,
-              )
+              Align(
+                  alignment: Alignment.bottomRight,
+                  child: RedActionButton(
+                    label: 'Submit report and complete checkup',
+                    iconData: Icons.arrow_forward,
+                    size: largeButtonSizeShort,
+                    useCircleAvatar: true,
+                    iconSize: mediumIconSize,
+                  ))
             ])),
         const Image(image: AssetImage('assets/images/art/footer-strip.png')),
       ],
@@ -239,6 +249,7 @@ class EntryField extends StatelessWidget {
         YellowTextField(
           hintText: hintText,
           maxLines: maxLines ?? 4,
+          fontSize: biggishFontSize,
         )
       ],
     );
@@ -308,10 +319,11 @@ class TestResultsField extends StatelessWidget {
         width: screenWidth * 0.25,
         height: screenHeight * 0.22,
         child: Container(
+            padding: EdgeInsets.all(15),
             decoration: BoxDecoration(
                 color: AppColors.fieldDarkCream,
                 border: Border.all(color: Colors.black),
-                borderRadius: BorderRadius.circular(5)),
+                borderRadius: BorderRadius.circular(15)),
             child: Column(
               children: [
                 Text(
@@ -324,8 +336,53 @@ class TestResultsField extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: const TextStyle(fontSize: mediumFontSize),
                 ),
-                RedActionButton(label: 'View results')
+                const Spacer(),
+                Align(
+                    alignment: Alignment.bottomRight,
+                    child: ElevatedButton.icon(
+                      style: ButtonStyle(
+                          backgroundColor: WidgetStatePropertyAll<Color>(
+                              AppColors.diagnosticGreen)),
+                      onPressed: () {},
+                      icon: ImageIcon(
+                          AssetImage(
+                              'assets/images/results/test-results-icon.png'),
+                          size: screenWidth * 0.02,
+                          color: Colors.white),
+                      label: Text(
+                        'View results',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ))
               ],
             )));
+  }
+}
+
+class CheckboxTick extends StatefulWidget {
+  const CheckboxTick({super.key});
+
+  @override
+  State<StatefulWidget> createState() => _CheckboxTickState();
+}
+
+class _CheckboxTickState extends State<CheckboxTick> {
+  bool isChecked = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return CheckboxTheme(
+        data: checkBoxTickTheme,
+        child: Checkbox(
+          side: BorderSide(color: Colors.black),
+          checkColor: Colors.white,
+          activeColor: Colors.black,
+          value: isChecked,
+          onChanged: (bool? value) {
+            setState(() {
+              isChecked = value!;
+            });
+          },
+        ));
   }
 }
