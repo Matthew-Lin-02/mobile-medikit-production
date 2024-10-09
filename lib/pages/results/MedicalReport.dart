@@ -38,22 +38,27 @@ class MedicalReportContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double screenWidth = context.screenWidth;
+    double screenHeight = context.screenHeight;
+    double fieldSpacing = screenHeight * 0.05;
 
     return ListView(
       children: [
         FractionallySizedBox(
             widthFactor: 0.9,
             child: Column(children: [
+              SizedBox(height: fieldSpacing),
               const Align(
                   child: Text(
                       'Below is a generated report of Darlene Pilabar\'s health consultation',
                       style: TextStyle(
                           fontSize: subHeadingFontSize, height: 1.2))),
+              SizedBox(height: fieldSpacing),
               const Align(
                   child: Text(
                 'Patient details',
                 style: TextStyle(fontSize: largeFontSize, height: 1.2),
               )),
+              SizedBox(height: fieldSpacing),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -87,6 +92,7 @@ class MedicalReportContent extends StatelessWidget {
                   )
                 ],
               ),
+              SizedBox(height: fieldSpacing),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -103,11 +109,13 @@ class MedicalReportContent extends StatelessWidget {
                       maxLines: 3)
                 ],
               ),
+              SizedBox(height: fieldSpacing),
               const Align(
                   child: Text(
                 'Consulting worker details',
                 style: TextStyle(fontSize: largeFontSize, height: 1.2),
               )),
+              SizedBox(height: fieldSpacing),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -141,14 +149,17 @@ class MedicalReportContent extends StatelessWidget {
                   )
                 ],
               ),
+              SizedBox(height: fieldSpacing),
               const Divider(
                 color: Colors.black,
               ),
+              SizedBox(height: fieldSpacing),
               const Align(
                   child: Text(
                 'Medical testing results',
                 style: TextStyle(fontSize: largeFontSize, height: 1.2),
               )),
+              SizedBox(height: fieldSpacing),
               Container(
                   padding: const EdgeInsets.symmetric(vertical: 20),
                   decoration: BoxDecoration(
@@ -171,30 +182,37 @@ class MedicalReportContent extends StatelessWidget {
                           description: 'View urinalysis examination results')
                     ],
                   )),
+              SizedBox(height: fieldSpacing),
               const Divider(
                 color: Colors.black,
               ),
+              SizedBox(height: fieldSpacing),
               const Align(
                   child: Text(
                 'Checkup details',
                 style: TextStyle(fontSize: largeFontSize, height: 1.2),
               )),
+              SizedBox(height: fieldSpacing),
               const EntryField(
                   fieldName: 'Checkup results description',
                   hintText:
                       'Enter healthy if there are no persisting issues, otherwise enter persistent previous medical issues or new recognised issues...'),
+              SizedBox(height: fieldSpacing),
               GeneratedField(
                   fieldName: 'Treatment plan',
                   fieldText:
                       'Add a cup of frozen veggies to your meal. Balanced eating helps heal the Heart.\nHave a bushwalk with family, lookout for goanna and emu eggs.',
                   fieldWidth: screenWidth * 0.9),
+              SizedBox(height: fieldSpacing),
               const EntryField(
                   fieldName: 'Prescribed medicaiton and instructions of use',
                   hintText: 'Enter here...'),
+              SizedBox(height: fieldSpacing),
               const EntryField(
                   fieldName: 'Patient follow up instructions',
                   hintText:
                       'Enter any instructions to give to patient or details about follow up appointment...'),
+              SizedBox(height: fieldSpacing),
               Container(
                   decoration: BoxDecoration(
                       color: AppColors.fieldCream,
@@ -210,6 +228,7 @@ class MedicalReportContent extends StatelessWidget {
                       )
                     ],
                   )),
+              SizedBox(height: fieldSpacing),
               Align(
                   alignment: Alignment.bottomRight,
                   child: RedActionButton(
@@ -220,6 +239,7 @@ class MedicalReportContent extends StatelessWidget {
                     iconSize: mediumIconSize,
                   ))
             ])),
+        SizedBox(height: fieldSpacing),
         const Image(image: AssetImage('assets/images/art/footer-strip.png')),
       ],
     );
