@@ -24,7 +24,7 @@ class VitalsCard extends StatelessWidget {
       isShadowOn: true,
       child: Column(
         children: [
-          Expanded(flex: 2, child: SizedBox.shrink()),
+          const Expanded(flex: 2, child: SizedBox.shrink()),
           Expanded(
             flex: 8,
             child: Text(
@@ -34,7 +34,7 @@ class VitalsCard extends StatelessWidget {
             ),
           ),
           TextField(
-            keyboardType: TextInputType.numberWithOptions(decimal: true),
+            keyboardType: const TextInputType.numberWithOptions(decimal: true),
             inputFormatters: <TextInputFormatter>[
               MyFormatter.allow(RegExp(r'^\d{0,2}(\.\d*)?$')),
               LengthLimitingTextInputFormatter(
@@ -53,13 +53,13 @@ class VitalsCard extends StatelessWidget {
               border: InputBorder.none,
             ),
           ),
-          FractionallySizedBox(
+          const FractionallySizedBox(
             widthFactor: 0.8,
             child: Divider(
               color: Colors.black,
             ),
           ),
-          Expanded(flex: 5, child: SizedBox.shrink()),
+          const Expanded(flex: 5, child: SizedBox.shrink()),
         ],
       ),
     );
@@ -67,7 +67,7 @@ class VitalsCard extends StatelessWidget {
 }
 
 class MyFormatter extends FilteringTextInputFormatter {
-  MyFormatter.allow(Pattern filterPattern) : super.allow(filterPattern);
+  MyFormatter.allow(super.filterPattern) : super.allow();
 
   @override
   TextEditingValue formatEditUpdate(

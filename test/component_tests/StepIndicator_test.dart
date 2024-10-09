@@ -11,7 +11,7 @@ void main() {
       (WidgetTester tester) async {
     // Build the widget under test
     await tester.pumpWidget(
-      MaterialApp(
+      const MaterialApp(
         home: Scaffold(
             body: Row(
           children: [
@@ -86,18 +86,18 @@ void main() {
           preferredSize: const Size.fromHeight(160.0),
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.fromLTRB(12.0, 16.0, 0, 0),
+              const Padding(
+                padding: EdgeInsets.fromLTRB(12.0, 16.0, 0, 0),
                 child: Column(children: [
-                  const SizedBox(height: 11),
+                  SizedBox(height: 11),
                   Row(children: [
-                    const SizedBox(width: 115),
+                    SizedBox(width: 115),
                     UpdatedIndicatorStep(
                       pageNum: 1,
                     ),
                   ]),
-                  const SizedBox(height: 6),
-                  const Row(
+                  SizedBox(height: 6),
+                  Row(
                     children: [
                       SizedBox(width: 12),
                       BackArrowTeal(),

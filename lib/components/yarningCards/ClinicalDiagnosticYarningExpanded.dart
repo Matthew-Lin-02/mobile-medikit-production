@@ -6,7 +6,7 @@ import 'package:comp30022/components/YellowTextField.dart';
 const double yarningSubHeadingFontSize = 18.0;
 
 class ClinicalDiagnosisYarningCardExpanded extends StatefulWidget {
-  ClinicalDiagnosisYarningCardExpanded({super.key});
+  const ClinicalDiagnosisYarningCardExpanded({super.key});
 
   @override
   _ClinicalDiagnosisYarningCardExpandedState createState() =>
@@ -52,13 +52,13 @@ class _ClinicalDiagnosisYarningCardExpandedState
           style:
               TextStyle(fontSize: largeFontSize, fontWeight: FontWeight.bold),
         ),
-        SizedBox(
+        const SizedBox(
             width: 1540,
             child: Column(children: [
-              const Text(
+              Text(
                   "Tap for some resources that can help you explain health concepts.",
                   style: TextStyle(fontSize: extraSmallFontSize)),
-              const SizedBox(
+              SizedBox(
                 height: 20,
               ),
               ResourceCarousel(),
@@ -73,7 +73,7 @@ class _ClinicalDiagnosisYarningCardExpandedState
                   crossAxisAlignment: CrossAxisAlignment.start,
                   // Left Column
                   children: [
-                    _ClinicalSubItem(
+                    const _ClinicalSubItem(
                       heading: "Medical History",
                       subheading:
                           "Any health related issues the patient is struggling with or has struggled with in the past?",
@@ -126,7 +126,7 @@ class _ClinicalDiagnosisYarningCardExpandedState
                       const Text("Understanding and adherence checked",
                           style: TextStyle(fontSize: extraSmallFontSize)),
                     ]),
-                    _ClinicalSubItem(
+                    const _ClinicalSubItem(
                       heading: "",
                       subheading: "Details:",
                       textboxHint: "Are you taking any medicine to heal you?",
@@ -142,7 +142,7 @@ class _ClinicalDiagnosisYarningCardExpandedState
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     // Right Column
-                    _ClinicalSubItem(
+                    const _ClinicalSubItem(
                       heading: "Cardiovascular Health",
                       subheading:
                           "Any problems or details relating to the patient's cardiovascular health.",
@@ -212,7 +212,7 @@ class _ClinicalDiagnosisYarningCardExpandedState
                       const SizedBox(width: 20),
                       const Text("How long? ",
                           style: TextStyle(fontSize: extraSmallFontSize)),
-                      SizedBox(
+                      const SizedBox(
                           height: 43,
                           width: 125,
                           child: YellowTextField(hintText: "Enter Here...")),
@@ -264,7 +264,7 @@ class _ClinicalSubItem extends StatelessWidget {
   final String textboxHint;
   final String subsubtext;
 
-  _ClinicalSubItem(
+  const _ClinicalSubItem(
       {required this.heading,
       required this.subheading,
       required this.textboxHint,
@@ -277,7 +277,7 @@ class _ClinicalSubItem extends StatelessWidget {
       children: [
         Text(
           heading,
-          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+          style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
         ),
         Text(subheading,
             style: TextStyle(
@@ -287,7 +287,7 @@ class _ClinicalSubItem extends StatelessWidget {
             style: TextStyle(
                 fontSize: (subsubtext.isNotEmpty ? extraSmallFontSize : 0),
                 color: Colors.black.withOpacity(0.5))),
-        SizedBox(height: 10),
+        const SizedBox(height: 10),
         YellowTextField(
           hintText: textboxHint,
         ),

@@ -8,7 +8,7 @@ void main() {
       const testLabel = 'Test Button';
 
       await tester.pumpWidget(
-        MaterialApp(
+        const MaterialApp(
           home: Scaffold(
             body: RedActionButton(label: testLabel),
           ),
@@ -45,7 +45,7 @@ void main() {
       const testIcon = Icons.add;
 
       await tester.pumpWidget(
-        MaterialApp(
+        const MaterialApp(
           home: Scaffold(
             body: RedActionButton(
               label: 'Test Button',
@@ -63,7 +63,7 @@ void main() {
       const testImagePath = 'assets/images/person_search_white.png';
 
       await tester.pumpWidget(
-        MaterialApp(
+        const MaterialApp(
           home: Scaffold(
             body: RedActionButton(
               label: 'Test Button',
@@ -79,7 +79,7 @@ void main() {
     testWidgets('uses default size when size is not provided',
         (WidgetTester tester) async {
       await tester.pumpWidget(
-        MaterialApp(
+        const MaterialApp(
           home: Scaffold(
             body: RedActionButton(label: 'Test Button'),
           ),
@@ -96,7 +96,7 @@ void main() {
       const testSize = Size(150, 50);
 
       await tester.pumpWidget(
-        MaterialApp(
+        const MaterialApp(
           home: Scaffold(
             body: RedActionButton(
               label: 'Test Button',

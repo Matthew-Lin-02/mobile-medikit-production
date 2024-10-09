@@ -5,7 +5,6 @@ import 'package:comp30022/pages/screening/Electrocardiogram.dart';
 import 'package:comp30022/pages/screening/Temperature.dart';
 import 'package:comp30022/pages/screening/Urinalysis.dart';
 import 'package:comp30022/pages/screening/Images.dart';
-import 'package:comp30022/pages/yarning/GuidedConsultation.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/styles.dart';
@@ -171,7 +170,7 @@ class ScreeningToolsMainContent extends StatelessWidget {
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => Results()),
+                    MaterialPageRoute(builder: (context) => const Results()),
                   );
                 },
                 iconData: Icons.arrow_forward,
@@ -198,10 +197,10 @@ class SectionCard extends StatelessWidget {
   final List<Widget> tools;
 
   const SectionCard({
-    Key? key,
+    super.key,
     required this.sectionTitle,
     required this.tools,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -300,11 +299,11 @@ class ToolCard extends StatefulWidget {
   final Widget? destinationPage;
 
   const ToolCard({
-    Key? key,
+    super.key,
     required this.imagePath,
     required this.label,
     this.destinationPage,
-  }) : super(key: key);
+  });
 
   @override
   _ToolCardState createState() => _ToolCardState();
@@ -319,7 +318,7 @@ class _ToolCardState extends State<ToolCard> {
     final toolCardHeight = MediaQuery.of(context).size.height * 0.133;
 
     return Padding(
-        padding: EdgeInsets.only(right: 20, left: 20),
+        padding: const EdgeInsets.only(right: 20, left: 20),
         child: BaseCustomCard(
           borderColor: Colors.black,
           backgroundColor: AppColors.yellowCream,

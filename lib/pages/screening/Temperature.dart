@@ -3,12 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/font.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:comp30022/components/ChatbotButton.dart';
 import 'package:comp30022/components/HelpButton.dart';
 import 'package:comp30022/components/RedActionButton.dart';
-import 'package:comp30022/pages/screening/Temperature.dart';
 import 'dart:math';
 
 class Temperature extends StatelessWidget {
@@ -28,7 +26,7 @@ Builder temperatureBody = Builder(builder: (context) {
           color: AppColors.cream,
           child: Column(
             children: [
-              Expanded(flex: 4, child: SizedBox.shrink()),
+              const Expanded(flex: 4, child: SizedBox.shrink()),
               FractionallySizedBox(
                   widthFactor: 0.5,
                   child: Text(
@@ -39,7 +37,7 @@ Builder temperatureBody = Builder(builder: (context) {
                       fontWeight: FontWeight.w500,
                     ),
                   )),
-              Expanded(flex: 1, child: SizedBox.shrink()),
+              const Expanded(flex: 1, child: SizedBox.shrink()),
               Text(
                 "Press help button on the bottom corner to view standard procedure",
                 textAlign: TextAlign.center,
@@ -48,23 +46,23 @@ Builder temperatureBody = Builder(builder: (context) {
                     fontWeight: FontWeight.w500,
                     color: Colors.black.withOpacity(0.5)),
               ),
-              Expanded(flex: 8, child: SizedBox.shrink()),
-              VitalsCard(
+              const Expanded(flex: 8, child: SizedBox.shrink()),
+              const VitalsCard(
                 heading: 'Temperature (°C)',
                 hintText: '36.4',
               ),
-              Expanded(flex: 10, child: SizedBox.shrink()),
-              RedActionButton(
+              const Expanded(flex: 10, child: SizedBox.shrink()),
+              const RedActionButton(
                 iconData: Icons.arrow_back,
                 iconSize: extraLargeFontSize,
                 label: "Back to screening tools",
                 fontSize: largeFontSize,
-                size: const Size(
+                size: Size(
                   450,
                   64,
                 ),
               ),
-              Expanded(flex: 8, child: SizedBox.shrink()),
+              const Expanded(flex: 8, child: SizedBox.shrink()),
             ],
           )),
     ),
@@ -83,7 +81,7 @@ Builder temperatureBody = Builder(builder: (context) {
         left: 196,
         child: Transform.rotate(
           angle: 4 * pi / 180,
-          child: Image(
+          child: const Image(
               width: 380,
               height: 380,
               fit: BoxFit.cover,

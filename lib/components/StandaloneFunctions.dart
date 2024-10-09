@@ -32,7 +32,7 @@ void showCustomModalRightCorner(BuildContext context, Widget widget) {
             Navigator.of(context).pop(); // Dismiss when clicking outside
           },
           child: Padding(
-            padding: EdgeInsets.only(bottom: 20, right: 20),
+            padding: const EdgeInsets.only(bottom: 20, right: 20),
             child: Align(
               alignment: Alignment.bottomRight,
               child: GestureDetector(

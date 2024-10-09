@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:provider/provider.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
 import 'package:comp30022/pages/yarning/GuidedConsultation.dart';
 import 'package:comp30022/components/YellowCard.dart';
@@ -36,7 +35,7 @@ void main() {
       await tester.pumpWidget(buildConfig(
         title: title,
         pageNum: 1,
-        body: GuidedConsultation(),
+        body: const GuidedConsultation(),
       ));
 
       expect(find.text(title), findsOneWidget);
@@ -47,7 +46,7 @@ void main() {
       await tester.pumpWidget(buildConfig(
         title: 'Guided Consultation',
         pageNum: 1,
-        body: GuidedConsultation(),
+        body: const GuidedConsultation(),
       ));
 
       // Find the ChatbotButton
@@ -66,7 +65,7 @@ void main() {
       await tester.pumpWidget(buildConfig(
         title: 'Guided Consultation',
         pageNum: 1,
-        body: GuidedConsultation(),
+        body: const GuidedConsultation(),
       ));
 
       // Find the YellowCard widgets

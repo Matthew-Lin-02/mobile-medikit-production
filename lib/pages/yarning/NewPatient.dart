@@ -44,23 +44,23 @@ Builder signUpBody = Builder(builder: (context) {
               ),
               const SizedBox(
                   height: 20), // Add more vertical space between sections
-              Padding(
-                padding: const EdgeInsets.only(bottom: verticalSpacing),
+              const Padding(
+                padding: EdgeInsets.only(bottom: verticalSpacing),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Expanded(
                         child: DropDown(label: 'Name 1', hintText: 'First')),
-                    const SizedBox(width: 16), // Spacing between fields
-                    const Expanded(
+                    SizedBox(width: 16), // Spacing between fields
+                    Expanded(
                         child: TextBox(
                       hintText: "Last",
                     ))
                   ],
                 ),
               ),
-              Padding(
-                padding: const EdgeInsets.only(bottom: verticalSpacing),
+              const Padding(
+                padding: EdgeInsets.only(bottom: verticalSpacing),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -68,13 +68,13 @@ Builder signUpBody = Builder(builder: (context) {
                         child: DropDown(
                             label: 'DoB 1',
                             hintText: 'Date of birth (dd/mm/yyyy)')),
-                    const SizedBox(width: 16), // Spacing between fields
+                    SizedBox(width: 16), // Spacing between fields
                     Expanded(
                         child: DropDown(label: 'Phone 1', hintText: 'Mobile')),
                   ],
                 ),
               ),
-              DropDown(label: 'Name 1', hintText: 'Other Names'),
+              const DropDown(label: 'Name 1', hintText: 'Other Names'),
               const SizedBox(height: 20),
               const Center(
                 child: Column(
@@ -101,8 +101,8 @@ Builder signUpBody = Builder(builder: (context) {
               ),
               const SizedBox(
                   height: 20), // Add more vertical space between sections
-              Padding(
-                  padding: const EdgeInsets.only(bottom: verticalSpacing),
+              const Padding(
+                  padding: EdgeInsets.only(bottom: verticalSpacing),
                   child: Row(
                     children: [
                       Expanded(

@@ -1,6 +1,5 @@
 import 'package:comp30022/components/YellowBorderWhiteCard.dart';
 import 'package:flutter/material.dart';
-import 'package:comp30022/color.dart';
 import 'package:comp30022/font.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -30,7 +29,7 @@ Builder observationsBody = Builder(builder: (context) {
         left: -500,
         child: Transform.rotate(
           angle: 36 * pi / 180,
-          child: Image(
+          child: const Image(
             image: AssetImage('assets/images/art/journey-strip.png'),
             fit: BoxFit.cover, // Ensure it covers the area
           ),
@@ -54,24 +53,24 @@ Builder observationsBody = Builder(builder: (context) {
                           right: -30,
                           child: Transform.flip(
                             flipX: true,
-                            child: Image(
+                            child: const Image(
                                 width: 141,
                                 height: 141,
                                 image: AssetImage(
                                     'assets/images/art/animals/cockatoo.png')),
                           )),
-                      Padding(
-                        padding: const EdgeInsets.only(
+                      const Padding(
+                        padding: EdgeInsets.only(
                             left: 30.0, right: 30.0, top: 10, bottom: 50),
                         child: Column(
                           children: [
-                            const ObservationsSubsection(
+                            ObservationsSubsection(
                               heading: "General Appearance",
                               hintText: "Enter here...",
                               maxLines: 3,
                             ),
-                            const SizedBox(height: mediumFontSize),
-                            const Row(
+                            SizedBox(height: mediumFontSize),
+                            Row(
                               children: [
                                 Expanded(
                                   flex: 4,
@@ -94,28 +93,28 @@ Builder observationsBody = Builder(builder: (context) {
                                 ),
                               ],
                             ),
-                            const SizedBox(height: mediumFontSize),
-                            const ObservationsSubsection(
+                            SizedBox(height: mediumFontSize),
+                            ObservationsSubsection(
                               heading: "Cognitive Function",
                               hintText:
                                   "Behaviour, speech, responsiveness etc.",
                               maxLines: 4,
                             ),
-                            const SizedBox(height: 64),
-                            const ObservationsSubsection(
+                            SizedBox(height: 64),
+                            ObservationsSubsection(
                               heading: "Additional Notes:",
                               hintText: "Enter here...",
                               maxLines: 8,
                             ),
-                            const SizedBox(height: 64),
+                            SizedBox(height: 64),
                             RedActionButton(
                               iconData: Icons.arrow_back,
                               iconSize: largeFontSize,
                               label: "Back to screening tools",
                               fontSize: largeFontSize,
-                              size: const Size(500, 64),
+                              size: Size(500, 64),
                             ),
-                            const SizedBox(height: 64),
+                            SizedBox(height: 64),
                           ],
                         ),
                       ),
