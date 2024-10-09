@@ -5,6 +5,7 @@ import 'package:comp30022/components/RedActionButton.dart';
 import 'package:comp30022/components/YellowTextField.dart';
 import 'package:comp30022/font.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
+import 'package:comp30022/pages/ConsulationComplete.dart';
 import 'package:comp30022/styles.dart';
 import 'package:flutter/material.dart';
 
@@ -243,6 +244,11 @@ class MedicalReportContent extends StatelessWidget {
                     size: largeButtonSizeShort,
                     useCircleAvatar: true,
                     iconSize: mediumIconSize,
+                    onPressed: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ConsulationComplete(),
+                        )),
                   ))
             ])),
         SizedBox(height: fieldSpacing),
