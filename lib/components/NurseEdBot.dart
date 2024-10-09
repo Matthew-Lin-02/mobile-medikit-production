@@ -166,7 +166,8 @@ class _NurseEdBot extends State<NurseEdBot> {
                                   Flexible(
                                       flex: 1,
                                       child: Padding(
-                                          padding: const EdgeInsets.only(left: 15),
+                                          padding:
+                                              const EdgeInsets.only(left: 15),
                                           child: GestureDetector(
                                               child: const Icon(Icons.send,
                                                   size: 30,
