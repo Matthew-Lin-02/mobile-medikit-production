@@ -1,4 +1,3 @@
-import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/components/BaseCustomCard.dart';
 
@@ -12,7 +11,7 @@ class DarkGreenBorderGreenCard extends BaseCustomCard {
     double super.borderWidth = 6.0,
     super.borderRadius,
   }) : super(
-          borderColor: AppColors.darkGreen, // Yellow border color
+          borderColor: AppColors.resultsDarkGreen, // Yellow border color
           backgroundColor: AppColors.diagnosticGreen, // White background
           isShadowOn: isShadowOn ?? true,
         );

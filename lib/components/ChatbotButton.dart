@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:comp30022/components/StandaloneFunctions.dart';
+import 'package:comp30022/components/NurseEdBot.dart';
 
 class ChatBotButton extends StatelessWidget {
   const ChatBotButton({super.key});
@@ -8,6 +10,7 @@ class ChatBotButton extends StatelessWidget {
     return TextButton(
       onPressed: () {
         // Define the action here
+        showCustomModalRightCorner(context, NurseEdBot());
       },
       style: TextButton.styleFrom(
         padding: const EdgeInsets.all(0), // Remove padding to fit the image
