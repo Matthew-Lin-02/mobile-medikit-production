@@ -100,19 +100,19 @@ class PatientPlanMainContent extends StatelessWidget {
                                   ],
                                 ),
                                 RedActionButton(
-                                  size: mediumButtonSizeShort,
-                                  label: 'Select a date',
-                                  iconSize: mediumIconSize,
-                                  iconData: Icons.calendar_month,
-                                  onPressed: () {
-                                    Future<DateTime?> selectedDate = showDatePicker(
-                                      context: context,
-                                      initialDate: DateTime.now(),
-                                      firstDate: DateTime(2000),
-                                      lastDate: DateTime(2025),
-                                    );
-                                  }
-                                )
+                                    size: mediumButtonSizeShort,
+                                    label: 'Select a date',
+                                    iconSize: mediumIconSize,
+                                    iconData: Icons.calendar_month,
+                                    onPressed: () {
+                                      Future<DateTime?> selectedDate =
+                                          showDatePicker(
+                                        context: context,
+                                        initialDate: DateTime.now(),
+                                        firstDate: DateTime(2000),
+                                        lastDate: DateTime(2025),
+                                      );
+                                    })
                               ]))),
                   const Spacer(),
                   Row(
