@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
 import 'package:comp30022/pages/results/ObservationsAndVitalSign.dart';
 import 'package:comp30022/pages/results/ECGResults.dart';
+import 'package:comp30022/pages/results/ImageAnalysisResults.dart';
 
 class Results extends StatefulWidget {
   const Results({super.key});
@@ -97,7 +98,7 @@ class _ResultsState extends State<Results> with SingleTickerProviderStateMixin {
                 children: const [
                   ObservationsAndVitalSign(),
                   ECGResults(),
-                  Center(child: Text('Image Analysis Results Content')),
+                  ImageAnalysisResults(),
                   Center(child: Text('Urinalysis Results Content')),
                 ],
               ),
