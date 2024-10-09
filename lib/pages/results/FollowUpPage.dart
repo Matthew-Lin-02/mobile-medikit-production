@@ -1,4 +1,6 @@
 import 'package:comp30022/components/BaseCustomCard.dart';
+import 'package:comp30022/checkBoxTickTheme.dart';
+import 'package:comp30022/pages/results/PatientPlan.dart';
 
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
@@ -98,12 +100,21 @@ Builder followUpPageBody = Builder(builder: (context) {
                 ),
                 Expanded(flex: 6, child: SizedBox.shrink()),
                 RedActionButton(
-                    label: "Create Patient Plan",
-                    useCircleAvatar: true,
-                    iconData: Icons.check,
-                    iconSize: 40,
-                    size: createPatientPlanSize,
-                    fontSize: biggishFontSize),
+                  label: "Create Patient Plan",
+                  useCircleAvatar: true,
+                  iconData: Icons.check,
+                  iconSize: 40,
+                  size: createPatientPlanSize,
+                  fontSize: biggishFontSize,
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const PatientPlanPage(),
+                      ),
+                    );
+                  },
+                ),
                 SizedBox(
                   height: 80,
                 )
@@ -161,28 +172,7 @@ class _RecommendationCardState extends State<RecommendationCard> {
                   Padding(
                       padding: const EdgeInsets.only(left: 8.0, right: 40),
                       child: CheckboxTheme(
-                        data: CheckboxThemeData(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                          fillColor: WidgetStateProperty.resolveWith(
-                            (states) {
-                              if (states.contains(WidgetState.selected)) {
-                                return Colors.black; // Color when selected
-                              }
-                              return AppColors
-                                  .lightGrey; // Color when unselected
-                            },
-                          ),
-                          side: WidgetStateBorderSide.resolveWith(
-                            (states) => BorderSide(
-                              color: states.contains(WidgetState.selected)
-                                  ? Colors.black
-                                  : Colors.white, // Border color
-                              width: 2.0,
-                            ),
-                          ),
-                        ),
+                        data: checkBoxTickTheme,
                         child: Transform.scale(
                           scale:
                               1.5, // Adjust the scale value to change the size
