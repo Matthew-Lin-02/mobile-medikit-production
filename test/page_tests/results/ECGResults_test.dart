@@ -2,19 +2,40 @@ import 'dart:async';
 import 'dart:developer';
 
 import 'package:comp30022/components/RedActionButton.dart';
+import 'package:comp30022/pages/AbstractConsultationPage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:comp30022/pages/results/ECGResults.dart';
 
 void main() {
+  Widget buildConfig({
+    required String title,
+    required int pageNum,
+    required Widget body,
+    Size size = const Size(1920, 1080),
+    double devicePixelRatio = 1.0,
+  }) {
+    TestWidgetsFlutterBinding.ensureInitialized().window.physicalSizeTestValue =
+        size;
+    TestWidgetsFlutterBinding.ensureInitialized()
+        .window
+        .devicePixelRatioTestValue = devicePixelRatio;
+
+    return MaterialApp(
+      home: AbstractConsultationPage(
+        title: title,
+        pageNum: pageNum,
+        body: body,
+      ),
+    );
+  }
+
   testWidgets("ECG Results renders all components",
       (WidgetTester tester) async {
-    tester.view.devicePixelRatio = 1;
-    tester.view.physicalSize = const Size(1920, 1080);
-    await tester.pumpWidget(const MaterialApp(
-      home: Scaffold(
-        body: ECGResults(),
-      ),
+    await tester.pumpWidget(buildConfig(
+      title: "BloodPressure",
+      pageNum: 3,
+      body: ECGResults(),
     ));
 
     // Find tab description
@@ -29,7 +50,7 @@ void main() {
         widget is Image &&
         widget.image is AssetImage &&
         (widget.image as AssetImage).assetName ==
-            "assets/images/Normal_ECG.png");
+            "assets/images/results/Normal_ECG.png");
     expect(normalEcgImage, findsOneWidget);
 
     // Find Patient ECG image
@@ -37,7 +58,7 @@ void main() {
         widget is Image &&
         widget.image is AssetImage &&
         (widget.image as AssetImage).assetName ==
-            "assets/images/Patients_ECG.png");
+            "assets/images/results/Patients_ECG.png");
     expect(patientsEcgImage, findsOneWidget);
 
     // Find Analysis Button Section Title
@@ -50,49 +71,39 @@ void main() {
     expect(find.byType(RedActionButton), findsOneWidget);
   });
 
-  testWidgets("ListView scrolls through components as expected",
+  testWidgets("Class Analysis Buttons display overlay when clicked",
       (WidgetTester tester) async {
-    tester.view.devicePixelRatio = 1;
-    tester.view.physicalSize = const Size(1920, 500);
-    await tester.pumpWidget(const MaterialApp(
-        home: Scaffold(
+    await tester.pumpWidget(buildConfig(
+      title: "BloodPressure",
+      pageNum: 3,
       body: ECGResults(),
-    )));
+    ));
 
-    // Checks Top widget is rendered and bottom is not
-    expect(find.text("Below are the results of the ECG Test"), findsOneWidget);
-    expect(find.text("ECG AI Analysis Results"), findsNothing);
+    await tester.drag(find.byType(ListView), const Offset(0, -800));
+    await tester.pumpAndSettle();
 
-    // Checks for persitent widget
-    expect(find.byType(RedActionButton), findsOneWidget);
-
-    await tester.drag(find.byType(ListView), const Offset(0, -700));
+    await tester.tap(find.text("Diagnostic Classes"));
     await tester.pump();
 
-    // Checks Top widget is not rendered and bottom widget is
-    expect(find.text("Below are the results of the ECG Test"), findsNothing);
-    expect(find.text("ECG AI Analysis Results"), findsOneWidget);
+    // Check that diagnostic overlay is displayed
+    expect(find.byType(DiagnosticOverlay), findsOneWidget);
 
-    // Checks for persitent widget
-    expect(find.byType(RedActionButton), findsOneWidget);
-  });
-
-  testWidgets("Class Analysis Button is clickable",
-      (WidgetTester tester) async {
-    bool wasPressed = false;
-    await tester.pumpWidget(MaterialApp(
-        home: Scaffold(
-      body: ClassAnalysisButton(
-          imagePath: "assets/images/Touch_Icon.png",
-          iconSpacing: 20,
-          label: "Test",
-          onPressed: () {
-            wasPressed = true;
-          }),
-    )));
-    await tester.tap(find.text("Test"));
+    await tester.tapAt(const Offset(0, 0));
     await tester.pump();
 
-    expect(wasPressed, isTrue);
+    // Checks that overlay closes when tapping outside
+    expect(find.byType(DiagnosticOverlay), findsNothing);
+
+    await tester.tap(find.text("Rhythm Classes"));
+    await tester.pump();
+
+    // Check that rhythm overlay is displayed
+    expect(find.byType(RhythmOverlay), findsOneWidget);
+
+    await tester.tapAt(Offset(0, 0));
+    await tester.pump();
+
+    // Checks that overlay closes when tapping outside
+    expect(find.byType(RhythmOverlay), findsNothing);
   });
 }

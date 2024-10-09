@@ -34,4 +34,11 @@ class AppColors {
   static const Color complete = Color(0xFF74FC82);
   static const Color lightGrey = Color(0xFFE5E5E5);
   static const Color diagnosticGreen = Color(0xFF08B67F);
+
+  // Results
+  static const Color genai = Color(0xFF08B67F);
+  static Color resultsOrange = const Color(0xFFFF5F15).withOpacity(0.8);
+  static Color resultsGreen = const Color(0xFF169D15).withOpacity(0.75);
+  static const Color resultsBlue = const Color(0xFF48a4fc);
+  static const Color resultsDarkGreen = const Color(0xFF006847);
 }

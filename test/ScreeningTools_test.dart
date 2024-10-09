@@ -13,27 +13,19 @@ void main() {
     Size size = const Size(1920, 1080),
     double devicePixelRatio = 1.0,
   }) {
-    final testScreenSize = Size(1920, 1080);
     TestWidgetsFlutterBinding.ensureInitialized().window.physicalSizeTestValue =
         size;
     TestWidgetsFlutterBinding.ensureInitialized()
         .window
         .devicePixelRatioTestValue = devicePixelRatio;
 
-    return MultiProvider(
-        providers: [
-          ChangeNotifierProvider(create: (_) => GuidedConsultationState()),
-        ],
-        child: MaterialApp(
-          home: MediaQuery(
-            data: MediaQueryData(size: testScreenSize),
-            child: AbstractConsultationPage(
-              title: title,
-              pageNum: pageNum,
-              body: body,
-            ),
-          ),
-        ));
+    return MaterialApp(
+      home: AbstractConsultationPage(
+        title: title,
+        pageNum: pageNum,
+        body: body,
+      ),
+    );
   }
 
   testWidgets('Observations page displays correctly',
