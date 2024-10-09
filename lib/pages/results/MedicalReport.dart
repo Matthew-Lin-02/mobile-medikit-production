@@ -216,7 +216,7 @@ class MedicalReportContent extends StatelessWidget {
                 iconData: Icons.arrow_forward,
               )
             ])),
-        Image(image: AssetImage('assets/images/art/footer-strip.png')),
+        const Image(image: AssetImage('assets/images/art/footer-strip.png')),
       ],
     );
   }
@@ -279,10 +279,10 @@ class GeneratedField extends StatelessWidget {
         SizedBox(
             width: fieldWidth,
             child: TextField(
+              controller: TextEditingController()..text = fieldText,
               textAlign: textAlign ?? TextAlign.start,
               style: const TextStyle(fontSize: biggishFontSize),
               decoration: InputDecoration(
-                  hintText: fieldText,
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15.0),
                     borderSide: const BorderSide(
