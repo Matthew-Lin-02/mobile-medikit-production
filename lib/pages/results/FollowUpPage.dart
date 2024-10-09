@@ -1,5 +1,5 @@
 import 'package:comp30022/components/BaseCustomCard.dart';
-import 'package:comp30022/components/CheckBoxTickTheme.dart';
+import 'package:comp30022/checkBoxTickTheme.dart';
 import 'package:comp30022/pages/results/PatientPlan.dart';
 
 import 'package:flutter/material.dart';

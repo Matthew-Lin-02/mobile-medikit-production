@@ -1,6 +1,6 @@
 import 'package:comp30022/color.dart';
 import 'package:comp30022/components/ChatbotButton.dart';
-import 'package:comp30022/components/CheckBoxTickTheme.dart';
+import 'package:comp30022/checkBoxTickTheme.dart';
 import 'package:comp30022/components/DarkGreenBorderGreenCard.dart';
 import 'package:comp30022/components/RedActionButton.dart';
 import 'package:comp30022/components/YellowBorderWhiteCard.dart';
