@@ -42,4 +42,6 @@ class AppColors {
   static Color resultsBlue = const Color(0xFF48a4fc);
   static const Color resultsDarkGreen = Color(0xFF006847);
   static const Color fadedGrey = Color.fromARGB(255, 170, 175, 180);
+  static const Color fieldCream = Color.fromARGB(255, 255, 242, 214);
+  static const Color fieldDarkCream = Color.fromARGB(255, 241, 226, 192);
 }

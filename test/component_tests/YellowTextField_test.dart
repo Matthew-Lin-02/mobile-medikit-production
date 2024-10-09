@@ -1,3 +1,4 @@
+import 'package:comp30022/color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:comp30022/components/YellowTextField.dart';
@@ -52,7 +53,7 @@ void main() {
       // Verify the text field has the correct fill color
       final decoration = textField.decoration;
       expect(decoration?.filled, isTrue);
-      expect(decoration?.fillColor, const Color(0xFFFFF5E1));
+      expect(decoration?.fillColor, AppColors.fieldCream);
     });
 
     testWidgets('renders with specified border', (WidgetTester tester) async {
@@ -92,7 +93,7 @@ void main() {
       // Verify the text field has the correct fill color
       final decoration = textField.decoration;
       expect(decoration?.filled, isTrue);
-      expect(decoration?.fillColor, const Color(0xFFFFF5E1));
+      expect(decoration?.fillColor, AppColors.fieldCream);
     });
 
     testWidgets('allows maxLines to be configured',

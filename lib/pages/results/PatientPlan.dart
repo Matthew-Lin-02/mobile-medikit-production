@@ -5,6 +5,7 @@ import 'package:comp30022/components/DarkGreenBorderGreenCard.dart';
 import 'package:comp30022/components/RedActionButton.dart';
 import 'package:comp30022/components/YellowBorderWhiteCard.dart';
 import 'package:comp30022/font.dart';
+import 'package:comp30022/pages/results/MedicalReport.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
 import 'package:comp30022/styles.dart';
@@ -199,6 +200,14 @@ class PatientPlanMainContent extends StatelessWidget {
                     iconSize: mediumIconSize,
                     label: 'Submit Patient Plan and Generate Medical Report',
                     iconData: Icons.check_circle,
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MedicalReportPage(),
+                        ),
+                      );
+                    },
                   ),
                   const Spacer(flex: 3)
                 ])));
