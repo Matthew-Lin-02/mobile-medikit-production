@@ -140,13 +140,16 @@ class MedicalReportContent extends StatelessWidget {
                   )
                 ],
               ),
-              const Divider(),
+              const Divider(
+                color: Colors.black,
+              ),
               const Align(
                   child: Text(
                 'Medical testing results',
                 style: TextStyle(fontSize: largeFontSize, height: 1.2),
               )),
               Container(
+                  padding: const EdgeInsets.symmetric(vertical: 20),
                   decoration: BoxDecoration(
                       color: AppColors.fieldCream,
                       border: Border.all(color: Colors.black),
@@ -154,47 +157,22 @@ class MedicalReportContent extends StatelessWidget {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Container(
-                          decoration: BoxDecoration(
-                              color: AppColors.fieldDarkCream,
-                              border: Border.all(color: Colors.black),
-                              borderRadius: BorderRadius.circular(5)),
-                          child: Column(
-                            children: [
-                              Text('Generate testing results'),
-                              Text(
-                                  'View observations, temperature and blood pressure results'),
-                              RedActionButton(label: 'View results')
-                            ],
-                          )),
-                      Container(
-                          decoration: BoxDecoration(
-                              color: AppColors.fieldDarkCream,
-                              border: Border.all(color: Colors.black),
-                              borderRadius: BorderRadius.circular(5)),
-                          child: Column(
-                            children: [
-                              Text('ECG results'),
-                              Text(
-                                  'View ECG test results, graph, classification and AI analysis'),
-                              RedActionButton(label: 'View results')
-                            ],
-                          )),
-                      Container(
-                          decoration: BoxDecoration(
-                              color: AppColors.fieldDarkCream,
-                              border: Border.all(color: Colors.black),
-                              borderRadius: BorderRadius.circular(5)),
-                          child: Column(
-                            children: [
-                              Text('Urinalysis results'),
-                              Text('View urinalysis examination results'),
-                              RedActionButton(label: 'View results')
-                            ],
-                          ))
+                      TestResultsField(
+                          title: 'Generate testing results',
+                          description:
+                              'View observations, temperature and blood pressure results'),
+                      TestResultsField(
+                          title: 'ECG results',
+                          description:
+                              'View ECG test results, graph, classification and AI analysis'),
+                      TestResultsField(
+                          title: 'Urinalysis results',
+                          description: 'View urinalysis examination results')
                     ],
                   )),
-              const Divider(),
+              const Divider(
+                color: Colors.black,
+              ),
               const Align(
                   child: Text(
                 'Checkup details',
@@ -221,7 +199,7 @@ class MedicalReportContent extends StatelessWidget {
                       color: AppColors.fieldCream,
                       border: Border.all(color: Colors.black),
                       borderRadius: BorderRadius.circular(5)),
-                  child: Row(
+                  child: const Row(
                     children: [
                       Text(
                           'I have read this report and agree with the results. Any incorrect results have been amended and I will be held responsible for issues arising from this record')
@@ -311,5 +289,43 @@ class GeneratedField extends StatelessWidget {
             ))
       ],
     );
+  }
+}
+
+class TestResultsField extends StatelessWidget {
+  const TestResultsField(
+      {super.key, required this.title, required this.description});
+
+  final String title;
+  final String description;
+
+  @override
+  Widget build(BuildContext context) {
+    double screenWidth = context.screenWidth;
+    double screenHeight = context.screenHeight;
+
+    return SizedBox(
+        width: screenWidth * 0.25,
+        height: screenHeight * 0.22,
+        child: Container(
+            decoration: BoxDecoration(
+                color: AppColors.fieldDarkCream,
+                border: Border.all(color: Colors.black),
+                borderRadius: BorderRadius.circular(5)),
+            child: Column(
+              children: [
+                Text(
+                  title,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(fontSize: largeFontSize),
+                ),
+                Text(
+                  description,
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(fontSize: mediumFontSize),
+                ),
+                RedActionButton(label: 'View results')
+              ],
+            )));
   }
 }
