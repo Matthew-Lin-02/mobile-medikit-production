@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:comp30022/checkBoxTickTheme.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/components/ChatbotButton.dart';
@@ -68,6 +66,7 @@ class MedicalReportContent extends StatelessWidget {
                     fieldWidth: screenWidth * 0.18,
                     maxLines: 1,
                     textAlign: TextAlign.center,
+                    fillColor: AppColors.diagnosticGreen,
                   ),
                   GeneratedField(
                     fieldName: 'Patient ID',
@@ -84,12 +83,12 @@ class MedicalReportContent extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                   GeneratedField(
-                    fieldName: 'Date of birth',
-                    fieldText: '01/01/2001',
-                    fieldWidth: screenWidth * 0.18,
-                    maxLines: 1,
-                    textAlign: TextAlign.center,
-                  )
+                      fieldName: 'Date of birth',
+                      fieldText: '01/01/2001',
+                      fieldWidth: screenWidth * 0.18,
+                      maxLines: 1,
+                      textAlign: TextAlign.center,
+                      fillColor: AppColors.diagnosticGreen)
                 ],
               ),
               SizedBox(height: fieldSpacing),
@@ -152,6 +151,7 @@ class MedicalReportContent extends StatelessWidget {
               SizedBox(height: fieldSpacing),
               const Divider(
                 color: Colors.black,
+                thickness: 3,
               ),
               SizedBox(height: fieldSpacing),
               const Align(
@@ -166,7 +166,7 @@ class MedicalReportContent extends StatelessWidget {
                       color: AppColors.fieldCream,
                       border: Border.all(color: Colors.black),
                       borderRadius: BorderRadius.circular(15)),
-                  child: Row(
+                  child: const Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       TestResultsField(
@@ -185,6 +185,7 @@ class MedicalReportContent extends StatelessWidget {
               SizedBox(height: fieldSpacing),
               const Divider(
                 color: Colors.black,
+                thickness: 3,
               ),
               SizedBox(height: fieldSpacing),
               const Align(
@@ -214,6 +215,7 @@ class MedicalReportContent extends StatelessWidget {
                       'Enter any instructions to give to patient or details about follow up appointment...'),
               SizedBox(height: fieldSpacing),
               Container(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
                   decoration: BoxDecoration(
                       color: AppColors.fieldCream,
                       border: Border.all(color: Colors.black),
@@ -276,21 +278,22 @@ class EntryField extends StatelessWidget {
   }
 }
 
-// ignore: must_be_immutable
 class GeneratedField extends StatelessWidget {
-  GeneratedField(
+  const GeneratedField(
       {super.key,
       required this.fieldName,
       required this.fieldText,
       this.maxLines,
       required this.fieldWidth,
-      this.textAlign});
+      this.textAlign,
+      this.fillColor});
 
   final String fieldName;
   final String fieldText;
   final int? maxLines;
   final double fieldWidth;
-  TextAlign? textAlign;
+  final TextAlign? textAlign;
+  final Color? fillColor;
 
   @override
   Widget build(BuildContext context) {
@@ -315,7 +318,7 @@ class GeneratedField extends StatelessWidget {
                     ),
                   ),
                   filled: true,
-                  fillColor: AppColors.fieldCream),
+                  fillColor: fillColor ?? AppColors.fieldCream),
               maxLines: maxLines ?? 4,
             ))
       ],
