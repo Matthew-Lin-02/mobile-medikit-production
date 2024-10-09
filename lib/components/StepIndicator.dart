@@ -84,7 +84,8 @@ class IndicatorStep extends StatelessWidget {
   final String text;
 
   const IndicatorStep(
-      {super.key, this.stepNum = "00",
+      {super.key,
+      this.stepNum = "00",
       this.step = 0,
       this.currStep = 0,
       this.text = "N/A"});
@@ -128,7 +129,8 @@ class IndicatorPageName extends StatelessWidget {
   final bool coloured;
 
   const IndicatorPageName(
-      {super.key, required this.boxSize,
+      {super.key,
+      required this.boxSize,
       required this.text,
       required this.bold,
       required this.coloured});

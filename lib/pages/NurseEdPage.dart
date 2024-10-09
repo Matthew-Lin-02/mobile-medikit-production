@@ -225,8 +225,8 @@ class _LargeNurseEdBot extends State<LargeNurseEdBot> {
 
                                             /// Wait until the list is updated then scroll the list down
                                             Future.delayed(
-                                                const Duration(milliseconds: 100),
-                                                () {
+                                                const Duration(
+                                                    milliseconds: 100), () {
                                               _scrollController.jumpTo(
                                                   _scrollController.position
                                                       .maxScrollExtent);
