@@ -105,12 +105,16 @@ class PatientPlanMainContent extends StatelessWidget {
                                     iconSize: mediumIconSize,
                                     iconData: Icons.calendar_month,
                                     onPressed: () {
-                                      Future<DateTime?> selectedDate =
-                                          showDatePicker(
+                                      DateTime now = DateTime.now();
+                                      DateTime oneYearFromNow = DateTime(
+                                          now.year + 1, now.month, now.day);
+
+                                      DateTime? selectedDate =
+                                          await showDatePicker(
                                         context: context,
-                                        initialDate: DateTime.now(),
-                                        firstDate: DateTime(2000),
-                                        lastDate: DateTime(2025),
+                                        initialDate: now,
+                                        firstDate: now,
+                                        lastDate: oneYearFromNow,
                                       );
                                     })
                               ]))),
