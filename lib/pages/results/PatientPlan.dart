@@ -1,5 +1,6 @@
 import 'package:comp30022/color.dart';
 import 'package:comp30022/components/ChatbotButton.dart';
+import 'package:comp30022/components/CheckBoxTickTheme.dart';
 import 'package:comp30022/components/DarkGreenBorderGreenCard.dart';
 import 'package:comp30022/components/RedActionButton.dart';
 import 'package:comp30022/components/YellowBorderWhiteCard.dart';
@@ -46,7 +47,7 @@ class PatientPlanPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return AbstractConsultationPage(
       title: "Patient Plan",
-      pageNum: 8,
+      pageNum: 6,
       body: patientPlanBody,
     );
   }
@@ -204,15 +205,18 @@ class _CheckboxTickState extends State<CheckboxTick> {
 
   @override
   Widget build(BuildContext context) {
-    return Checkbox(
-      checkColor: Colors.white,
-      activeColor: Colors.black,
-      value: isChecked,
-      onChanged: (bool? value) {
-        setState(() {
-          isChecked = value!;
-        });
-      },
-    );
+    return CheckboxTheme(
+        data: checkBoxTickTheme,
+        child: Checkbox(
+          side: BorderSide(color: Colors.black),
+          checkColor: Colors.white,
+          activeColor: Colors.black,
+          value: isChecked,
+          onChanged: (bool? value) {
+            setState(() {
+              isChecked = value!;
+            });
+          },
+        ));
   }
 }
