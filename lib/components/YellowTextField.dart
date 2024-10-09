@@ -1,3 +1,4 @@
+import 'package:comp30022/color.dart';
 import 'package:flutter/material.dart';
 
 class YellowTextField extends StatelessWidget {
@@ -23,7 +24,7 @@ class YellowTextField extends StatelessWidget {
           ),
         ),
         filled: true,
-        fillColor: Color(0xFFFFF5E1), // Cream background color
+        fillColor: AppColors.fieldCream, // Cream background color
       ),
     );
   }

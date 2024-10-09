@@ -147,37 +147,53 @@ class MedicalReportContent extends StatelessWidget {
                 style: TextStyle(fontSize: largeFontSize, height: 1.2),
               )),
               Container(
+                  decoration: BoxDecoration(
+                      color: AppColors.fieldCream,
+                      border: Border.all(color: Colors.black),
+                      borderRadius: BorderRadius.circular(5)),
                   child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  Container(
-                      child: Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      Text('Generate testing results'),
-                      Text(
-                          'View observations, temperature and blood pressure results'),
-                      RedActionButton(label: 'View results')
+                      Container(
+                          decoration: BoxDecoration(
+                              color: AppColors.fieldDarkCream,
+                              border: Border.all(color: Colors.black),
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Column(
+                            children: [
+                              Text('Generate testing results'),
+                              Text(
+                                  'View observations, temperature and blood pressure results'),
+                              RedActionButton(label: 'View results')
+                            ],
+                          )),
+                      Container(
+                          decoration: BoxDecoration(
+                              color: AppColors.fieldDarkCream,
+                              border: Border.all(color: Colors.black),
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Column(
+                            children: [
+                              Text('ECG results'),
+                              Text(
+                                  'View ECG test results, graph, classification and AI analysis'),
+                              RedActionButton(label: 'View results')
+                            ],
+                          )),
+                      Container(
+                          decoration: BoxDecoration(
+                              color: AppColors.fieldDarkCream,
+                              border: Border.all(color: Colors.black),
+                              borderRadius: BorderRadius.circular(5)),
+                          child: Column(
+                            children: [
+                              Text('Urinalysis results'),
+                              Text('View urinalysis examination results'),
+                              RedActionButton(label: 'View results')
+                            ],
+                          ))
                     ],
                   )),
-                  Container(
-                      child: Column(
-                    children: [
-                      Text('ECG results'),
-                      Text(
-                          'View ECG test results, graph, classification and AI analysis'),
-                      RedActionButton(label: 'View results')
-                    ],
-                  )),
-                  Container(
-                      child: Column(
-                    children: [
-                      Text('Urinalysis results'),
-                      Text('View urinalysis examination results'),
-                      RedActionButton(label: 'View results')
-                    ],
-                  ))
-                ],
-              )),
               const Divider(),
               const Align(
                   child: Text(
@@ -202,7 +218,7 @@ class MedicalReportContent extends StatelessWidget {
                       'Enter any instructions to give to patient or details about follow up appointment...'),
               Container(
                   decoration: BoxDecoration(
-                      color: Color(0xFFFFF5E1),
+                      color: AppColors.fieldCream,
                       border: Border.all(color: Colors.black),
                       borderRadius: BorderRadius.circular(5)),
                   child: Row(
@@ -290,7 +306,7 @@ class GeneratedField extends StatelessWidget {
                     ),
                   ),
                   filled: true,
-                  fillColor: Color(0xFFFFF5E1)),
+                  fillColor: AppColors.fieldCream),
               maxLines: maxLines ?? 4,
             ))
       ],
