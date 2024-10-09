@@ -8,3 +8,4 @@ export 'yarning/MyHealthRecordPage2.dart';
 export 'yarning/ExistingPatient.dart';
 export 'yarning/PatientLookUp.dart';
 export 'PatientProfile.dart';
+export 'NurseEdPage.dart';

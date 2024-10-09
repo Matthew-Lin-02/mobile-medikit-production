@@ -6,7 +6,9 @@ const Size smallButtonSizeCompact = Size(250, 65);
 const Size mediumButtonSizeShort = Size(300, 60);
 const Size mediumButtonSize = Size(400, 100);
 const Size mediumButtonSizeLong = Size(515, 60);
+const Size largeButtonSizeShort = Size(600, 60);
 const Size largeButtonSize = Size(900, 130);
+const Size largeButtonSizeCompact = Size(800, 70);
 
 const double smallButtonFontSize = 28.0;
 const double largeButtonFontSize = 40.0;

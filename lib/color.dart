@@ -39,6 +39,9 @@ class AppColors {
   static const Color genai = Color(0xFF08B67F);
   static Color resultsOrange = const Color(0xFFFF5F15).withOpacity(0.8);
   static Color resultsGreen = const Color(0xFF169D15).withOpacity(0.75);
-  static const Color resultsBlue = const Color(0xFF48a4fc);
-  static const Color resultsDarkGreen = const Color(0xFF006847);
+  static Color resultsBlue = const Color(0xFF48a4fc);
+  static const Color resultsDarkGreen = Color(0xFF006847);
+  static const Color fadedGrey = Color.fromARGB(255, 170, 175, 180);
+  static const Color fieldCream = Color.fromARGB(255, 255, 242, 214);
+  static const Color fieldDarkCream = Color.fromARGB(255, 241, 226, 192);
 }
