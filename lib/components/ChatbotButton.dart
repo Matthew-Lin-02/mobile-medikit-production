@@ -10,7 +10,7 @@ class ChatBotButton extends StatelessWidget {
     return TextButton(
       onPressed: () {
         // Define the action here
-        showCustomModal(context, NurseEdBot());
+        showCustomModalRightCorner(context, NurseEdBot());
       },
       style: TextButton.styleFrom(
         padding: const EdgeInsets.all(0), // Remove padding to fit the image

@@ -33,128 +33,146 @@ class _NurseEdBot extends State<NurseEdBot> {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      width: 425,
-      height: 777,
-      child: Container(
+    return Container(
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(40.0),
-          color: AppColors.cream,
-        ),
-        child: Stack(
-          children: [
-            const Align(
-              alignment: Alignment.topCenter,
-              child: Padding(
-                  padding: EdgeInsets.only(top: 20),
-                  child: Text("Nurse Ed",
-                      style: TextStyle(
-                          fontSize: 40, fontWeight: FontWeight.bold))),
+          borderRadius: BorderRadius.circular(40),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              spreadRadius: 3,
+              blurRadius: 5,
+              offset: Offset(0, 3),
             ),
-            Align(
-                alignment: Alignment.topCenter,
-                child: Padding(
-                    padding: EdgeInsets.only(
-                      top: 80,
-                    ),
-                    child: FractionallySizedBox(
-                        alignment: Alignment.topCenter,
-                        widthFactor: 0.95,
-                        heightFactor: 0.90,
-                        child: Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(30.0),
-                                border: Border.all(
-                                    color: AppColors.turquoise, width: 5),
-                                color: AppColors.yellowCream),
-                            child: SingleChildScrollView(
-                                child: Column(children: messages)))))),
-
-            /// Bar at bottom to enter message
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: Padding(
-                padding: EdgeInsets.only(bottom: 40),
-                child: FractionallySizedBox(
-                    widthFactor: 0.95,
-                    heightFactor: 0.1,
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: AppColors.turquoise,
-                          borderRadius: BorderRadius.circular(20.0)),
-                      child: Padding(
-                        padding: EdgeInsets.all(15),
-                        child: Container(
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(20),
-                                color: AppColors.turquoise),
-                            child: Row(children: [
-                              Flexible(
-                                flex: 5,
-                                child: Scaffold(
-                                  backgroundColor: AppColors.turquoise,
-                                  body: TextField(
-                                    controller: _controller,
-                                    decoration: InputDecoration(
-                                        filled: true,
-                                        fillColor: Colors.white,
-                                        border: OutlineInputBorder(
-                                            borderSide: const BorderSide(
-                                                color: Colors.white, width: 1),
-                                            borderRadius:
-                                                BorderRadius.circular(30.0)),
-                                        hintText: "Enter Here..."),
-                                  ),
-                                ),
-                              ),
-                              Flexible(
-                                  flex: 1,
-                                  child: Padding(
-                                      padding: EdgeInsets.only(left: 15),
-                                      child: GestureDetector(
-                                          child: const Icon(Icons.send,
-                                              size: 30, color: Colors.white),
-                                          onTap: () {
-                                            setState(() {
-                                              /// Insert message as second last (There is a sizedbox to create a gap at the end)
-                                              messages.insert(
-                                                  messages.length - 1,
-                                                  _EdBotMessage(
-                                                      msg: _controller.text,
-                                                      isBot: false));
-                                              _controller.clear();
-                                            });
-                                          })))
-                            ])),
-                      ),
-                    )),
-              ),
-            ),
-
-            /// Exit cross in corner
-            Align(
-                alignment: Alignment.topLeft,
-                child: Padding(
-                    padding: EdgeInsets.all(18),
-                    child: GestureDetector(
-                        child: Icon(Icons.cancel,
-                            color: AppColors.turquoise, size: 50),
-                        onTap: () {
-                          Navigator.of(context).pop();
-                        }))),
-
-            /// Expand icon
-            Align(
-                alignment: Alignment.topRight,
-                child: Padding(
-                    padding: EdgeInsets.all(18),
-                    child: GestureDetector(
-                        child: Icon(Icons.expand,
-                            color: AppColors.turquoise, size: 50))))
           ],
         ),
-      ),
-    );
+        child: SizedBox(
+          width: 425,
+          height: 777,
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(40.0),
+              color: AppColors.cream,
+            ),
+            child: Stack(
+              children: [
+                const Align(
+                  alignment: Alignment.topCenter,
+                  child: Padding(
+                      padding: EdgeInsets.only(top: 20),
+                      child: Text("Nurse Ed",
+                          style: TextStyle(
+                              fontSize: 40, fontWeight: FontWeight.bold))),
+                ),
+                Align(
+                    alignment: Alignment.topCenter,
+                    child: Padding(
+                        padding: EdgeInsets.only(
+                          top: 80,
+                        ),
+                        child: FractionallySizedBox(
+                            alignment: Alignment.topCenter,
+                            widthFactor: 0.95,
+                            heightFactor: 0.90,
+                            child: Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(30.0),
+                                    border: Border.all(
+                                        color: AppColors.turquoise, width: 5),
+                                    color: AppColors.yellowCream),
+                                child: SingleChildScrollView(
+                                    child: Column(children: messages)))))),
+
+                /// Bar at bottom to enter message
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Padding(
+                    padding: EdgeInsets.only(bottom: 40),
+                    child: FractionallySizedBox(
+                        widthFactor: 0.95,
+                        heightFactor: 0.1,
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: AppColors.turquoise,
+                              borderRadius: BorderRadius.circular(20.0)),
+                          child: Padding(
+                            padding: EdgeInsets.all(15),
+                            child: Container(
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: AppColors.turquoise),
+                                child: Row(children: [
+                                  Flexible(
+                                    flex: 5,
+                                    child: Scaffold(
+                                      backgroundColor: AppColors.turquoise,
+                                      body: TextField(
+                                        controller: _controller,
+                                        decoration: InputDecoration(
+                                            filled: true,
+                                            fillColor: Colors.white,
+                                            border: OutlineInputBorder(
+                                                borderSide: const BorderSide(
+                                                    color: Colors.white,
+                                                    width: 1),
+                                                borderRadius:
+                                                    BorderRadius.circular(
+                                                        30.0)),
+                                            hintText: "Enter Here..."),
+                                      ),
+                                    ),
+                                  ),
+                                  Flexible(
+                                      flex: 1,
+                                      child: Padding(
+                                          padding: EdgeInsets.only(left: 15),
+                                          child: GestureDetector(
+                                              child: const Icon(Icons.send,
+                                                  size: 30,
+                                                  color: Colors.white),
+                                              onTap: () {
+                                                setState(() {
+                                                  /// Insert message as second last (There is a sizedbox to create a gap at the end)
+                                                  messages.insert(
+                                                      messages.length - 1,
+                                                      _EdBotMessage(
+                                                          msg: _controller.text,
+                                                          isBot: false));
+                                                  _controller.clear();
+                                                });
+                                              })))
+                                ])),
+                          ),
+                        )),
+                  ),
+                ),
+
+                /// Exit cross in corner
+                Align(
+                    alignment: Alignment.topLeft,
+                    child: Padding(
+                        padding: EdgeInsets.all(18),
+                        child: GestureDetector(
+                            child: Icon(Icons.cancel,
+                                color: AppColors.turquoise, size: 50),
+                            onTap: () {
+                              Navigator.of(context).pop();
+                            }))),
+
+                /// Expand icon
+                Align(
+                    alignment: Alignment.topRight,
+                    child: Padding(
+                        padding: EdgeInsets.all(18),
+                        child: GestureDetector(
+                            child: Icon(Icons.expand,
+                                color: AppColors.turquoise, size: 50),
+                            onTap: () {
+                              Navigator.pushNamed(context, '/NurseEdPage');
+                            })))
+              ],
+            ),
+          ),
+        ));
   }
 }
 
