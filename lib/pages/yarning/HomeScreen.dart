@@ -3,8 +3,8 @@ import 'package:comp30022/components/BackArrowTeal.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/pages/Pages.dart';
 
-class Page3 extends StatelessWidget {
-  const Page3({
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({
     super.key,
   });
 
