@@ -220,16 +220,20 @@ class MedicalReportContent extends StatelessWidget {
                       color: AppColors.fieldCream,
                       border: Border.all(color: Colors.black),
                       borderRadius: BorderRadius.circular(15)),
-                  child: Row(
-                    children: [
-                      CheckboxTheme(
-                          data: checkBoxTickTheme, child: const CheckboxTick()),
-                      const Text(
-                        'I have read this report and agree with the results. Any incorrect results have been amended and I will be held responsible for issues arising from this record',
-                        style: TextStyle(fontSize: smallFontSize),
-                      )
-                    ],
-                  )),
+                  child: SizedBox(
+                      width: screenWidth * 0.9,
+                      child: Row(
+                        children: [
+                          CheckboxTheme(
+                              data: checkBoxTickTheme,
+                              child: const CheckboxTick()),
+                          const Expanded(
+                              child: Text(
+                            'I have read this report and agree with the results. Any incorrect results have been amended and I will be held responsible for issues arising from this record',
+                            style: TextStyle(fontSize: smallFontSize),
+                          ))
+                        ],
+                      ))),
               SizedBox(height: fieldSpacing),
               Align(
                   alignment: Alignment.bottomRight,
@@ -340,43 +344,46 @@ class TestResultsField extends StatelessWidget {
 
     return SizedBox(
         width: screenWidth * 0.25,
-        height: screenHeight * 0.22,
+        height: screenHeight * 0.25,
         child: Container(
-            padding: EdgeInsets.all(15),
+            padding: const EdgeInsets.all(15),
             decoration: BoxDecoration(
                 color: AppColors.fieldDarkCream,
                 border: Border.all(color: Colors.black),
                 borderRadius: BorderRadius.circular(15)),
             child: Column(
               children: [
-                Text(
+                Expanded(
+                    child: Text(
                   title,
                   textAlign: TextAlign.center,
                   style: const TextStyle(fontSize: largeFontSize),
-                ),
-                Text(
+                )),
+                Expanded(
+                    child: Text(
                   description,
                   textAlign: TextAlign.center,
                   style: const TextStyle(fontSize: mediumFontSize),
-                ),
+                )),
                 const Spacer(),
-                Align(
-                    alignment: Alignment.bottomRight,
-                    child: ElevatedButton.icon(
-                      style: ButtonStyle(
-                          backgroundColor: WidgetStatePropertyAll<Color>(
-                              AppColors.diagnosticGreen)),
-                      onPressed: () {},
-                      icon: ImageIcon(
-                          AssetImage(
-                              'assets/images/results/test-results-icon.png'),
-                          size: screenWidth * 0.02,
-                          color: Colors.white),
-                      label: Text(
-                        'View results',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ))
+                Expanded(
+                    child: Align(
+                        alignment: Alignment.bottomRight,
+                        child: ElevatedButton.icon(
+                          style: const ButtonStyle(
+                              backgroundColor: WidgetStatePropertyAll<Color>(
+                                  AppColors.diagnosticGreen)),
+                          onPressed: () {},
+                          icon: ImageIcon(
+                              const AssetImage(
+                                  'assets/images/results/test-results-icon.png'),
+                              size: screenWidth * 0.015,
+                              color: Colors.white),
+                          label: const Text(
+                            'View results',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        )))
               ],
             )));
   }
