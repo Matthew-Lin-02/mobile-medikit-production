@@ -10,11 +10,42 @@ class NurseEdBot extends StatefulWidget {
   }
 }
 
+/// The main body of the nurseEdBot that displays on the side of the screen
 class _NurseEdBot extends State<NurseEdBot> {
+  /// This is the list of messages, these are placeholders to match the Figma design
+  /// When a new message is created it is added to this list
   List<Widget> messages = [
+    /// This is the start of the conversation message
+    SizedBox(height: 20),
+    Row(
+      children: [
+        SizedBox(width: 10),
+        Expanded(
+          child: Container(
+            height: 2,
+            color: AppColors.darkGrey,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          child: Text("This is the start of the conversation"),
+        ),
+        Expanded(
+          child: Container(
+            height: 2,
+            color: AppColors.darkGrey,
+          ),
+        ),
+        SizedBox(width: 10),
+      ],
+    ),
+
     const _EdBotMessage(
         msg: "Hi Ed, Darlene has a fever and is dizzy. What should I do next?",
         isBot: false),
+
+    SuggestionsMessage(),
+
     const _EdBotMessage(
         msg: "1. Get Darlene to sit down and loosen any tight clothing",
         isBot: true),
@@ -26,10 +57,13 @@ class _NurseEdBot extends State<NurseEdBot> {
         msg:
             "3. Take Darlene's blood pressure, temperature and monitor her pulse. Consider performing an ECG test if heart rate variability is high.",
         isBot: true),
-    const SizedBox(height: 80),
+
+    /// This box helps ensure all of the messages cna be read
+    const SizedBox(height: 120),
   ];
 
   final TextEditingController _controller = TextEditingController();
+  final ScrollController _scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -80,6 +114,9 @@ class _NurseEdBot extends State<NurseEdBot> {
                                         color: AppColors.turquoise, width: 5),
                                     color: AppColors.yellowCream),
                                 child: SingleChildScrollView(
+
+                                    /// Where the messages are displayed
+                                    controller: _scrollController,
                                     child: Column(children: messages)))))),
 
                 /// Bar at bottom to enter message
@@ -105,6 +142,8 @@ class _NurseEdBot extends State<NurseEdBot> {
                                     flex: 5,
                                     child: Scaffold(
                                       backgroundColor: AppColors.turquoise,
+
+                                      /// The text box that the user inputs their message into
                                       body: TextField(
                                         controller: _controller,
                                         decoration: InputDecoration(
@@ -121,6 +160,8 @@ class _NurseEdBot extends State<NurseEdBot> {
                                       ),
                                     ),
                                   ),
+
+                                  /// The send button
                                   Flexible(
                                       flex: 1,
                                       child: Padding(
@@ -131,13 +172,45 @@ class _NurseEdBot extends State<NurseEdBot> {
                                                   color: Colors.white),
                                               onTap: () {
                                                 setState(() {
-                                                  /// Insert message as second last (There is a sizedbox to create a gap at the end)
-                                                  messages.insert(
-                                                      messages.length - 1,
-                                                      _EdBotMessage(
-                                                          msg: _controller.text,
-                                                          isBot: false));
-                                                  _controller.clear();
+                                                  /// Check that there is text to display
+                                                  /// Don't want to display lots of empty boxes
+                                                  if (_controller
+                                                      .text.isNotEmpty) {
+                                                    /// Insert message as second last (There is a sizedbox to create a gap at the end)
+                                                    messages.insert(
+                                                        messages.length - 1,
+
+                                                        /// Create the new message box
+                                                        _EdBotMessage(
+                                                            msg: _controller
+                                                                .text,
+                                                            isBot: false));
+
+                                                    /// Empty the box to enter the message
+                                                    _controller.clear();
+
+                                                    /// Here is where the call to the nurse bot would be made
+                                                    /// /// To get the question use _controller.text
+                                                    /// A new message with the result would be created using:
+                                                    ///
+                                                    /// messages.insert(
+                                                    ///   messages.length - 1,
+                                                    ///
+                                                    ///   _EdBotMessage(
+                                                    ///   msg: 'nurseEdModel'(question: _controller.text),
+                                                    ///   isBot: true));
+
+                                                    /// Wait until the list is updated then scroll the list down
+                                                    Future.delayed(
+                                                        Duration(
+                                                            milliseconds: 100),
+                                                        () {
+                                                      _scrollController.jumpTo(
+                                                          _scrollController
+                                                              .position
+                                                              .maxScrollExtent);
+                                                    });
+                                                  }
                                                 });
                                               })))
                                 ])),
@@ -176,6 +249,7 @@ class _NurseEdBot extends State<NurseEdBot> {
   }
 }
 
+/// The widget for the message
 class _EdBotMessage extends StatelessWidget {
   final String msg;
   final bool isBot;
@@ -199,9 +273,26 @@ class _EdBotMessage extends StatelessWidget {
                     child: Padding(
                       padding: EdgeInsets.all(15.0),
                       child: Text(msg,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.white,
                               fontSize: extraSmallFontSize)),
                     )))));
+  }
+}
+
+/// This creates the "Here are some suggestions widget"
+/// This should be displayed before any response from the bot
+class SuggestionsMessage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+        padding: EdgeInsets.only(left: 10, top: 10),
+        child: Row(
+          children: [
+            Icon(Icons.medical_information, color: AppColors.diagnosticGreen),
+            Text("\tHere are some suggestions",
+                style: TextStyle(color: AppColors.diagnosticGreen))
+          ],
+        ));
   }
 }
