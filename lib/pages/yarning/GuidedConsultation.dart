@@ -95,6 +95,6 @@ class GuidedConsultation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AbstractConsultationPage(
-        title: "Existing Patient", pageNum: 1, body: guidedConsultationBody);
+        title: "Guided Consultation", pageNum: 2, body: guidedConsultationBody);
   }
 }
