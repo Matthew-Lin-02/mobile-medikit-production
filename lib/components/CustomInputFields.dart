@@ -5,7 +5,7 @@ class DropDown extends StatelessWidget {
   final String label;
   final String hintText;
 
-  DropDown({required this.label, required this.hintText});
+  const DropDown({super.key, required this.label, required this.hintText});
 
   @override
   Widget build(BuildContext context) {
@@ -14,12 +14,12 @@ class DropDown extends StatelessWidget {
         Container(
           width: 160,
           height: 66,
-          padding: EdgeInsets.symmetric(horizontal: 12.0),
+          padding: const EdgeInsets.symmetric(horizontal: 12.0),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.circular(50.0),
             border: Border.all(color: Colors.grey.shade800), // border color
-            boxShadow: [shadow],
+            boxShadow: const [shadow],
           ),
           child: DropdownButtonHideUnderline(
             child: DropdownButton<String>(
@@ -40,11 +40,11 @@ class DropDown extends StatelessWidget {
                   ),
                 );
               }).toList(),
-              icon: Icon(Icons.arrow_drop_down),
+              icon: const Icon(Icons.arrow_drop_down),
             ),
           ),
         ),
-        SizedBox(width: 16),
+        const SizedBox(width: 16),
         Expanded(
           child: TextBox(
             hintText: hintText,

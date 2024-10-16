@@ -1,9 +1,10 @@
-import 'package:comp30022/main.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/font.dart';
 
 class NurseEdBot extends StatefulWidget {
+  const NurseEdBot({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _NurseEdBot();
@@ -16,18 +17,18 @@ class _NurseEdBot extends State<NurseEdBot> {
   /// When a new message is created it is added to this list
   List<Widget> messages = [
     /// This is the start of the conversation message
-    SizedBox(height: 20),
+    const SizedBox(height: 20),
     Row(
       children: [
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
         Expanded(
           child: Container(
             height: 2,
             color: AppColors.darkGrey,
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10),
           child: Text("This is the start of the conversation"),
         ),
         Expanded(
@@ -36,7 +37,7 @@ class _NurseEdBot extends State<NurseEdBot> {
             color: AppColors.darkGrey,
           ),
         ),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
       ],
     ),
 
@@ -44,7 +45,7 @@ class _NurseEdBot extends State<NurseEdBot> {
         msg: "Hi Ed, Darlene has a fever and is dizzy. What should I do next?",
         isBot: false),
 
-    SuggestionsMessage(),
+    const SuggestionsMessage(),
 
     const _EdBotMessage(
         msg: "1. Get Darlene to sit down and loosen any tight clothing",
@@ -75,7 +76,7 @@ class _NurseEdBot extends State<NurseEdBot> {
               color: Colors.black.withOpacity(0.1),
               spreadRadius: 3,
               blurRadius: 5,
-              offset: Offset(0, 3),
+              offset: const Offset(0, 3),
             ),
           ],
         ),
@@ -100,7 +101,7 @@ class _NurseEdBot extends State<NurseEdBot> {
                 Align(
                     alignment: Alignment.topCenter,
                     child: Padding(
-                        padding: EdgeInsets.only(
+                        padding: const EdgeInsets.only(
                           top: 80,
                         ),
                         child: FractionallySizedBox(
@@ -123,7 +124,7 @@ class _NurseEdBot extends State<NurseEdBot> {
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: Padding(
-                    padding: EdgeInsets.only(bottom: 40),
+                    padding: const EdgeInsets.only(bottom: 40),
                     child: FractionallySizedBox(
                         widthFactor: 0.95,
                         heightFactor: 0.1,
@@ -132,7 +133,7 @@ class _NurseEdBot extends State<NurseEdBot> {
                               color: AppColors.turquoise,
                               borderRadius: BorderRadius.circular(20.0)),
                           child: Padding(
-                            padding: EdgeInsets.all(15),
+                            padding: const EdgeInsets.all(15),
                             child: Container(
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.circular(20),
@@ -165,7 +166,8 @@ class _NurseEdBot extends State<NurseEdBot> {
                                   Flexible(
                                       flex: 1,
                                       child: Padding(
-                                          padding: EdgeInsets.only(left: 15),
+                                          padding:
+                                              const EdgeInsets.only(left: 15),
                                           child: GestureDetector(
                                               child: const Icon(Icons.send,
                                                   size: 30,
@@ -202,7 +204,7 @@ class _NurseEdBot extends State<NurseEdBot> {
 
                                                     /// Wait until the list is updated then scroll the list down
                                                     Future.delayed(
-                                                        Duration(
+                                                        const Duration(
                                                             milliseconds: 100),
                                                         () {
                                                       _scrollController.jumpTo(
@@ -223,9 +225,9 @@ class _NurseEdBot extends State<NurseEdBot> {
                 Align(
                     alignment: Alignment.topLeft,
                     child: Padding(
-                        padding: EdgeInsets.all(18),
+                        padding: const EdgeInsets.all(18),
                         child: GestureDetector(
-                            child: Icon(Icons.cancel,
+                            child: const Icon(Icons.cancel,
                                 color: AppColors.turquoise, size: 50),
                             onTap: () {
                               Navigator.of(context).pop();
@@ -235,9 +237,9 @@ class _NurseEdBot extends State<NurseEdBot> {
                 Align(
                     alignment: Alignment.topRight,
                     child: Padding(
-                        padding: EdgeInsets.all(18),
+                        padding: const EdgeInsets.all(18),
                         child: GestureDetector(
-                            child: Icon(Icons.expand,
+                            child: const Icon(Icons.expand,
                                 color: AppColors.turquoise, size: 50),
                             onTap: () {
                               Navigator.pushNamed(context, '/NurseEdPage');
@@ -259,7 +261,7 @@ class _EdBotMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.only(right: 15, top: 25),
+        padding: const EdgeInsets.only(right: 15, top: 25),
         child: Align(
             alignment: Alignment.topRight,
             child: FractionallySizedBox(
@@ -271,7 +273,7 @@ class _EdBotMessage extends StatelessWidget {
                             ? AppColors.diagnosticGreen
                             : AppColors.darkGrey),
                     child: Padding(
-                      padding: EdgeInsets.all(15.0),
+                      padding: const EdgeInsets.all(15.0),
                       child: Text(msg,
                           style: const TextStyle(
                               color: Colors.white,
@@ -283,6 +285,8 @@ class _EdBotMessage extends StatelessWidget {
 /// This creates the "Here are some suggestions widget"
 /// This should be displayed before any response from the bot
 class SuggestionsMessage extends StatelessWidget {
+  const SuggestionsMessage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return const Padding(

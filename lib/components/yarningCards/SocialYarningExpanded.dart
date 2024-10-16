@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:comp30022/components/MedicalHistorySubItem.dart';
 
 class SocialYarningCardContent extends StatefulWidget {
-  const SocialYarningCardContent({Key? key}) : super(key: key);
+  const SocialYarningCardContent({super.key});
 
   @override
   _SocialYarningCardContentState createState() =>
@@ -242,7 +242,7 @@ class _SocialYarningCardContentState extends State<SocialYarningCardContent> {
           ],
         ),
         const SizedBox(height: 16),
-        MedicalHistorySubItem(
+        const MedicalHistorySubItem(
           title:
               "Additional details (Occupational hazards, training, disability etc.)",
           description: "Is there anything that makes your work hard to do?",

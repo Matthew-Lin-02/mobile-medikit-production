@@ -17,7 +17,7 @@ const double mediumIconSize = 40.0;
 const double largeIconSize = 80.0;
 
 class RedActionButton extends StatelessWidget {
-  RedActionButton({
+  const RedActionButton({
     super.key,
     this.iconData,
     required this.label,

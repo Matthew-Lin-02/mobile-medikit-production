@@ -17,7 +17,7 @@ const double stepIndicatorFontSize = 12.0;
 class UpdatedIndicatorStep extends StatelessWidget {
   final int pageNum;
 
-  UpdatedIndicatorStep({required this.pageNum});
+  const UpdatedIndicatorStep({super.key, required this.pageNum});
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +51,7 @@ class _UpdatedStep extends StatelessWidget {
   final bool coloured;
   final bool isFirst;
 
-  _UpdatedStep(
+  const _UpdatedStep(
       {required this.text, required this.coloured, this.isFirst = false});
 
   @override
@@ -84,7 +84,8 @@ class IndicatorStep extends StatelessWidget {
   final String text;
 
   const IndicatorStep(
-      {this.stepNum = "00",
+      {super.key,
+      this.stepNum = "00",
       this.step = 0,
       this.currStep = 0,
       this.text = "N/A"});
@@ -127,8 +128,9 @@ class IndicatorPageName extends StatelessWidget {
   final bool bold;
   final bool coloured;
 
-  IndicatorPageName(
-      {required this.boxSize,
+  const IndicatorPageName(
+      {super.key,
+      required this.boxSize,
       required this.text,
       required this.bold,
       required this.coloured});
@@ -153,7 +155,7 @@ class IndicatorPageName extends StatelessWidget {
 /// The line between each of the circles
 class IndicatorLine extends StatelessWidget {
   final bool coloured;
-  IndicatorLine({required this.coloured});
+  const IndicatorLine({super.key, required this.coloured});
 
   @override
   Widget build(BuildContext context) {
@@ -173,14 +175,14 @@ class IndicatorLine extends StatelessWidget {
 /// The row that should be called to draw the circles with step numbers
 class PageIndicator extends StatelessWidget {
   final int pageNum;
-  PageIndicator({this.pageNum = 0});
+  const PageIndicator({super.key, this.pageNum = 0});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
         height: 40,
         child: Row(children: [
-          SizedBox(width: 35),
+          const SizedBox(width: 35),
           IndicatorStep(
             stepNum: "01",
             step: 1,
@@ -228,7 +230,7 @@ class PageIndicator extends StatelessWidget {
             step: 8,
             currStep: pageNum,
           ),
-          SizedBox(width: 35),
+          const SizedBox(width: 35),
         ]));
   }
 }
@@ -237,11 +239,11 @@ class PageIndicator extends StatelessWidget {
 class PageIndicatorNames extends StatelessWidget {
   final int currPage;
 
-  PageIndicatorNames({required this.currPage});
+  const PageIndicatorNames({super.key, required this.currPage});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
         height: 20,
         child: Row(
           children: <Widget>[
@@ -303,7 +305,7 @@ class PageIndicatorNames extends StatelessWidget {
 /// Requires 'pageNum' the current page number.
 class BuildPageIndicator extends StatelessWidget {
   final int pageNum;
-  BuildPageIndicator({required this.pageNum});
+  const BuildPageIndicator({super.key, required this.pageNum});
 
   @override
   Widget build(BuildContext context) {

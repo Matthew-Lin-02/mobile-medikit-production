@@ -63,7 +63,7 @@ class StatusTray extends StatelessWidget {
                 iconSize: iconSize,
                 image: 'assets/images/status-tray/phone_figma.png',
                 onPressed: () {
-                  showCustomModal(context, ContactHealthExpertWidget());
+                  showCustomModal(context, const ContactHealthExpertWidget());
                 },
               )),
               Expanded(
@@ -273,12 +273,12 @@ class MachineTranslationOverlay extends StatelessWidget {
                   ),
                 ],
               ),
-              child: Row(
+              child: const Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  Container(
+                  SizedBox(
                     width: 300,
-                    child: const Text(
+                    child: Text(
                       'English',
                       style: TextStyle(
                         fontFamily: 'Inter',
@@ -288,14 +288,14 @@ class MachineTranslationOverlay extends StatelessWidget {
                       ),
                     ),
                   ),
-                  const Icon(
+                  Icon(
                     Icons.swap_horiz,
                     color: Colors.black,
                     size: 50,
                   ),
-                  Container(
+                  SizedBox(
                     width: 300,
-                    child: const Text(
+                    child: Text(
                       'Martu Wangka',
                       style: TextStyle(
                         fontFamily: 'Inter',
@@ -316,6 +316,8 @@ class MachineTranslationOverlay extends StatelessWidget {
 }
 
 class ContactHealthExpertWidget extends StatelessWidget {
+  const ContactHealthExpertWidget({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -482,7 +484,7 @@ class ContactHealthExpertWidget extends StatelessWidget {
 class WifiInfo extends StatelessWidget {
   final GlobalKey parentKey;
 
-  const WifiInfo({required this.parentKey});
+  const WifiInfo({super.key, required this.parentKey});
 
   @override
   Widget build(BuildContext context) {

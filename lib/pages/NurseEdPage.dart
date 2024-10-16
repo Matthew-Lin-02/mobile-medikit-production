@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/font.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
-import 'package:comp30022/components/YellowBorderWhiteCard.dart';
-import 'package:comp30022/components/ChatbotButton.dart';
 
 Builder NurseEdPageBody = Builder(builder: (context) {
-  return LargeNurseEdBot();
+  return const LargeNurseEdBot();
 });
 
 class NurseEdPage extends StatelessWidget {
@@ -30,7 +28,7 @@ class _LargeEdBotMessage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.only(right: 25, top: 25),
+        padding: const EdgeInsets.only(right: 25, top: 25),
         child: Align(
             alignment: Alignment.topRight,
             child: FractionallySizedBox(
@@ -45,15 +43,17 @@ class _LargeEdBotMessage extends StatelessWidget {
                             ? AppColors.diagnosticGreen
                             : AppColors.darkGrey),
                     child: Padding(
-                      padding: EdgeInsets.all(15.0),
+                      padding: const EdgeInsets.all(15.0),
                       child: Text(msg,
-                          style: TextStyle(
+                          style: const TextStyle(
                               color: Colors.white, fontSize: mediumFontSize)),
                     )))));
   }
 }
 
 class LargeNurseEdBot extends StatefulWidget {
+  const LargeNurseEdBot({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _LargeNurseEdBot();
@@ -69,18 +69,18 @@ class _LargeNurseEdBot extends State<LargeNurseEdBot> {
   /// When a new message is created it is added to this list
   List<Widget> messages = [
     /// This is the start of the conversation message
-    SizedBox(height: 20),
+    const SizedBox(height: 20),
     Row(
       children: [
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
         Expanded(
           child: Container(
             height: 2,
             color: AppColors.darkGrey,
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
+        const Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10),
           child: Text("This is the start of the conversation"),
         ),
         Expanded(
@@ -89,7 +89,7 @@ class _LargeNurseEdBot extends State<LargeNurseEdBot> {
             color: AppColors.darkGrey,
           ),
         ),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
       ],
     ),
 
@@ -97,7 +97,7 @@ class _LargeNurseEdBot extends State<LargeNurseEdBot> {
         msg: "Hi Ed, Darlene has a fever and is dizzy. What should I do next?",
         isBot: false),
 
-    SuggestionsMessage(),
+    const SuggestionsMessage(),
 
     const _LargeEdBotMessage(
         msg: "1. Get Darlene to sit down and loosen any tight clothing",
@@ -138,12 +138,12 @@ class _LargeNurseEdBot extends State<LargeNurseEdBot> {
             child: Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
-                padding: EdgeInsets.only(bottom: 40),
+                padding: const EdgeInsets.only(bottom: 40),
                 child: SizedBox(
                     width: 1200,
                     height: 100,
                     child: Padding(
-                      padding: EdgeInsets.all(15),
+                      padding: const EdgeInsets.all(15),
                       child: Container(
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
@@ -159,7 +159,7 @@ class _LargeNurseEdBot extends State<LargeNurseEdBot> {
                                     color: Colors.black.withOpacity(0.1),
                                     spreadRadius: 3,
                                     blurRadius: 5,
-                                    offset: Offset(0, 3),
+                                    offset: const Offset(0, 3),
                                   ),
                                 ],
                               ),
@@ -185,7 +185,7 @@ class _LargeNurseEdBot extends State<LargeNurseEdBot> {
                           Align(
                               alignment: Alignment.centerRight,
                               child: Padding(
-                                  padding: EdgeInsets.only(right: 8),
+                                  padding: const EdgeInsets.only(right: 8),
                                   child: GestureDetector(
                                       child: Container(
                                         height: 35,
@@ -225,8 +225,8 @@ class _LargeNurseEdBot extends State<LargeNurseEdBot> {
 
                                             /// Wait until the list is updated then scroll the list down
                                             Future.delayed(
-                                                Duration(milliseconds: 100),
-                                                () {
+                                                const Duration(
+                                                    milliseconds: 100), () {
                                               _scrollController.jumpTo(
                                                   _scrollController.position
                                                       .maxScrollExtent);
@@ -250,6 +250,8 @@ class _LargeNurseEdBot extends State<LargeNurseEdBot> {
 /// This creates the "Here are some suggestions widget"
 /// /// This should be displayed before any response from the bot
 class SuggestionsMessage extends StatelessWidget {
+  const SuggestionsMessage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return const Row(
