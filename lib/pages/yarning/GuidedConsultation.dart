@@ -19,7 +19,7 @@ Builder guidedConsultationBody = Builder(builder: (context) {
         alignment: Alignment.topCenter,
         // Matching cream background color
         // This is the part that needs to be abstracted of course remove padding
-        child: Container(
+        child: SizedBox(
           width: 1540,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -53,7 +53,7 @@ Builder guidedConsultationBody = Builder(builder: (context) {
                     YellowCard(
                       cardData: clinicalDiagnosticYarningCardData,
                       cardContentExpanded:
-                          ClinicalDiagnosisYarningCardExpanded(),
+                          const ClinicalDiagnosisYarningCardExpanded(),
                     ),
                     const SizedBox(height: 40),
                     Align(
@@ -67,7 +67,7 @@ Builder guidedConsultationBody = Builder(builder: (context) {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => ScreeningTools()),
+                                  builder: (context) => const ScreeningTools()),
                             );
                           }),
                     ),

@@ -1,9 +1,7 @@
 import 'package:comp30022/pages/Pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:provider/provider.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
-import 'package:comp30022/pages/yarning/GuidedConsultation.dart';
 
 void main() {
   Widget buildConfig({

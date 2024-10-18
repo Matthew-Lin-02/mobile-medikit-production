@@ -7,11 +7,11 @@ class YellowTextField extends StatelessWidget {
   final double? fontSize;
 
   const YellowTextField({
-    Key? key,
+    super.key,
     this.hintText = 'Enter here...',
     this.maxLines = 4,
     this.fontSize,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class YellowTextField extends StatelessWidget {
         hintText: hintText,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8.0),
-          borderSide: BorderSide(
+          borderSide: const BorderSide(
             color: Colors.black54,
           ),
         ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:comp30022/components/YellowBorderYellowCard.dart';
 import 'package:comp30022/components/YellowBorderWhiteCard.dart';
@@ -8,7 +7,6 @@ import 'package:comp30022/components/HelpButton.dart';
 import 'package:comp30022/components/ChatbotButton.dart';
 import 'package:comp30022/pages/results/ObservationsAndVitalSign.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
-import 'package:comp30022/pages/yarning/GuidedConsultation.dart';
 
 void main() {
   Widget buildConfig({
@@ -18,7 +16,7 @@ void main() {
     Size size = const Size(1920, 1080),
     double devicePixelRatio = 1.0,
   }) {
-    final testScreenSize = Size(1920, 1080);
+    const testScreenSize = Size(1920, 1080);
     TestWidgetsFlutterBinding.ensureInitialized().window.physicalSizeTestValue =
         size;
     TestWidgetsFlutterBinding.ensureInitialized()
@@ -27,7 +25,7 @@ void main() {
 
     return MaterialApp(
       home: MediaQuery(
-        data: MediaQueryData(size: testScreenSize),
+        data: const MediaQueryData(size: testScreenSize),
         child: AbstractConsultationPage(
           title: title,
           pageNum: pageNum,

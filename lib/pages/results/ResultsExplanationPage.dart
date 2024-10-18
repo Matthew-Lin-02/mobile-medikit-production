@@ -6,7 +6,6 @@ import 'package:comp30022/components/StandaloneFunctions.dart';
 import 'package:comp30022/components/YellowBorderWhiteCard.dart';
 import 'package:comp30022/pages/results/FollowUpPage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
 import 'package:comp30022/font.dart';
@@ -61,7 +60,7 @@ Builder resultsExplanationBody = Builder(builder: (context) {
                                                   child: GestureDetector(
                                                     onTap: () {
                                                       showCustomModal(context,
-                                                          BloodPressurePopupWindow());
+                                                          const BloodPressurePopupWindow());
                                                     },
                                                     child: RiskLevelCard(
                                                       color: AppColors
@@ -187,7 +186,7 @@ Builder resultsExplanationBody = Builder(builder: (context) {
                                                 child: GestureDetector(
                                                   onTap: () {
                                                     showCustomModal(context,
-                                                        BloodGlucosePopupWindow());
+                                                        const BloodGlucosePopupWindow());
                                                   },
                                                   child: RiskLevelCard(
                                                       text: "Healthy",
@@ -266,7 +265,7 @@ Builder resultsExplanationBody = Builder(builder: (context) {
                                                 child: RedActionButton(
                                                   onPressed: () {
                                                     showCustomModal(context,
-                                                        ECGPopupWindow());
+                                                        const ECGPopupWindow());
                                                   },
                                                   size: const Size(275, 70),
                                                   fontSize: mediumFontSize,
@@ -281,7 +280,7 @@ Builder resultsExplanationBody = Builder(builder: (context) {
                                                 child: RedActionButton(
                                                     onPressed: () {
                                                       showCustomModal(context,
-                                                          ECGPopupWindow());
+                                                          const ECGPopupWindow());
                                                     },
                                                     fontSize: mediumFontSize,
                                                     size: const Size(200, 70),
@@ -596,14 +595,14 @@ void ResultsExplanationsHelp(BuildContext context) {
                 const SizedBox(
                   height: 20,
                 ),
-                BoldThenNormalSentence(
+                const BoldThenNormalSentence(
                     boldText: '[SELECTED TEST] Result:',
                     normalText:
                         'Displays the final results of the selected conducted test.'),
                 const SizedBox(
                   height: 20,
                 ),
-                BoldThenNormalSentence(
+                const BoldThenNormalSentence(
                     boldText: 'Your risk: ',
                     normalText:
                         ' States what level of risk the patient is at after these tests. '
@@ -611,25 +610,25 @@ void ResultsExplanationsHelp(BuildContext context) {
                 const SizedBox(
                   height: 20,
                 ),
-                BoldThenNormalSentence(
+                const BoldThenNormalSentence(
                     boldText: 'You might experience: ',
                     normalText:
                         'Visual images provided of the potential symptoms the patient may experience.'),
                 const SizedBox(
                   height: 20,
                 ),
-                BoldThenNormalSentence(
+                const BoldThenNormalSentence(
                     boldText: 'Similar to: ',
                     normalText:
                         'Visual representation of a real world example of what the condition is similar to.'),
                 const SizedBox(
                   height: 20,
                 ),
-                BoldThenNormalSentence(
+                const BoldThenNormalSentence(
                     boldText: 'Listen to your rhythm (ECG section):',
                     normalText:
                         'Press play to play a visual sound of the heartbeat'),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Text(
@@ -646,7 +645,7 @@ void ResultsExplanationsHelp(BuildContext context) {
                   onTap: () {
                     Navigator.pop(context);
                   },
-                  child: Icon(Icons.close, size: 50)),
+                  child: const Icon(Icons.close, size: 50)),
             ),
             Positioned(
               child: Align(
@@ -669,17 +668,17 @@ void ResultsExplanationsHelp(BuildContext context) {
                                   style: GoogleFonts.inter(
                                       fontSize: smallFontSize,
                                       fontWeight: FontWeight.bold)),
-                              Expanded(child: SizedBox.shrink()),
+                              const Expanded(child: SizedBox.shrink()),
                               Text("{Test results}",
                                   style: GoogleFonts.inter(
                                       fontSize: smallFontSize,
                                       fontWeight: FontWeight.bold)),
-                              Expanded(child: SizedBox.shrink()),
+                              const Expanded(child: SizedBox.shrink()),
                               Text("Your Risk:",
                                   style: GoogleFonts.inter(
                                       fontSize: smallFontSize,
                                       fontWeight: FontWeight.bold)),
-                              Expanded(child: SizedBox.shrink()),
+                              const Expanded(child: SizedBox.shrink()),
                               RiskLevelCard(
                                   borderRadius: 10,
                                   width: 287,
@@ -693,7 +692,7 @@ void ResultsExplanationsHelp(BuildContext context) {
                             ],
                           ),
                         ),
-                        Expanded(
+                        const Expanded(
                             flex: 3,
                             child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -709,8 +708,8 @@ void ResultsExplanationsHelp(BuildContext context) {
                             child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
-                                  Text("You might experience:"),
-                                  SizedBox(
+                                  const Text("You might experience:"),
+                                  const SizedBox(
                                     height: 20,
                                   ),
                                   Container(
@@ -785,7 +784,7 @@ class ECGPopupWindow extends StatelessWidget {
                 onTap: () {
                   Navigator.pop(context);
                 },
-                child: Icon(Icons.close, size: 50)),
+                child: const Icon(Icons.close, size: 50)),
           )
         ]),
       ),
@@ -805,16 +804,16 @@ class BloodPressurePopupWindow extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Stack(children: [
-          Column(
+          const Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Text(
+                Text(
                   'Blood Pressure Chart',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: largeFontSize),
                 ),
-                const FractionallySizedBox(
+                FractionallySizedBox(
                     widthFactor: 0.85, child: Divider(color: Colors.black)),
                 Image(
                     image: AssetImage(
@@ -827,7 +826,7 @@ class BloodPressurePopupWindow extends StatelessWidget {
                 onTap: () {
                   Navigator.pop(context);
                 },
-                child: Icon(Icons.close, size: 50)),
+                child: const Icon(Icons.close, size: 50)),
           ),
           Positioned(
             top: 450,
@@ -841,10 +840,10 @@ class BloodPressurePopupWindow extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       fontSize: smallFontSize),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
-                Image(
+                const Image(
                     image: AssetImage(
                         'assets/images/results/location-marker.png')),
               ],
@@ -868,16 +867,16 @@ class BloodGlucosePopupWindow extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Stack(children: [
-          Column(
+          const Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Text(
+                Text(
                   'Blood Glucose Chart',
                   textAlign: TextAlign.center,
                   style: TextStyle(fontSize: largeFontSize),
                 ),
-                const FractionallySizedBox(
+                FractionallySizedBox(
                     widthFactor: 0.85, child: Divider(color: Colors.black)),
                 SizedBox(
                   height: 80,
@@ -893,7 +892,7 @@ class BloodGlucosePopupWindow extends StatelessWidget {
                 onTap: () {
                   Navigator.pop(context);
                 },
-                child: Icon(Icons.close, size: 50)),
+                child: const Icon(Icons.close, size: 50)),
           ),
           Positioned(
             top: 80,
@@ -907,10 +906,10 @@ class BloodGlucosePopupWindow extends StatelessWidget {
                       fontWeight: FontWeight.bold,
                       fontSize: smallFontSize),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 5,
                 ),
-                Image(
+                const Image(
                     image: AssetImage(
                         'assets/images/results/location-marker.png')),
               ],
@@ -999,7 +998,7 @@ class RiskLevelCard extends StatelessWidget {
                 Image(
                   width: imageWidth,
                   height: imageHeight,
-                  image: AssetImage('assets/images/results/tap.png'),
+                  image: const AssetImage('assets/images/results/tap.png'),
                 ),
                 Text(
                   "Tap to view",
@@ -1029,7 +1028,9 @@ class ResultsExplanationPage extends StatelessWidget {
 }
 
 class SquareGrid extends StatelessWidget {
-  final int gridCount = 4; // Total number of squares
+  final int gridCount = 4;
+
+  const SquareGrid({super.key}); // Total number of squares
 
   @override
   Widget build(BuildContext context) {
@@ -1037,7 +1038,7 @@ class SquareGrid extends StatelessWidget {
       height: 210,
       width: 210, // Set a fixed height
       child: GridView.builder(
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2, // Number of columns
           childAspectRatio: 1.0, // Aspect ratio to make squares
           crossAxisSpacing: 15.0, // Spacing between columns
@@ -1045,7 +1046,7 @@ class SquareGrid extends StatelessWidget {
         ),
         itemCount: gridCount,
         physics:
-            NeverScrollableScrollPhysics(), // Disable scrolling for GridView
+            const NeverScrollableScrollPhysics(), // Disable scrolling for GridView
         shrinkWrap: true, // Shrink the GridView to fit its content
         itemBuilder: (context, index) {
           return Container(

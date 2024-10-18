@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:comp30022/components/ChatbotButton.dart';
 import 'package:comp30022/components/HelpButton.dart';
-import 'package:provider/provider.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
-import 'package:comp30022/pages/yarning/GuidedConsultation.dart';
 
 void main() {
   Widget buildConfig({
@@ -36,7 +34,7 @@ void main() {
     await tester.pumpWidget(buildConfig(
       title: "BloodPressure",
       pageNum: 3,
-      body: BloodPressure(),
+      body: const BloodPressure(),
     ));
 
     // Ensure the instruction text is shown

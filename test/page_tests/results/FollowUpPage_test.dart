@@ -26,7 +26,7 @@ void main() {
 
       // Set the test device size and pixel ratio (for a larger device simulation)
       tester.view.devicePixelRatio = 0.5;
-      tester.view.physicalSize = Size(1920, 1080);
+      tester.view.physicalSize = const Size(1920, 1080);
 
       // Call pump after setting size to ensure changes take effect
       await tester.pumpWidget(buildConfig(

@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/font.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
-import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:comp30022/components/ChatbotButton.dart';
 import 'package:comp30022/components/HelpButton.dart';
@@ -67,12 +65,12 @@ Builder electrocardiogramBody = Builder(builder: (context) {
                 size: const Size(331, 64),
               ),
               const Expanded(flex: 2, child: SizedBox.shrink()),
-              RedActionButton(
+              const RedActionButton(
                 iconData: Icons.arrow_back,
                 iconSize: largeFontSize,
                 label: "Back to screening tools",
                 fontSize: 30,
-                size: const Size(450, 64),
+                size: Size(450, 64),
               ),
               const Expanded(flex: 6, child: SizedBox.shrink()),
             ],
@@ -137,7 +135,7 @@ class _TimerState extends State<Timer> with SingleTickerProviderStateMixin {
         boxShadow: [
           BoxShadow(
             color: Colors.black.withOpacity(0.25),
-            offset: Offset(0, 4),
+            offset: const Offset(0, 4),
             blurRadius: 4,
           )
         ],
@@ -148,7 +146,7 @@ class _TimerState extends State<Timer> with SingleTickerProviderStateMixin {
         child: Stack(
           children: [
             CustomPaint(
-              size: Size(420, 420),
+              size: const Size(420, 420),
               painter: TimerPainter(_controller),
             ),
             const Positioned.fill(

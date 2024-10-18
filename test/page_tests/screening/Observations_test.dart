@@ -3,9 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:comp30022/pages/screening/Observations.dart';
 import 'package:comp30022/components/ChatbotButton.dart';
 import 'package:comp30022/components/HelpButton.dart';
-import 'package:provider/provider.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
-import 'package:comp30022/pages/yarning/GuidedConsultation.dart';
 
 void main() {
   Widget buildConfig({
@@ -36,10 +34,10 @@ void main() {
     await tester.pumpWidget(buildConfig(
       title: "Observations",
       pageNum: 3,
-      body: Observations(),
+      body: const Observations(),
     ));
 
-    await tester.binding.setSurfaceSize(Size(1920, 1080));
+    await tester.binding.setSurfaceSize(const Size(1920, 1080));
 
     // Check for the presence of the "General Appearance" subsection.
     expect(find.text("   General Appearance"), findsOneWidget);

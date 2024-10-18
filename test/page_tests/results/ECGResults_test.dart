@@ -1,5 +1,3 @@
-import 'dart:async';
-import 'dart:developer';
 
 import 'package:comp30022/components/RedActionButton.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
@@ -35,7 +33,7 @@ void main() {
     await tester.pumpWidget(buildConfig(
       title: "BloodPressure",
       pageNum: 3,
-      body: ECGResults(),
+      body: const ECGResults(),
     ));
 
     // Find tab description
@@ -76,7 +74,7 @@ void main() {
     await tester.pumpWidget(buildConfig(
       title: "BloodPressure",
       pageNum: 3,
-      body: ECGResults(),
+      body: const ECGResults(),
     ));
 
     await tester.drag(find.byType(ListView), const Offset(0, -800));
@@ -100,7 +98,7 @@ void main() {
     // Check that rhythm overlay is displayed
     expect(find.byType(RhythmOverlay), findsOneWidget);
 
-    await tester.tapAt(Offset(0, 0));
+    await tester.tapAt(const Offset(0, 0));
     await tester.pump();
 
     // Checks that overlay closes when tapping outside

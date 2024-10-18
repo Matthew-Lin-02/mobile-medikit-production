@@ -52,7 +52,7 @@ Builder bloodPressureBody = Builder(builder: (context) {
                       color: Colors.black.withOpacity(0.6)),
                 ),
               ),
-              Expanded(
+              const Expanded(
                 flex: 9,
                 child: FractionallySizedBox(
                   widthFactor: 0.7,
@@ -75,15 +75,15 @@ Builder bloodPressureBody = Builder(builder: (context) {
                   ),
                 ),
               ),
-              Expanded(flex: 1, child: SizedBox.shrink()),
-              Expanded(
+              const Expanded(flex: 1, child: SizedBox.shrink()),
+              const Expanded(
                 flex: 2,
                 child: RedActionButton(
                   iconData: Icons.arrow_back,
                   iconSize: extraLargeFontSize,
                   label: "Back to screening tools",
                   fontSize: largeFontSize,
-                  size: const Size(
+                  size: Size(
                     450,
                     64,
                   ),

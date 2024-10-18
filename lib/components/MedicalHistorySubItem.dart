@@ -9,12 +9,12 @@ class MedicalHistorySubItem extends StatelessWidget {
   final int maxLines;
 
   const MedicalHistorySubItem({
-    Key? key,
+    super.key,
     required this.title,
     required this.description,
     this.hintText = 'Enter here...',
     this.maxLines = 4,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

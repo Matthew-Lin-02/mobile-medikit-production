@@ -11,7 +11,7 @@ class BaseCustomCard extends StatelessWidget {
   final double? height; // Optional height
 
   const BaseCustomCard({
-    Key? key,
+    super.key,
     this.child,
     this.borderColor,
     required this.backgroundColor,
@@ -20,7 +20,7 @@ class BaseCustomCard extends StatelessWidget {
     this.isShadowOn = false,
     this.width, // Optional width
     this.height, // Optional height
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

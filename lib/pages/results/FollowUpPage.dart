@@ -34,58 +34,58 @@ Builder followUpPageBody = Builder(builder: (context) {
             widthFactor: 0.8,
             child: Column(
               children: [
-                Expanded(flex: 1, child: SizedBox.shrink()),
-                Text(
+                const Expanded(flex: 1, child: SizedBox.shrink()),
+                const Text(
                   "Select recommendations or create recommendations for Darlene",
                   style: TextStyle(fontSize: subHeadingFontSize),
                 ),
-                Expanded(flex: 1, child: SizedBox.shrink()),
-                RecommendationCard(
+                const Expanded(flex: 1, child: SizedBox.shrink()),
+                const RecommendationCard(
                   text: "Pick low-fat or skim milk over full cream milk.",
                   backgroundColor: AppColors.genai,
                   borderColor: AppColors.resultsDarkGreen,
                   textColor: Colors.white,
                 ),
-                Expanded(flex: 1, child: SizedBox.shrink()),
-                RecommendationCard(
+                const Expanded(flex: 1, child: SizedBox.shrink()),
+                const RecommendationCard(
                   text:
                       "Add a cup of frozen veggies to your meal. Balanced eating helps heal the heart.",
                   backgroundColor: AppColors.genai,
                   borderColor: AppColors.resultsDarkGreen,
                   textColor: Colors.white,
                 ),
-                Expanded(flex: 1, child: SizedBox.shrink()),
-                RecommendationCard(
+                const Expanded(flex: 1, child: SizedBox.shrink()),
+                const RecommendationCard(
                   text:
                       "Have a bushwalk with family, look out for goanna and emu eggs.",
                   backgroundColor: AppColors.genai,
                   borderColor: AppColors.resultsDarkGreen,
                   textColor: Colors.white,
                 ),
-                Expanded(flex: 1, child: SizedBox.shrink()),
-                RedActionButton(
+                const Expanded(flex: 1, child: SizedBox.shrink()),
+                const RedActionButton(
                     label: "Generate more",
                     iconData: Icons.cached,
                     iconSize: 40,
                     size: generateMoreSize,
                     fontSize: biggishFontSize),
-                Expanded(flex: 2, child: SizedBox.shrink()),
+                const Expanded(flex: 2, child: SizedBox.shrink()),
                 Row(
                   children: [
                     Container(
                         // width: 50,
                         // height: 50,
-                        decoration: BoxDecoration(
+                        decoration: const BoxDecoration(
                             color: AppColors.red, shape: BoxShape.circle),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                        child: const Padding(
+                          padding: EdgeInsets.all(8.0),
                           child: Icon(
                             Icons.add,
                             size: 30,
                             color: Colors.white,
                           ),
                         )),
-                    SizedBox(
+                    const SizedBox(
                       width: 50,
                     ),
                     Expanded(
@@ -98,7 +98,7 @@ Builder followUpPageBody = Builder(builder: (context) {
                     ),
                   ],
                 ),
-                Expanded(flex: 6, child: SizedBox.shrink()),
+                const Expanded(flex: 6, child: SizedBox.shrink()),
                 RedActionButton(
                   label: "Create Patient Plan",
                   useCircleAvatar: true,
@@ -115,7 +115,7 @@ Builder followUpPageBody = Builder(builder: (context) {
                     );
                   },
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 80,
                 )
               ],

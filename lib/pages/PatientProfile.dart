@@ -9,31 +9,31 @@ Builder patientProfileBody = Builder(builder: (context) {
   return Container(
     color: AppColors.cream, // Matching cream background color
     padding: const EdgeInsets.only(top: 70, bottom: 60, left: 120, right: 20),
-    child: Row(
+    child: const Row(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Column(
+          Column(
             children: [
               YellowBorderWhiteCard(
-                child: UserInfoCard(),
                 isShadowOn: true,
                 width: 432,
                 height: 417,
+                child: UserInfoCard(),
               ),
               SizedBox(height: 35),
               YellowBorderWhiteCard(
-                child: AllergiesCard(),
                 isShadowOn: true,
                 width: 432,
                 height: 244,
+                child: AllergiesCard(),
               )
             ],
           ),
-          const SizedBox(width: 40),
+          SizedBox(width: 40),
           UserDetailTabs(),
-          const SizedBox(width: 30),
-          const ChatBotButton(),
+          SizedBox(width: 30),
+          ChatBotButton(),
         ]),
   );
 });
@@ -159,6 +159,8 @@ class AllergiesCard extends StatelessWidget {
 }
 
 class UserDetailTabs extends StatefulWidget {
+  const UserDetailTabs({super.key});
+
   @override
   _UserDetailTabsState createState() => _UserDetailTabsState();
 }
@@ -175,7 +177,7 @@ class _UserDetailTabsState extends State<UserDetailTabs> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 1153,
       height: 697,
       child: Column(
@@ -274,12 +276,12 @@ class _UserDetailTabsState extends State<UserDetailTabs> {
               ),
               const SizedBox(height: 15.0),
               Table(
-                columnWidths: {
-                  0: const FlexColumnWidth(3),
-                  1: const FlexColumnWidth(3),
-                  2: const FlexColumnWidth(2),
-                  3: const FlexColumnWidth(2),
-                  4: const FlexColumnWidth(3),
+                columnWidths: const {
+                  0: FlexColumnWidth(3),
+                  1: FlexColumnWidth(3),
+                  2: FlexColumnWidth(2),
+                  3: FlexColumnWidth(2),
+                  4: FlexColumnWidth(3),
                 },
                 border: TableBorder(
                   horizontalInside: BorderSide(
@@ -360,13 +362,13 @@ class _UserDetailTabsState extends State<UserDetailTabs> {
               ),
               const SizedBox(height: 15.0),
               Table(
-                columnWidths: {
-                  0: const FlexColumnWidth(3),
-                  1: const FlexColumnWidth(3),
-                  2: const FlexColumnWidth(1.5),
-                  3: const FlexColumnWidth(1.5),
-                  4: const FlexColumnWidth(1.5),
-                  5: const FlexColumnWidth(2),
+                columnWidths: const {
+                  0: FlexColumnWidth(3),
+                  1: FlexColumnWidth(3),
+                  2: FlexColumnWidth(1.5),
+                  3: FlexColumnWidth(1.5),
+                  4: FlexColumnWidth(1.5),
+                  5: FlexColumnWidth(2),
                 },
                 border: TableBorder(
                   horizontalInside: BorderSide(
@@ -427,14 +429,14 @@ class _UserDetailTabsState extends State<UserDetailTabs> {
   }
 
   Widget _buildFamilyContent() {
-    return Padding(
-      padding: const EdgeInsets.all(40.0),
+    return const Padding(
+      padding: EdgeInsets.all(40.0),
       child: Align(
         alignment: Alignment.topLeft,
-        child: Container(
+        child: SizedBox(
           width: 700,
           height: 500,
-          child: const Column(
+          child: Column(
             children: [
               UserInfoRow(attribute: "Language Group", value: "Martu"),
               UserInfoRow(attribute: "Country/Land", value: "Martu"),
@@ -455,7 +457,7 @@ class TabWidget extends StatelessWidget {
   final String label;
   final bool isSelected;
 
-  const TabWidget({required this.label, required this.isSelected});
+  const TabWidget({super.key, required this.label, required this.isSelected});
 
   @override
   Widget build(BuildContext context) {

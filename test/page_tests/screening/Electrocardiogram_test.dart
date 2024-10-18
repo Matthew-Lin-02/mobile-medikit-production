@@ -3,9 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:comp30022/components/ChatbotButton.dart';
 import 'package:comp30022/components/HelpButton.dart';
-import 'package:provider/provider.dart';
 import 'package:comp30022/pages/AbstractConsultationPage.dart';
-import 'package:comp30022/pages/yarning/GuidedConsultation.dart';
 
 void main() {
   Widget buildConfig({
@@ -38,7 +36,7 @@ void main() {
       pageNum: 3,
       body: electrocardiogramBody,
     ));
-    await tester.binding.setSurfaceSize(Size(1920, 1080));
+    await tester.binding.setSurfaceSize(const Size(1920, 1080));
     // Ensure the instruction text is shown
     expect(
         find.text(

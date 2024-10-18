@@ -38,7 +38,7 @@ class _ResultsState extends State<Results> with SingleTickerProviderStateMixin {
           _tabController.animateTo(index);
         },
         child: Container(
-          padding: EdgeInsets.symmetric(vertical: 16),
+          padding: const EdgeInsets.symmetric(vertical: 16),
           alignment: Alignment.center,
           decoration: BoxDecoration(
             color:

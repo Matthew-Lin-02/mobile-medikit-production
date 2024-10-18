@@ -2,10 +2,12 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/components/StandaloneFunctions.dart';
 
-Color color1 = Color.fromRGBO(253, 243, 217, 1);
+Color color1 = const Color.fromRGBO(253, 243, 217, 1);
 
 // Use ResourceCarousel to use carousel not _ResourceCarousel
 class ResourceCarousel extends StatefulWidget {
+  const ResourceCarousel({super.key});
+
   @override
   State<StatefulWidget> createState() {
     return _ResourceCarousel();
@@ -17,11 +19,11 @@ class CarouselItem extends StatelessWidget {
   final String text;
   final String imagePath;
 
-  CarouselItem({required this.text, required this.imagePath});
+  const CarouselItem({super.key, required this.text, required this.imagePath});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
         height: 250,
         width: 250,
         child: Column(children: [
@@ -33,20 +35,20 @@ class CarouselItem extends StatelessWidget {
               height: 200,
               width: 200,
               alignment: Alignment.center,
-              child: Image(image: AssetImage(imagePath), height: 180),
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(15)),
+                  borderRadius: const BorderRadius.all(Radius.circular(15)),
                   color: color1,
-                  boxShadow: [
+                  boxShadow: const [
                     BoxShadow(
                         blurRadius: 2,
                         offset: Offset(0, 5),
                         blurStyle: BlurStyle.normal,
                         color: Color.fromARGB(165, 75, 75, 75))
                   ]),
+              child: Image(image: AssetImage(imagePath), height: 180),
             ),
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
           Text(
             text,
             textAlign: TextAlign.center,
@@ -73,9 +75,9 @@ class _ResourceCarousel extends State<ResourceCarousel> {
             onTap: () {
               controller.previousPage();
             },
-            child: Icon(Icons.chevron_left), // Make the carousel go backwards
+            child: const Icon(Icons.chevron_left), // Make the carousel go backwards
           ),
-          SizedBox(width: 20.0),
+          const SizedBox(width: 20.0),
           SizedBox(
               height: 300,
               width: 1400, // Size of the carousel
@@ -86,12 +88,12 @@ class _ResourceCarousel extends State<ResourceCarousel> {
                       print("First Item tapped");
                       showCustomModal(
                           context,
-                          Image(
+                          const Image(
                               image: AssetImage(
                                   'assets/images/Enlarged-Booklet.png'),
                               height: 900)); // Make the image pop up here
                     },
-                    child: CarouselItem(
+                    child: const CarouselItem(
                       text: "Talking about the Heart, Patient Health Booklet",
                       imagePath: 'assets/images/Patient-Health-Booklet.png',
                     ),
@@ -100,7 +102,7 @@ class _ResourceCarousel extends State<ResourceCarousel> {
                       onTap: () {
                         print("Second Item tapped");
                       },
-                      child: CarouselItem(
+                      child: const CarouselItem(
                         text: "Nutrition and Healthy Eating Demonstration",
                         imagePath: 'assets/images/Nutrition-Model.png',
                       )),
@@ -108,7 +110,7 @@ class _ResourceCarousel extends State<ResourceCarousel> {
                     onTap: () {
                       print("Third Item tapped");
                     },
-                    child: CarouselItem(
+                    child: const CarouselItem(
                       text: "3D Animated Heart Model",
                       imagePath: 'assets/images/3D-Heart-Model.png',
                     ),
@@ -120,22 +122,22 @@ class _ResourceCarousel extends State<ResourceCarousel> {
                     width: 225,
                     alignment: Alignment.center,
                     child: Column(children: [
-                      SizedBox(height: 60),
+                      const SizedBox(height: 60),
                       Container(
                           height: 80,
                           width: 80,
-                          child: Icon(Icons.add),
                           decoration: BoxDecoration(
                               borderRadius:
-                                  BorderRadius.all(Radius.circular(15)),
-                              boxShadow: [
+                                  const BorderRadius.all(Radius.circular(15)),
+                              boxShadow: const [
                                 BoxShadow(
                                     blurRadius: 2,
                                     offset: Offset(0, 5),
                                     blurStyle: BlurStyle.normal,
                                     color: Color.fromARGB(165, 75, 75, 75))
                               ],
-                              color: color1)),
+                              color: color1),
+                          child: const Icon(Icons.add)),
                     ]),
                   )
                 ],
@@ -149,12 +151,12 @@ class _ResourceCarousel extends State<ResourceCarousel> {
                 ),
                 carouselController: controller,
               )),
-          SizedBox(width: 20.0), // Make carousel go forwards
+          const SizedBox(width: 20.0), // Make carousel go forwards
           GestureDetector(
             onTap: () {
               controller.nextPage();
             },
-            child: Icon(Icons.chevron_right),
+            child: const Icon(Icons.chevron_right),
           ),
         ]));
   }

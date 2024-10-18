@@ -229,7 +229,7 @@ class _CheckboxTickState extends State<CheckboxTick> {
     return CheckboxTheme(
         data: checkBoxTickTheme,
         child: Checkbox(
-          side: BorderSide(color: Colors.black),
+          side: const BorderSide(color: Colors.black),
           checkColor: Colors.white,
           activeColor: Colors.black,
           value: isChecked,

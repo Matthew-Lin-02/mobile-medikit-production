@@ -1,7 +1,6 @@
 import 'package:comp30022/pages/Pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:provider/provider.dart';
 import 'package:comp30022/components/YellowBorderWhiteCard.dart';
 import 'package:comp30022/components/ChatbotButton.dart';
 
@@ -32,7 +31,7 @@ void main() {
     testWidgets('Displays the correct title with abstract consultation page',
         (WidgetTester tester) async {
       // Make screen size slightly bigger cause testing is constrained
-      await tester.binding.setSurfaceSize(Size(2100, 1300));
+      await tester.binding.setSurfaceSize(const Size(2100, 1300));
 
       // Resets the screen to its original size after the test ends
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
@@ -42,7 +41,7 @@ void main() {
       await tester.pumpWidget(buildConfig(
         title: title,
         pageNum: 1,
-        body: PatientProfile(),
+        body: const PatientProfile(),
       ));
 
       // Wait for animations and UI updates to complete
@@ -55,14 +54,14 @@ void main() {
     testWidgets('All components are displayed on the page',
         (WidgetTester tester) async {
       // Make screen size slightly bigger cause testing is constrained
-      await tester.binding.setSurfaceSize(Size(2100, 1300));
+      await tester.binding.setSurfaceSize(const Size(2100, 1300));
       // Resets the screen to its original size after the test ends
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
 
       await tester.pumpWidget(buildConfig(
         title: 'PatientProfile',
         pageNum: 1,
-        body: PatientProfile(),
+        body: const PatientProfile(),
       ));
 
       // Wait for animations and UI updates to complete
@@ -74,14 +73,14 @@ void main() {
     });
     testWidgets('Switches tabs when different tabs are tapped',
         (WidgetTester tester) async {
-      await tester.binding.setSurfaceSize(Size(2100, 1300));
+      await tester.binding.setSurfaceSize(const Size(2100, 1300));
       // Resets the screen to its original size after the test ends
       addTearDown(tester.binding.window.clearPhysicalSizeTestValue);
 
       await tester.pumpWidget(buildConfig(
         title: 'PatientProfile',
         pageNum: 1,
-        body: PatientProfile(),
+        body: const PatientProfile(),
       ));
 
       expect(find.text('General'), findsOneWidget);
