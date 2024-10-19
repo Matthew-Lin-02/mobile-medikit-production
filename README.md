@@ -77,7 +77,9 @@ Each addition to the codebase should use defined constants and include automated
 ## Testing
 
 To run all unit tests within the "test" folder run: 
+```bash
     flutter test 
+```
 
 ## Contributors 
 
