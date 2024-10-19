@@ -42,14 +42,6 @@ Installation
 
 /docs: Contains all relevent documentation.
 /assets: Contains all fonts and images used in the application.
-
-/lib
-    ├── pages/
-    ├── components/
-    ├── main.dart
-    ├── font.dart
-    └── color.dart
-
 /lib: Main source folder for the application's logic and UI components.
 - pages/: Contains the implementation of different pages. New pages extend from AbstractConsultationPage, which provides a consistent header, status tray, and step indicator.
 - components/: Reusable UI components that are used across multiple pages, such as buttons, text fields, and cards.
