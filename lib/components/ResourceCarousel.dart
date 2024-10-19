@@ -75,7 +75,8 @@ class _ResourceCarousel extends State<ResourceCarousel> {
             onTap: () {
               controller.previousPage();
             },
-            child: const Icon(Icons.chevron_left), // Make the carousel go backwards
+            child: const Icon(
+                Icons.chevron_left), // Make the carousel go backwards
           ),
           const SizedBox(width: 20.0),
           SizedBox(
