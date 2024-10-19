@@ -38,13 +38,24 @@ Installation
     flutter run
 ```
 
-## Deployment 
+## Repository Structure
 
-Deployment via GitHub Pages can be accsessed at:
+/docs: Contains all relevent documentation.
+/assets: Contains all fonts and images used in the application.
 
-https://brynne0.github.io/COMP30022/
+/lib
+    ├── pages/
+    ├── components/
+    ├── main.dart
+    ├── font.dart
+    └── color.dart
 
-_Note: This project is designed to run on a screen size of 1920 x 1080_
+/lib: Main source folder for the application's logic and UI components.
+- pages/: Contains the implementation of different pages. New pages extend from AbstractConsultationPage, which provides a consistent header, status tray, and step indicator.
+- components/: Reusable UI components that are used across multiple pages, such as buttons, text fields, and cards.
+- main.dart: Entry point for the Flutter application.
+- font.dart: Defines the fonts used.
+- color.dart: Defines the colour palette.
 
 ## Development Process
 
@@ -80,6 +91,14 @@ To run all unit tests within the "test" folder run:
 ```bash
     flutter test 
 ```
+
+## Deployment 
+
+Deployment via GitHub Pages can be accsessed at:
+
+https://brynne0.github.io/COMP30022/
+
+_Note: This project is designed to run on a screen size of 1920 x 1080_
 
 ## Contributors 
 
