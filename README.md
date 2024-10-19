@@ -2,9 +2,9 @@
 
 ## About this project
 
-The Mobile Medi-kit is a product from Curtin University and is aimed at improving the quality of healthcare for remote communities in the Pilbara. This is achieved by providing the necessary tools and guidance for health care workers in one easy to use system. 
+The Mobile Medi-kit is a product from Curtin University that aims to improve the quality of healthcare for remote communities in the Pilbara. It provides the necessary tools and guidance for healthcare workers in one easy-to-use system. 
 
-This project aims to produce the front end user interface for this product using the designs provided by Curtin University. This project prioritises adding functionality over decorative elements. 
+This project aims to produce the front-end user interface for this product using the designs provided by Curtin University. It prioritises adding functionality over decorative elements. 
 
 ## Implemented Sections
 
@@ -40,11 +40,13 @@ Installation
 
 ## Repository Structure
 
-/docs: Contains all relevent documentation.
+/docs: Contains all relevant documentation.
+
 /assets: Contains all fonts and images used in the application.
+
 /lib: Main source folder for the application's logic and UI components.
 - pages/: Contains the implementation of different pages. New pages extend from AbstractConsultationPage, which provides a consistent header, status tray, and step indicator.
-- components/: Reusable UI components that are used across multiple pages, such as buttons, text fields, and cards.
+- components/: Reusable UI components used across multiple pages, such as buttons, text fields, and cards.
 - main.dart: Entry point for the Flutter application.
 - font.dart: Defines the fonts used.
 - color.dart: Defines the colour palette.
@@ -72,7 +74,7 @@ Push changes:
 
 Each addition to the codebase should use defined constants and include automated unit tests for the new components.
 
-1. Create a pull request to main including:
+1. Create a pull request to main, including:
 - images of the new features (when applicable)
 - a short description of the changes
 2. Obtain at least one approval before merging to main
@@ -86,7 +88,7 @@ To run all unit tests within the "test" folder run:
 
 ## Deployment 
 
-Deployment via GitHub Pages can be accsessed at:
+Deployment via GitHub Pages can be accessed at:
 
 https://brynne0.github.io/COMP30022/
 
