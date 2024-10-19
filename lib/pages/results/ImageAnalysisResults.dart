@@ -1,3 +1,4 @@
+import 'package:comp30022/pages/results/ResultsExplanationPage.dart';
 import 'package:flutter/material.dart';
 import 'package:comp30022/font.dart';
 import 'package:comp30022/components/RedActionButton.dart';
@@ -173,7 +174,11 @@ class ImageAnalysisResults extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.all(50),
             child: RedActionButton(
-              onPressed: () => Navigator.pop(context),
+              onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ResultsExplanationPage(),
+                  )),
               label: "Continue to Explanation",
               iconData: Icons.arrow_forward,
               iconSize: mediumIconSize,
