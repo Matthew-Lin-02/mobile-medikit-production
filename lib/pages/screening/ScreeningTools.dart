@@ -30,7 +30,7 @@ class ScreeningTools extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AbstractConsultationPage(
-        title: "Existing Patient", pageNum: 1, body: screeningToolsBody);
+        title: "Screening", pageNum: 3, body: screeningToolsBody);
   }
 }
 

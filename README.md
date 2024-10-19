@@ -12,8 +12,8 @@ As of 25/09/2024
 Developed Sections
 - Health worker Sign In
 - Patient Sign In / Sign Up
-- Screening Tools (Partial)
-- Results (Partial)
+- Screening Tools 
+- Results 
 
 ## Getting Started
 

@@ -239,9 +239,9 @@ Builder resultsExplanationBody = Builder(builder: (context) {
                                                             "Listen to your heart",
                                                             style: TextStyle(
                                                                 fontSize:
-                                                                    mediumFontSize)),
+                                                                    largeFontSize)),
                                                         SizedBox(
-                                                          width: 15,
+                                                          width: 10,
                                                         ),
                                                         Icon(
                                                           Icons
@@ -269,7 +269,7 @@ Builder resultsExplanationBody = Builder(builder: (context) {
                                                   },
                                                   size: const Size(275, 70),
                                                   fontSize: mediumFontSize,
-                                                  label: 'view graph',
+                                                  label: 'View graph',
                                                   iconSize: 50,
                                                   iconData: Icons
                                                       .monitor_heart_rounded,
@@ -278,10 +278,7 @@ Builder resultsExplanationBody = Builder(builder: (context) {
                                               const SizedBox.shrink(),
                                               Center(
                                                 child: RedActionButton(
-                                                    onPressed: () {
-                                                      showCustomModal(context,
-                                                          const ECGPopupWindow());
-                                                    },
+                                                    onPressed: () {},
                                                     fontSize: mediumFontSize,
                                                     size: const Size(200, 70),
                                                     imageSize:
@@ -765,14 +762,14 @@ class ECGPopupWindow extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       child: Row(children: [
                         const SizedBox(width: 35),
-                        Image.asset("assets/images/Normal_ECG.png"),
+                        Image.asset("assets/images/results/Normal_ECG.png"),
                         const SizedBox(width: 80)
                       ])),
                   SingleChildScrollView(
                       scrollDirection: Axis.horizontal,
                       child: Row(children: [
                         const SizedBox(width: 35),
-                        Image.asset("assets/images/Patients_ECG.png"),
+                        Image.asset("assets/images/results/Patients_ECG.png"),
                         const SizedBox(width: 80)
                       ])),
                 ]))

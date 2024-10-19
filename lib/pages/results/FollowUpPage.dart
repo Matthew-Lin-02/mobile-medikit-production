@@ -63,7 +63,8 @@ Builder followUpPageBody = Builder(builder: (context) {
                   textColor: Colors.white,
                 ),
                 const Expanded(flex: 1, child: SizedBox.shrink()),
-                const RedActionButton(
+                RedActionButton(
+                    onPressed: () {},
                     label: "Generate more",
                     iconData: Icons.cached,
                     iconSize: 40,
