@@ -1,4 +1,4 @@
-import 'package:comp30022/checkBoxTickTheme.dart';
+import 'package:comp30022/components/checkBoxTickTheme.dart';
 import 'package:comp30022/color.dart';
 import 'package:comp30022/components/ChatbotButton.dart';
 import 'package:comp30022/components/RedActionButton.dart';
