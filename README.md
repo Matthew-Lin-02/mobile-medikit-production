@@ -89,8 +89,7 @@ To run all unit tests within the "test" folder run:
 ## Deployment 
 
 Deployment via GitHub Pages can be accessed at:
-
-https://brynne0.github.io/COMP30022/
+https://matthew-lin-02.github.io/mobile_medikit/
 
 _Note: This project is designed to run on a screen size of 1920 x 1080_
 
